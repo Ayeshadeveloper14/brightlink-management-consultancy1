@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Upload, SearchCheck, RefreshCw, CheckCircle2 } from 'lucide-react';
 
-export const ProcessWithBrigitlink = () => {
+export const ProcessWithBrightlink = () => {
   const steps = [
     {
       num: '01',
@@ -40,7 +40,7 @@ export const ProcessWithBrigitlink = () => {
             Turnkey Assistance
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] tracking-tight mb-3">
-            How Brigitlink Makes It Easier
+            How Brightlink Makes It Easier
           </h2>
           <p className="text-sm sm:text-base text-[#666666]">
             From initial document assessment to final delivery, we remove bureaucratic complexity and international courier risks.

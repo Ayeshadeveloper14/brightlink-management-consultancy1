@@ -24,14 +24,14 @@ export const RakComplianceRenewal = ({ onOpenConsultation }) => {
       title: 'Annual License & Registry Renewal',
       timeline: 'Every 12 Months',
       desc: 'Offshore companies must renew their corporate registration with RAK ICC prior to their incorporation anniversary date. This includes government statutory renewal fees and licensed Registered Agent maintenance.',
-      action: 'Automated 60-day renewal reminders via Brigitlink.'
+      action: 'Automated 60-day renewal reminders via Brightlink.'
     },
     {
       icon: Building2,
       title: 'Statutory Registered Office & Agent',
       timeline: 'Continuous Obligation',
       desc: 'Under RAK ICC regulations, every offshore entity must continuously maintain an accredited Registered Agent with a verified physical UAE address for receipt of official notices and legal service.',
-      action: 'Full statutory representation provided by Brigitlink.'
+      action: 'Full statutory representation provided by Brightlink.'
     },
     {
       icon: FileText,
@@ -79,7 +79,7 @@ export const RakComplianceRenewal = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            Maintaining an active, good-standing RAK ICC offshore entity requires structured statutory adherence. Brigitlink oversees your annual maintenance so your corporate vehicle remains fully protected and legally bulletproof.
+            Maintaining an active, good-standing RAK ICC offshore entity requires structured statutory adherence. Brightlink oversees your annual maintenance so your corporate vehicle remains fully protected and legally bulletproof.
           </p>
         </div>
 

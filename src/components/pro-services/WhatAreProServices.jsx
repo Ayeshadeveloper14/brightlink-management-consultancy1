@@ -31,11 +31,11 @@ export const WhatAreProServices = () => {
       badge: 'Statutory Obligation'
     },
     {
-      title: 'How Brigitlink Assists Companies',
+      title: 'How Brightlink Assists Companies',
       subtitle: 'Outsourced Turnkey Corporate PRO',
-      description: 'Instead of hiring expensive in-house PROs with company cars and visas, Brigitlink acts as your dedicated corporate liaison department. We provide electronic document tracking, priority government queues, transparent fee vouchers, and doorstep courier pickup.',
+      description: 'Instead of hiring expensive in-house PROs with company cars and visas, Brightlink acts as your dedicated corporate liaison department. We provide electronic document tracking, priority government queues, transparent fee vouchers, and doorstep courier pickup.',
       icon: Building2,
-      badge: 'Brigitlink Advantage'
+      badge: 'Brightlink Advantage'
     }
   ];
 

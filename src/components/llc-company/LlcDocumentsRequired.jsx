@@ -97,7 +97,7 @@ export const LlcDocumentsRequired = ({ onOpenConsultation }) => {
     {
       category: 'corporate',
       title: 'Power of Attorney (POA)',
-      desc: 'Notarized and attested Power of Attorney if an authorized representative or Brigitlink legal consultant executes filings on the owners’ behalf.',
+      desc: 'Notarized and attested Power of Attorney if an authorized representative or Brightlink legal consultant executes filings on the owners’ behalf.',
       tag: 'Legal Representation',
       mandatory: false
     },
@@ -128,7 +128,7 @@ export const LlcDocumentsRequired = ({ onOpenConsultation }) => {
             Documents Required for Mainland LLC Formation
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
-            Ensure an efficient setup by gathering the required documents. Brigitlink audits every file prior to government submission to ensure zero delays.
+            Ensure an efficient setup by gathering the required documents. Brightlink audits every file prior to government submission to ensure zero delays.
           </p>
         </div>
 

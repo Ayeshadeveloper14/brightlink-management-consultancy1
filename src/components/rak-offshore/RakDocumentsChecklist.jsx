@@ -39,7 +39,7 @@ export const RakDocumentsChecklist = ({ onOpenConsultation }) => {
     },
     {
       title: 'Ultimate Beneficial Owner (UBO) Declaration',
-      note: 'Standard RAK ICC statutory disclosure form prepared by Brigitlink for client signature.',
+      note: 'Standard RAK ICC statutory disclosure form prepared by Brightlink for client signature.',
       required: true
     }
   ];
@@ -167,10 +167,10 @@ export const RakDocumentsChecklist = ({ onOpenConsultation }) => {
               <AlertCircle className="w-5 h-5 text-[#B8864B] shrink-0 mt-0.5" />
               <div className="text-xs text-[#475569] leading-relaxed space-y-1">
                 <span className="font-bold text-[#0F172A] block">
-                  Brigitlink Document Preparation Assistance
+                  Brightlink Document Preparation Assistance
                 </span>
                 <p>
-                  Don't worry if you don't have standard board resolutions or UBO charts ready. Brigitlink provides pre-drafted statutory templates and guides you through certified translation or attestation where required.
+                  Don't worry if you don't have standard board resolutions or UBO charts ready. Brightlink provides pre-drafted statutory templates and guides you through certified translation or attestation where required.
                 </p>
               </div>
             </div>

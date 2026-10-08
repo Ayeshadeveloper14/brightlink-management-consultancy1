@@ -76,7 +76,7 @@ export const WhyUseAmer = ({ onOpenConsultation }) => {
               <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#EFEAE2] flex items-center justify-between">
                 <div>
                   <div className="text-xs font-bold text-[#222222]">Turnaround Reduction</div>
-                  <div className="text-xs text-[#777777]">Average process timeline with Brigitlink</div>
+                  <div className="text-xs text-[#777777]">Average process timeline with Brightlink</div>
                 </div>
                 <span className="text-xl font-extrabold text-[#B8864B] font-heading">
                   Up to 70% Faster
@@ -219,7 +219,7 @@ export const WhyUseAmer = ({ onOpenConsultation }) => {
                   Complete End-to-End Turnkey Assistance
                 </h3>
                 <p className="text-sm text-[#555555] leading-relaxed max-w-3xl">
-                  From electronic entry permits, in-country status changes, and Smart Salem VIP medical typing, to biometric fingerprint slots and physical Emirates ID hand-delivery, Brigitlink manages every single touchpoint.
+                  From electronic entry permits, in-country status changes, and Smart Salem VIP medical typing, to biometric fingerprint slots and physical Emirates ID hand-delivery, Brightlink manages every single touchpoint.
                 </p>
               </div>
             </div>

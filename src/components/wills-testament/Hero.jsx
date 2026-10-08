@@ -41,7 +41,7 @@ export const Hero = ({ onOpenConsultation }) => {
 
             {/* Supporting Paragraph */}
             <p className="text-base sm:text-lg text-[#555555] leading-relaxed max-w-2xl mb-8">
-              Brigitlink assists with will preparation, documentation and registration support to help individuals organise their wishes, family protection and estate matters.
+              Brightlink assists with will preparation, documentation and registration support to help individuals organise their wishes, family protection and estate matters.
             </p>
 
             {/* Action Buttons */}

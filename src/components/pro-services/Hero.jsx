@@ -84,7 +84,7 @@ export const Hero = ({ onOpenConsultation }) => {
 
             {/* Supporting Description */}
             <p className="text-base sm:text-lg text-[#555555] leading-relaxed mb-8 max-w-2xl font-normal">
-              Eliminate administrative bottlenecks and ensure 100% compliance with UAE labor laws. Brigitlink handles corporate licensing, employee work permits, MOHRE quota clearances, and GDRFA immigration for mainland and free zone businesses.
+              Eliminate administrative bottlenecks and ensure 100% compliance with UAE labor laws. Brightlink handles corporate licensing, employee work permits, MOHRE quota clearances, and GDRFA immigration for mainland and free zone businesses.
             </p>
 
             {/* Core Feature Highlights */}

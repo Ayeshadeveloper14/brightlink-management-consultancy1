@@ -29,7 +29,7 @@ export const DocumentChecklist = ({ onOpenConsultation }) => {
         { name: 'Clear Passport Copy', note: 'Valid for a minimum of 6 months remaining validity.' },
         { name: 'Current UAE Visa & Emirates ID', note: 'If applicant is currently inside the UAE on visit or residency.' },
         { name: 'High-Resolution Biometric Photo', note: 'White background digital passport format photograph.' },
-        { name: 'Valid UAE Health Insurance', note: 'Can be issued through Brigitlink partner network.' }
+        { name: 'Valid UAE Health Insurance', note: 'Can be issued through Brightlink partner network.' }
       ]
     },
     {
@@ -102,7 +102,7 @@ export const DocumentChecklist = ({ onOpenConsultation }) => {
             Document Requirements Checklist
           </h2>
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            Expand the relevant category below to review the specific documents required for your application. Brigitlink provides end-to-end attestation, Arabic translation, and DLD verification.
+            Expand the relevant category below to review the specific documents required for your application. Brightlink provides end-to-end attestation, Arabic translation, and DLD verification.
           </p>
         </motion.div>
 

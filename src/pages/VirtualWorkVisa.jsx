@@ -19,7 +19,7 @@ import { FinalCTA } from '../components/virtual-work-visa/FinalCTA.jsx';
 export const VirtualWorkVisa = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Page Title & Meta tags
-    document.title = 'UAE Virtual Work Visa: Requirements, Fees, and Process | Brigitlink';
+    document.title = 'UAE Virtual Work Visa: Requirements, Fees, and Process | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {

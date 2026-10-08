@@ -31,7 +31,7 @@ export const Hero = ({ onOpenCalculator, onOpenConsultation }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello 800 DOCS / Brigitlink! I own property in Dubai and would like to apply for a Property Visa (Golden / Investor / Retirement). Please guide me.'
+      'Hello 800 DOCS / Brightlink! I own property in Dubai and would like to apply for a Property Visa (Golden / Investor / Retirement). Please guide me.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

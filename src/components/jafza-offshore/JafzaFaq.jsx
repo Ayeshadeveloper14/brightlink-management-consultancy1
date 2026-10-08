@@ -21,7 +21,7 @@ export const FAQ_DATA_JAFZA_OFFSHORE = [
   },
   {
     q: 'Is office space required?',
-    a: 'No physical office or Ejari tenancy contract is required in the UAE. By law, the company’s legal registered office address is maintained by an authorized, licensed Registered Agent (such as Brigitlink).'
+    a: 'No physical office or Ejari tenancy contract is required in the UAE. By law, the company’s legal registered office address is maintained by an authorized, licensed Registered Agent (such as Brightlink).'
   },
   {
     q: 'What documents are required?',
@@ -45,7 +45,7 @@ export const FAQ_DATA_JAFZA_OFFSHORE = [
   },
   {
     q: 'What is a registered agent?',
-    a: 'A Registered Agent is a licensed, authorized UAE corporate service firm (such as Brigitlink) mandated by JAFZA regulations to represent the offshore company. The agent prepares constitutional documents, files applications, maintains the statutory registered office, and handles official government liaison.'
+    a: 'A Registered Agent is a licensed, authorized UAE corporate service firm (such as Brightlink) mandated by JAFZA regulations to represent the offshore company. The agent prepares constitutional documents, files applications, maintains the statutory registered office, and handles official government liaison.'
   },
   {
     q: 'Can a JAFZA Offshore company open a bank account?',

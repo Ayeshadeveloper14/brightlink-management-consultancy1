@@ -29,7 +29,7 @@ export const ProServicesFinalCTA = ({ onOpenConsultation }) => {
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent('Hello Brigitlink, I would like to inquire about Corporate PRO Services for our UAE company.');
+    const text = encodeURIComponent('Hello Brightlink, I would like to inquire about Corporate PRO Services for our UAE company.');
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
@@ -57,7 +57,7 @@ export const ProServicesFinalCTA = ({ onOpenConsultation }) => {
 
         {/* Supporting text */}
         <p className="text-base sm:text-lg text-[#555555] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-          Eliminate immigration bottlenecks, late renewal fines, and ministerial queues. Partner with Brigitlink for dedicated corporate PRO representation across all Emirates.
+          Eliminate immigration bottlenecks, late renewal fines, and ministerial queues. Partner with Brightlink for dedicated corporate PRO representation across all Emirates.
         </p>
 
         {/* CTA Buttons */}

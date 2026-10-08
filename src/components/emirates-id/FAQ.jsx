@@ -17,11 +17,11 @@ export const FAQ = ({ onOpenConsultation }) => {
     },
     {
       question: 'How do I renew my Emirates ID and when should I start the process?',
-      answer: 'You can initiate your Emirates ID renewal up to 30 days prior to its expiry date, or within the official 30-day post-expiration grace period. Brigitlink reviews your renewed residency visa, submits the electronic renewal typing to ICP, and arranges biometric waivers if your fingerprint data is already active in the federal database.'
+      answer: 'You can initiate your Emirates ID renewal up to 30 days prior to its expiry date, or within the official 30-day post-expiration grace period. Brightlink reviews your renewed residency visa, submits the electronic renewal typing to ICP, and arranges biometric waivers if your fingerprint data is already active in the federal database.'
     },
     {
       question: 'What happens if I lose or damage my Emirates ID card?',
-      answer: 'If your card is lost or stolen, you must report it immediately to deactivate its smart chip and prevent unauthorized usage. Brigitlink can immediately file a replacement request through the ICP portal without requiring you to retake biometrics. A new replacement card is printed with the exact same ID number and delivered to your doorstep within 48–72 hours.'
+      answer: 'If your card is lost or stolen, you must report it immediately to deactivate its smart chip and prevent unauthorized usage. Brightlink can immediately file a replacement request through the ICP portal without requiring you to retake biometrics. A new replacement card is printed with the exact same ID number and delivered to your doorstep within 48–72 hours.'
     },
     {
       question: 'Do newborn babies and children require an Emirates ID in the UAE?',
@@ -29,7 +29,7 @@ export const FAQ = ({ onOpenConsultation }) => {
     },
     {
       question: 'How can I track the status of my Emirates ID application?',
-      answer: 'Upon submission, an official PRAN (Application Request Number) or Application ID is generated. You can track this in real-time on the official ICP smart services portal (icp.gov.ae) or through the UAE ICP mobile app. Brigitlink also monitors your application around the clock and sends WhatsApp milestone alerts when your card enters printing and courier transit.'
+      answer: 'Upon submission, an official PRAN (Application Request Number) or Application ID is generated. You can track this in real-time on the official ICP smart services portal (icp.gov.ae) or through the UAE ICP mobile app. Brightlink also monitors your application around the clock and sends WhatsApp milestone alerts when your card enters printing and courier transit.'
     },
     {
       question: 'Can I travel or use government services while waiting for my physical card?',
@@ -37,7 +37,7 @@ export const FAQ = ({ onOpenConsultation }) => {
     },
     {
       question: 'What is the penalty for late renewal of an Emirates ID?',
-      answer: 'Under ICP regulations, late renewal attracts a statutory penalty of AED 20 per day, accruing after the official 30-day grace period has passed, up to a maximum cap of AED 1,000. Brigitlink helps clients file early to eliminate all late fees and can request penalty exemption waivers for eligible emergency cases.'
+      answer: 'Under ICP regulations, late renewal attracts a statutory penalty of AED 20 per day, accruing after the official 30-day grace period has passed, up to a maximum cap of AED 1,000. Brightlink helps clients file early to eliminate all late fees and can request penalty exemption waivers for eligible emergency cases.'
     }
   ];
 
@@ -144,7 +144,7 @@ export const FAQ = ({ onOpenConsultation }) => {
                 Have a question regarding your specific application or fine?
               </h4>
               <p className="text-xs text-[#666666]">
-                Speak directly with an accredited Brigitlink identity consultant.
+                Speak directly with an accredited Brightlink identity consultant.
               </p>
             </div>
           </div>

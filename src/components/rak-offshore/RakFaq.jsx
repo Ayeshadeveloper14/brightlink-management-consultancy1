@@ -17,7 +17,7 @@ export const FAQ_DATA_RAK_OFFSHORE = [
   },
   {
     q: 'Do I need to travel physically to the UAE to set up a RAK ICC entity?',
-    a: 'No. The entire incorporation procedure can be performed 100% remotely. As your accredited Registered Agent, Brigitlink coordinates all document verification, drafting of the Memorandum & Articles of Association (MOA/AOA), and electronic submissions to the registry without you ever needing to visit the UAE for licensing signatures.'
+    a: 'No. The entire incorporation procedure can be performed 100% remotely. As your accredited Registered Agent, Brightlink coordinates all document verification, drafting of the Memorandum & Articles of Association (MOA/AOA), and electronic submissions to the registry without you ever needing to visit the UAE for licensing signatures.'
   },
   {
     q: 'Does a RAK ICC offshore company qualify for UAE residence visas?',
@@ -25,11 +25,11 @@ export const FAQ_DATA_RAK_OFFSHORE = [
   },
   {
     q: 'Can a RAK ICC company open a corporate bank account in the UAE?',
-    a: 'Yes. A RAK ICC offshore entity can open multi-currency corporate bank accounts with UAE commercial banks (such as Emirates NBD, Mashreq, Wio Bank, ADCB) as well as international digital financial institutions. Approval is subject to bank compliance screening, which reviews the beneficial owner’s profile, legitimate business narrative, source of funds, and transaction documentation. Brigitlink provides end-to-end banking dossier preparation and bank introductions.'
+    a: 'Yes. A RAK ICC offshore entity can open multi-currency corporate bank accounts with UAE commercial banks (such as Emirates NBD, Mashreq, Wio Bank, ADCB) as well as international digital financial institutions. Approval is subject to bank compliance screening, which reviews the beneficial owner’s profile, legitimate business narrative, source of funds, and transaction documentation. Brightlink provides end-to-end banking dossier preparation and bank introductions.'
   },
   {
     q: 'Is a physical office lease (Ejari) required for a RAK ICC company?',
-    a: 'No physical office or Ejari tenancy contract is required. By law, the company’s official registered office address is provided by your licensed Registered Agent (Brigitlink). This significantly reduces recurring annual overhead costs compared to mainland or free zone setups.'
+    a: 'No physical office or Ejari tenancy contract is required. By law, the company’s official registered office address is provided by your licensed Registered Agent (Brightlink). This significantly reduces recurring annual overhead costs compared to mainland or free zone setups.'
   },
   {
     q: 'Are the names of directors and shareholders publicly searchable online?',
@@ -37,7 +37,7 @@ export const FAQ_DATA_RAK_OFFSHORE = [
   },
   {
     q: 'Is a RAK ICC offshore company subject to UAE Corporate Tax?',
-    a: 'Under UAE Federal Decree-Law on Corporate Tax, all juridical entities incorporated in the UAE, including offshore companies, fall within the scope of corporate tax. All companies must obtain a Tax Registration Number (TRN) and file an annual tax return. However, foreign-sourced profits earned by an offshore entity or qualifying dividend income from passive shareholdings may qualify for 0% tax treatment. Brigitlink assists with tax profiling and filings.'
+    a: 'Under UAE Federal Decree-Law on Corporate Tax, all juridical entities incorporated in the UAE, including offshore companies, fall within the scope of corporate tax. All companies must obtain a Tax Registration Number (TRN) and file an annual tax return. However, foreign-sourced profits earned by an offshore entity or qualifying dividend income from passive shareholdings may qualify for 0% tax treatment. Brightlink assists with tax profiling and filings.'
   },
   {
     q: 'What is a Registered Agent and why is one mandatory for RAK ICC?',
@@ -45,7 +45,7 @@ export const FAQ_DATA_RAK_OFFSHORE = [
   },
   {
     q: 'How long does the entire RAK ICC incorporation process take?',
-    a: 'Once all required KYC documents (passports, proof of address, CVs) are received and verified by Brigitlink, the corporate name reservation and registry incorporation generally take between 3 to 5 business days.'
+    a: 'Once all required KYC documents (passports, proof of address, CVs) are received and verified by Brightlink, the corporate name reservation and registry incorporation generally take between 3 to 5 business days.'
   }
 ];
 

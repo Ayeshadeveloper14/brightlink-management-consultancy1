@@ -5,14 +5,14 @@ import { WhoNeedsTawjeeh } from '../components/tawjeeh/WhoNeedsTawjeeh.jsx';
 import { OurServices } from '../components/tawjeeh/OurServices.jsx';
 import { WhatYoullLearn } from '../components/tawjeeh/WhatYoullLearn.jsx';
 import { ProcessWorkflow } from '../components/tawjeeh/ProcessWorkflow.jsx';
-import { WhyChooseBrigitlink } from '../components/tawjeeh/WhyChooseBrigitlink.jsx';
+import { WhyChooseBrightlink } from '../components/tawjeeh/WhyChooseBrightlink.jsx';
 import { FAQ } from '../components/tawjeeh/FAQ.jsx';
 import { FinalCTA } from '../components/tawjeeh/FinalCTA.jsx';
 
 export const TawjeehPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'Tawjeeh Services UAE | MOHRE Labour Orientation & Compliance | Brigitlink';
+    document.title = 'Tawjeeh Services UAE | MOHRE Labour Orientation & Compliance | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -22,14 +22,14 @@ export const TawjeehPage = ({ onOpenConsultation }) => {
     }
     metaDesc.setAttribute(
       'content',
-      'Professional MOHRE Tawjeeh services in Dubai, Abu Dhabi & UAE. Employee labour-law orientation, employer awareness sessions, and completion certificate processing with Brigitlink.'
+      'Professional MOHRE Tawjeeh services in Dubai, Abu Dhabi & UAE. Employee labour-law orientation, employer awareness sessions, and completion certificate processing with Brightlink.'
     );
 
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'Tawjeeh Services UAE | MOHRE Labour Orientation & Compliance | Brigitlink'
+        'Tawjeeh Services UAE | MOHRE Labour Orientation & Compliance | Brightlink'
       );
     }
 
@@ -55,7 +55,7 @@ export const TawjeehPage = ({ onOpenConsultation }) => {
         'serviceType': 'Ministry of Human Resources & Emiratisation (MOHRE) Labour Orientation',
         'provider': {
           '@type': 'Organization',
-          'name': 'Brigitlink UAE Government Liaison & PRO Services',
+          'name': 'Brightlink UAE Government Liaison & PRO Services',
           'areaServed': ['Dubai', 'Abu Dhabi', 'United Arab Emirates']
         },
         'description': 'Comprehensive MOHRE Tawjeeh orientation support, employer awareness, labour law guidance, and official certificate processing across the UAE.',
@@ -99,8 +99,8 @@ export const TawjeehPage = ({ onOpenConsultation }) => {
       {/* 6. Simple Process (How It Works) */}
       <ProcessWorkflow />
 
-      {/* 7. Why Choose Brigitlink */}
-      <WhyChooseBrigitlink />
+      {/* 7. Why Choose Brightlink */}
+      <WhyChooseBrightlink />
 
       {/* 8. FAQ */}
       <FAQ onOpenConsultation={onOpenConsultation} />

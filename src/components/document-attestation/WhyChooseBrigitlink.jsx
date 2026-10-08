@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Layers, FileCheck, MessageSquare, Shield } from 'lucide-react';
 
-export const WhyChooseBrigitlink = () => {
+export const WhyChooseBrightlink = () => {
   const points = [
     {
       title: 'End-to-End Assistance',
@@ -35,10 +35,10 @@ export const WhyChooseBrigitlink = () => {
           {/* Left Column: Heading and Summary */}
           <div className="lg:col-span-5">
             <span className="text-xs font-bold tracking-[0.18em] text-[#B8864B] uppercase font-heading block mb-2">
-              The Brigitlink Guarantee
+              The Brightlink Guarantee
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] tracking-tight mb-4">
-              Why Choose Brigitlink?
+              Why Choose Brightlink?
             </h2>
             <p className="text-sm text-[#555555] leading-relaxed mb-6">
               Document attestation demands meticulous legal compliance and secure international document tracking. Our dedicated government liaison team ensures your records are processed accurately and returned without delay.

@@ -7,7 +7,7 @@ export const FinalCTA = ({ onOpenCalculator, onScrollToCalculator }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello Brigitlink! I want to start my newborn baby visa application. Please send me the checklist and next steps.'
+      'Hello Brightlink! I want to start my newborn baby visa application. Please send me the checklist and next steps.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

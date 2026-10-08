@@ -5,7 +5,7 @@ import { CostOverview } from '../components/golden-visa/CostOverview.jsx';
 import { BenefitsSection } from '../components/golden-visa/BenefitsSection.jsx';
 import { ProcessTimeline } from '../components/golden-visa/ProcessTimeline.jsx';
 import { DocumentChecklist } from '../components/golden-visa/DocumentChecklist.jsx';
-import { WhyChooseBrigitlink } from '../components/golden-visa/WhyChooseBrigitlink.jsx';
+import { WhyChooseBrightlink } from '../components/golden-visa/WhyChooseBrightlink.jsx';
 import { SuccessMetrics } from '../components/golden-visa/SuccessMetrics.jsx';
 import { GoldenVisaFAQ } from '../components/golden-visa/GoldenVisaFAQ.jsx';
 import { GoldenVisaFinalCTA } from '../components/golden-visa/GoldenVisaFinalCTA.jsx';
@@ -13,7 +13,7 @@ import { GoldenVisaFinalCTA } from '../components/golden-visa/GoldenVisaFinalCTA
 export const GoldenVisaPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'UAE 10-Year Golden Visa | Eligibility, Fees & Fast-Track Application | Brigitlink';
+    document.title = 'UAE 10-Year Golden Visa | Eligibility, Fees & Fast-Track Application | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -23,14 +23,14 @@ export const GoldenVisaPage = ({ onOpenConsultation }) => {
     }
     metaDesc.setAttribute(
       'content',
-      'Apply for the UAE 10-Year Golden Visa with Brigitlink. Complete guide for property investors (AED 2M+), skilled professionals (AED 30k+), entrepreneurs, executives, and family sponsorship.'
+      'Apply for the UAE 10-Year Golden Visa with Brightlink. Complete guide for property investors (AED 2M+), skilled professionals (AED 30k+), entrepreneurs, executives, and family sponsorship.'
     );
 
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'UAE 10-Year Golden Visa | Eligibility, Fees & Fast-Track Application | Brigitlink'
+        'UAE 10-Year Golden Visa | Eligibility, Fees & Fast-Track Application | Brightlink'
       );
     }
 
@@ -38,7 +38,7 @@ export const GoldenVisaPage = ({ onOpenConsultation }) => {
     if (ogDesc) {
       ogDesc.setAttribute(
         'content',
-        'Apply for the UAE 10-Year Golden Visa with Brigitlink. Complete guide for property investors (AED 2M+), skilled professionals (AED 30k+), entrepreneurs, executives, and family sponsorship.'
+        'Apply for the UAE 10-Year Golden Visa with Brightlink. Complete guide for property investors (AED 2M+), skilled professionals (AED 30k+), entrepreneurs, executives, and family sponsorship.'
       );
     }
 
@@ -65,8 +65,8 @@ export const GoldenVisaPage = ({ onOpenConsultation }) => {
       {/* 6. Document Requirements Checklist */}
       <DocumentChecklist onOpenConsultation={onOpenConsultation} />
 
-      {/* 7. Why Choose Brigitlink */}
-      <WhyChooseBrigitlink />
+      {/* 7. Why Choose Brightlink */}
+      <WhyChooseBrightlink />
 
       {/* 8. Success Metrics Animated Counters */}
       <SuccessMetrics />

@@ -4,9 +4,9 @@ import { QuickHighlights } from '../components/document-attestation/QuickHighlig
 import { WhenDoYouNeed } from '../components/document-attestation/WhenDoYouNeed.jsx';
 import { DocumentTypes } from '../components/document-attestation/DocumentTypes.jsx';
 import { AttestationJourney } from '../components/document-attestation/AttestationJourney.jsx';
-import { ProcessWithBrigitlink } from '../components/document-attestation/ProcessWithBrigitlink.jsx';
+import { ProcessWithBrightlink } from '../components/document-attestation/ProcessWithBrightlink.jsx';
 import { FeesTransparency } from '../components/document-attestation/FeesTransparency.jsx';
-import { WhyChooseBrigitlink } from '../components/document-attestation/WhyChooseBrigitlink.jsx';
+import { WhyChooseBrightlink } from '../components/document-attestation/WhyChooseBrightlink.jsx';
 import { DocumentRequirements } from '../components/document-attestation/DocumentRequirements.jsx';
 import { FAQ } from '../components/document-attestation/FAQ.jsx';
 import { FinalCTA } from '../components/document-attestation/FinalCTA.jsx';
@@ -14,7 +14,7 @@ import { FinalCTA } from '../components/document-attestation/FinalCTA.jsx';
 export const DocumentAttestationPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'Document Attestation UAE | MOFA & Embassy Certificate Legalization | Brigitlink';
+    document.title = 'Document Attestation UAE | MOFA & Embassy Certificate Legalization | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -31,7 +31,7 @@ export const DocumentAttestationPage = ({ onOpenConsultation }) => {
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'Document Attestation UAE | MOFA & Embassy Certificate Legalization | Brigitlink'
+        'Document Attestation UAE | MOFA & Embassy Certificate Legalization | Brightlink'
       );
     }
 
@@ -57,7 +57,7 @@ export const DocumentAttestationPage = ({ onOpenConsultation }) => {
         'serviceType': 'Document Legalization, Consular Attestation & MOFA Certification',
         'provider': {
           '@type': 'Organization',
-          'name': 'Brigitlink UAE Legal & Government Liaison Services',
+          'name': 'Brightlink UAE Legal & Government Liaison Services',
           'areaServed': ['Dubai', 'Abu Dhabi', 'United Arab Emirates']
         },
         'description': 'End-to-end document attestation and consular legalization for educational degrees, marriage certificates, birth certificates, and commercial documents with UAE Ministry of Foreign Affairs (MOFA) certification.',
@@ -99,14 +99,14 @@ export const DocumentAttestationPage = ({ onOpenConsultation }) => {
       {/* 5. Attestation Journey (MAIN VISUAL HIGHLIGHT: Connected Pathway) */}
       <AttestationJourney />
 
-      {/* 6. Simple Process With Brigitlink */}
-      <ProcessWithBrigitlink />
+      {/* 6. Simple Process With Brightlink */}
+      <ProcessWithBrightlink />
 
       {/* 7. Fees & Transparency */}
       <FeesTransparency onOpenConsultation={onOpenConsultation} />
 
-      {/* 8. Why Choose Brigitlink (Compact 4-Point Layout) */}
-      <WhyChooseBrigitlink />
+      {/* 8. Why Choose Brightlink (Compact 4-Point Layout) */}
+      <WhyChooseBrightlink />
 
       {/* 9. Document Requirements (What You May Need Checklist) */}
       <DocumentRequirements />

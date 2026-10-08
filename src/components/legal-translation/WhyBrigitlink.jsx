@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, FileCheck2, Route, Zap } from 'lucide-react';
 
-export const WhyBrigitlink = () => {
+export const WhyBrightlink = () => {
   const points = [
     {
       title: 'Professional Translation',
@@ -35,10 +35,10 @@ export const WhyBrigitlink = () => {
           {/* Left: Summary */}
           <div className="lg:col-span-5">
             <span className="text-xs font-bold tracking-[0.18em] text-[#B8864B] uppercase font-heading block mb-2">
-              Brigitlink Standards
+              Brightlink Standards
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] tracking-tight mb-4 font-heading">
-              Why Choose Brigitlink?
+              Why Choose Brightlink?
             </h2>
             <p className="text-sm text-[#555555] leading-relaxed mb-6">
               Legal documents carry significant legal weight. Our dedicated translation coordinators ensure every page adheres strictly to UAE formatting and linguistic conventions.
@@ -84,5 +84,5 @@ export const WhyBrigitlink = () => {
   );
 };
 
-export const WhyChooseBrigitlink = WhyBrigitlink;
-export default WhyBrigitlink;
+export const WhyChooseBrightlink = WhyBrightlink;
+export default WhyBrightlink;

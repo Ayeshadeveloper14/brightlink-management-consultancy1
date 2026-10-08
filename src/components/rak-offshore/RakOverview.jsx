@@ -139,7 +139,7 @@ export const RakOverview = ({ onOpenConsultation }) => {
               </button>
               
               <div className="text-center lg:text-left text-[11px] text-neutral-400">
-                100% Confidential Consultation with Brigitlink Corporate Advisors
+                100% Confidential Consultation with Brightlink Corporate Advisors
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ import {
   Building2
 } from 'lucide-react';
 
-export const WhyBrigitlinkSupport = ({ onOpenConsultation }) => {
+export const WhyBrightlinkSupport = ({ onOpenConsultation }) => {
   const shouldReduceMotion = useReducedMotion();
 
   const reasons = [
@@ -51,10 +51,10 @@ export const WhyBrigitlinkSupport = ({ onOpenConsultation }) => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#DECBB5] text-[#8C5E28] text-xs font-bold uppercase tracking-wider mb-3 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-[#B8864B]" />
-            <span>The Brigitlink Advantage</span>
+            <span>The Brightlink Advantage</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F172A] tracking-tight font-heading leading-tight">
-            Why Partner with Brigitlink for Your Mainland License?
+            Why Partner with Brightlink for Your Mainland License?
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
             We operate as your dedicated corporate liaison in Dubai, ensuring every document, approval, and governmental interaction is handled with precision and full regulatory compliance.
@@ -87,7 +87,7 @@ export const WhyBrigitlinkSupport = ({ onOpenConsultation }) => {
                 </div>
                 <div className="mt-5 pt-3.5 border-t border-[#F5F1EB] flex items-center gap-1.5 text-xs font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Core Standard</span>
+                  <span>Brightlink Core Standard</span>
                 </div>
               </motion.div>
             );
@@ -119,7 +119,7 @@ export const WhyBrigitlinkSupport = ({ onOpenConsultation }) => {
                 </div>
                 <div className="mt-5 pt-3.5 border-t border-[#F5F1EB] flex items-center gap-1.5 text-xs font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Core Standard</span>
+                  <span>Brightlink Core Standard</span>
                 </div>
               </motion.div>
             );
@@ -130,7 +130,7 @@ export const WhyBrigitlinkSupport = ({ onOpenConsultation }) => {
         <div className="mt-14 text-center">
           <button
             type="button"
-            onClick={() => onOpenConsultation && onOpenConsultation('Why Brigitlink Advisory Consultation')}
+            onClick={() => onOpenConsultation && onOpenConsultation('Why Brightlink Advisory Consultation')}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0F172A] hover:bg-[#B8864B] text-white font-bold text-xs transition-colors cursor-pointer shadow-md"
           >
             <span>Book a One-on-One Formation Consultation</span>
@@ -143,4 +143,4 @@ export const WhyBrigitlinkSupport = ({ onOpenConsultation }) => {
   );
 };
 
-export default WhyBrigitlinkSupport;
+export default WhyBrightlinkSupport;

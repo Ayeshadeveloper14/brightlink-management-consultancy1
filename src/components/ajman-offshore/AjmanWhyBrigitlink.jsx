@@ -12,7 +12,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export const AjmanWhyBrigitlink = ({ onOpenConsultation }) => {
+export const AjmanWhyBrightlink = ({ onOpenConsultation }) => {
   const shouldReduceMotion = useReducedMotion();
 
   const services = [
@@ -60,11 +60,11 @@ export const AjmanWhyBrigitlink = ({ onOpenConsultation }) => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight font-heading">
-            Why Partner with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Brigitlink</span>
+            Why Partner with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Brightlink</span>
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            From strategic scoping and custom drafting to registered agent representation and banking dossier preparation, discover how Brigitlink protects your corporate interests.
+            From strategic scoping and custom drafting to registered agent representation and banking dossier preparation, discover how Brightlink protects your corporate interests.
           </p>
         </div>
 
@@ -97,7 +97,7 @@ export const AjmanWhyBrigitlink = ({ onOpenConsultation }) => {
 
                 <div className="pt-4 mt-4 border-t border-[#F5F1EB] flex items-center gap-1.5 text-[11px] font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Quality Assurance</span>
+                  <span>Brightlink Quality Assurance</span>
                 </div>
               </motion.div>
             );
@@ -109,4 +109,4 @@ export const AjmanWhyBrigitlink = ({ onOpenConsultation }) => {
   );
 };
 
-export default AjmanWhyBrigitlink;
+export default AjmanWhyBrightlink;

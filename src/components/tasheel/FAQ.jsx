@@ -12,8 +12,8 @@ export const FAQ = ({ onOpenConsultation }) => {
       answer: 'Tasheel is an official institutional service system established under the UAE Ministry of Human Resources & Emiratisation (MOHRE). It provides a standardized electronic platform for employers and commercial establishments to manage labour-related government transactions, work permits, and employment documentation.'
     },
     {
-      question: 'What Tasheel services does Brigitlink provide?',
-      answer: 'Brigitlink assists employers with work permit issuance and renewals, standard electronic labour contracts and amendments, labour card processing, company establishment file management, visa quota applications, e-signature card updates, and Wage Protection System (WPS) compliance guidance.'
+      question: 'What Tasheel services does Brightlink provide?',
+      answer: 'Brightlink assists employers with work permit issuance and renewals, standard electronic labour contracts and amendments, labour card processing, company establishment file management, visa quota applications, e-signature card updates, and Wage Protection System (WPS) compliance guidance.'
     },
     {
       question: 'Who can use Tasheel services?',
@@ -28,8 +28,8 @@ export const FAQ = ({ onOpenConsultation }) => {
       answer: 'Processing timelines depend on the nature of the application and required ministry reviews. Electronic work permits and labour contracts are typically processed by MOHRE within standard ministerial working windows, provided all submitted papers meet regulatory criteria.'
     },
     {
-      question: 'Can Brigitlink handle the process on my behalf?',
-      answer: 'Yes. Brigitlink acts as your professional corporate liaison. Our team reviews your documentation, types and submits the electronic applications through authorized portals, monitors application status, and delivers approved permits directly to you.'
+      question: 'Can Brightlink handle the process on my behalf?',
+      answer: 'Yes. Brightlink acts as your professional corporate liaison. Our team reviews your documentation, types and submits the electronic applications through authorized portals, monitors application status, and delivers approved permits directly to you.'
     }
   ];
 

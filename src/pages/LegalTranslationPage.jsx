@@ -7,14 +7,14 @@ import { LanguagesSupported } from '../components/legal-translation/LanguagesSup
 import { CertificationSection } from '../components/legal-translation/CertificationSection.jsx';
 import { HowItWorks } from '../components/legal-translation/HowItWorks.jsx';
 import { TurnaroundPricing } from '../components/legal-translation/TurnaroundPricing.jsx';
-import { WhyChooseBrigitlink } from '../components/legal-translation/WhyBrigitlink.jsx';
+import { WhyChooseBrightlink } from '../components/legal-translation/WhyBrightlink.jsx';
 import { FAQ } from '../components/legal-translation/FAQ.jsx';
 import { FinalCTA } from '../components/legal-translation/FinalCTA.jsx';
 
 export const LegalTranslationPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'Legal Translation UAE | Certified Legal Translation in Dubai | Brigitlink';
+    document.title = 'Legal Translation UAE | Certified Legal Translation in Dubai | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -31,7 +31,7 @@ export const LegalTranslationPage = ({ onOpenConsultation }) => {
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'Legal Translation UAE | Certified Legal Translation in Dubai | Brigitlink'
+        'Legal Translation UAE | Certified Legal Translation in Dubai | Brightlink'
       );
     }
 
@@ -57,7 +57,7 @@ export const LegalTranslationPage = ({ onOpenConsultation }) => {
         'serviceType': 'Certified Legal Translation & Document Legalization',
         'provider': {
           '@type': 'Organization',
-          'name': 'Brigitlink Legal Translation & Government Liaison Services',
+          'name': 'Brightlink Legal Translation & Government Liaison Services',
           'areaServed': ['Dubai', 'Abu Dhabi', 'Sharjah', 'United Arab Emirates']
         },
         'description': 'Accredited legal translation services for court pleadings, commercial agreements, personal certificates, and educational documents for UAE government submissions.',
@@ -109,8 +109,8 @@ export const LegalTranslationPage = ({ onOpenConsultation }) => {
       {/* 8. Turnaround & Pricing */}
       <TurnaroundPricing onOpenConsultation={onOpenConsultation} />
 
-      {/* 9. Why Choose Brigitlink (Compact 4-Point Layout) */}
-      <WhyChooseBrigitlink />
+      {/* 9. Why Choose Brightlink (Compact 4-Point Layout) */}
+      <WhyChooseBrightlink />
 
       {/* 10. FAQ Accordion */}
       <FAQ onOpenConsultation={onOpenConsultation} />

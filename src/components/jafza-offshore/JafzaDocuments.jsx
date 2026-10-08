@@ -172,7 +172,7 @@ export const JafzaDocuments = ({ onOpenConsultation }) => {
                   Requirements may vary depending on ownership structure, compliance review and regulatory requirements.
                 </p>
                 <p className="text-[#64748B]">
-                  Brigitlink’s compliance team assists in drafting board resolutions, ownership charts, and registered agent authorizations.
+                  Brightlink’s compliance team assists in drafting board resolutions, ownership charts, and registered agent authorizations.
                 </p>
               </div>
             </div>

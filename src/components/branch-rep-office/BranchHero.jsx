@@ -94,7 +94,7 @@ export const BranchHero = ({ onOpenConsultation }) => {
                 Branch & Representative Office <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Setup in Dubai</span>
               </h1>
               <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
-                Expand your established foreign or UAE parent company into the dynamic Dubai mainland market. Brigitlink guides international enterprises and established firms through parent corporate documentation, attestations, authority approvals, licensing, and full commercial activation.
+                Expand your established foreign or UAE parent company into the dynamic Dubai mainland market. Brightlink guides international enterprises and established firms through parent corporate documentation, attestations, authority approvals, licensing, and full commercial activation.
               </p>
             </div>
 

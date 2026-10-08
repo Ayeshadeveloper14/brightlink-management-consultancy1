@@ -18,7 +18,7 @@ export const Hero = ({ onOpenConsultation, onScrollToForm }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello Brigitlink! I would like to apply for the UAE Investor Visa (Partner Visa) for my company. Please advise on requirements and next steps.'
+      'Hello Brightlink! I would like to apply for the UAE Investor Visa (Partner Visa) for my company. Please advise on requirements and next steps.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

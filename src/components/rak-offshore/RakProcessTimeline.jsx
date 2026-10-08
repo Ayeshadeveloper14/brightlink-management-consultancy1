@@ -39,7 +39,7 @@ export const RakProcessTimeline = ({ onOpenConsultation }) => {
       details: [
         'Submission of 3 preferred corporate names ending in "Limited" or "Ltd." to RAK ICC registry.',
         'Name screening against restricted terminology and existing registry duplicates.',
-        'Initial AML/CFT and sanctions database verification by Brigitlink compliance officers.',
+        'Initial AML/CFT and sanctions database verification by Brightlink compliance officers.',
         'Issuance of formal Name Reservation Certificate.'
       ]
     },
@@ -51,7 +51,7 @@ export const RakProcessTimeline = ({ onOpenConsultation }) => {
       details: [
         'Customization of Memorandum and Articles of Association (MOA/AOA) tailored to client requirements.',
         'Drafting of official UBO Declaration and Register of Directors in statutory RAK ICC format.',
-        'Formal execution of Brigitlink Registered Agent representation agreement.',
+        'Formal execution of Brightlink Registered Agent representation agreement.',
         'Digital client signing protocols with zero requirement for physical presence.'
       ]
     },
@@ -109,7 +109,7 @@ export const RakProcessTimeline = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            By law, RAK ICC offshore companies must be formed and maintained through a licensed Registered Agent. Brigitlink provides end-to-end representation from drafting to bank onboarding.
+            By law, RAK ICC offshore companies must be formed and maintained through a licensed Registered Agent. Brightlink provides end-to-end representation from drafting to bank onboarding.
           </p>
         </div>
 
@@ -212,7 +212,7 @@ export const RakProcessTimeline = ({ onOpenConsultation }) => {
                   </div>
 
                   <p className="text-xs text-[#475569] leading-relaxed">
-                    Brigitlink acts as your accredited representative, handling all liaison with the Registrar, statutory registries, registered address filing, and official compliance notices.
+                    Brightlink acts as your accredited representative, handling all liaison with the Registrar, statutory registries, registered address filing, and official compliance notices.
                   </p>
 
                   <div className="p-3.5 rounded-xl bg-white border border-[#DECBB5] space-y-2 text-xs">

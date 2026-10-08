@@ -100,7 +100,7 @@ export const Sources = () => {
                 Important Regulatory Notice & Disclaimer
               </h3>
               <p className="text-xs sm:text-sm text-[#7D3409] leading-relaxed">
-                The information on this page reflects regulations and fee structures published by the GDRFA, ICP, and the UAE Government portal at the time of writing. Fees, eligibility criteria, document requirements, and processing timelines are subject to change without prior notice. Final approval of any visa application rests with the relevant UAE government authority. Brigitlink assists with document preparation, typing, and liaison through applicable government channels but does not issue or guarantee visa approvals.
+                The information on this page reflects regulations and fee structures published by the GDRFA, ICP, and the UAE Government portal at the time of writing. Fees, eligibility criteria, document requirements, and processing timelines are subject to change without prior notice. Final approval of any visa application rests with the relevant UAE government authority. Brightlink assists with document preparation, typing, and liaison through applicable government channels but does not issue or guarantee visa approvals.
               </p>
             </div>
           </div>

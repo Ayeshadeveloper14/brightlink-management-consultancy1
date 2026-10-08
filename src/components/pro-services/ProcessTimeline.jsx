@@ -132,7 +132,7 @@ export const ProcessTimeline = ({ onOpenConsultation }) => {
 
                 <div className="mt-5 pt-3 border-t border-[#F5EFE6] flex items-center gap-1.5 text-xs font-semibold text-[#B8864B]">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Brigitlink SLA Guarantee</span>
+                  <span>Brightlink SLA Guarantee</span>
                 </div>
               </motion.div>
             );

@@ -94,7 +94,7 @@ export const RakHero = ({ onOpenConsultation }) => {
                 RAK Offshore (RAK ICC) <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Company Formation</span>
               </h1>
               <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
-                Establish an internationally recognized corporate vehicle under the Ras Al Khaimah International Corporate Centre (RAK ICC). Brigitlink assists global entrepreneurs, private investors, and family offices in structuring offshore entities for holding assets, investments, and international business operations.
+                Establish an internationally recognized corporate vehicle under the Ras Al Khaimah International Corporate Centre (RAK ICC). Brightlink assists global entrepreneurs, private investors, and family offices in structuring offshore entities for holding assets, investments, and international business operations.
               </p>
             </div>
 

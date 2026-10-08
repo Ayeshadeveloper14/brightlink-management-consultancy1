@@ -93,7 +93,7 @@ export const LlcHero = ({ onOpenConsultation }) => {
                 LLC Company Formation <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">in Dubai</span>
               </h1>
               <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
-                Establish a robust commercial enterprise in mainland UAE. Brigitlink guides founders and corporate investors through trade licensing, Memorandum of Association (MOA), office premises, establishment registrations, and operational activation.
+                Establish a robust commercial enterprise in mainland UAE. Brightlink guides founders and corporate investors through trade licensing, Memorandum of Association (MOA), office premises, establishment registrations, and operational activation.
               </p>
             </div>
 

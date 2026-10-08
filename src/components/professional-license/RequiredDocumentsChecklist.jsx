@@ -70,7 +70,7 @@ export const RequiredDocumentsChecklist = ({ onOpenConsultation }) => {
     {
       category: 'corporate',
       title: 'Power of Attorney (POA)',
-      description: 'Notarized Power of Attorney if an authorized representative or Brigitlink legal consultant executes filings and signing on behalf of owners.',
+      description: 'Notarized Power of Attorney if an authorized representative or Brightlink legal consultant executes filings and signing on behalf of owners.',
       mandatory: false,
       tag: 'Legal Representation'
     },
@@ -108,7 +108,7 @@ export const RequiredDocumentsChecklist = ({ onOpenConsultation }) => {
             Required Documents Checklist
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
-            Prepare your paperwork with confidence. Brigitlink reviews and pre-audits all dossiers prior to DET submission to eliminate delays.
+            Prepare your paperwork with confidence. Brightlink reviews and pre-audits all dossiers prior to DET submission to eliminate delays.
           </p>
         </div>
 

@@ -6,14 +6,14 @@ import { PowerOfAttorneyServices } from '../components/notary-services/PowerOfAt
 import { OnlineNotarisation } from '../components/notary-services/OnlineNotarisation.jsx';
 import { HowItWorks } from '../components/notary-services/HowItWorks.jsx';
 import { DocumentPreparation } from '../components/notary-services/DocumentPreparation.jsx';
-import { WhyBrigitlink } from '../components/notary-services/WhyBrigitlink.jsx';
+import { WhyBrightlink } from '../components/notary-services/WhyBrightlink.jsx';
 import { FAQ } from '../components/notary-services/FAQ.jsx';
 import { FinalCTA } from '../components/notary-services/FinalCTA.jsx';
 
 export const NotaryServicesPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'Notary Services UAE | Power of Attorney & POA Notarisation Dubai | Brigitlink';
+    document.title = 'Notary Services UAE | Power of Attorney & POA Notarisation Dubai | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -23,14 +23,14 @@ export const NotaryServicesPage = ({ onOpenConsultation }) => {
     }
     metaDesc.setAttribute(
       'content',
-      'Professional notary services in Dubai & UAE. Power of Attorney drafting, general & special POA notarisation, property authorisations, and online notary services with Brigitlink.'
+      'Professional notary services in Dubai & UAE. Power of Attorney drafting, general & special POA notarisation, property authorisations, and online notary services with Brightlink.'
     );
 
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'Notary Services UAE | Power of Attorney & POA Notarisation Dubai | Brigitlink'
+        'Notary Services UAE | Power of Attorney & POA Notarisation Dubai | Brightlink'
       );
     }
 
@@ -56,7 +56,7 @@ export const NotaryServicesPage = ({ onOpenConsultation }) => {
         'serviceType': 'Notary Public Legalization & Power of Attorney Drafting',
         'provider': {
           '@type': 'Organization',
-          'name': 'Brigitlink Legal Documentation & Government Liaison Services',
+          'name': 'Brightlink Legal Documentation & Government Liaison Services',
           'areaServed': ['Dubai', 'Abu Dhabi', 'United Arab Emirates']
         },
         'description': 'Professional assistance with Power of Attorney preparation, property authorization instruments, corporate declarations, and UAE online notary public procedures.',
@@ -104,8 +104,8 @@ export const NotaryServicesPage = ({ onOpenConsultation }) => {
       {/* 7. Document Preparation (Checklist) */}
       <DocumentPreparation />
 
-      {/* 8. Why Choose Brigitlink (Minimal 4-Point Layout) */}
-      <WhyBrigitlink />
+      {/* 8. Why Choose Brightlink (Minimal 4-Point Layout) */}
+      <WhyBrightlink />
 
       {/* 9. FAQ Accordion */}
       <FAQ onOpenConsultation={onOpenConsultation} />

@@ -15,7 +15,7 @@ import { GovernmentAuthorities } from '../components/family-visa/GovernmentAutho
 
 export const FamilyVisa = ({ onOpenConsultation, onOpenCalculator }) => {
   useEffect(() => {
-    document.title = 'Family Visa Dubai | UAE Family Residence Visa | Brigitlink';
+    document.title = 'Family Visa Dubai | UAE Family Residence Visa | Brightlink';
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute(

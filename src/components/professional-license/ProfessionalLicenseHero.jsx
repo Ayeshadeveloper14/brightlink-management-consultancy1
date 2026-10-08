@@ -93,7 +93,7 @@ export const ProfessionalLicenseHero = ({ onOpenConsultation }) => {
                 Professional License <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">in Dubai</span>
               </h1>
               <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
-                Establish your consultancy, tech firm, marketing agency, or specialized service enterprise in mainland UAE. Brigitlink guides you through the Department of Economy and Tourism (DET) licensing framework, document preparation, office arrangement, and full commercial activation.
+                Establish your consultancy, tech firm, marketing agency, or specialized service enterprise in mainland UAE. Brightlink guides you through the Department of Economy and Tourism (DET) licensing framework, document preparation, office arrangement, and full commercial activation.
               </p>
             </div>
 

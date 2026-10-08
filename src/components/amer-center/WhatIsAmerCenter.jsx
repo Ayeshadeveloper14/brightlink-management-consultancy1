@@ -28,7 +28,7 @@ export const WhatIsAmerCenter = ({ onOpenConsultation }) => {
         'Authorized fine inquiry, grace period extension, and violation settlements'
       ],
       image: 'https://website-imges.vercel.app/about_visa_consultant_1790842347102.jpg',
-      imageAlt: 'Brigitlink Amer Center Immigration Consultants in Dubai',
+      imageAlt: 'Brightlink Amer Center Immigration Consultants in Dubai',
       ctaText: 'Explore Amer Capabilities'
     },
     {

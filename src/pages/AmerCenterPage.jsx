@@ -6,7 +6,7 @@ import { InteractiveJourney } from '../components/amer-center/InteractiveJourney
 import { WhyUseAmer } from '../components/amer-center/WhyUseAmer.jsx';
 import { MostRequestedServices } from '../components/amer-center/MostRequestedServices.jsx';
 import { DocumentChecklist } from '../components/amer-center/DocumentChecklist.jsx';
-import { WhyChooseBrigitlink } from '../components/amer-center/WhyChooseBrigitlink.jsx';
+import { WhyChooseBrightlink } from '../components/amer-center/WhyChooseBrightlink.jsx';
 import { SuccessNumbers } from '../components/amer-center/SuccessNumbers.jsx';
 import { FAQ } from '../components/amer-center/FAQ.jsx';
 import { FinalCTA } from '../components/amer-center/FinalCTA.jsx';
@@ -14,7 +14,7 @@ import { FinalCTA } from '../components/amer-center/FinalCTA.jsx';
 export const AmerCenterPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'Amer Center Services UAE | Brigitlink';
+    document.title = 'Amer Center Services UAE | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -31,7 +31,7 @@ export const AmerCenterPage = ({ onOpenConsultation }) => {
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'Amer Center Services UAE | Brigitlink'
+        'Amer Center Services UAE | Brightlink'
       );
     }
 
@@ -56,7 +56,7 @@ export const AmerCenterPage = ({ onOpenConsultation }) => {
         'name': 'Amer Center GDRFA Immigration & Visa Services UAE',
         'provider': {
           '@type': 'Organization',
-          'name': 'Brigitlink UAE Legal & Government Liaison Services',
+          'name': 'Brightlink UAE Legal & Government Liaison Services',
           'areaServed': 'United Arab Emirates'
         },
         'serviceType': 'Immigration, Visa Typing and Residency Services',
@@ -105,8 +105,8 @@ export const AmerCenterPage = ({ onOpenConsultation }) => {
       {/* 7. Interactive Document Checklist with Checkbox State */}
       <DocumentChecklist onOpenConsultation={onOpenConsultation} />
 
-      {/* 8. Why Choose Brigitlink (Large Photography Cards) */}
-      <WhyChooseBrigitlink />
+      {/* 8. Why Choose Brightlink (Large Photography Cards) */}
+      <WhyChooseBrightlink />
 
       {/* 9. Success Numbers Animated Counters */}
       <SuccessNumbers />

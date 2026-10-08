@@ -63,7 +63,7 @@ export const BranchFinalCTA = ({ onOpenConsultation }) => {
 
           {/* Supporting Text */}
           <p className="mt-4 text-sm sm:text-base text-neutral-300 leading-relaxed max-w-2xl mx-auto font-normal">
-            Invite your executive team to discuss your UAE expansion plans with Brigitlink and determine whether a commercial Branch Office or a promotional Representative Office is the appropriate route for your parent company.
+            Invite your executive team to discuss your UAE expansion plans with Brightlink and determine whether a commercial Branch Office or a promotional Representative Office is the appropriate route for your parent company.
           </p>
 
           {/* Input Form */}

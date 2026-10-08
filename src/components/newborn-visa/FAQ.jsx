@@ -35,7 +35,7 @@ export const FAQ = () => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello Brigitlink! I have a question about UAE newborn baby visa rules and hospital documentation.'
+      'Hello Brightlink! I have a question about UAE newborn baby visa rules and hospital documentation.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

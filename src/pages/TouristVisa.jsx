@@ -10,7 +10,7 @@ import { FinalCTA } from '../components/tourist-visa/FinalCTA.jsx';
 export const TouristVisa = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Page Title & Meta Description setup
-    document.title = 'Dubai Tourist Visa & UAE Visa | Entry Requirements | Brigitlink';
+    document.title = 'Dubai Tourist Visa & UAE Visa | Entry Requirements | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {

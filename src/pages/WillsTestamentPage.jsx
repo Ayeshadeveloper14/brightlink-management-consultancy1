@@ -6,14 +6,14 @@ import { TypesOfWills } from '../components/wills-testament/TypesOfWills.jsx';
 import { WhatCanAWillCover } from '../components/wills-testament/WhatCanAWillCover.jsx';
 import { TheProcess } from '../components/wills-testament/TheProcess.jsx';
 import { DocumentsRequired } from '../components/wills-testament/DocumentsRequired.jsx';
-import { WhyChooseBrigitlink } from '../components/wills-testament/WhyBrigitlink.jsx';
+import { WhyChooseBrightlink } from '../components/wills-testament/WhyBrightlink.jsx';
 import { FAQ } from '../components/wills-testament/FAQ.jsx';
 import { FinalCTA } from '../components/wills-testament/FinalCTA.jsx';
 
 export const WillsTestamentPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'Wills and Testament UAE | Will Registration Services Dubai | Brigitlink';
+    document.title = 'Wills and Testament UAE | Will Registration Services Dubai | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -30,7 +30,7 @@ export const WillsTestamentPage = ({ onOpenConsultation }) => {
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'Wills and Testament UAE | Will Registration Services Dubai | Brigitlink'
+        'Wills and Testament UAE | Will Registration Services Dubai | Brightlink'
       );
     }
 
@@ -38,7 +38,7 @@ export const WillsTestamentPage = ({ onOpenConsultation }) => {
     if (ogDesc) {
       ogDesc.setAttribute(
         'content',
-        'Protect your family, real estate, and financial assets in the UAE through structured Will and Last Testament registration services with Brigitlink.'
+        'Protect your family, real estate, and financial assets in the UAE through structured Will and Last Testament registration services with Brightlink.'
       );
     }
 
@@ -56,7 +56,7 @@ export const WillsTestamentPage = ({ onOpenConsultation }) => {
         'serviceType': 'Will Preparation, Drafting & Legal Registration',
         'provider': {
           '@type': 'Organization',
-          'name': 'Brigitlink Legal Documentation & Government Liaison Services',
+          'name': 'Brightlink Legal Documentation & Government Liaison Services',
           'areaServed': ['Dubai', 'Abu Dhabi', 'United Arab Emirates']
         },
         'description': 'Comprehensive Will and Last Testament drafting, guardianship protection, property wills, and registration assistance through DIFC Wills Service and Dubai Courts.',
@@ -104,8 +104,8 @@ export const WillsTestamentPage = ({ onOpenConsultation }) => {
       {/* 7. Documents Commonly Required (Checklist) */}
       <DocumentsRequired />
 
-      {/* 8. Why Choose Brigitlink (Compact 4-Point Layout) */}
-      <WhyChooseBrigitlink />
+      {/* 8. Why Choose Brightlink (Compact 4-Point Layout) */}
+      <WhyChooseBrightlink />
 
       {/* 9. FAQ Accordion */}
       <FAQ onOpenConsultation={onOpenConsultation} />

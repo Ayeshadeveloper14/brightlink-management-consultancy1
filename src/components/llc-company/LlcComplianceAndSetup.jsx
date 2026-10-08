@@ -75,7 +75,7 @@ export const LlcComplianceAndSetup = ({ onOpenConsultation }) => {
             Compliance & After-Setup Responsibilities
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
-            Operating a Mainland LLC in Dubai requires adherence to federal statutory duties. Brigitlink provides ongoing PRO, tax liaison, and corporate governance retainers to keep your entity fully compliant.
+            Operating a Mainland LLC in Dubai requires adherence to federal statutory duties. Brightlink provides ongoing PRO, tax liaison, and corporate governance retainers to keep your entity fully compliant.
           </p>
         </div>
 
@@ -112,7 +112,7 @@ export const LlcComplianceAndSetup = ({ onOpenConsultation }) => {
 
                 <div className="mt-5 pt-3.5 border-t border-[#DECBB5]/60 flex items-center gap-1.5 text-xs font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Corporate PRO Support</span>
+                  <span>Brightlink Corporate PRO Support</span>
                 </div>
               </motion.div>
             );

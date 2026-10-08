@@ -41,7 +41,7 @@ export const Hero = ({ onOpenConsultation }) => {
 
             {/* Supporting Paragraph */}
             <p className="text-base sm:text-lg text-[#555555] leading-relaxed max-w-2xl mb-8">
-              Brigitlink provides assistance with notarisation and Power of Attorney requirements for property, business, banking, family and legal matters.
+              Brightlink provides assistance with notarisation and Power of Attorney requirements for property, business, banking, family and legal matters.
             </p>
 
             {/* Action Buttons */}

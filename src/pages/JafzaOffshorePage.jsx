@@ -9,14 +9,14 @@ import { JafzaDocuments } from '../components/jafza-offshore/JafzaDocuments.jsx'
 import { JafzaCanCannot } from '../components/jafza-offshore/JafzaCanCannot.jsx';
 import { JafzaVsRak } from '../components/jafza-offshore/JafzaVsRak.jsx';
 import { JafzaCompliance } from '../components/jafza-offshore/JafzaCompliance.jsx';
-import { JafzaWhyBrigitlink } from '../components/jafza-offshore/JafzaWhyBrigitlink.jsx';
+import { JafzaWhyBrightlink } from '../components/jafza-offshore/JafzaWhyBrightlink.jsx';
 import { JafzaFaq, FAQ_DATA_JAFZA_OFFSHORE } from '../components/jafza-offshore/JafzaFaq.jsx';
 import { JafzaFinalCTA } from '../components/jafza-offshore/JafzaFinalCTA.jsx';
 
 export const JafzaOffshorePage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // 1. Set SEO Page Title
-    document.title = 'JAFZA Offshore Company Formation in Dubai | Brigitlink Business Setup';
+    document.title = 'JAFZA Offshore Company Formation in Dubai | Brightlink Business Setup';
 
     // 2. Set Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -25,7 +25,7 @@ export const JafzaOffshorePage = ({ onOpenConsultation }) => {
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = 'Establish a JAFZA Offshore company in Dubai with Brigitlink. Premier Dubai-domiciled offshore entity for asset holding, Dubai real estate ownership, corporate holding, and multi-currency banking.';
+    metaDescription.content = 'Establish a JAFZA Offshore company in Dubai with Brightlink. Premier Dubai-domiciled offshore entity for asset holding, Dubai real estate ownership, corporate holding, and multi-currency banking.';
 
     // 3. Inject Schema.org JSON-LD for Service & FAQ
     const schemaScriptId = 'jafza-offshore-schema';
@@ -45,7 +45,7 @@ export const JafzaOffshorePage = ({ onOpenConsultation }) => {
           'name': 'JAFZA Offshore Company Formation in Dubai',
           'provider': {
             '@type': 'LocalBusiness',
-            'name': 'Brigitlink Typing & Consulting',
+            'name': 'Brightlink Typing & Consulting',
             'telephone': '+971566556645',
             'url': window.location.origin
           },
@@ -115,8 +115,8 @@ export const JafzaOffshorePage = ({ onOpenConsultation }) => {
       {/* 10. Compliance & Annual Renewals */}
       <JafzaCompliance onOpenConsultation={onOpenConsultation} />
 
-      {/* 11. Why Brigitlink */}
-      <JafzaWhyBrigitlink onOpenConsultation={onOpenConsultation} />
+      {/* 11. Why Brightlink */}
+      <JafzaWhyBrightlink onOpenConsultation={onOpenConsultation} />
 
       {/* 12. FAQ Section */}
       <JafzaFaq onOpenConsultation={onOpenConsultation} />

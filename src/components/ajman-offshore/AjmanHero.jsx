@@ -95,7 +95,7 @@ export const AjmanHero = ({ onOpenConsultation }) => {
                 Ajman Offshore <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Company Formation</span>
               </h1>
               <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
-                Brigitlink assists entrepreneurs, investors and international businesses with establishing an Ajman Offshore company for suitable holding, investment, asset ownership and cross-border business structures.
+                Brightlink assists entrepreneurs, investors and international businesses with establishing an Ajman Offshore company for suitable holding, investment, asset ownership and cross-border business structures.
               </p>
             </div>
 

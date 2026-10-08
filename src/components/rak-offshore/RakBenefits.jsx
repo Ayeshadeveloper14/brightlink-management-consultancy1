@@ -52,7 +52,7 @@ export const RakBenefits = () => {
     {
       icon: Zap,
       title: '100% Remote Incorporation',
-      desc: 'Complete the entire incorporation process remotely through Brigitlink without needing to physically travel to the UAE for licensing signatures.'
+      desc: 'Complete the entire incorporation process remotely through Brightlink without needing to physically travel to the UAE for licensing signatures.'
     },
     {
       icon: ShieldCheck,
@@ -110,7 +110,7 @@ export const RakBenefits = () => {
 
                 <div className="pt-4 mt-4 border-t border-[#F5F1EB] flex items-center gap-1.5 text-[11px] font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Advisory Guarantee</span>
+                  <span>Brightlink Advisory Guarantee</span>
                 </div>
               </motion.div>
             );

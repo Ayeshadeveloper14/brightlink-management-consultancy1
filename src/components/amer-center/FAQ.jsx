@@ -12,8 +12,8 @@ export const FAQ = ({ onOpenConsultation }) => {
       answer: 'An Amer Center is an authorized government service provider operating under the General Directorate of Residency and Foreigners Affairs (GDRFA Dubai). Amer Centers process all visa and residency transactions, entry permits, visa renewals, status amendments, cancellations, Emirates ID typing, and fine settlements for both individuals and corporate entities.'
     },
     {
-      question: 'Can Brigitlink handle Amer Center submissions completely online?',
-      answer: 'Yes. You do not need to physically visit an Amer branch. Through Brigitlink, you can submit your scanned documents digitally. Our certified officers audit your papers, submit them directly through electronic GDRFA portals, process official government fees, and coordinate all appointments and deliveries on your behalf.'
+      question: 'Can Brightlink handle Amer Center submissions completely online?',
+      answer: 'Yes. You do not need to physically visit an Amer branch. Through Brightlink, you can submit your scanned documents digitally. Our certified officers audit your papers, submit them directly through electronic GDRFA portals, process official government fees, and coordinate all appointments and deliveries on your behalf.'
     },
     {
       question: 'What is an In-Country Status Change and how does it work?',
@@ -33,11 +33,11 @@ export const FAQ = ({ onOpenConsultation }) => {
     },
     {
       question: 'What happens if my visa expires before I renew it through Amer?',
-      answer: 'The UAE Government grants a 30-day grace period following residency visa expiration to renew your visa or exit the country without penalty. If you exceed the grace period, a statutory fine of AED 50 per day applies. Brigitlink tracks expiration deadlines in advance to ensure your renewal is filed safely within the grace period.'
+      answer: 'The UAE Government grants a 30-day grace period following residency visa expiration to renew your visa or exit the country without penalty. If you exceed the grace period, a statutory fine of AED 50 per day applies. Brightlink tracks expiration deadlines in advance to ensure your renewal is filed safely within the grace period.'
     },
     {
       question: 'Are government fees for Amer services standardized?',
-      answer: 'Yes. Official government charges are fixed by GDRFA, MOHRE, and ICP. Brigitlink provides complete financial transparency: every transaction includes official government e-vouchers showing the exact ministerial fee breakdown, with no hidden surcharges.'
+      answer: 'Yes. Official government charges are fixed by GDRFA, MOHRE, and ICP. Brightlink provides complete financial transparency: every transaction includes official government e-vouchers showing the exact ministerial fee breakdown, with no hidden surcharges.'
     }
   ];
 

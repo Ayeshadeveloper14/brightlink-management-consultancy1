@@ -70,7 +70,7 @@ export const CertificationSection = () => {
           <div className="pt-4 border-t border-[#F0E8DC] flex items-start gap-3 text-xs text-[#666666]">
             <Info className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              <strong>Procedural Note:</strong> Specific departments may have distinct formatting or notary attestation prerequisites before accepting translated files. Brigitlink reviews the target destination of your document to ensure the correct level of translation certification is applied.
+              <strong>Procedural Note:</strong> Specific departments may have distinct formatting or notary attestation prerequisites before accepting translated files. Brightlink reviews the target destination of your document to ensure the correct level of translation certification is applied.
             </p>
           </div>
         </motion.div>

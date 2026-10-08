@@ -145,7 +145,7 @@ export const LlcCostAndTimeline = ({ onOpenConsultation }) => {
             <div className="pt-2 flex items-start gap-2.5 text-xs text-[#64748B]">
               <Info className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
               <p>
-                Brigitlink provides an itemized, line-by-line official quotation before you commence, clearly separating official government payment vouchers from professional consultation fees.
+                Brightlink provides an itemized, line-by-line official quotation before you commence, clearly separating official government payment vouchers from professional consultation fees.
               </p>
             </div>
           </div>

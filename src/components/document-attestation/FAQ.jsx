@@ -28,15 +28,15 @@ export const FAQ = ({ onOpenConsultation }) => {
     },
     {
       q: 'How long does document attestation take?',
-      a: 'Processing times vary widely based on the country of origin, embassy scheduling, and seasonal ministry backlogs. Some countries offer expedited processing within 5–10 business days, while standard international multi-stage attestation can take 2 to 4 weeks. Brigitlink provides realistic timeline estimates based on your specific document.'
+      a: 'Processing times vary widely based on the country of origin, embassy scheduling, and seasonal ministry backlogs. Some countries offer expedited processing within 5–10 business days, while standard international multi-stage attestation can take 2 to 4 weeks. Brightlink provides realistic timeline estimates based on your specific document.'
     },
     {
       q: 'How much does document attestation cost?',
       a: 'The final cost depends on the document type, issuing country, home-country verification fees, embassy tariffs, volume of documents, and international courier logistics. Government fees are set directly by respective ministries. We provide a transparent, itemized quotation before any processing starts.'
     },
     {
-      q: 'Can Brigitlink assist with the complete process?',
-      a: 'Yes. Brigitlink provides end-to-end assistance: document pre-screening, coordination with overseas legalizing bodies and embassies, international diplomatic courier handling, and final UAE Ministry of Foreign Affairs (MOFA) electronic attestation.'
+      q: 'Can Brightlink assist with the complete process?',
+      a: 'Yes. Brightlink provides end-to-end assistance: document pre-screening, coordination with overseas legalizing bodies and embassies, international diplomatic courier handling, and final UAE Ministry of Foreign Affairs (MOFA) electronic attestation.'
     }
   ];
 

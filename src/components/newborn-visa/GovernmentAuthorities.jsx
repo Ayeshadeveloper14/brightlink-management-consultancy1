@@ -67,7 +67,7 @@ export const GovernmentAuthorities = () => {
         </div>
 
         <p className="text-center text-[11px] text-[#64748B] mt-6 max-w-2xl mx-auto">
-          Brigitlink and 800 DOCS LLC SOC operate as an authorized private government documentation typing center facilitating filings through these official authorities. We are not a government agency.
+          Brightlink and 800 DOCS LLC SOC operate as an authorized private government documentation typing center facilitating filings through these official authorities. We are not a government agency.
         </p>
 
       </div>

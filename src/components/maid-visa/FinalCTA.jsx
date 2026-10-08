@@ -11,7 +11,7 @@ export const FinalCTA = ({ onOpenConsultation, onOpenCalculator }) => {
       onOpenConsultation('Maid Visa / Domestic Worker Sponsorship');
     } else {
       const text = encodeURIComponent(
-        'Hello Brigitlink! I want to check my eligibility and get a quote for a maid / domestic worker visa.'
+        'Hello Brightlink! I want to check my eligibility and get a quote for a maid / domestic worker visa.'
       );
       window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
     }

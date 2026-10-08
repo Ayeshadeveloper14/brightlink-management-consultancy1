@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Compass, FileEdit, Landmark, CheckCircle2 } from 'lucide-react';
 
-export const WhyBrigitlink = () => {
+export const WhyBrightlink = () => {
   const points = [
     {
       title: 'Clear Guidance',
@@ -33,10 +33,10 @@ export const WhyBrigitlink = () => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold tracking-[0.18em] text-[#B8864B] uppercase font-heading block mb-2">
-            The Brigitlink Approach
+            The Brightlink Approach
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] tracking-tight mb-3 font-heading">
-            Why Choose Brigitlink?
+            Why Choose Brightlink?
           </h2>
           <p className="text-sm sm:text-base text-[#666666]">
             Structured assistance providing clarity, discretion, and reliable coordination for your estate planning needs.
@@ -77,5 +77,5 @@ export const WhyBrigitlink = () => {
   );
 };
 
-export const WhyChooseBrigitlink = WhyBrigitlink;
-export default WhyBrigitlink;
+export const WhyChooseBrightlink = WhyBrightlink;
+export default WhyBrightlink;

@@ -94,7 +94,7 @@ export const TransitionToCommercialSection = ({ onOpenConsultation }) => {
               Transition Advisory Note:
             </h4>
             <p className="text-xs text-[#475569] leading-relaxed font-sans">
-              Moving from a non-revenue Representative Office to active commercial operations requires formally establishing the appropriate new legal entity (such as a full commercial Branch Office or a standalone Mainland LLC) and obtaining the relevant commercial trade license, rather than an automatic re-designation. Brigitlink manages this transition seamlessly to preserve your staff visas and banking continuity.
+              Moving from a non-revenue Representative Office to active commercial operations requires formally establishing the appropriate new legal entity (such as a full commercial Branch Office or a standalone Mainland LLC) and obtaining the relevant commercial trade license, rather than an automatic re-designation. Brightlink manages this transition seamlessly to preserve your staff visas and banking continuity.
             </p>
           </div>
         </div>

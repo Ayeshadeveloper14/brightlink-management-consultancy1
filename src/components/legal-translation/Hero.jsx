@@ -41,7 +41,7 @@ export const Hero = ({ onOpenConsultation }) => {
 
             {/* Supporting Paragraph */}
             <p className="text-base sm:text-lg text-[#555555] leading-relaxed max-w-2xl mb-8">
-              Brigitlink provides professional, certified legal translation assistance for documents submitted to UAE courts, ministries, government departments, commercial registries, and official authorities across the UAE.
+              Brightlink provides professional, certified legal translation assistance for documents submitted to UAE courts, ministries, government departments, commercial registries, and official authorities across the UAE.
             </p>
 
             {/* Dual CTA Buttons */}

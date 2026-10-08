@@ -136,7 +136,7 @@ export const AttestationJourney = () => {
               Important: Jurisdictional Requirements Differ
             </span>
             <p>
-              The exact legalization steps vary depending on the <strong>country of document origin</strong> (e.g., Hague Apostille signatory vs. non-signatory nations), <strong>document type</strong> (educational, personal, or corporate), <strong>intended use</strong>, and specific criteria mandated by the requesting UAE ministry or authority. Brigitlink provides upfront verification of the exact requirements before initiating processing.
+              The exact legalization steps vary depending on the <strong>country of document origin</strong> (e.g., Hague Apostille signatory vs. non-signatory nations), <strong>document type</strong> (educational, personal, or corporate), <strong>intended use</strong>, and specific criteria mandated by the requesting UAE ministry or authority. Brightlink provides upfront verification of the exact requirements before initiating processing.
             </p>
           </div>
         </div>

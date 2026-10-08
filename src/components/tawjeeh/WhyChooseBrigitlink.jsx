@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Compass, FileCheck, CalendarCheck, Zap } from 'lucide-react';
 
-export const WhyChooseBrigitlink = () => {
+export const WhyChooseBrightlink = () => {
   const points = [
     {
       title: 'Professional Guidance',
@@ -33,10 +33,10 @@ export const WhyChooseBrigitlink = () => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold tracking-[0.18em] text-[#B8864B] uppercase font-heading block mb-2">
-            The Brigitlink Advantage
+            The Brightlink Advantage
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] tracking-tight mb-3">
-            Why Choose Brigitlink?
+            Why Choose Brightlink?
           </h2>
           <p className="text-sm sm:text-base text-[#666666]">
             Dedicated government liaison specialists providing end-to-end guidance for your enterprise and employees.

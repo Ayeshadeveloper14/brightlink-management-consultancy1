@@ -93,7 +93,7 @@ export const FeesTransparency = ({ onOpenConsultation }) => {
           <div className="mt-8 pt-6 border-t border-[#EFEAE2] flex items-start gap-3 text-xs text-[#777777]">
             <ShieldAlert className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              <strong>Government Fee Reference Notice:</strong> Government fees, embassy tariffs, and consular legalization rates are established directly by their respective sovereign ministries and are subject to regulatory updates without prior notice. Brigitlink passes through official ministerial fees at exact cost with transparent itemization.
+              <strong>Government Fee Reference Notice:</strong> Government fees, embassy tariffs, and consular legalization rates are established directly by their respective sovereign ministries and are subject to regulatory updates without prior notice. Brightlink passes through official ministerial fees at exact cost with transparent itemization.
             </p>
           </div>
         </motion.div>

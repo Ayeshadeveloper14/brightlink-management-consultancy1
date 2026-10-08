@@ -7,7 +7,7 @@ export const ConsultationCTA = ({ onOpenConsultation, onScrollToForm }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello Brigitlink! I want to schedule a free consultation with a Senior Consultant regarding the UAE Investor Visa.'
+      'Hello Brightlink! I want to schedule a free consultation with a Senior Consultant regarding the UAE Investor Visa.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

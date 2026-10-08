@@ -104,7 +104,7 @@ export const AjmanDocuments = ({ onOpenConsultation }) => {
       },
       {
         title: 'Risk & Compliance Questionnaires',
-        note: 'Standard risk profile questionnaire provided by Brigitlink registered agent team.'
+        note: 'Standard risk profile questionnaire provided by Brightlink registered agent team.'
       }
     ]
   };
@@ -198,7 +198,7 @@ export const AjmanDocuments = ({ onOpenConsultation }) => {
                   Exact requirements may vary depending on the ownership structure, company purpose, compliance review and registered agent requirements.
                 </p>
                 <p className="text-[#64748B]">
-                  Brigitlink guides you through all drafting, certified translations, and legalization coordination.
+                  Brightlink guides you through all drafting, certified translations, and legalization coordination.
                 </p>
               </div>
             </div>

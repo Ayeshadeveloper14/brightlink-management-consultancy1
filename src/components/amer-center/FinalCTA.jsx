@@ -22,7 +22,7 @@ export const FinalCTA = ({ onOpenConsultation }) => {
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent('Hello Brigitlink, I would like to inquire about Amer Center government and visa services.');
+    const text = encodeURIComponent('Hello Brightlink, I would like to inquire about Amer Center government and visa services.');
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
@@ -70,7 +70,7 @@ export const FinalCTA = ({ onOpenConsultation }) => {
 
           {/* Description */}
           <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-            Let Brigitlink handle your Amer Center applications, documentation, visa processing, and government submissions with expert support.
+            Let Brightlink handle your Amer Center applications, documentation, visa processing, and government submissions with expert support.
           </p>
 
           {/* CTA Buttons */}

@@ -45,7 +45,7 @@ export const FAQ_DATA_AJMAN_OFFSHORE = [
   },
   {
     q: 'What is a registered agent?',
-    a: 'A Registered Agent is a licensed, authorized UAE corporate service provider (such as Brigitlink) legally appointed to represent the offshore company before the registry, submit filings, and provide the official statutory address.'
+    a: 'A Registered Agent is a licensed, authorized UAE corporate service provider (such as Brightlink) legally appointed to represent the offshore company before the registry, submit filings, and provide the official statutory address.'
   },
   {
     q: 'How long does incorporation take?',

@@ -34,7 +34,7 @@ export const Hero = ({ onOpenConsultation, onOpenCalculator }) => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      'Hello 800 DOCS / Brigitlink! I would like to sponsor my family for UAE residence. Please share the checklist and fee breakdown.'
+      'Hello 800 DOCS / Brightlink! I would like to sponsor my family for UAE residence. Please share the checklist and fee breakdown.'
     );
     window.open(`https://wa.me/971501234567?text=${message}`, '_blank');
   };

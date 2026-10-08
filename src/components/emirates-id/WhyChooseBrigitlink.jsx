@@ -11,7 +11,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
-export const WhyChooseBrigitlink = () => {
+export const WhyChooseBrightlink = () => {
   const shouldReduceMotion = useReducedMotion();
 
   const reasons = [
@@ -67,12 +67,12 @@ export const WhyChooseBrigitlink = () => {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF8] border border-[#E6D7C3] mb-4">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8864B] font-heading">
-              The Brigitlink Distinction
+              The Brightlink Distinction
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#222222] tracking-tight mb-4 font-heading">
-            Why Choose Brigitlink for Your Emirates ID?
+            Why Choose Brightlink for Your Emirates ID?
           </h2>
 
           <p className="text-base sm:text-lg text-[#666666] leading-relaxed">
@@ -136,4 +136,4 @@ export const WhyChooseBrigitlink = () => {
   );
 };
 
-export default WhyChooseBrigitlink;
+export default WhyChooseBrightlink;

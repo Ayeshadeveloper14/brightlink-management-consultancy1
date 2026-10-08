@@ -125,7 +125,7 @@ export const LlcFormationJourney = ({ onOpenConsultation }) => {
       shortTitle: 'Business Activation',
       icon: CreditCard,
       summary: 'Support next steps such as banking, VAT registration, visas, and ongoing compliance.',
-      detailedDescription: 'Brigitlink provides complete post-licensing activation. We prepare the corporate bank account dossier and bank introductions, process 2-year partner and employee residency visas with VIP medical fitness tests, and assist with FTA Corporate Tax and VAT registration.',
+      detailedDescription: 'Brightlink provides complete post-licensing activation. We prepare the corporate bank account dossier and bank introductions, process 2-year partner and employee residency visas with VIP medical fitness tests, and assist with FTA Corporate Tax and VAT registration.',
       deliverables: [
         'Corporate bank account application pack and introductions',
         'Shareholder/Partner 2-year UAE residency visas & Emirates IDs',
@@ -152,7 +152,7 @@ export const LlcFormationJourney = ({ onOpenConsultation }) => {
             LLC Formation Journey in Dubai
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
-            From initial business activity selection to banking introductions and immigration establishment cards, Brigitlink navigates all 8 phases of mainland incorporation.
+            From initial business activity selection to banking introductions and immigration establishment cards, Brightlink navigates all 8 phases of mainland incorporation.
           </p>
         </div>
 
@@ -237,7 +237,7 @@ export const LlcFormationJourney = ({ onOpenConsultation }) => {
                   Phase Deliverables
                 </span>
                 <span className="text-[11px] font-semibold text-[#8C5E28] bg-[#FAF5EC] px-2.5 py-0.5 rounded-full border border-[#DECBB5]/60">
-                  Brigitlink Execution
+                  Brightlink Execution
                 </span>
               </div>
 

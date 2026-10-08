@@ -26,7 +26,7 @@ export const CostOverview = ({ onOpenConsultation }) => {
         { label: 'DLD Title Deed Valuation & Verification', amount: 'AED 4,020' },
         { label: 'GDRFA Entry Permit & Status Amendment', amount: 'AED 1,150' },
         { label: 'VIP Medical Fitness & Emirates ID (10-Yr)', amount: 'AED 1,850' },
-        { label: 'Brigitlink End-to-End VIP Concierge Typing', amount: 'AED 2,500' }
+        { label: 'Brightlink End-to-End VIP Concierge Typing', amount: 'AED 2,500' }
       ],
       totalEstimate: 'From AED 9,520 (all-inclusive gov & typing)',
       highlight: 'Fastest 3-5 Working Day Turnaround'
@@ -41,7 +41,7 @@ export const CostOverview = ({ onOpenConsultation }) => {
         { label: 'ICP / GDRFA Nomination Approval', amount: 'AED 2,850' },
         { label: 'In-Country Status Amendment (if inside UAE)', amount: 'AED 650' },
         { label: '10-Year Emirates ID & VIP Medical Screening', amount: 'AED 1,750' },
-        { label: 'Brigitlink Document Attestation & Legal Typing', amount: 'AED 2,500' }
+        { label: 'Brightlink Document Attestation & Legal Typing', amount: 'AED 2,500' }
       ],
       totalEstimate: 'From AED 7,750 (all-inclusive gov & typing)',
       highlight: 'High Approval Rate for C-Level & Tech'
@@ -56,7 +56,7 @@ export const CostOverview = ({ onOpenConsultation }) => {
         { label: '10-Year Residency Stamping (Spouse / Child)', amount: 'AED 2,250' },
         { label: '10-Year Emirates ID Typing & Delivery', amount: 'AED 1,050' },
         { label: 'Medical Fitness (Adult Dependents >18)', amount: 'AED 350' },
-        { label: 'Brigitlink Family File Opening & Attestation', amount: 'AED 750' }
+        { label: 'Brightlink Family File Opening & Attestation', amount: 'AED 750' }
       ],
       totalEstimate: 'From AED 3,850 per dependent',
       highlight: 'Covers Spouse, Sons, Daughters & Domestic Staff'
@@ -84,7 +84,7 @@ export const CostOverview = ({ onOpenConsultation }) => {
             Cost & Investment Overview
           </h2>
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            Clear, transparent breakdown of statutory government charges, VIP medical examinations, Emirates ID cards, and Brigitlink concierge PRO management. Zero hidden surprises.
+            Clear, transparent breakdown of statutory government charges, VIP medical examinations, Emirates ID cards, and Brightlink concierge PRO management. Zero hidden surprises.
           </p>
         </motion.div>
 

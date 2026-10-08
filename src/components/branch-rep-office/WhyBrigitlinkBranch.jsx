@@ -13,7 +13,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-export const WhyBrigitlinkBranch = ({ onOpenConsultation }) => {
+export const WhyBrightlinkBranch = ({ onOpenConsultation }) => {
   const shouldReduceMotion = useReducedMotion();
 
   const services = [
@@ -60,7 +60,7 @@ export const WhyBrigitlinkBranch = ({ onOpenConsultation }) => {
             <span>Dedicated Corporate Liaison</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F172A] tracking-tight font-heading leading-tight">
-            Why Partner with Brigitlink for Branch Setup?
+            Why Partner with Brightlink for Branch Setup?
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
             International expansions require cross-border legal precision. We bridge your corporate headquarters with UAE government authorities to execute a seamless, compliant launch.
@@ -93,7 +93,7 @@ export const WhyBrigitlinkBranch = ({ onOpenConsultation }) => {
                 </div>
                 <div className="mt-5 pt-3.5 border-t border-[#DECBB5]/60 flex items-center gap-1.5 text-xs font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Execution Standard</span>
+                  <span>Brightlink Execution Standard</span>
                 </div>
               </motion.div>
             );
@@ -104,7 +104,7 @@ export const WhyBrigitlinkBranch = ({ onOpenConsultation }) => {
         <div className="text-center">
           <button
             type="button"
-            onClick={() => onOpenConsultation && onOpenConsultation('Why Brigitlink Branch Consultation')}
+            onClick={() => onOpenConsultation && onOpenConsultation('Why Brightlink Branch Consultation')}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0F172A] hover:bg-[#B8864B] text-white font-bold text-xs transition-colors cursor-pointer shadow-md"
           >
             <span>Consult with an International Expansion Specialist</span>
@@ -117,4 +117,4 @@ export const WhyBrigitlinkBranch = ({ onOpenConsultation }) => {
   );
 };
 
-export default WhyBrigitlinkBranch;
+export default WhyBrightlinkBranch;

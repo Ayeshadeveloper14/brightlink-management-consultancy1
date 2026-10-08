@@ -13,7 +13,7 @@ import {
   Compass
 } from 'lucide-react';
 
-export const RakWhyBrigitlink = ({ onOpenConsultation }) => {
+export const RakWhyBrightlink = ({ onOpenConsultation }) => {
   const shouldReduceMotion = useReducedMotion();
 
   const reasons = [
@@ -45,7 +45,7 @@ export const RakWhyBrigitlink = ({ onOpenConsultation }) => {
     {
       icon: Headphones,
       title: 'End-to-End Banking & Lifecycle Care',
-      desc: 'From initial trade name clearance to multi-currency bank account opening, annual renewals, and UBO register filings, Brigitlink stays with you for the long term.'
+      desc: 'From initial trade name clearance to multi-currency bank account opening, annual renewals, and UBO register filings, Brightlink stays with you for the long term.'
     }
   ];
 
@@ -57,15 +57,15 @@ export const RakWhyBrigitlink = ({ onOpenConsultation }) => {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF5EC] border border-[#DECBB5] text-[#8C5E28] text-xs font-bold tracking-wider uppercase font-heading shadow-2xs">
             <Award className="w-3.5 h-3.5 text-[#B8864B]" />
-            <span>THE BRIGITLINK DIFFERENCE</span>
+            <span>THE Brightlink DIFFERENCE</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight font-heading">
-            Why Partner with Brigitlink for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">RAK Offshore</span>
+            Why Partner with Brightlink for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">RAK Offshore</span>
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            Offshore company formation requires precision drafting, regulatory compliance, and reliable ongoing agent representation. Discover why international clients trust Brigitlink.
+            Offshore company formation requires precision drafting, regulatory compliance, and reliable ongoing agent representation. Discover why international clients trust Brightlink.
           </p>
         </div>
 
@@ -110,4 +110,4 @@ export const RakWhyBrigitlink = ({ onOpenConsultation }) => {
   );
 };
 
-export default RakWhyBrigitlink;
+export default RakWhyBrightlink;

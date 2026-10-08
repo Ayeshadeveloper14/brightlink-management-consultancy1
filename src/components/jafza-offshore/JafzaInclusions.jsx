@@ -80,7 +80,7 @@ export const JafzaInclusions = () => {
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            Every JAFZA Offshore formation managed by Brigitlink includes an institutional-grade corporate deliverable kit, prepared to the highest legal standards.
+            Every JAFZA Offshore formation managed by Brightlink includes an institutional-grade corporate deliverable kit, prepared to the highest legal standards.
           </p>
         </div>
 

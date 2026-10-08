@@ -13,14 +13,14 @@ export const ProServicesFAQ = ({ onOpenConsultation }) => {
     },
     {
       question: 'Why should our company outsource PRO services instead of hiring an in-house PRO?',
-      answer: 'Hiring an in-house PRO requires paying a fixed monthly salary (AED 8,000–18,000+), annual flights, medical insurance, gratuity, and company vehicle expenses. Outsourcing to Brigitlink gives you a complete team of senior PRO officers at a fraction of the cost (from AED 2,200/month or pay-per-transaction), guarantees 100% SLA uptime with no sick days or holidays, and provides direct ministerial network connections across all Emirates.'
+      answer: 'Hiring an in-house PRO requires paying a fixed monthly salary (AED 8,000–18,000+), annual flights, medical insurance, gratuity, and company vehicle expenses. Outsourcing to Brightlink gives you a complete team of senior PRO officers at a fraction of the cost (from AED 2,200/month or pay-per-transaction), guarantees 100% SLA uptime with no sick days or holidays, and provides direct ministerial network connections across all Emirates.'
     },
     {
       question: 'What is an Establishment Card and why does my business need one?',
       answer: 'An Establishment Card (also known as a Company Immigration Card or Labour Establishment Card) is a mandatory document registered with the GDRFA and MOHRE. It registers your company in the federal immigration system, enabling you to issue work permits, sponsor employee visas, apply for partner visas, and hire foreign staff in the UAE.'
     },
     {
-      question: 'How does Brigitlink protect our company from late renewal fines and compliance penalties?',
+      question: 'How does Brightlink protect our company from late renewal fines and compliance penalties?',
       answer: 'We provide automated compliance tracking for all your trade licenses, establishment cards, employee visas, labor cards, and tenancy contracts (Ejari). Our system triggers milestone renewal alerts at 60, 30, and 15 days before expiration, initiating processing before deadline cut-offs to eliminate expensive ministerial delay fines.'
     },
     {
@@ -28,7 +28,7 @@ export const ProServicesFAQ = ({ onOpenConsultation }) => {
       answer: 'Under our express corporate routing, entry permits are typically issued within 24 to 48 hours. Medical fitness tests can be expedited with VIP 30-minute to 2-hour turnaround times through Smart Salem centers, and biometric Emirates ID capture is scheduled on the same or next business day, completing full stamping in 3 to 5 working days.'
     },
     {
-      question: 'Can Brigitlink handle quota increases and Tawjeeh training sessions?',
+      question: 'Can Brightlink handle quota increases and Tawjeeh training sessions?',
       answer: 'Yes. We prepare and submit company quota increase applications to MOHRE, including office inspection clearance and required commercial justifications. We also coordinate mandatory Tawjeeh orientation bookings for newly recruited workers to ensure full compliance with UAE Labor Law.'
     },
     {
@@ -37,7 +37,7 @@ export const ProServicesFAQ = ({ onOpenConsultation }) => {
     },
     {
       question: 'How are official government fees billed and tracked?',
-      answer: 'Brigitlink operates on total transparency. Every government transaction is backed by the official government electronic receipt (e-voucher / sadad receipt) reflecting the exact ministerial fee. Clients can opt for an advance deposit corporate escrow account or direct reimbursement per application with itemized monthly statements.'
+      answer: 'Brightlink operates on total transparency. Every government transaction is backed by the official government electronic receipt (e-voucher / sadad receipt) reflecting the exact ministerial fee. Clients can opt for an advance deposit corporate escrow account or direct reimbursement per application with itemized monthly statements.'
     }
   ];
 

@@ -64,7 +64,7 @@ export const AjmanCompliance = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            Maintaining an active offshore vehicle in good standing requires consistent compliance. Brigitlink oversees all statutory deadlines to ensure continuous corporate protection.
+            Maintaining an active offshore vehicle in good standing requires consistent compliance. Brightlink oversees all statutory deadlines to ensure continuous corporate protection.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export const AjmanCompliance = ({ onOpenConsultation }) => {
           <div className="flex items-center gap-3">
             <ShieldCheck className="w-6 h-6 text-[#B8864B] shrink-0" />
             <span className="text-xs sm:text-sm text-[#334155] font-medium">
-              Brigitlink provides automated 60-day renewal alerts and issues official Certificates of Good Standing upon request.
+              Brightlink provides automated 60-day renewal alerts and issues official Certificates of Good Standing upon request.
             </span>
           </div>
 

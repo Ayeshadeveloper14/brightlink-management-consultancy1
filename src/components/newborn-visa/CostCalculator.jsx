@@ -16,7 +16,7 @@ export const CostCalculator = () => {
 
   const handleWhatsAppQuote = () => {
     const text = encodeURIComponent(
-      `Hello Brigitlink! I calculated my newborn visa fees (${sponsorType.toUpperCase()} sponsor, ${certOption} birth certificate) at approximately AED ${totalGovFee}. Please confirm and send me the itemized quote.`
+      `Hello Brightlink! I calculated my newborn visa fees (${sponsorType.toUpperCase()} sponsor, ${certOption} birth certificate) at approximately AED ${totalGovFee}. Please confirm and send me the itemized quote.`
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

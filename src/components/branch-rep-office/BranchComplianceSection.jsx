@@ -106,7 +106,7 @@ export const BranchComplianceSection = ({ onOpenConsultation }) => {
 
                 <div className="mt-5 pt-3.5 border-t border-[#DECBB5]/60 flex items-center gap-1.5 text-xs font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Managed under Brigitlink Corporate PRO</span>
+                  <span>Managed under Brightlink Corporate PRO</span>
                 </div>
               </motion.div>
             );

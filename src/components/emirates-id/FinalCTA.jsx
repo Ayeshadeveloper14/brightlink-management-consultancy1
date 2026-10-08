@@ -21,7 +21,7 @@ export const FinalCTA = ({ onOpenConsultation }) => {
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent('Hello Brigitlink, I would like to inquire about Emirates ID application and renewal services.');
+    const text = encodeURIComponent('Hello Brightlink, I would like to inquire about Emirates ID application and renewal services.');
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
@@ -49,7 +49,7 @@ export const FinalCTA = ({ onOpenConsultation }) => {
 
         {/* Supporting text */}
         <p className="text-base sm:text-lg text-[#555555] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-          Let Brigitlink handle your Emirates ID application, renewal, replacement, and documentation support. Eliminate government queues, avoid fines, and receive your card with peace of mind.
+          Let Brightlink handle your Emirates ID application, renewal, replacement, and documentation support. Eliminate government queues, avoid fines, and receive your card with peace of mind.
         </p>
 
         {/* CTA Buttons */}

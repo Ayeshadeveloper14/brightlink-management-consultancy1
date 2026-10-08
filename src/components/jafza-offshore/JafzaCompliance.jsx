@@ -70,7 +70,7 @@ export const JafzaCompliance = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            Maintaining a JAFZA Offshore entity in pristine legal standing requires disciplined statutory adherence. Brigitlink oversees your annual maintenance so your corporate vehicle remains fully protected and legally robust.
+            Maintaining a JAFZA Offshore entity in pristine legal standing requires disciplined statutory adherence. Brightlink oversees your annual maintenance so your corporate vehicle remains fully protected and legally robust.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export const JafzaCompliance = ({ onOpenConsultation }) => {
 
                 <div className="pt-3 mt-3 border-t border-[#F5F1EB] flex items-center gap-1.5 text-[11px] font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Managed by Brigitlink</span>
+                  <span>Managed by Brightlink</span>
                 </div>
               </motion.div>
             );

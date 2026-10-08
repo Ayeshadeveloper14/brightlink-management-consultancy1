@@ -61,7 +61,7 @@ export const RelatedServices = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#B8864B] font-heading block mb-2">
-              Brigitlink Services
+              Brightlink Services
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight font-heading">
               Related services

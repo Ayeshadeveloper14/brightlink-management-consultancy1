@@ -28,7 +28,7 @@ export const Hero = ({ onOpenConsultation }) => {
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent('Hello Brigitlink, I would like to inquire about Amer Center GDRFA visa and immigration services.');
+    const text = encodeURIComponent('Hello Brightlink, I would like to inquire about Amer Center GDRFA visa and immigration services.');
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
@@ -154,7 +154,7 @@ export const Hero = ({ onOpenConsultation }) => {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="text-base sm:text-lg text-[#555555] leading-relaxed max-w-xl font-normal"
             >
-              Skip the ministerial queues and bureaucratic delays. Brigitlink provides end-to-end Amer Center assistance for family visas, residency renewals, Emirates ID typing, in-country status changes, and corporate government clearances across Dubai and the UAE.
+              Skip the ministerial queues and bureaucratic delays. Brightlink provides end-to-end Amer Center assistance for family visas, residency renewals, Emirates ID typing, in-country status changes, and corporate government clearances across Dubai and the UAE.
             </motion.p>
 
             {/* CTA Buttons */}

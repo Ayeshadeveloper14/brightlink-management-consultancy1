@@ -13,7 +13,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export const JafzaWhyBrigitlink = ({ onOpenConsultation }) => {
+export const JafzaWhyBrightlink = ({ onOpenConsultation }) => {
   const shouldReduceMotion = useReducedMotion();
 
   const services = [
@@ -66,11 +66,11 @@ export const JafzaWhyBrigitlink = ({ onOpenConsultation }) => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight font-heading">
-            Why Partner with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Brigitlink</span>
+            Why Partner with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Brightlink</span>
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            Offshore company formation in Dubai demands legal precision, strict compliance oversight, and reliable registered agent representation. Here is how Brigitlink protects your corporate interests.
+            Offshore company formation in Dubai demands legal precision, strict compliance oversight, and reliable registered agent representation. Here is how Brightlink protects your corporate interests.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export const JafzaWhyBrigitlink = ({ onOpenConsultation }) => {
 
                 <div className="pt-4 mt-4 border-t border-[#F5F1EB] flex items-center gap-1.5 text-[11px] font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Corporate Standard</span>
+                  <span>Brightlink Corporate Standard</span>
                 </div>
               </motion.div>
             );
@@ -115,4 +115,4 @@ export const JafzaWhyBrigitlink = ({ onOpenConsultation }) => {
   );
 };
 
-export default JafzaWhyBrigitlink;
+export default JafzaWhyBrightlink;

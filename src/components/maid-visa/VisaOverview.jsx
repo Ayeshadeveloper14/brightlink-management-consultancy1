@@ -10,7 +10,7 @@ export const VisaOverview = ({ onOpenConsultation }) => {
       onOpenConsultation('Maid Visa / Domestic Worker Sponsorship');
     } else {
       const text = encodeURIComponent(
-        'Hello Brigitlink! I would like to get a free quote for sponsoring a domestic worker / maid.'
+        'Hello Brightlink! I would like to get a free quote for sponsoring a domestic worker / maid.'
       );
       window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
     }

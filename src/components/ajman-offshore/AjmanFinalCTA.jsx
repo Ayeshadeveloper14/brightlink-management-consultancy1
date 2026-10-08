@@ -53,7 +53,7 @@ export const AjmanFinalCTA = ({ onOpenConsultation }) => {
               </h2>
 
               <p className="text-base text-[#475569] leading-relaxed">
-                We invite you to share your ownership structure, business purpose or investment objectives so Brigitlink can help determine the appropriate offshore setup route.
+                We invite you to share your ownership structure, business purpose or investment objectives so Brightlink can help determine the appropriate offshore setup route.
               </p>
             </div>
 

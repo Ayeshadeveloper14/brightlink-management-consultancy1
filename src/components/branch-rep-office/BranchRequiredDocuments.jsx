@@ -128,7 +128,7 @@ export const BranchRequiredDocuments = ({ onOpenConsultation }) => {
             Required Documents for Branch Setup
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
-            International branch filings require cross-border legalisation. Brigitlink audits every parent corporate document prior to submission to ensure compliance with UAE Ministry of Economy and DET requirements.
+            International branch filings require cross-border legalisation. Brightlink audits every parent corporate document prior to submission to ensure compliance with UAE Ministry of Economy and DET requirements.
           </p>
         </div>
 

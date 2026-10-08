@@ -11,7 +11,7 @@ import {
   Sparkles 
 } from 'lucide-react';
 
-export const WhyChooseBrigitlink = () => {
+export const WhyChooseBrightlink = () => {
   const shouldReduceMotion = useReducedMotion();
 
   const reasons = [
@@ -65,10 +65,10 @@ export const WhyChooseBrigitlink = () => {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#222222] tracking-tight mb-4 font-heading">
-            Why Choose Brigitlink for Your Golden Visa?
+            Why Choose Brightlink for Your Golden Visa?
           </h2>
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            With over a decade of government liaison experience in Business Bay, Dubai, Brigitlink has guided thousands of high-net-worth investors and executives to secure long-term UAE residency.
+            With over a decade of government liaison experience in Business Bay, Dubai, Brightlink has guided thousands of high-net-worth investors and executives to secure long-term UAE residency.
           </p>
         </motion.div>
 
@@ -115,7 +115,7 @@ export const WhyChooseBrigitlink = () => {
 
                   <div className="mt-5 pt-3 border-t border-[#F5EFE6] flex items-center gap-1.5 text-xs font-semibold text-[#B8864B]">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Brigitlink Benchmark</span>
+                    <span>Brightlink Benchmark</span>
                   </div>
                 </div>
               </motion.div>

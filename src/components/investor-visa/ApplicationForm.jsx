@@ -19,7 +19,7 @@ export const ApplicationForm = () => {
 
     // Send inquiry via WhatsApp for direct assistance
     const text = encodeURIComponent(
-      `Hello Brigitlink! I submitted an Investor Visa inquiry:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || 'Not provided'}\nService: ${formData.service}`
+      `Hello Brightlink! I submitted an Investor Visa inquiry:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || 'Not provided'}\nService: ${formData.service}`
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
     setIsSubmitted(true);

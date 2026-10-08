@@ -48,7 +48,7 @@ export const AjmanFormationJourney = ({ onOpenConsultation }) => {
       step: '05',
       title: 'Registered Agent Submission',
       summary: 'Submit the application and required documents through the appropriate registered agent.',
-      description: 'Brigitlink, as your authorized Registered Agent, lodges the official electronic application through the Ajman Free Zone Authority offshore registration portal.'
+      description: 'Brightlink, as your authorized Registered Agent, lodges the official electronic application through the Ajman Free Zone Authority offshore registration portal.'
     },
     {
       step: '06',

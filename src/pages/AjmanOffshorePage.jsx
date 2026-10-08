@@ -10,14 +10,14 @@ import { AjmanCostTimeline } from '../components/ajman-offshore/AjmanCostTimelin
 import { AjmanCompliance } from '../components/ajman-offshore/AjmanCompliance.jsx';
 import { AjmanVsMainland } from '../components/ajman-offshore/AjmanVsMainland.jsx';
 import { AjmanTriComparison } from '../components/ajman-offshore/AjmanTriComparison.jsx';
-import { AjmanWhyBrigitlink } from '../components/ajman-offshore/AjmanWhyBrigitlink.jsx';
+import { AjmanWhyBrightlink } from '../components/ajman-offshore/AjmanWhyBrightlink.jsx';
 import { AjmanFaq, FAQ_DATA_AJMAN_OFFSHORE } from '../components/ajman-offshore/AjmanFaq.jsx';
 import { AjmanFinalCTA } from '../components/ajman-offshore/AjmanFinalCTA.jsx';
 
 export const AjmanOffshorePage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // 1. Set SEO Page Title
-    document.title = 'Ajman Offshore Company Formation | Brigitlink Business Setup Dubai';
+    document.title = 'Ajman Offshore Company Formation | Brightlink Business Setup Dubai';
 
     // 2. Set Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -26,7 +26,7 @@ export const AjmanOffshorePage = ({ onOpenConsultation }) => {
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = 'Set up an Ajman Offshore company with Brigitlink. Cost-effective UAE offshore entity for holding companies, asset ownership, intellectual property custody, and cross-border business structures.';
+    metaDescription.content = 'Set up an Ajman Offshore company with Brightlink. Cost-effective UAE offshore entity for holding companies, asset ownership, intellectual property custody, and cross-border business structures.';
 
     // 3. Inject Schema.org JSON-LD for Service & FAQ
     const schemaScriptId = 'ajman-offshore-schema';
@@ -46,7 +46,7 @@ export const AjmanOffshorePage = ({ onOpenConsultation }) => {
           'name': 'Ajman Offshore Company Formation',
           'provider': {
             '@type': 'LocalBusiness',
-            'name': 'Brigitlink Typing & Consulting',
+            'name': 'Brightlink Typing & Consulting',
             'telephone': '+971566556645',
             'url': window.location.origin
           },
@@ -119,8 +119,8 @@ export const AjmanOffshorePage = ({ onOpenConsultation }) => {
       {/* 11. Ajman Offshore vs RAK vs JAFZA */}
       <AjmanTriComparison onOpenConsultation={onOpenConsultation} />
 
-      {/* 12. Why Brigitlink */}
-      <AjmanWhyBrigitlink onOpenConsultation={onOpenConsultation} />
+      {/* 12. Why Brightlink */}
+      <AjmanWhyBrightlink onOpenConsultation={onOpenConsultation} />
 
       {/* 13. FAQ Section */}
       <AjmanFaq onOpenConsultation={onOpenConsultation} />

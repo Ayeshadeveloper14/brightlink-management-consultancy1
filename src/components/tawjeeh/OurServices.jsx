@@ -57,7 +57,7 @@ export const OurServices = ({ onOpenConsultation }) => {
             Our Tawjeeh Services
           </h2>
           <p className="text-sm sm:text-base text-[#666666]">
-            Brigitlink coordinates every phase of your Tawjeeh orientation requirements, delivering streamlined scheduling, documentation pre-checks, and official certificate processing.
+            Brightlink coordinates every phase of your Tawjeeh orientation requirements, delivering streamlined scheduling, documentation pre-checks, and official certificate processing.
           </p>
         </div>
 

@@ -41,7 +41,7 @@ export const Hero = ({ onOpenConsultation }) => {
 
             {/* Supporting Paragraph */}
             <p className="text-base sm:text-lg text-[#555555] leading-relaxed max-w-2xl mb-8">
-              Brigitlink assists individuals and businesses with official document attestation, notarization, and consular legalization for employment, family visas, educational admissions, commercial business setup, and all government procedures across the UAE.
+              Brightlink assists individuals and businesses with official document attestation, notarization, and consular legalization for employment, family visas, educational admissions, commercial business setup, and all government procedures across the UAE.
             </p>
 
             {/* CTA Buttons */}

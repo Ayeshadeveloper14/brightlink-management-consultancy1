@@ -8,14 +8,14 @@ import { RakProcessTimeline } from '../components/rak-offshore/RakProcessTimelin
 import { RakDocumentsChecklist } from '../components/rak-offshore/RakDocumentsChecklist.jsx';
 import { RakComplianceRenewal } from '../components/rak-offshore/RakComplianceRenewal.jsx';
 import { RakBankingSupport } from '../components/rak-offshore/RakBankingSupport.jsx';
-import { RakWhyBrigitlink } from '../components/rak-offshore/RakWhyBrigitlink.jsx';
+import { RakWhyBrightlink } from '../components/rak-offshore/RakWhyBrightlink.jsx';
 import { RakFaq, FAQ_DATA_RAK_OFFSHORE } from '../components/rak-offshore/RakFaq.jsx';
 import { RakFinalCTA } from '../components/rak-offshore/RakFinalCTA.jsx';
 
 export const RakOffshorePage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // 1. Set SEO Page Title
-    document.title = 'RAK Offshore (RAK ICC) Company Formation | Brigitlink Business Setup Dubai';
+    document.title = 'RAK Offshore (RAK ICC) Company Formation | Brightlink Business Setup Dubai';
 
     // 2. Set Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -24,7 +24,7 @@ export const RakOffshorePage = ({ onOpenConsultation }) => {
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = 'Incorporate a RAK ICC offshore entity with Brigitlink. Premier UAE offshore vehicle for global asset protection, Dubai freehold property holding via DLD, international trading, and multi-currency banking.';
+    metaDescription.content = 'Incorporate a RAK ICC offshore entity with Brightlink. Premier UAE offshore vehicle for global asset protection, Dubai freehold property holding via DLD, international trading, and multi-currency banking.';
 
     // 3. Inject Schema.org JSON-LD for Service & FAQ
     const schemaScriptId = 'rak-offshore-schema';
@@ -44,7 +44,7 @@ export const RakOffshorePage = ({ onOpenConsultation }) => {
           'name': 'RAK ICC Offshore Company Formation',
           'provider': {
             '@type': 'LocalBusiness',
-            'name': 'Brigitlink Typing & Consulting',
+            'name': 'Brightlink Typing & Consulting',
             'telephone': '+971566556645',
             'url': window.location.origin
           },
@@ -111,8 +111,8 @@ export const RakOffshorePage = ({ onOpenConsultation }) => {
       {/* 9. Corporate Banking & Treasury Solutions */}
       <RakBankingSupport onOpenConsultation={onOpenConsultation} />
 
-      {/* 10. Why Choose Brigitlink */}
-      <RakWhyBrigitlink onOpenConsultation={onOpenConsultation} />
+      {/* 10. Why Choose Brightlink */}
+      <RakWhyBrightlink onOpenConsultation={onOpenConsultation} />
 
       {/* 11. Comprehensive FAQs */}
       <RakFaq onOpenConsultation={onOpenConsultation} />

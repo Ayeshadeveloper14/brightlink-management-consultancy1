@@ -125,7 +125,7 @@ export const BranchSetupJourney = ({ onOpenConsultation }) => {
       shortTitle: 'Activation & Visas',
       icon: UserCheck,
       summary: 'Support applicable establishment cards, manager/staff visas, banking, and tax onboarding.',
-      detailedDescription: 'Following license issuance, Brigitlink activates your operational capacity: issuing GDRFA Immigration and MOHRE Establishment Cards, processing the General Manager and international staff residency visas, preparing corporate bank account applications, and registering with the FTA.',
+      detailedDescription: 'Following license issuance, Brightlink activates your operational capacity: issuing GDRFA Immigration and MOHRE Establishment Cards, processing the General Manager and international staff residency visas, preparing corporate bank account applications, and registering with the FTA.',
       deliverables: [
         'GDRFA Immigration & MOHRE Corporate Establishment Cards',
         'General Manager & expatriate employee 2-year residency visas',
@@ -152,7 +152,7 @@ export const BranchSetupJourney = ({ onOpenConsultation }) => {
             Branch Setup Journey in Dubai
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
-            From parent company constitutional document preparation and cross-border embassy legalisation to DET licensing and immigration establishment cards, Brigitlink navigates all 8 phases.
+            From parent company constitutional document preparation and cross-border embassy legalisation to DET licensing and immigration establishment cards, Brightlink navigates all 8 phases.
           </p>
         </div>
 
@@ -237,7 +237,7 @@ export const BranchSetupJourney = ({ onOpenConsultation }) => {
                   Phase Deliverables
                 </span>
                 <span className="text-[11px] font-semibold text-[#8C5E28] bg-white px-2.5 py-0.5 rounded-full border border-[#DECBB5]/70">
-                  Brigitlink Execution
+                  Brightlink Execution
                 </span>
               </div>
 

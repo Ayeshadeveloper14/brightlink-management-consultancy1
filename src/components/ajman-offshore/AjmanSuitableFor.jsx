@@ -120,7 +120,7 @@ export const AjmanSuitableFor = ({ onOpenConsultation }) => {
         <div className="bg-gradient-to-r from-[#0F172A] to-[#1E293B] rounded-3xl p-6 sm:p-8 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-lg font-bold font-heading text-white">
-              Evaluate Your Holding Structure with Brigitlink
+              Evaluate Your Holding Structure with Brightlink
             </h4>
             <p className="text-xs text-neutral-300 max-w-xl">
               We review your asset types, target banking institutions, and planned transactions to confirm if Ajman Offshore is the optimal fit for your goals.

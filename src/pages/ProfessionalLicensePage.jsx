@@ -7,14 +7,14 @@ import { RequiredDocumentsChecklist } from '../components/professional-license/R
 import { CostAndTimelineSection } from '../components/professional-license/CostAndTimelineSection.jsx';
 import { ComplianceObligations } from '../components/professional-license/ComplianceObligations.jsx';
 import { WhoIsThisFor } from '../components/professional-license/WhoIsThisFor.jsx';
-import { WhyBrigitlinkSupport } from '../components/professional-license/WhyBrigitlinkSupport.jsx';
+import { WhyBrightlinkSupport } from '../components/professional-license/WhyBrightlinkSupport.jsx';
 import { ProfessionalLicenseFaq, FAQ_DATA_PROFESSIONAL_LICENSE } from '../components/professional-license/ProfessionalLicenseFaq.jsx';
 import { ProfessionalLicenseFinalCTA } from '../components/professional-license/ProfessionalLicenseFinalCTA.jsx';
 
 export const ProfessionalLicensePage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // 1. Set SEO Page Title
-    document.title = 'Professional License Dubai | Mainland Company Setup | Brigitlink';
+    document.title = 'Professional License Dubai | Mainland Company Setup | Brightlink';
 
     // 2. Set Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -23,7 +23,7 @@ export const ProfessionalLicensePage = ({ onOpenConsultation }) => {
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = 'Set up a Dubai Mainland Professional License with 100% foreign ownership. Complete DET company formation for consulting, IT, marketing, and service firms with Brigitlink.';
+    metaDescription.content = 'Set up a Dubai Mainland Professional License with 100% foreign ownership. Complete DET company formation for consulting, IT, marketing, and service firms with Brightlink.';
 
     // 3. Inject Schema.org JSON-LD for Service & FAQ
     const schemaScriptId = 'professional-license-schema';
@@ -43,7 +43,7 @@ export const ProfessionalLicensePage = ({ onOpenConsultation }) => {
           'name': 'Mainland Professional License in Dubai',
           'provider': {
             '@type': 'LocalBusiness',
-            'name': 'Brigitlink Typing & Consulting',
+            'name': 'Brightlink Typing & Consulting',
             'telephone': '+971566556645',
             'url': window.location.origin
           },
@@ -107,8 +107,8 @@ export const ProfessionalLicensePage = ({ onOpenConsultation }) => {
       {/* 8. Who is This For? (Business Profiles) */}
       <WhoIsThisFor onOpenConsultation={onOpenConsultation} />
 
-      {/* 9. Why Brigitlink Support */}
-      <WhyBrigitlinkSupport onOpenConsultation={onOpenConsultation} />
+      {/* 9. Why Brightlink Support */}
+      <WhyBrightlinkSupport onOpenConsultation={onOpenConsultation} />
 
       {/* 10. Frequently Asked Questions (Accordion) */}
       <ProfessionalLicenseFaq onOpenConsultation={onOpenConsultation} />

@@ -8,14 +8,14 @@ import { LlcBusinessActivities } from '../components/llc-company/LlcBusinessActi
 import { LlcCostAndTimeline } from '../components/llc-company/LlcCostAndTimeline.jsx';
 import { LlcComplianceAndSetup } from '../components/llc-company/LlcComplianceAndSetup.jsx';
 import { LlcVsOtherStructures } from '../components/llc-company/LlcVsOtherStructures.jsx';
-import { WhyBrigitlinkLlc } from '../components/llc-company/WhyBrigitlinkLlc.jsx';
+import { WhyBrightlinkLlc } from '../components/llc-company/WhyBrightlinkLlc.jsx';
 import { LlcFaqAccordion, FAQ_DATA_LLC } from '../components/llc-company/LlcFaqAccordion.jsx';
 import { LlcFinalCTA } from '../components/llc-company/LlcFinalCTA.jsx';
 
 export const LlcCompanyPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // 1. Set SEO Page Title
-    document.title = 'LLC Company Formation Dubai | Mainland Business Setup | Brigitlink';
+    document.title = 'LLC Company Formation Dubai | Mainland Business Setup | Brightlink';
 
     // 2. Set Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -24,7 +24,7 @@ export const LlcCompanyPage = ({ onOpenConsultation }) => {
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = 'Form a Dubai Mainland LLC with 100% foreign ownership and limited liability protection. Complete trade licensing, MOA, premises, establishment cards, and visas with Brigitlink.';
+    metaDescription.content = 'Form a Dubai Mainland LLC with 100% foreign ownership and limited liability protection. Complete trade licensing, MOA, premises, establishment cards, and visas with Brightlink.';
 
     // 3. Inject Schema.org JSON-LD for Service & FAQ
     const schemaScriptId = 'llc-company-schema';
@@ -44,7 +44,7 @@ export const LlcCompanyPage = ({ onOpenConsultation }) => {
           'name': 'Mainland LLC Company Formation in Dubai',
           'provider': {
             '@type': 'LocalBusiness',
-            'name': 'Brigitlink Typing & Consulting',
+            'name': 'Brightlink Typing & Consulting',
             'telephone': '+971566556645',
             'url': window.location.origin
           },
@@ -111,8 +111,8 @@ export const LlcCompanyPage = ({ onOpenConsultation }) => {
       {/* 9. LLC vs Other Corporate Structures Comparison */}
       <LlcVsOtherStructures onOpenConsultation={onOpenConsultation} />
 
-      {/* 10. Why Brigitlink LLC Support */}
-      <WhyBrigitlinkLlc onOpenConsultation={onOpenConsultation} />
+      {/* 10. Why Brightlink LLC Support */}
+      <WhyBrightlinkLlc onOpenConsultation={onOpenConsultation} />
 
       {/* 11. FAQ Accordion (12 Questions) */}
       <LlcFaqAccordion onOpenConsultation={onOpenConsultation} />

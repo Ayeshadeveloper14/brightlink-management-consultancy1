@@ -5,14 +5,14 @@ import { ServicesWeHandle } from '../components/pro-services/ServicesWeHandle.js
 import { BusinessRequirements } from '../components/pro-services/BusinessRequirements.jsx';
 import { ProcessTimeline } from '../components/pro-services/ProcessTimeline.jsx';
 import { PricingFeesOverview } from '../components/pro-services/PricingFeesOverview.jsx';
-import { WhyChooseBrigitlink } from '../components/pro-services/WhyChooseBrigitlink.jsx';
+import { WhyChooseBrightlink } from '../components/pro-services/WhyChooseBrightlink.jsx';
 import { ProServicesFAQ } from '../components/pro-services/ProServicesFAQ.jsx';
 import { ProServicesFinalCTA } from '../components/pro-services/ProServicesFinalCTA.jsx';
 
 export const ProServicesPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'Corporate PRO Services in Dubai & UAE | Brigitlink Government Liaison';
+    document.title = 'Corporate PRO Services in Dubai & UAE | Brightlink Government Liaison';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -22,14 +22,14 @@ export const ProServicesPage = ({ onOpenConsultation }) => {
     }
     metaDesc.setAttribute(
       'content',
-      'Outsource your corporate PRO services in Dubai & UAE with Brigitlink. Fast-track employment visas, labour cards, trade licence renewals, MOHRE work permits, and government liaison with 100% compliance.'
+      'Outsource your corporate PRO services in Dubai & UAE with Brightlink. Fast-track employment visas, labour cards, trade licence renewals, MOHRE work permits, and government liaison with 100% compliance.'
     );
 
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'Corporate PRO Services in Dubai & UAE | Brigitlink Government Liaison'
+        'Corporate PRO Services in Dubai & UAE | Brightlink Government Liaison'
       );
     }
 
@@ -37,7 +37,7 @@ export const ProServicesPage = ({ onOpenConsultation }) => {
     if (ogDesc) {
       ogDesc.setAttribute(
         'content',
-        'Outsource your corporate PRO services in Dubai & UAE with Brigitlink. Fast-track employment visas, labour cards, trade licence renewals, MOHRE work permits, and government liaison with 100% compliance.'
+        'Outsource your corporate PRO services in Dubai & UAE with Brightlink. Fast-track employment visas, labour cards, trade licence renewals, MOHRE work permits, and government liaison with 100% compliance.'
       );
     }
 
@@ -66,8 +66,8 @@ export const ProServicesPage = ({ onOpenConsultation }) => {
       {/* 6. Pricing Models & Government Fees Overview */}
       <PricingFeesOverview onOpenConsultation={onOpenConsultation} />
 
-      {/* 7. Why Choose Brigitlink */}
-      <WhyChooseBrigitlink />
+      {/* 7. Why Choose Brightlink */}
+      <WhyChooseBrightlink />
 
       {/* 8. Interactive FAQ Accordion */}
       <ProServicesFAQ onOpenConsultation={onOpenConsultation} />

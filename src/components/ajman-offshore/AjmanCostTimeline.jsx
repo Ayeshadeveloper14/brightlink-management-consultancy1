@@ -122,7 +122,7 @@ export const AjmanCostTimeline = ({ onOpenConsultation }) => {
             <div className="p-3.5 rounded-xl bg-[#FAF7F0] border border-[#DECBB5] text-[11px] text-[#64748B] leading-relaxed flex items-start gap-2">
               <Info className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
               <span>
-                <strong>Please Note:</strong> Brigitlink does not guarantee statutory timeframes. Timeframes are presented strictly as indicative guidelines, as actual review intervals vary based on registry and banking compliance checks.
+                <strong>Please Note:</strong> Brightlink does not guarantee statutory timeframes. Timeframes are presented strictly as indicative guidelines, as actual review intervals vary based on registry and banking compliance checks.
               </span>
             </div>
           </div>

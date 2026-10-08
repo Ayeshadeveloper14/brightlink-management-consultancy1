@@ -63,7 +63,7 @@ export const LlcFinalCTA = ({ onOpenConsultation }) => {
 
           {/* Supporting Text */}
           <p className="mt-4 text-sm sm:text-base text-neutral-300 leading-relaxed max-w-2xl mx-auto font-normal">
-            Share your intended commercial activity and business requirements with Brigitlink so our advisors can guide you through the appropriate company formation, licensing, and operational setup process.
+            Share your intended commercial activity and business requirements with Brightlink so our advisors can guide you through the appropriate company formation, licensing, and operational setup process.
           </p>
 
           {/* Activity Input Form */}

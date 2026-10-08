@@ -388,7 +388,7 @@ export const SERVICES_DATA = [
     popular: true,
     processingTime: '24 - 48 Hours',
     validity: 'Annual Retainer / Per-Transaction',
-    overview: 'Outsource your company Public Relations Officer (PRO) operations to Brigitlink. We handle work permits, labour cards, establishment card renewals, staff onboarding, quota expansions, and ministerial liaison across all Emirates.',
+    overview: 'Outsource your company Public Relations Officer (PRO) operations to Brightlink. We handle work permits, labour cards, establishment card renewals, staff onboarding, quota expansions, and ministerial liaison across all Emirates.',
     eligibility: [
       'UAE Mainland companies (DED / DET across Dubai, Abu Dhabi, Sharjah)',
       'Free Zone enterprises (DMCC, DIFC, DWTC, DAFZA, JAFZA, IFZA, Meydan, RAKEZ)',
@@ -420,7 +420,7 @@ export const SERVICES_DATA = [
     popular: true,
     processingTime: '24 - 48 Hours',
     validity: '1 - 3 Years Residency',
-    overview: 'Complete Amer Center services in the UAE. Brigitlink provides end-to-end facilitation for family visas, work permits, status changes, residency renewals, and Emirates ID processing under official GDRFA standards.',
+    overview: 'Complete Amer Center services in the UAE. Brightlink provides end-to-end facilitation for family visas, work permits, status changes, residency renewals, and Emirates ID processing under official GDRFA standards.',
     eligibility: [
       'Expatriate residents sponsoring spouse, children, or parents in Dubai',
       'Mainland & Free Zone corporate businesses sponsoring employees',
@@ -452,7 +452,7 @@ export const SERVICES_DATA = [
     popular: true,
     processingTime: '24 - 48 Hours',
     validity: 'Annual / Per-Permit',
-    overview: 'Simplifying your Tasheel & MOHRE transactions. Brigitlink provides end-to-end facilitation for employee work permits, labour contracts, establishment file management, visa quotas, and Wage Protection System (WPS) compliance across Dubai, Abu Dhabi, and the UAE.',
+    overview: 'Simplifying your Tasheel & MOHRE transactions. Brightlink provides end-to-end facilitation for employee work permits, labour contracts, establishment file management, visa quotas, and Wage Protection System (WPS) compliance across Dubai, Abu Dhabi, and the UAE.',
     eligibility: [
       'UAE Mainland commercial entities registered with DED / DET',
       'Free Zone companies registering MOHRE dual work authorisations',
@@ -576,7 +576,7 @@ export const SERVICES_DATA = [
     popular: true,
     processingTime: '3 - 7 Working Days',
     validity: 'Permanent Registered Legal Status',
-    overview: 'Protect your family, real estate, and financial assets in the UAE through structured Will and Last Testament drafting and formal registration services with Brigitlink.',
+    overview: 'Protect your family, real estate, and financial assets in the UAE through structured Will and Last Testament drafting and formal registration services with Brightlink.',
     eligibility: [
       'Expatriate residents and non-Muslim property owners in the UAE',
       'Parents seeking legally registered guardianship protection for minor children',

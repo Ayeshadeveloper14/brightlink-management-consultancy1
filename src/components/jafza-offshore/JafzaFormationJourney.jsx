@@ -62,7 +62,7 @@ export const JafzaFormationJourney = ({ onOpenConsultation }) => {
         'Execution of statutory Ultimate Beneficial Ownership (UBO) declaration under UAE Cabinet Resolution.',
         'Internal AML/CFT risk screening and source of funds narrative validation.',
         'Collection of bank reference letters or certified statements from ultimate beneficiaries.',
-        'Pre-submission compliance auditing by Brigitlink registered agent team.'
+        'Pre-submission compliance auditing by Brightlink registered agent team.'
       ]
     },
     {
@@ -70,7 +70,7 @@ export const JafzaFormationJourney = ({ onOpenConsultation }) => {
       title: 'Registered Agent Filing',
       sub: 'Submit incorporation through the authorized registered agent.',
       details: [
-        'Official electronic dossier lodgement through Brigitlink’s authorized JAFZA agent portal.',
+        'Official electronic dossier lodgement through Brightlink’s authorized JAFZA agent portal.',
         'Statutory registered office address assignment within Dubai territory.',
         'Payment of official JAFZA government incorporation fees and registration dues.',
         'Direct coordination with JAFZA Registry inspection officers.'
@@ -138,7 +138,7 @@ export const JafzaFormationJourney = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            By statutory mandate, JAFZA Offshore entities must be incorporated through an authorized Registered Agent. Brigitlink guides you seamlessly across all nine milestones.
+            By statutory mandate, JAFZA Offshore entities must be incorporated through an authorized Registered Agent. Brightlink guides you seamlessly across all nine milestones.
           </p>
         </div>
 
@@ -231,7 +231,7 @@ export const JafzaFormationJourney = ({ onOpenConsultation }) => {
               <div className="lg:col-span-4 bg-white rounded-2xl p-6 border border-[#DECBB5] shadow-xs space-y-4">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#8C5E28] uppercase tracking-wider">
                   <ShieldCheck className="w-4 h-4 text-[#B8864B]" />
-                  <span>Brigitlink Execution Standards</span>
+                  <span>Brightlink Execution Standards</span>
                 </div>
 
                 <div className="space-y-2 text-xs text-[#475569]">

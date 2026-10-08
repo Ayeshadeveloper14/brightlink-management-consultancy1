@@ -11,7 +11,7 @@ import {
   Award
 } from 'lucide-react';
 
-export const WhyChooseBrigitlink = () => {
+export const WhyChooseBrightlink = () => {
   const shouldReduceMotion = useReducedMotion();
 
   const reasons = [
@@ -65,10 +65,10 @@ export const WhyChooseBrigitlink = () => {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#222222] tracking-tight mb-4 font-heading">
-            Why Choose Brigitlink for Corporate PRO Services?
+            Why Choose Brightlink for Corporate PRO Services?
           </h2>
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            Headquartered in Business Bay, Dubai, Brigitlink delivers seamless, enterprise-grade public relations management to startups, SMEs, and multinational corporations.
+            Headquartered in Business Bay, Dubai, Brightlink delivers seamless, enterprise-grade public relations management to startups, SMEs, and multinational corporations.
           </p>
         </motion.div>
 
@@ -115,7 +115,7 @@ export const WhyChooseBrigitlink = () => {
 
                   <div className="mt-5 pt-3 border-t border-[#F5EFE6] flex items-center gap-1.5 text-xs font-semibold text-[#B8864B]">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Brigitlink Assurance</span>
+                    <span>Brightlink Assurance</span>
                   </div>
                 </div>
               </motion.div>

@@ -24,7 +24,7 @@ export const GoldenVisaFAQ = ({ onOpenConsultation }) => {
       answer: 'No. Unlike standard UAE residency visas which automatically cancel if you remain outside the UAE for more than 180 continuous days, the 10-Year Golden Visa exempts holders from this rule. You can stay outside the UAE for any duration without your residency being invalidated.'
     },
     {
-      question: 'How long does the entire Golden Visa process take with Brigitlink?',
+      question: 'How long does the entire Golden Visa process take with Brightlink?',
       answer: 'The complete process generally takes 3 to 7 working days once your core documents are ready. In-country status change, priority VIP medical fitness examination (with results in 30 minutes via Smart Salem), and Emirates ID biometrics are scheduled seamlessly to ensure maximum speed.'
     },
     {

@@ -21,7 +21,7 @@ export const GoldenVisaFinalCTA = ({ onOpenConsultation }) => {
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent('Hello Brigitlink, I would like to inquire about the UAE 10-Year Golden Visa application. Please guide me through eligibility and fees.');
+    const text = encodeURIComponent('Hello Brightlink, I would like to inquire about the UAE 10-Year Golden Visa application. Please guide me through eligibility and fees.');
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
@@ -49,7 +49,7 @@ export const GoldenVisaFinalCTA = ({ onOpenConsultation }) => {
 
         {/* Supporting text */}
         <p className="text-base sm:text-lg text-[#555555] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-          Whether through property equity, C-level executive salary, or distinguished talent, let Brigitlink handle your official GDRFA & ICP submission with confidentiality and precision.
+          Whether through property equity, C-level executive salary, or distinguished talent, let Brightlink handle your official GDRFA & ICP submission with confidentiality and precision.
         </p>
 
         {/* CTA Buttons */}

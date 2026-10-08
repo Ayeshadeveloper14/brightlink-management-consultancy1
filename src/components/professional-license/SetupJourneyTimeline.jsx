@@ -95,7 +95,7 @@ export const SetupJourneyTimeline = ({ onOpenConsultation }) => {
       shortTitle: 'Business Activation',
       icon: CreditCard,
       summary: 'Establishment cards, corporate bank account guidance, residency visas, and tax onboarding.',
-      detailedDescription: 'Licensing is just day one. Brigitlink handles the critical operational follow-ups: issuing your GDRFA and MOHRE Establishment Cards, processing investor and employee residency visas with VIP medical typing, and guiding your corporate bank account application.',
+      detailedDescription: 'Licensing is just day one. Brightlink handles the critical operational follow-ups: issuing your GDRFA and MOHRE Establishment Cards, processing investor and employee residency visas with VIP medical typing, and guiding your corporate bank account application.',
       deliverables: [
         'GDRFA Immigration & MOHRE Establishment Cards',
         'Shareholder/Investor 2-year residency visas & Emirates IDs',
@@ -122,7 +122,7 @@ export const SetupJourneyTimeline = ({ onOpenConsultation }) => {
             Professional License Setup Journey
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
-            From initial business activity selection to corporate banking and visa issuance, Brigitlink manages each milestone through an orderly, transparent 6-stage lifecycle.
+            From initial business activity selection to corporate banking and visa issuance, Brightlink manages each milestone through an orderly, transparent 6-stage lifecycle.
           </p>
         </div>
 
@@ -207,7 +207,7 @@ export const SetupJourneyTimeline = ({ onOpenConsultation }) => {
                   Stage Deliverables
                 </span>
                 <span className="text-[11px] font-semibold text-[#8C5E28] bg-[#FAF5EC] px-2.5 py-0.5 rounded-full border border-[#DECBB5]/60">
-                  Brigitlink Execution
+                  Brightlink Execution
                 </span>
               </div>
 

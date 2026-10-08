@@ -138,7 +138,7 @@ export const ProcessTimeline = ({ onOpenConsultation }) => {
 
                 <div className="mt-6 pt-3 border-t border-[#F5EFE6] flex items-center gap-1.5 text-xs text-[#777777]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Managed by Brigitlink</span>
+                  <span>Managed by Brightlink</span>
                 </div>
               </motion.div>
             );

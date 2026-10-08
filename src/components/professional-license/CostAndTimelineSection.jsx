@@ -135,7 +135,7 @@ export const CostAndTimelineSection = ({ onOpenConsultation }) => {
             <div className="pt-2 flex items-start gap-2.5 text-xs text-[#64748B]">
               <Info className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
               <p>
-                Brigitlink provides an itemized, line-by-line official quotation before you commit, separating official government vouchers from professional service fees.
+                Brightlink provides an itemized, line-by-line official quotation before you commit, separating official government vouchers from professional service fees.
               </p>
             </div>
           </div>

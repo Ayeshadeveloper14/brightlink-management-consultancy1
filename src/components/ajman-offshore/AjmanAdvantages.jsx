@@ -55,7 +55,7 @@ export const AjmanAdvantages = () => {
     {
       icon: CreditCard,
       title: 'Banking Preparation Support',
-      desc: 'Brigitlink assists in preparing bank-ready corporate documentation and business profiles, subject to commercial bank compliance review and formal approval.'
+      desc: 'Brightlink assists in preparing bank-ready corporate documentation and business profiles, subject to commercial bank compliance review and formal approval.'
     }
   ];
 

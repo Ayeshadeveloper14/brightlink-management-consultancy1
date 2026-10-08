@@ -68,7 +68,7 @@ export const BenefitsAssistance = ({ onOpenConsultation }) => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF5EC] border border-[#E6D7C3] mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#B8864B]" />
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8864B] font-heading">
-              Why Use Brigitlink Assistance
+              Why Use Brightlink Assistance
             </span>
           </div>
 

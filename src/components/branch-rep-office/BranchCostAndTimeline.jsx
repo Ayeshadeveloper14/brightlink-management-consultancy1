@@ -98,7 +98,7 @@ export const BranchCostAndTimeline = ({ onOpenConsultation }) => {
             <div className="pt-2 flex items-start gap-2.5 text-xs text-[#64748B]">
               <Info className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
               <p>
-                Brigitlink prepares a comprehensive, line-by-line financial projection prior to commencement, distinguishing official government and embassy vouchers from professional legal advisory fees.
+                Brightlink prepares a comprehensive, line-by-line financial projection prior to commencement, distinguishing official government and embassy vouchers from professional legal advisory fees.
               </p>
             </div>
           </div>

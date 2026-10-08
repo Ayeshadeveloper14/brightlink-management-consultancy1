@@ -61,7 +61,7 @@ export const RakBankingSupport = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            Opening a bank account for an offshore entity is often considered the most demanding stage of the setup. Brigitlink demystifies the process with proactive compliance preparation and direct banker introductions.
+            Opening a bank account for an offshore entity is often considered the most demanding stage of the setup. Brightlink demystifies the process with proactive compliance preparation and direct banker introductions.
           </p>
         </div>
 

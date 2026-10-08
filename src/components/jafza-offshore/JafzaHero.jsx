@@ -95,7 +95,7 @@ export const JafzaHero = ({ onOpenConsultation }) => {
                 JAFZA Offshore Company Formation <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">in Dubai</span>
               </h1>
               <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
-                Brigitlink helps entrepreneurs, investors and international companies establish a JAFZA Offshore structure for asset ownership, international operations, investments and corporate holding purposes.
+                Brightlink helps entrepreneurs, investors and international companies establish a JAFZA Offshore structure for asset ownership, international operations, investments and corporate holding purposes.
               </p>
             </div>
 

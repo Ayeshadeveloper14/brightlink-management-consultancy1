@@ -64,7 +64,7 @@ export const ProfessionalLicenseFinalCTA = ({ onOpenConsultation }) => {
 
           {/* Supporting Text */}
           <p className="mt-4 text-sm sm:text-base text-neutral-300 leading-relaxed max-w-2xl mx-auto font-normal">
-            Share your intended business activity with Brigitlink so our advisors can determine the optimal Department of Economy and Tourism (DET) activity codes, licensing structure, and setup roadmap for your company.
+            Share your intended business activity with Brightlink so our advisors can determine the optimal Department of Economy and Tourism (DET) activity codes, licensing structure, and setup roadmap for your company.
           </p>
 
           {/* Quick Activity Input Form */}

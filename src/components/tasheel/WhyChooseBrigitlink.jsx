@@ -11,7 +11,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-export const WhyChooseBrigitlink = ({ onOpenConsultation }) => {
+export const WhyChooseBrightlink = ({ onOpenConsultation }) => {
   const shouldReduceMotion = useReducedMotion();
 
   const points = [
@@ -67,7 +67,7 @@ export const WhyChooseBrigitlink = ({ onOpenConsultation }) => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#222222] tracking-tight mb-4 font-heading">
-            Why Choose Brigitlink for Tasheel Services?
+            Why Choose Brightlink for Tasheel Services?
           </h2>
 
           <p className="text-base text-[#666666] leading-relaxed">
@@ -140,4 +140,4 @@ export const WhyChooseBrigitlink = ({ onOpenConsultation }) => {
   );
 };
 
-export default WhyChooseBrigitlink;
+export default WhyChooseBrightlink;

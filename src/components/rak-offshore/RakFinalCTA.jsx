@@ -50,7 +50,7 @@ export const RakFinalCTA = ({ onOpenConsultation }) => {
 
             <div className="space-y-3">
               <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-[#0F172A] tracking-tight leading-[1.2] font-heading">
-                Structure Your International Holding with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Brigitlink</span>
+                Structure Your International Holding with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#976A36] to-[#8C5E28]">Brightlink</span>
               </h2>
 
               <p className="text-base text-[#475569] leading-relaxed">

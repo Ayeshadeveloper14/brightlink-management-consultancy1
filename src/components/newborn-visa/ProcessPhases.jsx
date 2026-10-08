@@ -20,7 +20,7 @@ export const ProcessPhases = ({ onOpenCalculator, onScrollToCalculator, onOpenCo
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello Brigitlink! I have a question about the newborn baby visa process and 120-day timeline in Dubai.'
+      'Hello Brightlink! I have a question about the newborn baby visa process and 120-day timeline in Dubai.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

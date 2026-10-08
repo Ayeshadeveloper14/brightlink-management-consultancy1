@@ -87,7 +87,7 @@ export const ProcessTimeline = ({ onOpenConsultation }) => {
             How It Works: 6-Step Fast Track Process
           </h2>
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            From your very first conversation to receiving your physical 10-year Emirates ID card, Brigitlink manages every government interaction with white-glove precision.
+            From your very first conversation to receiving your physical 10-year Emirates ID card, Brightlink manages every government interaction with white-glove precision.
           </p>
         </motion.div>
 
@@ -133,7 +133,7 @@ export const ProcessTimeline = ({ onOpenConsultation }) => {
 
                 <div className="mt-5 pt-3 border-t border-[#F5EFE6] flex items-center gap-1.5 text-xs font-semibold text-[#B8864B]">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Managed by Brigitlink Concierge</span>
+                  <span>Managed by Brightlink Concierge</span>
                 </div>
               </motion.div>
             );

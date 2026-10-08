@@ -76,7 +76,7 @@ export const Overview = ({ onOpenConsultation }) => {
             </p>
 
             <p className="text-sm sm:text-base text-[#666666] leading-relaxed">
-              Through Tasheel, companies submit employee work permits, file electronic labour contracts, maintain corporate establishment records, and manage statutory Wage Protection System (WPS) requirements. Brigitlink acts as your professional liaison partner, preparing accurate paperwork and facilitating prompt submission to keep your company fully compliant with UAE Labour Law.
+              Through Tasheel, companies submit employee work permits, file electronic labour contracts, maintain corporate establishment records, and manage statutory Wage Protection System (WPS) requirements. Brightlink acts as your professional liaison partner, preparing accurate paperwork and facilitating prompt submission to keep your company fully compliant with UAE Labour Law.
             </p>
 
             {/* Structured Bullet Features */}

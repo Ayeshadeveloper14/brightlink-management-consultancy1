@@ -85,7 +85,7 @@ export const Hero = ({ onOpenConsultation }) => {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="text-base sm:text-lg text-[#555555] leading-relaxed max-w-xl font-normal"
             >
-              Brigitlink helps businesses, human resource managers, and employers manage Tasheel-related labour and government transactions efficiently. From work permits and electronic contracts to quota allocation and WPS compliance, we ensure strict adherence to UAE Ministry of Human Resources & Emiratisation regulations.
+              Brightlink helps businesses, human resource managers, and employers manage Tasheel-related labour and government transactions efficiently. From work permits and electronic contracts to quota allocation and WPS compliance, we ensure strict adherence to UAE Ministry of Human Resources & Emiratisation regulations.
             </motion.p>
 
             {/* Action Buttons */}

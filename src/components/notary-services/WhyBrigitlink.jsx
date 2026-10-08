@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Compass, Target, ShieldCheck, Zap } from 'lucide-react';
 
-export const WhyBrigitlink = () => {
+export const WhyBrightlink = () => {
   const points = [
     {
       title: 'Clear Guidance',
@@ -36,7 +36,7 @@ export const WhyBrigitlink = () => {
             Professional Standards
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] tracking-tight mb-3 font-heading">
-            Why Choose Brigitlink?
+            Why Choose Brightlink?
           </h2>
           <p className="text-sm sm:text-base text-[#666666]">
             Dedicated support helping you navigate UAE notary procedures with clarity and precision.
@@ -77,5 +77,5 @@ export const WhyBrigitlink = () => {
   );
 };
 
-export const WhyChooseBrigitlink = WhyBrigitlink;
-export default WhyBrigitlink;
+export const WhyChooseBrightlink = WhyBrightlink;
+export default WhyBrightlink;

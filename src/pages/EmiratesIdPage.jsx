@@ -6,7 +6,7 @@ import { CostOverview } from '../components/emirates-id/CostOverview.jsx';
 import { ProcessTimeline } from '../components/emirates-id/ProcessTimeline.jsx';
 import { RequiredDocuments } from '../components/emirates-id/RequiredDocuments.jsx';
 import { BenefitsAssistance } from '../components/emirates-id/BenefitsAssistance.jsx';
-import { WhyChooseBrigitlink } from '../components/emirates-id/WhyChooseBrigitlink.jsx';
+import { WhyChooseBrightlink } from '../components/emirates-id/WhyChooseBrightlink.jsx';
 import { SuccessMetrics } from '../components/emirates-id/SuccessMetrics.jsx';
 import { FAQ } from '../components/emirates-id/FAQ.jsx';
 import { FinalCTA } from '../components/emirates-id/FinalCTA.jsx';
@@ -14,7 +14,7 @@ import { FinalCTA } from '../components/emirates-id/FinalCTA.jsx';
 export const EmiratesIdPage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // Dynamic SEO Titles & Meta Description
-    document.title = 'Emirates ID Application, Renewal & Replacement in UAE | Brigitlink';
+    document.title = 'Emirates ID Application, Renewal & Replacement in UAE | Brightlink';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -31,7 +31,7 @@ export const EmiratesIdPage = ({ onOpenConsultation }) => {
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        'Emirates ID Application, Renewal & Replacement in UAE | Brigitlink'
+        'Emirates ID Application, Renewal & Replacement in UAE | Brightlink'
       );
     }
 
@@ -56,7 +56,7 @@ export const EmiratesIdPage = ({ onOpenConsultation }) => {
         'name': 'UAE Emirates ID Typing, Renewal & Replacement Services',
         'provider': {
           '@type': 'GovernmentService',
-          'name': 'Brigitlink UAE Legal & Government Liaison Services',
+          'name': 'Brightlink UAE Legal & Government Liaison Services',
           'areaServed': 'United Arab Emirates'
         },
         'serviceType': 'Identity Verification and Government Liaison',
@@ -106,8 +106,8 @@ export const EmiratesIdPage = ({ onOpenConsultation }) => {
       {/* 7. Benefits of Professional Assistance */}
       <BenefitsAssistance onOpenConsultation={onOpenConsultation} />
 
-      {/* 8. Why Choose Brigitlink */}
-      <WhyChooseBrigitlink />
+      {/* 8. Why Choose Brightlink */}
+      <WhyChooseBrightlink />
 
       {/* 9. Success Metrics Animated Counters */}
       <SuccessMetrics />

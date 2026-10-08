@@ -10,14 +10,14 @@ import { JurisdictionComparisonSection } from '../components/branch-rep-office/J
 import { BranchCostAndTimeline } from '../components/branch-rep-office/BranchCostAndTimeline.jsx';
 import { BranchComplianceSection } from '../components/branch-rep-office/BranchComplianceSection.jsx';
 import { TransitionToCommercialSection } from '../components/branch-rep-office/TransitionToCommercialSection.jsx';
-import { WhyBrigitlinkBranch } from '../components/branch-rep-office/WhyBrigitlinkBranch.jsx';
+import { WhyBrightlinkBranch } from '../components/branch-rep-office/WhyBrightlinkBranch.jsx';
 import { BranchFaqAccordion, FAQ_DATA_BRANCH } from '../components/branch-rep-office/BranchFaqAccordion.jsx';
 import { BranchFinalCTA } from '../components/branch-rep-office/BranchFinalCTA.jsx';
 
 export const BranchRepOfficePage = ({ onOpenConsultation }) => {
   useEffect(() => {
     // 1. Set SEO Page Title
-    document.title = 'Branch Office Setup Dubai | Representative Office UAE | Brigitlink';
+    document.title = 'Branch Office Setup Dubai | Representative Office UAE | Brightlink';
 
     // 2. Set Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -26,7 +26,7 @@ export const BranchRepOfficePage = ({ onOpenConsultation }) => {
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = 'Expand your parent company into Dubai with a Mainland Branch Office or Representative Office. Complete DET & Ministry of Economy licensing, document attestations, and visas with Brigitlink.';
+    metaDescription.content = 'Expand your parent company into Dubai with a Mainland Branch Office or Representative Office. Complete DET & Ministry of Economy licensing, document attestations, and visas with Brightlink.';
 
     // 3. Inject Schema.org JSON-LD for Service & FAQ
     const schemaScriptId = 'branch-rep-office-schema';
@@ -46,7 +46,7 @@ export const BranchRepOfficePage = ({ onOpenConsultation }) => {
           'name': 'Mainland Branch & Representative Office Setup in Dubai',
           'provider': {
             '@type': 'LocalBusiness',
-            'name': 'Brigitlink Typing & Consulting',
+            'name': 'Brightlink Typing & Consulting',
             'telephone': '+971566556645',
             'url': window.location.origin
           },
@@ -119,8 +119,8 @@ export const BranchRepOfficePage = ({ onOpenConsultation }) => {
       {/* 11. Expanding from Representative Office to Commercial Operations */}
       <TransitionToCommercialSection onOpenConsultation={onOpenConsultation} />
 
-      {/* 12. Why Brigitlink Support */}
-      <WhyBrigitlinkBranch onOpenConsultation={onOpenConsultation} />
+      {/* 12. Why Brightlink Support */}
+      <WhyBrightlinkBranch onOpenConsultation={onOpenConsultation} />
 
       {/* 13. FAQ Accordion (14 Questions) */}
       <BranchFaqAccordion onOpenConsultation={onOpenConsultation} />

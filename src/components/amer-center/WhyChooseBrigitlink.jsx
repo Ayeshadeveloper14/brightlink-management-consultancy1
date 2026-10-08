@@ -11,7 +11,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
-export const WhyChooseBrigitlink = () => {
+export const WhyChooseBrightlink = () => {
   const shouldReduceMotion = useReducedMotion();
 
   const reasons = [
@@ -74,12 +74,12 @@ export const WhyChooseBrigitlink = () => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF5EC] border border-[#E6D7C3] mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#B8864B]" />
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8864B] font-heading">
-              The Brigitlink Advantage
+              The Brightlink Advantage
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#222222] tracking-tight mb-4 font-heading">
-            Why Choose Brigitlink for Amer Services?
+            Why Choose Brightlink for Amer Services?
           </h2>
 
           <p className="text-base sm:text-lg text-[#666666] leading-relaxed">
@@ -134,7 +134,7 @@ export const WhyChooseBrigitlink = () => {
 
                 <div className="pt-3 border-t border-[#F1EBE1] flex items-center gap-1.5 text-xs font-semibold text-[#B8864B]">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Brigitlink Quality Benchmark</span>
+                  <span>Brightlink Quality Benchmark</span>
                 </div>
               </div>
             </motion.div>
@@ -146,4 +146,4 @@ export const WhyChooseBrigitlink = () => {
   );
 };
 
-export default WhyChooseBrigitlink;
+export default WhyChooseBrightlink;

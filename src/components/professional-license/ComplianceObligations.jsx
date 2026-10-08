@@ -69,7 +69,7 @@ export const ComplianceObligations = ({ onOpenConsultation }) => {
             Ongoing Corporate & Tax Compliance
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
-            Maintaining a mainland company in Dubai requires staying aligned with federal and local statutory duties. Brigitlink provides continuous PRO and corporate advisory support so your company operates with zero compliance penalties.
+            Maintaining a mainland company in Dubai requires staying aligned with federal and local statutory duties. Brightlink provides continuous PRO and corporate advisory support so your company operates with zero compliance penalties.
           </p>
         </div>
 
@@ -106,7 +106,7 @@ export const ComplianceObligations = ({ onOpenConsultation }) => {
 
                 <div className="mt-5 pt-3.5 border-t border-[#F5F1EB] flex items-center gap-1.5 text-xs font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Managed Under Brigitlink Corporate PRO</span>
+                  <span>Managed Under Brightlink Corporate PRO</span>
                 </div>
               </motion.div>
             );

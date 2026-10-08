@@ -88,7 +88,7 @@ export const RakLimitationsComparison = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="text-base text-[#475569] leading-relaxed">
-            At Brigitlink, we believe in radical transparency. Understanding exactly what an offshore entity is designed to accomplish ensures you select the correct corporate structure from day one.
+            At Brightlink, we believe in radical transparency. Understanding exactly what an offshore entity is designed to accomplish ensures you select the correct corporate structure from day one.
           </p>
         </div>
 

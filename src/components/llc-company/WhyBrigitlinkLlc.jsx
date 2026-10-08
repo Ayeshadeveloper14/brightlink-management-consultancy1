@@ -12,7 +12,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-export const WhyBrigitlinkLlc = ({ onOpenConsultation }) => {
+export const WhyBrightlinkLlc = ({ onOpenConsultation }) => {
   const shouldReduceMotion = useReducedMotion();
 
   const services = [
@@ -54,7 +54,7 @@ export const WhyBrigitlinkLlc = ({ onOpenConsultation }) => {
             <span>Dedicated Formation Partners</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F172A] tracking-tight font-heading leading-tight">
-            Why Form Your Mainland LLC with Brigitlink?
+            Why Form Your Mainland LLC with Brightlink?
           </h2>
           <p className="mt-3.5 text-sm sm:text-base text-[#475569] leading-relaxed">
             Our corporate advisors simplify Dubai’s commercial licensing framework, providing precise legal guidance and reliable execution from inception to full operational launch.
@@ -87,7 +87,7 @@ export const WhyBrigitlinkLlc = ({ onOpenConsultation }) => {
                 </div>
                 <div className="mt-5 pt-3.5 border-t border-[#DECBB5]/60 flex items-center gap-1.5 text-xs font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Professional Standard</span>
+                  <span>Brightlink Professional Standard</span>
                 </div>
               </motion.div>
             );
@@ -119,7 +119,7 @@ export const WhyBrigitlinkLlc = ({ onOpenConsultation }) => {
                 </div>
                 <div className="mt-5 pt-3.5 border-t border-[#DECBB5]/60 flex items-center gap-1.5 text-xs font-semibold text-[#8C5E28]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Brigitlink Professional Standard</span>
+                  <span>Brightlink Professional Standard</span>
                 </div>
               </motion.div>
             );
@@ -130,7 +130,7 @@ export const WhyBrigitlinkLlc = ({ onOpenConsultation }) => {
         <div className="mt-14 text-center">
           <button
             type="button"
-            onClick={() => onOpenConsultation && onOpenConsultation('Why Brigitlink LLC Consultation')}
+            onClick={() => onOpenConsultation && onOpenConsultation('Why Brightlink LLC Consultation')}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0F172A] hover:bg-[#B8864B] text-white font-bold text-xs transition-colors cursor-pointer shadow-md"
           >
             <span>Speak with an LLC Formation Consultant</span>
@@ -143,4 +143,4 @@ export const WhyBrigitlinkLlc = ({ onOpenConsultation }) => {
   );
 };
 
-export default WhyBrigitlinkLlc;
+export default WhyBrightlinkLlc;
