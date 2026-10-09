@@ -14,7 +14,7 @@ export const IloeFinalCta = ({ onOpenConsultation }) => {
 
   const openWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello FamilyVisa.ae / BrightLink! I need assistance with my UAE ILOE Insurance subscription or fine clearance. Please connect me with a consultant.'
+      'Hello FamilyVisa.ae / Brightlink! I need assistance with my UAE ILOE Insurance subscription or fine clearance. Please connect me with a consultant.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };
@@ -57,7 +57,7 @@ export const IloeFinalCta = ({ onOpenConsultation }) => {
           </motion.div>
 
           {/* Main Heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight font-heading mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight font-heading mb-6">
             Stay compliant and protect your financial future in the UAE
           </h2>
 

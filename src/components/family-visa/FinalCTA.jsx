@@ -41,7 +41,7 @@ export const FinalCTA = ({ onOpenConsultation }) => {
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight font-heading">
             Send the documents tonight. We file tomorrow.
           </h2>
 

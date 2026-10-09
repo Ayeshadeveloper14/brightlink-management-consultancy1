@@ -45,7 +45,7 @@ export const TrustSection = () => {
 
               <div className="pt-2 flex items-center gap-3.5">
                 {/* Monogram RA */}
-                <div className="w-12 h-12 rounded-2xl bg-[#0F172A] text-[#F5D7A1] font-bold text-sm flex items-center justify-center font-heading shadow-xs">
+                <div className="w-12 h-12 rounded-2xl bg-[#0F172A] text-[#F5D7A1] font-black text-sm flex items-center justify-center font-heading shadow-xs">
                   RA
                 </div>
                 <div>

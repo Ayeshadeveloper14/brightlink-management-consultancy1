@@ -37,7 +37,7 @@ export const GoldenVisaHero = ({ onOpenConsultation }) => {
   };
 
   return (
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden border-b border-[#F1EBE1]">
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden border-b border-[#F1EBE1]">
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <motion.div 

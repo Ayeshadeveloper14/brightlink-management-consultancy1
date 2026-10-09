@@ -40,7 +40,7 @@ export const JafzaHero = ({ onOpenConsultation }) => {
   ];
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#FFFFFF] to-[#FFFFFF] border-b border-[#E6D7C3]/50">
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-28 overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#FFFFFF] to-[#FFFFFF] border-b border-[#E6D7C3]/50">
       {/* Background Architectural Grid & Subtle Radial Accents */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-[#B8864B]/12 to-transparent rounded-full blur-3xl" />

@@ -44,7 +44,7 @@ export const DriverTrustStatsSection = () => {
         <div className="max-w-3xl mb-12 text-center mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF5EC] border border-[#E6D7C3] mb-3">
             <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#B8864B]">
-              Why Choose BrightLink
+              Why Choose Brightlink
             </span>
           </div>
 

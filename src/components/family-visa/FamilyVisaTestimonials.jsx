@@ -11,7 +11,7 @@ export const FamilyVisaTestimonials = () => {
       family: 'Wife & 2 Daughters',
       timeframe: '4 Days Total',
       rating: 5,
-      review: 'Moving my wife and two girls over from London seemed daunting with all the marriage and birth certificate attestations. BrightLink handled the entire pre-audit and booked VIP Smart Salem medical in City Walk. The residence permits were stamped in 4 business days. Zero headaches.'
+      review: 'Moving my wife and two girls over from London seemed daunting with all the marriage and birth certificate attestations. Brightlink handled the entire pre-audit and booked VIP Smart Salem medical in City Walk. The residence permits were stamped in 4 business days. Zero headaches.'
     },
     {
       name: 'Rajesh & Priya Venkat',
@@ -20,7 +20,7 @@ export const FamilyVisaTestimonials = () => {
       family: 'Both Elderly Parents',
       timeframe: '6 Days Total',
       rating: 5,
-      review: 'Sponsoring both my retired parents was tricky because of the strict AED 20,000 salary requirement and consular dependency certificate. BrightLink prepared our humanitarian file with precision and secured the GDRFA approval without a single query. My parents are happily living with us now.'
+      review: 'Sponsoring both my retired parents was tricky because of the strict AED 20,000 salary requirement and consular dependency certificate. Brightlink prepared our humanitarian file with precision and secured the GDRFA approval without a single query. My parents are happily living with us now.'
     },
     {
       name: 'Maxime De Clercq',
@@ -29,7 +29,7 @@ export const FamilyVisaTestimonials = () => {
       family: 'Spouse & Infant Son',
       timeframe: '3 Days Total',
       rating: 5,
-      review: 'My family was already inside Dubai on 60-day tourist visas. Other typing shops insisted they had to exit to Oman for a border run. BrightLink executed the in-country change of status completely online without my family having to leave the apartment. Incredible service.'
+      review: 'My family was already inside Dubai on 60-day tourist visas. Other typing shops insisted they had to exit to Oman for a border run. Brightlink executed the in-country change of status completely online without my family having to leave the apartment. Incredible service.'
     },
     {
       name: 'Sarah Al-Mansouri',
@@ -60,7 +60,7 @@ export const FamilyVisaTestimonials = () => {
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-[#4B5563] leading-relaxed">
-            Read verified feedback from professionals, entrepreneurs, and families who brought their loved ones to live in Dubai with BrightLink’s authorized typing team.
+            Read verified feedback from professionals, entrepreneurs, and families who brought their loved ones to live in Dubai with Brightlink’s authorized typing team.
           </p>
         </div>
 

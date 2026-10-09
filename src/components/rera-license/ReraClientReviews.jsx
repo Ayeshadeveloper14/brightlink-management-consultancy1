@@ -12,7 +12,7 @@ export const ReraClientReviews = () => {
       rating: 5,
       avatar: '/images/service_golden_visa_1790842391749.jpg',
       service: 'Mainland Brokerage Setup',
-      text: 'BrightLink established our 20-broker mainland real estate brokerage from initial name reservation to commercial Ejari and RERA NOC in just 10 business days. Their understanding of Dubai Land Department regulations is peerless.'
+      text: 'Brightlink established our 20-broker mainland real estate brokerage from initial name reservation to commercial Ejari and RERA NOC in just 10 business days. Their understanding of Dubai Land Department regulations is peerless.'
     },
     {
       id: 'rev-2',
@@ -22,7 +22,7 @@ export const ReraClientReviews = () => {
       rating: 5,
       avatar: '/images/about_visa_consultant_1790842347102.jpg',
       service: 'Individual RERA Broker Card',
-      text: 'Coming from Europe, the RERA exam and degree attestation process felt daunting. BrightLink provided succinct study outlines, booked my DREI slot, and had my active digital Broker ID issued within 48 hours of passing.'
+      text: 'Coming from Europe, the RERA exam and degree attestation process felt daunting. Brightlink provided succinct study outlines, booked my DREI slot, and had my active digital Broker ID issued within 48 hours of passing.'
     },
     {
       id: 'rev-3',
@@ -32,7 +32,7 @@ export const ReraClientReviews = () => {
       rating: 5,
       avatar: '/images/why_experienced_team_1790842362837.jpg',
       service: 'Agency License & Trakheesi Setup',
-      text: 'Handling Trakheesi advertising permits and DLD compliance is where most agents get stuck and fined. BrightLink configured our portal correctly from day one. Transparent government fee breakdown and zero surprises.'
+      text: 'Handling Trakheesi advertising permits and DLD compliance is where most agents get stuck and fined. Brightlink configured our portal correctly from day one. Transparent government fee breakdown and zero surprises.'
     },
     {
       id: 'rev-4',
@@ -42,7 +42,7 @@ export const ReraClientReviews = () => {
       rating: 5,
       avatar: '/images/why_fast_process_1790842377870.jpg',
       service: 'RERA Card Renewal & Police Clearance',
-      text: 'My broker card renewal was urgent because I had a major commercial lease transaction closing that week. BrightLink expedited my Dubai Police clearance and DLD card renewal in less than 24 hours. Exceptional service!'
+      text: 'My broker card renewal was urgent because I had a major commercial lease transaction closing that week. Brightlink expedited my Dubai Police clearance and DLD card renewal in less than 24 hours. Exceptional service!'
     }
   ];
 

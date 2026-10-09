@@ -35,8 +35,8 @@ export const MedicalFaqSection = () => {
       a: 'Under UAE Federal Health Law updates, individuals with old or healed tuberculosis scars are not automatically deemed unfit. Instead, they are placed on a monitored preventative protocol and issued a 1-year conditional residency fitness certificate with ongoing wellness check-ups, rather than facing automatic deportation.'
     },
     {
-      q: 'How does BrightLink assist with VIP medical appointments and Emirates ID?',
-      a: 'BrightLink pre-clears your visa files on the official government portals, types the medical application and Emirates ID forms, books your preferred Smart Salem VIP lounge slot, escorts you through the zero-wait priority lane, and monitors the digital health certificate until your physical Emirates ID is dispatched.'
+      q: 'How does Brightlink assist with VIP medical appointments and Emirates ID?',
+      a: 'Brightlink pre-clears your visa files on the official government portals, types the medical application and Emirates ID forms, books your preferred Smart Salem VIP lounge slot, escorts you through the zero-wait priority lane, and monitors the digital health certificate until your physical Emirates ID is dispatched.'
     }
   ];
 

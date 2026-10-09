@@ -27,7 +27,7 @@ export const RevaluationFaqSection = () => {
     },
     {
       q: 'How long does the entire DLD property valuation process take?',
-      a: 'The typical end-to-end timeline is 3 to 7 business days. This includes file registration on the DLD portal (Day 1), fee clearing and surveyor assignment (Day 2), on-site physical inspection (Days 3-4), and committee review and electronic certificate issuance (Days 5-7). BrightLink actively monitors every step to prevent scheduling bottlenecks.'
+      a: 'The typical end-to-end timeline is 3 to 7 business days. This includes file registration on the DLD portal (Day 1), fee clearing and surveyor assignment (Day 2), on-site physical inspection (Days 3-4), and committee review and electronic certificate issuance (Days 5-7). Brightlink actively monitors every step to prevent scheduling bottlenecks.'
     },
     {
       q: 'Is an on-site physical inspection mandatory for all properties?',
@@ -144,7 +144,7 @@ export const RevaluationFaqSection = () => {
           </button>
 
           <a
-            href="https://wa.me/971566556645?text=Hello%20BrightLink%2C%20I%20have%20a%20specific%20question%20regarding%20Property%20Revaluation."
+            href="https://wa.me/971566556645?text=Hello%20Brightlink%2C%20I%20have%20a%20specific%20question%20regarding%20Property%20Revaluation."
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs sm:text-sm font-semibold text-neutral-600 hover:text-[#B8864B] transition-colors"

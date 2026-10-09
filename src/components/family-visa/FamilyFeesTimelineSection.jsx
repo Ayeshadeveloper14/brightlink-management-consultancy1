@@ -98,7 +98,7 @@ export const FamilyFeesTimelineSection = ({ onOpenConsultation }) => {
                   <p className="text-xs text-[#64748B] leading-relaxed">{fee.details}</p>
                 </div>
                 <div className="shrink-0 sm:text-right">
-                  <span className="text-base sm:text-lg font-bold text-[#0F172A] font-heading">{fee.amount}</span>
+                  <span className="text-base sm:text-lg font-black text-[#0F172A] font-heading">{fee.amount}</span>
                   <span className="text-[10px] text-slate-400 block font-normal">+ VAT & typing</span>
                 </div>
               </div>

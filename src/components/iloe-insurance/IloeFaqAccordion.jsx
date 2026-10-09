@@ -40,7 +40,7 @@ const ILOE_FAQS = [
     answer: 'Once you submit your termination notice, valid Emirates ID, and bank IBAN through the official ILOE portal within 30 days of job loss, Dubai Insurance verifies the claim within 14 business days. Approved compensation is transferred directly into your UAE bank account on a monthly basis for up to 3 months.'
   },
   {
-    question: 'Can FamilyVisa / BrightLink help me subscribe or settle my ILOE fines?',
+    question: 'Can FamilyVisa / Brightlink help me subscribe or settle my ILOE fines?',
     answer: 'Yes. Our licensed typing specialists can verify your current ILOE policy status, check whether any MOHRE fines have been assessed, clear outstanding balances through official government channels, and register you or your corporate workforce for multi-year compliance.'
   }
 ];

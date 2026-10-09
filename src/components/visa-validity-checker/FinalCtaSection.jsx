@@ -14,7 +14,7 @@ export const FinalCtaSection = ({ onOpenConsultation }) => {
 
   const openWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello BrightLink! I am unsure about my UAE visa status and validity. Please connect me with an immigration consultant.'
+      'Hello Brightlink! I am unsure about my UAE visa status and validity. Please connect me with an immigration consultant.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };
@@ -57,7 +57,7 @@ export const FinalCtaSection = ({ onOpenConsultation }) => {
           </motion.div>
 
           {/* Main Heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight font-heading mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight font-heading mb-6">
             Not sure where your visa stands?
           </h2>
 

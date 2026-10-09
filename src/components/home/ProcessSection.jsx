@@ -113,7 +113,7 @@ export const ProcessSection = ({ onOpenConsultation }) => {
                   <div className="w-11 h-11 rounded-xl bg-[#F5F1EB] text-[#B8864B] group-hover:bg-[#B8864B] group-hover:text-white flex items-center justify-center transition-colors shadow-xs">
                     {item.icon}
                   </div>
-                  <span className="text-2xl font-bold text-[#B8864B]/35 group-hover:text-[#B8864B]/80 transition-colors tabular-nums">
+                  <span className="text-2xl font-black text-[#B8864B]/35 group-hover:text-[#B8864B]/80 transition-colors tabular-nums">
                     {item.step}
                   </span>
                 </div>

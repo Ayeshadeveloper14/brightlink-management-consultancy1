@@ -24,7 +24,7 @@ export const SetupProcess = () => {
         {steps.map((st, i) => (
           <div key={i} className="bg-white p-5 rounded-2xl border border-neutral-200/70 flex flex-col justify-between">
             <div>
-              <span className="text-2xl font-bold text-[#B8864B]/30">{st.num}</span>
+              <span className="text-2xl font-black text-[#B8864B]/30">{st.num}</span>
               <h4 className="font-bold text-xs text-[#222222] mt-2 mb-1.5 leading-snug">{st.title}</h4>
               <p className="text-[11px] text-[#666666] leading-relaxed">{st.desc}</p>
             </div>

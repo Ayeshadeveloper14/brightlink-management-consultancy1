@@ -14,7 +14,7 @@ export const connectDB = async () => {
       return false;
     }
   } else {
-    console.log('Using BrightLink in-memory secure datastore (Production-ready API)');
+    console.log('Using Brightlink in-memory secure datastore (Production-ready API)');
     return true;
   }
 };

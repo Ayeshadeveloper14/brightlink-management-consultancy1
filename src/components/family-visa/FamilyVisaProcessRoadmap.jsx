@@ -113,7 +113,7 @@ export const FamilyVisaProcessRoadmap = ({ onOpenConsultation }) => {
               className="relative group"
             >
               {/* Timeline Marker Dot */}
-              <div className="absolute -left-[35px] sm:-left-[51px] top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-[#B8864B] flex items-center justify-center text-[#B8864B] text-[11px] sm:text-xs font-bold shadow-xs group-hover:bg-[#B8864B] group-hover:text-white transition-colors">
+              <div className="absolute -left-[35px] sm:-left-[51px] top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-[#B8864B] flex items-center justify-center text-[#B8864B] text-[11px] sm:text-xs font-black shadow-xs group-hover:bg-[#B8864B] group-hover:text-white transition-colors">
                 {item.step}
               </div>
 
@@ -166,7 +166,7 @@ export const FamilyVisaProcessRoadmap = ({ onOpenConsultation }) => {
               <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider">
                 Need Faster Processing?
               </span>
-              <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">
+              <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">
                 Express VIP
               </span>
             </div>

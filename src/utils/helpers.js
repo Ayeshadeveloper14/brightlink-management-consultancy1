@@ -1,5 +1,5 @@
 /**
- * UAE Currency and text formatters for BrightLink
+ * UAE Currency and text formatters for Brightlink
  */
 
 export const formatAED = (amount) => {

@@ -101,7 +101,7 @@ export const VisaRouteCards = ({ onOpenCalculator, onOpenConsultation }) => {
                       {card.badge}
                     </span>
                     <div className="text-right">
-                      <span className="text-3xl sm:text-4xl font-bold text-[#0F172A] font-heading block leading-none">
+                      <span className="text-3xl sm:text-4xl font-black text-[#0F172A] font-heading block leading-none">
                         {card.years}
                       </span>
                       <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider">
@@ -171,7 +171,7 @@ export const VisaRouteCards = ({ onOpenCalculator, onOpenConsultation }) => {
                   <Star key={i} className="w-3.5 h-3.5 fill-current" />
                 ))}
               </div>
-              <span className="text-base sm:text-lg font-bold text-[#0F172A] font-heading block">
+              <span className="text-base sm:text-lg font-black text-[#0F172A] font-heading block">
                 625+ Google reviews
               </span>
               <span className="text-[11px] text-[#64748B]">Verified Dubai property buyers</span>
@@ -186,7 +186,7 @@ export const VisaRouteCards = ({ onOpenCalculator, onOpenConsultation }) => {
               <Building2 className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl font-bold text-[#0F172A] font-heading leading-tight">
+              <div className="text-2xl sm:text-3xl font-black text-[#0F172A] font-heading leading-tight">
                 20K+
               </div>
               <span className="text-xs sm:text-sm font-bold text-[#8C6230] font-heading block">

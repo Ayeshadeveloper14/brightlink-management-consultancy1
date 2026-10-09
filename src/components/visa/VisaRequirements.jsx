@@ -13,7 +13,7 @@ export const VisaRequirements = ({ onOpenConsultation }) => {
           Calculate Exact Government Fees
         </h3>
         <p className="text-neutral-300 text-sm leading-relaxed">
-          Estimate government ministerial fees, medical typing, Emirates ID, and BrightLink service rates for your specific visa category.
+          Estimate government ministerial fees, medical typing, Emirates ID, and Brightlink service rates for your specific visa category.
         </p>
       </div>
       

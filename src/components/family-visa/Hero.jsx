@@ -47,7 +47,7 @@ export const Hero = ({ onOpenConsultation, onOpenCalculator }) => {
   };
 
   return (
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
       {/* Ambient Glows & Layered Background Shapes */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <motion.div 
@@ -88,8 +88,20 @@ export const Hero = ({ onOpenConsultation, onOpenCalculator }) => {
             <span className="text-[#0F172A] font-semibold">Family Visa</span>
           </div>
 
-          
-          
+          {/* Quick Service Context Indicator */}
+          <div className="hidden sm:flex items-center gap-3 text-[11px] uppercase tracking-wider text-[#8C6230] font-heading font-semibold">
+            <span className="font-bold text-[#0F172A]">800 DOCS</span>
+            <span className="text-slate-300">·</span>
+            <a href="/business-setup" className="hover:text-[#0F172A] transition-colors">Business Setup</a>
+            <span className="text-slate-300">·</span>
+            <a href="/services" className="hover:text-[#0F172A] transition-colors">PRO Services</a>
+            <span className="text-slate-300">·</span>
+            <a href="/golden-visa" className="hover:text-[#0F172A] transition-colors">Golden Visa</a>
+            <span className="text-slate-300">·</span>
+            <span className="text-[#B8864B] font-bold">Family Visa</span>
+            <span className="text-slate-300">·</span>
+            <a href="/contact" className="hover:text-[#0F172A] transition-colors">Contact</a>
+          </div>
         </motion.div>
 
         {/* Hero 2-Column Split: Editorial Left + High-End Cinematic Visual Right */}
@@ -114,7 +126,7 @@ export const Hero = ({ onOpenConsultation, onOpenCalculator }) => {
               initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight leading-[1.15] font-heading"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight leading-[1.15] font-heading"
             >
               Bring your family to the UAE — <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#C5985B] to-[#976A36]">we run the whole file.</span>
             </motion.h1>

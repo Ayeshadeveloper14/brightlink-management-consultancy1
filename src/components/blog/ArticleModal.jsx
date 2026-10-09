@@ -64,7 +64,7 @@ export const ArticleModal = ({ article, onClose, onOpenConsultation }) => {
                 </button>
 
                 <a
-                  href={`https://wa.me/971566556645?text=${encodeURIComponent(`Hello BrightLink, I read your article "${article.title}" and would like to ask a few questions.`)}`}
+                  href={`https://wa.me/971566556645?text=${encodeURIComponent(`Hello Brightlink, I read your article "${article.title}" and would like to ask a few questions.`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="py-2.5 px-4 rounded-xl bg-[#25D366] text-white text-xs font-bold flex items-center gap-2 cursor-pointer"

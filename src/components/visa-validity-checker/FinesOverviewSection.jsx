@@ -186,7 +186,7 @@ export const FinesOverviewSection = ({ onOpenConsultation }) => {
             </div>
           </motion.div>
 
-          {/* BrightLink Fine Reduction & Waiver Section */}
+          {/* Brightlink Fine Reduction & Waiver Section */}
           <motion.div 
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.985, y: 20 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -203,7 +203,7 @@ export const FinesOverviewSection = ({ onOpenConsultation }) => {
                 Can Overstay Fines Be Reduced or Waived?
               </h3>
               <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                <strong>Yes.</strong> If you or an employee accumulated heavy overstay fines due to health emergencies, employer salary disputes, sponsor delays, or unforeseen circumstances, BrightLink types and submits official <em>Fine Reduction Mercy Petitions</em> before the GDRFA Dubai and ICP Judicial Committees.
+                <strong>Yes.</strong> If you or an employee accumulated heavy overstay fines due to health emergencies, employer salary disputes, sponsor delays, or unforeseen circumstances, Brightlink types and submits official <em>Fine Reduction Mercy Petitions</em> before the GDRFA Dubai and ICP Judicial Committees.
               </p>
               <ul className="text-xs sm:text-sm text-[#475569] space-y-1.5 pt-1">
                 <li className="flex items-center gap-2">

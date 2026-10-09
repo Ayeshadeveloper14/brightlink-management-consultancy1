@@ -24,7 +24,7 @@ export const Hero = ({ onOpenConsultation, onScrollToForm }) => {
   };
 
   return (
-    <section className="relative pt-24 pb-14 lg:pt-32 lg:pb-20 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-14 lg:pb-20 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
       {/* Ambient Glows */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <motion.div 
@@ -79,7 +79,7 @@ export const Hero = ({ onOpenConsultation, onScrollToForm }) => {
               initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight leading-[1.15] font-heading"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight leading-[1.15] font-heading"
             >
               Investor Visa
             </motion.h1>
@@ -158,7 +158,7 @@ export const Hero = ({ onOpenConsultation, onScrollToForm }) => {
                   <span className="text-[11px] font-bold text-[#8C6230] uppercase tracking-wider block font-heading mb-1">
                     Validity
                   </span>
-                  <strong className="text-lg font-bold text-[#0F172A] font-heading block">
+                  <strong className="text-lg font-black text-[#0F172A] font-heading block">
                     2-3 years
                   </strong>
                   <span className="text-[10px] text-[#64748B]">Mainland / Free Zone</span>
@@ -168,7 +168,7 @@ export const Hero = ({ onOpenConsultation, onScrollToForm }) => {
                   <span className="text-[11px] font-bold text-[#8C6230] uppercase tracking-wider block font-heading mb-1">
                     Cost from
                   </span>
-                  <strong className="text-lg font-bold text-[#0F172A] font-heading block">
+                  <strong className="text-lg font-black text-[#0F172A] font-heading block">
                     AED 6,340
                   </strong>
                   <span className="text-[10px] text-[#64748B]">All-inclusive estimate</span>
@@ -178,7 +178,7 @@ export const Hero = ({ onOpenConsultation, onScrollToForm }) => {
                   <span className="text-[11px] font-bold text-[#8C6230] uppercase tracking-wider block font-heading mb-1">
                     Processing
                   </span>
-                  <strong className="text-lg font-bold text-[#0F172A] font-heading block">
+                  <strong className="text-lg font-black text-[#0F172A] font-heading block">
                     10-15 days
                   </strong>
                   <span className="text-[10px] text-[#64748B]">Full turnaround</span>
@@ -188,7 +188,7 @@ export const Hero = ({ onOpenConsultation, onScrollToForm }) => {
                   <span className="text-[11px] font-bold text-[#8C6230] uppercase tracking-wider block font-heading mb-1">
                     Sponsor
                   </span>
-                  <strong className="text-lg font-bold text-[#0F172A] font-heading block">
+                  <strong className="text-lg font-black text-[#0F172A] font-heading block">
                     Own company
                   </strong>
                   <span className="text-[10px] text-[#64748B]">Self-sponsored</span>

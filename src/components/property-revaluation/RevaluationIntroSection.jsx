@@ -14,7 +14,7 @@ import {
 
 export const RevaluationIntroSection = ({ onOpenConsultation }) => {
   const handleInquiry = () => {
-    const query = encodeURIComponent('Hello BrightLink, I would like to start my Dubai Land Department Property Valuation file. Please guide me through opening a case.');
+    const query = encodeURIComponent('Hello Brightlink, I would like to start my Dubai Land Department Property Valuation file. Please guide me through opening a case.');
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 
@@ -71,7 +71,7 @@ export const RevaluationIntroSection = ({ onOpenConsultation }) => {
             </p>
 
             <p className="text-sm sm:text-base text-[#666666] leading-relaxed font-normal">
-              Whether your original purchase price was below the AED 2,000,000 threshold for the UAE 10-Year Golden Visa, or your financing bank requires an independent valuation for mortgage refinancing, BrightLink manages the entire liaison process directly with the Dubai Land Department.
+              Whether your original purchase price was below the AED 2,000,000 threshold for the UAE 10-Year Golden Visa, or your financing bank requires an independent valuation for mortgage refinancing, Brightlink manages the entire liaison process directly with the Dubai Land Department.
             </p>
 
             <div className="space-y-3 pt-2">

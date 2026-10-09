@@ -67,7 +67,7 @@ export const DocumentChecklist = () => {
               transition={{ duration: 0.4, delay: idx * 0.08 }}
               className="bg-white rounded-xl p-5 border border-neutral-200/80 hover:border-[#B8864B]/40 transition-all flex items-start gap-4 shadow-xs hover:shadow-md group"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#F5F1EB] group-hover:bg-[#B8864B] group-hover:text-white text-[#8C6230] font-bold text-sm flex items-center justify-center shrink-0 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-[#F5F1EB] group-hover:bg-[#B8864B] group-hover:text-white text-[#8C6230] font-black text-sm flex items-center justify-center shrink-0 transition-colors">
                 {step.step}
               </div>
               <div className="space-y-1">
@@ -108,7 +108,7 @@ export const DocumentChecklist = () => {
 
           <div className="pt-3 border-t border-neutral-100 flex items-center gap-2 text-xs text-neutral-500">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>BrightLink pre-verifies all attestations to ensure 0% rejection.</span>
+            <span>Brightlink pre-verifies all attestations to ensure 0% rejection.</span>
           </div>
         </motion.div>
       </div>

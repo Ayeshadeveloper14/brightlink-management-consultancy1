@@ -16,7 +16,7 @@ export const Milestones = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
         {milestones.map((m, idx) => (
           <div key={idx} className="bg-white rounded-2xl p-5 border border-neutral-200/80 shadow-xs space-y-2">
-            <span className="text-2xl font-bold text-[#B8864B]">
+            <span className="text-2xl font-black text-[#B8864B]">
               {m.year}
             </span>
             <h4 className="text-sm font-bold text-[#222222]">

@@ -3,7 +3,7 @@ import { MapPin } from 'lucide-react';
 
 export const ContactHero = () => {
   return (
-    <section className="bg-gradient-to-b from-[#FCFAF8] via-[#F8F4EC] to-[#FFFFFF] pt-28 pb-14 lg:pt-36 lg:pb-20 border-b border-neutral-100">
+    <section className="bg-gradient-to-b from-[#FCFAF8] via-[#F8F4EC] to-[#FFFFFF] pt-32 sm:pt-36 lg:pt-40 pb-14 lg:pb-20 border-b border-neutral-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F1EB] border border-[#B8864B]/30 mb-4">

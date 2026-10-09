@@ -71,7 +71,7 @@ export const RevaluationServiceCards = () => {
   ];
 
   const handleInquiry = (title) => {
-    const query = encodeURIComponent(`Hello BrightLink, I would like to inquire about Property Valuation for: ${title}.`);
+    const query = encodeURIComponent(`Hello Brightlink, I would like to inquire about Property Valuation for: ${title}.`);
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 

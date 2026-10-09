@@ -1,4 +1,4 @@
-// BrightLink Data Store (Contact submissions, Service Inquiries, Admin credentials)
+// Brightlink Data Store (Contact submissions, Service Inquiries, Admin credentials)
 
 export const contactsStore = [
   {
@@ -55,5 +55,5 @@ export const adminUser = {
   // standard hashed or default demo password
   password: 'adminPassword2026',
   role: 'Administrator',
-  name: 'BrightLink Head of Operations'
+  name: 'Brightlink Head of Operations'
 };

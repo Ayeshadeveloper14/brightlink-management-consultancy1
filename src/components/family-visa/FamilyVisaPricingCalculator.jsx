@@ -237,7 +237,7 @@ export const FamilyVisaPricingCalculator = ({ onOpenConsultation }) => {
                     >
                       <Minus className="w-3.5 h-3.5" />
                     </button>
-                    <span className="w-6 text-center font-bold text-sm text-[#111827]">{spouseCount}</span>
+                    <span className="w-6 text-center font-black text-sm text-[#111827]">{spouseCount}</span>
                     <button
                       type="button"
                       onClick={() => setSpouseCount(Math.min(1, spouseCount + 1))}
@@ -262,7 +262,7 @@ export const FamilyVisaPricingCalculator = ({ onOpenConsultation }) => {
                     >
                       <Minus className="w-3.5 h-3.5" />
                     </button>
-                    <span className="w-6 text-center font-bold text-sm text-[#111827]">{childrenUnder18}</span>
+                    <span className="w-6 text-center font-black text-sm text-[#111827]">{childrenUnder18}</span>
                     <button
                       type="button"
                       onClick={() => setChildrenUnder18(Math.min(6, childrenUnder18 + 1))}
@@ -287,7 +287,7 @@ export const FamilyVisaPricingCalculator = ({ onOpenConsultation }) => {
                     >
                       <Minus className="w-3.5 h-3.5" />
                     </button>
-                    <span className="w-6 text-center font-bold text-sm text-[#111827]">{adultChildren}</span>
+                    <span className="w-6 text-center font-black text-sm text-[#111827]">{adultChildren}</span>
                     <button
                       type="button"
                       onClick={() => setAdultChildren(Math.min(4, adultChildren + 1))}
@@ -312,7 +312,7 @@ export const FamilyVisaPricingCalculator = ({ onOpenConsultation }) => {
                     >
                       <Minus className="w-3.5 h-3.5" />
                     </button>
-                    <span className="w-6 text-center font-bold text-sm text-[#111827]">{parentsCount}</span>
+                    <span className="w-6 text-center font-black text-sm text-[#111827]">{parentsCount}</span>
                     <button
                       type="button"
                       onClick={() => setParentsCount(Math.min(2, parentsCount + 1))}
@@ -467,7 +467,7 @@ export const FamilyVisaPricingCalculator = ({ onOpenConsultation }) => {
                 </button>
 
                 <a
-                  href={`https://wa.me/971500000000?text=Hello%20BrightLink,%20I%20used%20your%20calculator%20for%20${totalPersons}%20family%20members%20estimated%20at%20AED%20${estimatedTotal}.%20Can%20you%20confirm%20details?`}
+                  href={`https://wa.me/971500000000?text=Hello%20Brightlink,%20I%20used%20your%20calculator%20for%20${totalPersons}%20family%20members%20estimated%20at%20AED%20${estimatedTotal}.%20Can%20you%20confirm%20details?`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-[#1E293B] bg-white border border-[#D5C2A5] hover:bg-[#FAF6F0] flex items-center justify-center gap-2 transition-colors cursor-pointer"

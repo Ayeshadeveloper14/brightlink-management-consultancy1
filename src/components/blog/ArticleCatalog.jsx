@@ -95,7 +95,7 @@ How to Check via GDRFA Dubai:
 
 Overstay Fine Calculations:
 - Overstay fines are unified at AED 50 per day following the expiration of your valid grace period.
-- For applicants facing significant overstay due to unforeseen events, BrightLink prepares legal fine waiver petitions for official committee review.`
+- For applicants facing significant overstay due to unforeseen events, Brightlink prepares legal fine waiver petitions for official committee review.`
     },
     {
       id: 'bls-indian-passport-renewal',
@@ -124,7 +124,7 @@ Key Documents Checklist:
       category: 'Immigration Rules',
       date: 'August 29, 2026',
       readTime: '5 min read',
-      author: 'BrightLink Immigration Advisory',
+      author: 'Brightlink Immigration Advisory',
       image: '/images/about_visa_consultant_1790842347102.jpg',
       excerpt: 'Explore the 5-year self-sponsored Green Visa pathway designed for independent freelancers, skilled employees, and small business owners in the UAE.',
       content: `Introduced under the UAE's Advanced Visa System, the Green Visa bridges the gap between standard 2-year employment visas and the 10-year Golden Visa.

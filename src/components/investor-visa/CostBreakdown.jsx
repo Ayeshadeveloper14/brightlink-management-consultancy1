@@ -73,7 +73,7 @@ export const CostBreakdown = ({ onOpenConsultation }) => {
               </span>
             </div>
             <div className="text-right">
-              <span className="text-2xl sm:text-3xl font-bold text-[#0F172A] font-heading block text-emerald-800">
+              <span className="text-2xl sm:text-3xl font-black text-[#0F172A] font-heading block text-emerald-800">
                 AED 6,340
               </span>
             </div>

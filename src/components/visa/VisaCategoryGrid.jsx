@@ -246,7 +246,7 @@ export const VisaCategoryGrid = ({ onOpenConsultation }) => {
               )}
 
               <a
-                href={`https://wa.me/971566556645?text=${encodeURIComponent(`Hello BrightLink, I would like to inquire about ${visa.title}. Can you guide me on requirements and fees?`)}`}
+                href={`https://wa.me/971566556645?text=${encodeURIComponent(`Hello Brightlink, I would like to inquire about ${visa.title}. Can you guide me on requirements and fees?`)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="py-3 px-3.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"

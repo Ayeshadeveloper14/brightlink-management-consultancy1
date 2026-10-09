@@ -13,7 +13,7 @@ const PRODUCT_FAQS = [
   },
   {
     question: 'Can a foreign company register products without an active UAE trade license?',
-    answer: 'No foreign entity can register products directly in the Montaji portal without an active UAE commercial entity. However, FamilyVisa / BrightLink provides complete Local Commercial Agency and Distributor representation, allowing international brand owners to register products under our licensed establishment without setting up a costly physical company in Dubai.'
+    answer: 'No foreign entity can register products directly in the Montaji portal without an active UAE commercial entity. However, FamilyVisa / Brightlink provides complete Local Commercial Agency and Distributor representation, allowing international brand owners to register products under our licensed establishment without setting up a costly physical company in Dubai.'
   },
   {
     question: 'What is the difference between Dubai Municipality Montaji and MoIAT ECAS?',
@@ -40,7 +40,7 @@ const PRODUCT_FAQS = [
     answer: 'Both Amazon.ae and Noon.com strictly audit product documentation and will instantly suspend un-gated seller accounts that cannot produce official Montaji certificates. In physical retail stores, municipal inspectors issue heavy fines starting from AED 10,000 to AED 100,000, confiscate merchandise, and can shut down commercial premises.'
   },
   {
-    question: 'Can FamilyVisa / BrightLink handle label artwork design and Arabic translation?',
+    question: 'Can FamilyVisa / Brightlink handle label artwork design and Arabic translation?',
     answer: 'Yes. Our in-house compliance specialists review your current packaging artwork, translate all mandatory claims into approved Arabic, verify barcode placement, and provide print-ready sticker/label proofs that comply with Dubai Municipality GSO guidelines before you initiate bulk packaging runs.'
   }
 ];

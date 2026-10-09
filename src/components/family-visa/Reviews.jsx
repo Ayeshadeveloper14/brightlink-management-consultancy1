@@ -40,7 +40,7 @@ export const Reviews = () => {
 
           {/* Rating Display */}
           <div className="flex items-center gap-4 bg-white p-4 px-5 rounded-2xl border border-[#DECBB5] shadow-xs shrink-0">
-            <div className="text-3xl font-bold text-[#0F172A] font-heading">
+            <div className="text-3xl font-black text-[#0F172A] font-heading">
               4.9
             </div>
             <div>

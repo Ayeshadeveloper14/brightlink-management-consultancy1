@@ -72,7 +72,7 @@ export const IloeHowToClaim = ({ onOpenConsultation }) => {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="w-10 h-10 rounded-xl bg-[#FAF5EC] border border-[#DECBB5] text-[#8C6230] font-bold text-sm flex items-center justify-center font-heading">
+                  <span className="w-10 h-10 rounded-xl bg-[#FAF5EC] border border-[#DECBB5] text-[#8C6230] font-black text-sm flex items-center justify-center font-heading">
                     {step.stepNum}
                   </span>
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8864B] font-heading">

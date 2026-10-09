@@ -29,7 +29,7 @@ export const MedicalHero = ({ onOpenConsultation }) => {
   const opacityBg = useTransform(scrollYProgress, [0, 0.9], [0.85, 0.4]);
 
   const handleWhatsApp = () => {
-    const query = encodeURIComponent("Hello BrightLink, I would like to book a VIP Visa Medical appointment and Emirates ID typing in Dubai.");
+    const query = encodeURIComponent("Hello Brightlink, I would like to book a VIP Visa Medical appointment and Emirates ID typing in Dubai.");
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 
@@ -62,7 +62,7 @@ export const MedicalHero = ({ onOpenConsultation }) => {
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#B8864B]/25 blur-3xl pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-28 pb-16 lg:pt-36 lg:pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24">
         {/* Breadcrumb Navigation */}
         <motion.nav
           initial={{ opacity: 0, y: -10 }}

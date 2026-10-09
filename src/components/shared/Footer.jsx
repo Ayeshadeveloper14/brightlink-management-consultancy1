@@ -32,7 +32,7 @@ export const Footer = ({
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold tracking-tight text-white leading-none">
-                  Bright<span className="text-[#B8864B]">Link</span>
+                  Bright<span className="text-[#B8864B]">link</span>
                 </span>
                 <span className="text-[10px] uppercase tracking-wider font-semibold text-neutral-400 mt-0.5">
                   {t('nav_typing_sub', 'Typing & Consulting')}
@@ -230,7 +230,7 @@ export const Footer = ({
 
         {/* Bottom Copyright Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
-          <p>© 2026 BrightLink Consulting. {t('footer_rights', 'All Rights Reserved.')}</p>
+          <p>© 2026 Brightlink Consulting. {t('footer_rights', 'All Rights Reserved.')}</p>
           <div className="flex items-center gap-4 text-neutral-400">
             <span>Privacy Policy</span>
             <span>·</span>

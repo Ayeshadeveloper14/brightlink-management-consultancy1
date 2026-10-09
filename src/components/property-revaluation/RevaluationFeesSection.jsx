@@ -58,7 +58,7 @@ export const RevaluationFeesSection = () => {
           </p>
 
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            The Dubai Land Department sets fixed statutory fees for property valuations. BrightLink provides complete fee transparency with zero hidden markups or unauthorized surcharges.
+            The Dubai Land Department sets fixed statutory fees for property valuations. Brightlink provides complete fee transparency with zero hidden markups or unauthorized surcharges.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ export const RevaluationFeesSection = () => {
         <div className="p-6 sm:p-8 rounded-3xl bg-[#FAF5EC]/70 border border-[#E6D7C3] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-1">
             <span className="text-xs uppercase font-extrabold tracking-wider text-[#976A36] block">
-              BrightLink Typing & File Management
+              Brightlink Typing & File Management
             </span>
             <h4 className="text-base sm:text-lg font-bold text-[#222222]">
               Professional Case Coordination & Liaison
@@ -124,7 +124,7 @@ export const RevaluationFeesSection = () => {
           </div>
 
           <a
-            href="https://wa.me/971566556645?text=Hello%20BrightLink%2C%20please%20send%20me%20the%20complete%20fee%20estimate%20for%20my%20property%20valuation."
+            href="https://wa.me/971566556645?text=Hello%20Brightlink%2C%20please%20send%20me%20the%20complete%20fee%20estimate%20for%20my%20property%20valuation."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#B8864B] hover:bg-[#976A36] text-white text-xs font-bold transition-all shrink-0 cursor-pointer whitespace-nowrap shadow-sm shadow-[#B8864B]/30"

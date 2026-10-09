@@ -373,7 +373,7 @@ export const VisaCalculatorModal = ({
                   <span className="font-semibold text-[#222222] tabular-nums">AED {medicalAndBiometrics.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between items-center py-1 border-b border-[#B8864B]/10">
-                  <span>BrightLink Typing & Documenting</span>
+                  <span>Brightlink Typing & Documenting</span>
                   <span className="font-semibold text-[#222222] tabular-nums">AED {typingAndService.toLocaleString()}</span>
                 </div>
 
@@ -408,7 +408,7 @@ export const VisaCalculatorModal = ({
 
               <button
                 onClick={() => {
-                  const text = encodeURIComponent(`Hi BrightLink, I calculated an estimate of AED ${total.toLocaleString()} for ${activeCategory} service. Could you please review and confirm?`);
+                  const text = encodeURIComponent(`Hi Brightlink, I calculated an estimate of AED ${total.toLocaleString()} for ${activeCategory} service. Could you please review and confirm?`);
                   window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
                 }}
                 className="w-full text-center text-xs font-semibold text-[#25D366] hover:underline py-1 cursor-pointer"

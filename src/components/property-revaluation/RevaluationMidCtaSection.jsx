@@ -11,7 +11,7 @@ import {
 
 export const RevaluationMidCtaSection = ({ onOpenConsultation }) => {
   const handleWhatsApp = () => {
-    const query = encodeURIComponent('Hello BrightLink, I would like to request an official Property Revaluation Certificate in Dubai. Can you check my file?');
+    const query = encodeURIComponent('Hello Brightlink, I would like to request an official Property Revaluation Certificate in Dubai. Can you check my file?');
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 

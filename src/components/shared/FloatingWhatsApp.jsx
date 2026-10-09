@@ -3,7 +3,7 @@ import React from 'react';
 export const FloatingWhatsApp = () => {
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello BrightLink, I would like to inquire about UAE Visa & Passport Services.'
+      'Hello Brightlink, I would like to inquire about UAE Visa & Passport Services.'
     );
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };

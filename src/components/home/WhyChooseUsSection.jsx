@@ -64,7 +64,7 @@ export const WhyChooseUsSection = ({ onOpenConsultation }) => {
             transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
             className="text-3xl sm:text-4xl font-bold text-[#222222] tracking-tight"
           >
-            Why Thousands Trust BrightLink
+            Why Thousands Trust Brightlink
           </motion.h2>
 
           <motion.p

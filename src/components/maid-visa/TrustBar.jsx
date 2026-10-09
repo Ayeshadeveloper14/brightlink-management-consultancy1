@@ -16,7 +16,7 @@ export const TrustBar = () => {
               As featured in
             </span>
             <div className="h-4 w-px bg-[#DECBB5] hidden sm:block" />
-            <div className="flex items-center gap-6 text-[#0F172A] font-serif font-bold tracking-wider text-base sm:text-lg">
+            <div className="flex items-center gap-6 text-[#0F172A] font-serif font-black tracking-wider text-base sm:text-lg">
               <span className="hover:text-[#B8864B] transition-colors">Gulf News</span>
               <span className="text-[#DECBB5]">·</span>
               <span className="hover:text-[#B8864B] transition-colors">Khaleej Times</span>
@@ -31,7 +31,7 @@ export const TrustBar = () => {
             transition={{ duration: 0.4 }}
             className="flex items-center gap-3 bg-white px-5 py-2.5 rounded-2xl border border-[#DECBB5] shadow-2xs"
           >
-            <span className="text-2xl font-bold text-[#0F172A] font-heading leading-none">
+            <span className="text-2xl font-black text-[#0F172A] font-heading leading-none">
               4.9
             </span>
             <div className="flex flex-col">

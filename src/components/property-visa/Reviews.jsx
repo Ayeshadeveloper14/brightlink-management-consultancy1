@@ -42,7 +42,7 @@ export const Reviews = () => {
           </div>
 
           <div className="flex items-center gap-4 bg-white p-4 px-5 rounded-2xl border border-[#DECBB5] shadow-xs shrink-0">
-            <div className="text-3xl font-bold text-[#0F172A] font-heading">
+            <div className="text-3xl font-black text-[#0F172A] font-heading">
               4.9
             </div>
             <div>
@@ -83,7 +83,7 @@ export const Reviews = () => {
               </div>
 
               <div className="mt-6 pt-4 border-t border-[#F1EBE1] flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#FAF5EC] border border-[#DECBB5] text-[#8C6230] font-bold text-xs flex items-center justify-center font-heading shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#FAF5EC] border border-[#DECBB5] text-[#8C6230] font-black text-xs flex items-center justify-center font-heading shrink-0">
                   {rev.initials}
                 </div>
                 <div>

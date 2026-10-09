@@ -14,7 +14,7 @@ import {
 
 export const MedicalHelpCtaSection = ({ onOpenConsultation }) => {
   const handleWhatsApp = () => {
-    const query = encodeURIComponent("Hello BrightLink, I don't want to figure out the Visa Medical & Emirates ID process alone. Can your team assist me with a VIP fast-track booking?");
+    const query = encodeURIComponent("Hello Brightlink, I don't want to figure out the Visa Medical & Emirates ID process alone. Can your team assist me with a VIP fast-track booking?");
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 
@@ -61,7 +61,7 @@ export const MedicalHelpCtaSection = ({ onOpenConsultation }) => {
           </h3>
 
           <p className="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed font-normal">
-            Navigating DHA medical centers, chest X-ray exemptions, and ICP biometrics queues can be confusing. Let BrightLink’s authorized government typing officers handle the entire scheduling and document coordination for you.
+            Navigating DHA medical centers, chest X-ray exemptions, and ICP biometrics queues can be confusing. Let Brightlink’s authorized government typing officers handle the entire scheduling and document coordination for you.
           </p>
         </div>
 

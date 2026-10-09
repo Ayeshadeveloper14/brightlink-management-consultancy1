@@ -59,7 +59,7 @@ export const FamilyMedicalAndEmiratesId = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-[#4B5563] leading-relaxed">
-            Prior to electronic residence visa approval, every adult dependent (18+) must undergo a mandatory government medical screening and biometric capture. BrightLink books priority appointments and provides chauffeur coordination if needed.
+            Prior to electronic residence visa approval, every adult dependent (18+) must undergo a mandatory government medical screening and biometric capture. Brightlink books priority appointments and provides chauffeur coordination if needed.
           </p>
         </div>
 

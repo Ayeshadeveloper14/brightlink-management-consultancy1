@@ -22,7 +22,7 @@ export const ProductRegistrationHero = ({ onOpenConsultation }) => {
 
   const handleWhatsAppClick = () => {
     const text = encodeURIComponent(
-      'Hello FamilyVisa.ae / BrightLink! I would like to register consumer products with Dubai Municipality (Montaji) / MoIAT. Please advise on requirements.'
+      'Hello FamilyVisa.ae / Brightlink! I would like to register consumer products with Dubai Municipality (Montaji) / MoIAT. Please advise on requirements.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };
@@ -35,7 +35,7 @@ export const ProductRegistrationHero = ({ onOpenConsultation }) => {
   };
 
   return (
-    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
       {/* Background Architectural Glows */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <motion.div 

@@ -40,7 +40,7 @@ async function startServer() {
   app.get('/api/health', (req, res) => {
     res.json({
       status: 'online',
-      brand: 'BrightLink Typing & Consulting',
+      brand: 'Brightlink Typing & Consulting',
       location: 'Business Bay, Dubai, UAE',
       timestamp: new Date().toISOString()
     });
@@ -106,7 +106,7 @@ async function startServer() {
   app.use(errorHandler);
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`BrightLink Full-Stack Server active on http://0.0.0.0:${PORT} [${isProduction ? 'PRODUCTION' : 'DEV'}]`);
+    console.log(`Brightlink Full-Stack Server active on http://0.0.0.0:${PORT} [${isProduction ? 'PRODUCTION' : 'DEV'}]`);
   });
 }
 

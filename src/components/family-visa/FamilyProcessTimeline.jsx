@@ -130,7 +130,7 @@ export const FamilyProcessTimeline = ({ onOpenConsultation }) => {
                   >
                     <Icon className="w-5 h-5 text-[#B8864B] transition-transform duration-300 group-hover:scale-110" />
                   </motion.div>
-                  <span className="text-2xl font-bold text-[#E2D8C9] font-heading group-hover:text-[#B8864B] transition-colors duration-300 select-none">
+                  <span className="text-2xl font-black text-[#E2D8C9] font-heading group-hover:text-[#B8864B] transition-colors duration-300 select-none">
                     {step.num}
                   </span>
                 </div>

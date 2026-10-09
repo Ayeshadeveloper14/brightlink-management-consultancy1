@@ -25,7 +25,7 @@ const FAQ_ITEMS = [
   },
   {
     question: 'Can my family change their visa status without doing an Oman border run or airport flight?',
-    answer: 'Yes. If your family members are already in the UAE on a visit visa, tourist visa, or cancelled residence visa, BrightLink can process an in-country Change of Status directly through the GDRFA electronic portal. There is no need for them to exit the country or make a border run.'
+    answer: 'Yes. If your family members are already in the UAE on a visit visa, tourist visa, or cancelled residence visa, Brightlink can process an in-country Change of Status directly through the GDRFA electronic portal. There is no need for them to exit the country or make a border run.'
   },
   {
     question: 'Who is required to take the DHA medical fitness test?',
@@ -144,7 +144,7 @@ export const FamilyVisaFaqSection = ({ onOpenConsultation }) => {
               Ask an Immigration Specialist
             </button>
             <a
-              href="https://wa.me/971500000000?text=Hello%20BrightLink,%20I%20have%20a%20question%20about%20Family%20Visa%20sponsorship."
+              href="https://wa.me/971500000000?text=Hello%20Brightlink,%20I%20have%20a%20question%20about%20Family%20Visa%20sponsorship."
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-xl text-xs font-bold text-[#111827] bg-white border border-[#DECBB5] hover:bg-[#FAF5EC] shadow-2xs cursor-pointer transition-colors inline-flex items-center gap-1.5"

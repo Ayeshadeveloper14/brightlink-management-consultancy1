@@ -83,7 +83,7 @@ export const VisaEstimator = ({ onOpenCalculator, onScrollToCalculator }) => {
               <span className="text-xs font-bold uppercase tracking-wider text-[#8C6230] font-heading block">
                 Government fees
               </span>
-              <span className="text-2xl sm:text-3xl font-bold text-[#0F172A] font-heading block text-emerald-800">
+              <span className="text-2xl sm:text-3xl font-black text-[#0F172A] font-heading block text-emerald-800">
                 AED 985
               </span>
             </div>

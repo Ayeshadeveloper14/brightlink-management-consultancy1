@@ -43,7 +43,7 @@ export const TestimonialSection = () => {
             transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
             className="text-sm sm:text-base text-[#666666] leading-relaxed max-w-xl mx-auto"
           >
-            {t('testimonials_subtitle', 'Real feedback from individuals, families, and business leaders who secured their UAE visas and residency through BrightLink.')}
+            {t('testimonials_subtitle', 'Real feedback from individuals, families, and business leaders who secured their UAE visas and residency through Brightlink.')}
           </motion.p>
         </div>
 

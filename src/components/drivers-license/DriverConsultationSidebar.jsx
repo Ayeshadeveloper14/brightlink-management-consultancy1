@@ -36,7 +36,7 @@ export const DriverConsultationSidebar = () => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello BrightLink, I need Driver's License assistance in Dubai. Name: ${formData.name || 'Client'}, License Country: ${formData.licenseCountry || 'Foreign License'}, Service: ${formData.serviceType}`
+      `Hello Brightlink, I need Driver's License assistance in Dubai. Name: ${formData.name || 'Client'}, License Country: ${formData.licenseCountry || 'Foreign License'}, Service: ${formData.serviceType}`
     );
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };

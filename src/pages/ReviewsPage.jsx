@@ -16,8 +16,8 @@ export const ReviewsPage = ({ onOpenConsultation }) => {
       <PageHero
         badge="Verified UAE Client Feedback"
         title="What Our Clients Say About"
-        titleHighlight="BrightLink Typing"
-        description="Read authentic experiences from expatriates, family sponsors, real estate investors, and corporate founders who trusted BrightLink with their UAE residency and consular needs."
+        titleHighlight="Brightlink Typing"
+        description="Read authentic experiences from expatriates, family sponsors, real estate investors, and corporate founders who trusted Brightlink with their UAE residency and consular needs."
         breadcrumbs={[
           { label: 'Client Reviews' }
         ]}

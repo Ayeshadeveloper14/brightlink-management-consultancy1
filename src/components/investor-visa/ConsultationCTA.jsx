@@ -30,7 +30,7 @@ export const ConsultationCTA = ({ onOpenConsultation, onScrollToForm }) => {
               Free consultation
             </span>
 
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-heading">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight font-heading">
               Apply for Investor Visa
             </h2>
 
@@ -86,7 +86,7 @@ export const ConsultationCTA = ({ onOpenConsultation, onScrollToForm }) => {
               {/* Exact Statistics */}
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                  <strong className="text-2xl sm:text-3xl font-bold text-white font-heading block">
+                  <strong className="text-2xl sm:text-3xl font-black text-white font-heading block">
                     58
                   </strong>
                   <span className="text-[11px] text-slate-300 leading-tight block mt-1">
@@ -95,7 +95,7 @@ export const ConsultationCTA = ({ onOpenConsultation, onScrollToForm }) => {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                  <strong className="text-2xl sm:text-3xl font-bold text-[#F5D7A1] font-heading block">
+                  <strong className="text-2xl sm:text-3xl font-black text-[#F5D7A1] font-heading block">
                     250+
                   </strong>
                   <span className="text-[11px] text-slate-300 leading-tight block mt-1">

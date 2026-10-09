@@ -12,7 +12,7 @@ import { DriverLicenseFinalCtaSection } from '../components/drivers-license/Driv
 
 export const DriverLicensePage = ({ onOpenConsultation }) => {
   useLayoutEffect(() => {
-    document.title = "Driver's License in the UAE: Exchange, Eye Test & Road Rules | BrightLink";
+    document.title = "Driver's License in the UAE: Exchange, Eye Test & Road Rules | Brightlink";
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (document.documentElement) document.documentElement.scrollTop = 0;
     if (document.body) document.body.scrollTop = 0;

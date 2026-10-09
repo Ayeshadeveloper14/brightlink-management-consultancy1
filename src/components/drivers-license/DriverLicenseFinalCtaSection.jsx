@@ -11,7 +11,7 @@ import {
 
 export const DriverLicenseFinalCtaSection = () => {
   const handleWhatsApp = () => {
-    const query = encodeURIComponent("Hello BrightLink, I need help with my UAE Driver's License application / foreign license swap.");
+    const query = encodeURIComponent("Hello Brightlink, I need help with my UAE Driver's License application / foreign license swap.");
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 

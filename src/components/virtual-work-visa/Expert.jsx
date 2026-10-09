@@ -21,7 +21,7 @@ export const Expert = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <h3 className="text-base sm:text-lg font-bold text-[#222222] font-heading">
-                  BrightLink Immigration & Government Liaison Editorial Desk
+                  Brightlink Immigration & Government Liaison Editorial Desk
                 </h3>
                 <span className="text-xs text-[#B8864B] font-semibold">
                   UAE Residency & Smart Services Advisory

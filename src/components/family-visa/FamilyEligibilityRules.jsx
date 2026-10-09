@@ -488,7 +488,7 @@ export const FamilyEligibilityRules = ({ onOpenConsultation }) => {
                 <div className="bg-white rounded-xl p-4 border border-[#E8DFC8] text-xs text-[#555555] space-y-1">
                   <div className="flex items-center gap-1.5 font-bold text-[#8C6230]">
                     <Info className="w-3.5 h-3.5" />
-                    <span>BrightLink Humanitarian Support</span>
+                    <span>Brightlink Humanitarian Support</span>
                   </div>
                   <p className="text-[11px] leading-relaxed">
                     If your salary is slightly below AED 20,000 or you have a single parent situation, our Senior Typing Specialists prepare a customized humanitarian petition with notarized dependency affidavits for GDRFA director approval.
@@ -514,7 +514,7 @@ export const FamilyEligibilityRules = ({ onOpenConsultation }) => {
                     Newborn Babies, Step-Children & Custody Cases
                   </h3>
                   <p className="text-sm text-[#4B5563] leading-relaxed">
-                    BrightLink specializes in handling complex family cases, from urgent newborn visa issuance within the 120-day legal window to stepchildren sponsorship requiring overseas court custody approvals.
+                    Brightlink specializes in handling complex family cases, from urgent newborn visa issuance within the 120-day legal window to stepchildren sponsorship requiring overseas court custody approvals.
                   </p>
                 </div>
 

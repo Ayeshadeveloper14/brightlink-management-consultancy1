@@ -90,7 +90,7 @@ export const OnlineProcess = ({ onOpenCalculator, onOpenConsultation }) => {
                     <div className="w-12 h-12 rounded-2xl bg-[#FAF5EC] border border-[#DECBB5] flex items-center justify-center text-[#B8864B] shadow-2xs">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-2xl font-bold text-[#DECBB5] font-heading">
+                    <span className="text-2xl font-black text-[#DECBB5] font-heading">
                       {st.num}
                     </span>
                   </div>

@@ -56,7 +56,7 @@ export const RevaluationBenefitsSection = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#222222] tracking-tight mb-4">
-            Why Revalue with BrightLink
+            Why Revalue with Brightlink
           </h2>
 
           <p className="text-lg sm:text-xl font-semibold text-[#B8864B] mb-3">
@@ -64,7 +64,7 @@ export const RevaluationBenefitsSection = () => {
           </p>
 
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            Navigating property revaluation without professional coordination can result in scheduling bottlenecks, incorrect fee allocations, or surveyor access issues. BrightLink ensures a seamless experience.
+            Navigating property revaluation without professional coordination can result in scheduling bottlenecks, incorrect fee allocations, or surveyor access issues. Brightlink ensures a seamless experience.
           </p>
         </div>
 

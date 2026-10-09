@@ -16,7 +16,7 @@ export const OurStory = () => {
               Two Decades of Excellence in UAE Government Documentation
             </h2>
             <p className="text-sm text-[#555555] leading-relaxed">
-              Navigating government residency requirements, document attestations, and corporate trade licenses can be complex. Since 2006, BrightLink has operated with a single mission: to provide absolute clarity, legal security, and expedited execution for individuals and enterprises making the UAE their home.
+              Navigating government residency requirements, document attestations, and corporate trade licenses can be complex. Since 2006, Brightlink has operated with a single mission: to provide absolute clarity, legal security, and expedited execution for individuals and enterprises making the UAE their home.
             </p>
             <p className="text-sm text-[#555555] leading-relaxed">
               Our authorized status across GDRFA Dubai, Federal ICP, Ministry of Foreign Affairs (MOFA), and BLS International gives our clients priority submission tracks, cutting processing times from weeks to days.
@@ -48,7 +48,7 @@ export const OurStory = () => {
             >
               <img
                 src="/images/why_experienced_team_1790842362837.jpg"
-                alt="BrightLink Experienced Consultant Team"
+                alt="Brightlink Experienced Consultant Team"
                 className="w-full h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">

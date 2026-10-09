@@ -94,7 +94,7 @@ export const MedicalPreparationGuide = () => {
             Important Protocol for Golden Visa Holders & Dependents
           </h4>
           <p className="text-xs text-[#555555] leading-relaxed">
-            10-Year Golden Visa applicants and sponsored family members are entitled to VIP priority lanes at Smart Salem centers. Pre-booking via BrightLink guarantees dedicated executive escort and synchronous Emirates ID typing in one appointment slot.
+            10-Year Golden Visa applicants and sponsored family members are entitled to VIP priority lanes at Smart Salem centers. Pre-booking via Brightlink guarantees dedicated executive escort and synchronous Emirates ID typing in one appointment slot.
           </p>
         </div>
       </div>

@@ -42,7 +42,7 @@ export const QuickFacts = () => {
               transition={{ duration: 0.45, delay: idx * 0.1 }}
               className={`pt-4 sm:pt-0 ${idx > 0 ? 'sm:pl-6 lg:pl-8' : ''} text-center sm:text-left flex flex-col justify-center`}
             >
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A] font-heading tracking-tight mb-1 flex items-center justify-center sm:justify-start gap-1">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0F172A] font-heading tracking-tight mb-1 flex items-center justify-center sm:justify-start gap-1">
                 <span>{item.stat}</span>
               </div>
               <div className="text-xs sm:text-sm font-bold text-[#8C6230] font-heading">

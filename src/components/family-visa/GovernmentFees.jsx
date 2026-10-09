@@ -127,7 +127,7 @@ export const GovernmentFees = ({ onOpenCalculator, onOpenConsultation }) => {
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-[#DECBB5]/70">
-                  <span className="text-lg font-bold text-[#0F172A] font-heading">
+                  <span className="text-lg font-black text-[#0F172A] font-heading">
                     {item.total}
                   </span>
                 </div>
@@ -155,7 +155,7 @@ export const GovernmentFees = ({ onOpenCalculator, onOpenConsultation }) => {
             </div>
             <div className="text-right">
               <span className="text-xs text-[#64748B] block">Total Government Fees:</span>
-              <span className="text-2xl font-bold text-[#0F172A] font-heading">{currentCase.total}</span>
+              <span className="text-2xl font-black text-[#0F172A] font-heading">{currentCase.total}</span>
             </div>
           </div>
 

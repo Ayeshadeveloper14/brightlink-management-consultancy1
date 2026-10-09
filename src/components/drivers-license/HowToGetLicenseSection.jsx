@@ -14,7 +14,7 @@ export const HowToGetLicenseSection = () => {
     {
       step: '01',
       title: 'Eligibility & Opening RTA Traffic File',
-      description: 'Applicants must be at least 18 years of age for light motor vehicles. BrightLink opens your electronic traffic file directly through the RTA portal with your passport, residency visa, and Emirates ID.',
+      description: 'Applicants must be at least 18 years of age for light motor vehicles. Brightlink opens your electronic traffic file directly through the RTA portal with your passport, residency visa, and Emirates ID.',
       icon: FileText
     },
     {

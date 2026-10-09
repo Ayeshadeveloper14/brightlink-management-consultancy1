@@ -57,7 +57,7 @@ export const RakWhyBrightlink = ({ onOpenConsultation }) => {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF5EC] border border-[#DECBB5] text-[#8C5E28] text-xs font-bold tracking-wider uppercase font-heading shadow-2xs">
             <Award className="w-3.5 h-3.5 text-[#B8864B]" />
-            <span>THE Brightlink DIFFERENCE</span>
+            <span>THE BRIGHTLINK DIFFERENCE</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight font-heading">

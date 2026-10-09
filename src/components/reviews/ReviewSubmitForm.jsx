@@ -40,7 +40,7 @@ export const ReviewSubmitForm = () => {
           We Value Your Feedback
         </span>
         <h3 className="text-2xl font-bold text-[#222222]">
-          Share Your Experience with BrightLink
+          Share Your Experience with Brightlink
         </h3>
         <p className="text-xs sm:text-sm text-[#666666]">
           Help other expatriates and businesses in Dubai discover our services.

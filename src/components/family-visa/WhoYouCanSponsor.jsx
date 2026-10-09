@@ -106,7 +106,7 @@ export const WhoYouCanSponsor = ({ onOpenConsultation }) => {
 
                 <div className="pt-4 border-t border-[#DECBB5]/70 flex items-center justify-between">
                   <span className="text-xs text-[#64748B]">Price</span>
-                  <span className="text-base font-bold text-[#0F172A] font-heading">
+                  <span className="text-base font-black text-[#0F172A] font-heading">
                     {item.price}
                   </span>
                 </div>

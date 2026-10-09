@@ -10,7 +10,7 @@ import { ReraConsultationForm } from '../components/rera-license/ReraConsultatio
 
 export const ReraLicensePage = ({ onOpenConsultation }) => {
   useLayoutEffect(() => {
-    document.title = 'RERA License Dubai: Certified Broker Card & Agency Setup | BrightLink';
+    document.title = 'RERA License Dubai: Certified Broker Card & Agency Setup | Brightlink';
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (document.documentElement) document.documentElement.scrollTop = 0;
     if (document.body) document.body.scrollTop = 0;

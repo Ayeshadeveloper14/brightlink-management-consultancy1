@@ -96,7 +96,7 @@ export const ProductIntroSection = ({ onOpenConsultation }) => {
 
             <div className="shrink-0 text-center sm:text-right border-t sm:border-t-0 sm:border-l border-[#DECBB5] pt-4 sm:pt-0 sm:pl-6 space-y-1">
               <span className="text-xs text-[#64748B] block">Standard Validity:</span>
-              <span className="text-2xl font-bold text-[#0F172A] font-heading">5 Years</span>
+              <span className="text-2xl font-black text-[#0F172A] font-heading">5 Years</span>
               <span className="text-[11px] text-emerald-700 font-semibold block">Renewable Online</span>
             </div>
           </motion.div>

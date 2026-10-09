@@ -13,7 +13,7 @@ import {
 
 export const MedicalFinalCtaSection = ({ onOpenConsultation }) => {
   const handleWhatsApp = () => {
-    const query = encodeURIComponent("Hello BrightLink, I need urgent help with my Visa Medical & Emirates ID appointment in Dubai.");
+    const query = encodeURIComponent("Hello Brightlink, I need urgent help with my Visa Medical & Emirates ID appointment in Dubai.");
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 

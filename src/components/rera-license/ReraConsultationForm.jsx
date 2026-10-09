@@ -38,7 +38,7 @@ export const ReraConsultationForm = () => {
 
   const handleDirectWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello BrightLink, I would like to get RERA Licensing assistance for: ${formData.licenseCategory}. My Name: ${formData.name || 'Client'}, Phone: ${formData.phone || 'N/A'}`
+      `Hello Brightlink, I would like to get RERA Licensing assistance for: ${formData.licenseCategory}. My Name: ${formData.name || 'Client'}, Phone: ${formData.phone || 'N/A'}`
     );
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
@@ -317,7 +317,7 @@ export const ReraConsultationForm = () => {
                     </div>
 
                     <p className="text-[10px] text-center text-neutral-400">
-                      By submitting, you agree to receive official RERA compliance advice from BrightLink Typing.
+                      By submitting, you agree to receive official RERA compliance advice from Brightlink Typing.
                     </p>
                   </motion.form>
                 )}

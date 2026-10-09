@@ -59,7 +59,7 @@ export const ReraWhyChooseUs = ({ onOpenConsultation }) => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#222222] tracking-tight mb-4">
-            Why BrightLink for RERA Licensing
+            Why Brightlink for RERA Licensing
           </h2>
 
           <p className="text-lg sm:text-xl font-semibold text-[#B8864B] mb-3">
@@ -67,7 +67,7 @@ export const ReraWhyChooseUs = ({ onOpenConsultation }) => {
           </p>
 
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            Real estate licensing in Dubai demands precision. A single discrepancy between your educational degree attestation, DED commercial activity, and RERA approval code can stall your company launch for weeks. BrightLink eliminates the friction.
+            Real estate licensing in Dubai demands precision. A single discrepancy between your educational degree attestation, DED commercial activity, and RERA approval code can stall your company launch for weeks. Brightlink eliminates the friction.
           </p>
         </div>
 

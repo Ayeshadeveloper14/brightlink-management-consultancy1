@@ -73,7 +73,7 @@ export const FamilyVisaFinalCta = ({ onOpenConsultation }) => {
               </button>
 
               <a
-                href="https://wa.me/971500000000?text=Hello%20BrightLink,%20I%20am%20ready%20to%20apply%20for%20my%20Family%20Visa.%20Please%20guide%20me."
+                href="https://wa.me/971500000000?text=Hello%20Brightlink,%20I%20am%20ready%20to%20apply%20for%20my%20Family%20Visa.%20Please%20guide%20me."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-sm active:scale-98 transition-all cursor-pointer"
@@ -92,7 +92,7 @@ export const FamilyVisaFinalCta = ({ onOpenConsultation }) => {
                 Walk-In or Online Service
               </span>
               <h3 className="text-base font-bold text-white">
-                BrightLink Typing Office
+                Brightlink Typing Office
               </h3>
             </div>
 

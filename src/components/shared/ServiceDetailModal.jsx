@@ -9,7 +9,7 @@ export const ServiceDetailModal = ({
   if (!service) return null;
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent(`Hello BrightLink, I would like to inquire about the ${service.title} service. Could you please guide me on requirements and timeline?`);
+    const text = encodeURIComponent(`Hello Brightlink, I would like to inquire about the ${service.title} service. Could you please guide me on requirements and timeline?`);
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 

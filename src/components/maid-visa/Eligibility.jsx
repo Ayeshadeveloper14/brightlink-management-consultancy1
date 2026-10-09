@@ -27,7 +27,7 @@ export const Eligibility = () => {
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#8C6230] font-heading block mb-1">
                 Sponsorship Criteria
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A] font-heading tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A] font-heading tracking-tight">
                 Important: salary & accommodation rules
               </h2>
             </div>

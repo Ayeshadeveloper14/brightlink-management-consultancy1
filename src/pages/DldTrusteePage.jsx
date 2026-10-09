@@ -10,7 +10,7 @@ import { TrusteeFinalCtaSection } from '../components/dld-trustee/TrusteeFinalCt
 
 export const DldTrusteePage = ({ onOpenConsultation }) => {
   useLayoutEffect(() => {
-    document.title = 'Dubai Property Trustee Support | BrightLink Typing & Consulting';
+    document.title = 'Dubai Property Trustee Support | Brightlink Typing & Consulting';
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (document.documentElement) document.documentElement.scrollTop = 0;
     if (document.body) document.body.scrollTop = 0;

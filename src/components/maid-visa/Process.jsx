@@ -92,7 +92,7 @@ export const Process = ({ onOpenConsultation }) => {
                 <div>
                   {/* Step Number Badge & Icon */}
                   <div className="flex items-center justify-between mb-6">
-                    <span className="w-10 h-10 rounded-2xl bg-[#0F172A] text-white flex items-center justify-center font-heading font-bold text-base shadow-sm group-hover:bg-[#B8864B] transition-colors">
+                    <span className="w-10 h-10 rounded-2xl bg-[#0F172A] text-white flex items-center justify-center font-heading font-black text-base shadow-sm group-hover:bg-[#B8864B] transition-colors">
                       {step.number}
                     </span>
                     <div className="w-9 h-9 rounded-xl bg-white border border-[#EBE4D8] flex items-center justify-center text-[#B8864B] shrink-0">

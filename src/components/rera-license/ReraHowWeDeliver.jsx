@@ -30,7 +30,7 @@ export const ReraHowWeDeliver = () => {
       icon: BookOpenCheck,
       deliverables: [
         'Direct registration for the certified DREI training module',
-        'Provision of BrightLink revision summaries and past question patterns',
+        'Provision of Brightlink revision summaries and past question patterns',
         'Dubai Police Certificate of Good Conduct application typing'
       ]
     },

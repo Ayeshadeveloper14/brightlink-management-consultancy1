@@ -340,7 +340,7 @@ export const ContactSection = () => {
                 <div className="pt-3 flex justify-center gap-3">
                   <button
                     onClick={() => {
-                      const text = encodeURIComponent(`Hi BrightLink, I submitted an inquiry for ${formData.service}. My name is ${formData.name}.`);
+                      const text = encodeURIComponent(`Hi Brightlink, I submitted an inquiry for ${formData.service}. My name is ${formData.name}.`);
                       window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
                     }}
                     className="px-4 py-2 rounded-xl bg-[#25D366] text-white text-xs font-bold hover:bg-[#1EBE5D] transition-colors cursor-pointer"

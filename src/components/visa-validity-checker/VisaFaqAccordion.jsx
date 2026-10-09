@@ -21,11 +21,11 @@ const FAQ_ITEMS = [
   },
   {
     question: 'Can I check if I have a travel ban or immigration absconding block?',
-    answer: 'Basic portal checks verify active validity and accumulated fines. However, criminal, civil financial, or employer absconding circulars (travel bans) require an official judicial clearance check through the Dubai Police, Abu Dhabi Judicial Department, or GDRFA legal portals. BrightLink can run a confidential comprehensive ban inquiry on your behalf.'
+    answer: 'Basic portal checks verify active validity and accumulated fines. However, criminal, civil financial, or employer absconding circulars (travel bans) require an official judicial clearance check through the Dubai Police, Abu Dhabi Judicial Department, or GDRFA legal portals. Brightlink can run a confidential comprehensive ban inquiry on your behalf.'
   },
   {
     question: 'Can overstay fines be reduced, waived, or settled with a discount?',
-    answer: 'Yes. The UAE government provides humanitarian and legal avenues for fine reductions. Individuals who accumulated fines due to sponsor absconding, medical incapacity, company liquidation, or labor disputes can submit an official "Fine Reduction Mercy Application" to the GDRFA/ICP committee. BrightLink regularly secures fine discounts between 50% and 90% or full waivers.'
+    answer: 'Yes. The UAE government provides humanitarian and legal avenues for fine reductions. Individuals who accumulated fines due to sponsor absconding, medical incapacity, company liquidation, or labor disputes can submit an official "Fine Reduction Mercy Application" to the GDRFA/ICP committee. Brightlink regularly secures fine discounts between 50% and 90% or full waivers.'
   },
   {
     question: 'Why does the portal return "No Record Found" when I enter my passport details?',

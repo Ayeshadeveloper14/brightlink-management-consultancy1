@@ -41,7 +41,7 @@ export const VisaOverview = ({ onOpenConsultation }) => {
                 <Sparkles className="w-3.5 h-3.5 text-[#B8864B]" />
                 <span>End-to-End Service</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A] font-heading tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A] font-heading tracking-tight">
                 Domestic worker visa
               </h2>
               <p className="text-sm sm:text-base font-semibold text-[#B8864B] mt-1 font-heading">

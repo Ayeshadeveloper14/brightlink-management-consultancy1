@@ -114,7 +114,7 @@ export const FamilyDocumentChecklist = ({ onOpenConsultation }) => {
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-[#4B5563] leading-relaxed">
-            Select the family member you intend to sponsor to view the precise document requirements. BrightLink pre-audits all documents free of charge before submitting to GDRFA or ICP to guarantee zero rejection.
+            Select the family member you intend to sponsor to view the precise document requirements. Brightlink pre-audits all documents free of charge before submitting to GDRFA or ICP to guarantee zero rejection.
           </p>
         </div>
 
@@ -307,32 +307,32 @@ export const FamilyDocumentChecklist = ({ onOpenConsultation }) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
               <div className="bg-white p-3.5 rounded-lg border border-[#E6D7C3] space-y-1">
-                <span className="text-[10px] font-bold text-[#B8864B]">STEP 1</span>
+                <span className="text-[10px] font-black text-[#B8864B]">STEP 1</span>
                 <p className="font-bold text-[#111827]">Home Country Notary & MOFA</p>
                 <p className="text-[11px] text-[#666666]">Authenticated by Ministry of Foreign Affairs in country of origin.</p>
               </div>
 
               <div className="bg-white p-3.5 rounded-lg border border-[#E6D7C3] space-y-1">
-                <span className="text-[10px] font-bold text-[#B8864B]">STEP 2</span>
+                <span className="text-[10px] font-black text-[#B8864B]">STEP 2</span>
                 <p className="font-bold text-[#111827]">UAE Embassy Abroad</p>
                 <p className="text-[11px] text-[#666666]">Legalized by the UAE diplomatic mission located in home country.</p>
               </div>
 
               <div className="bg-white p-3.5 rounded-lg border border-[#E6D7C3] space-y-1">
-                <span className="text-[10px] font-bold text-[#B8864B]">STEP 3</span>
+                <span className="text-[10px] font-black text-[#B8864B]">STEP 3</span>
                 <p className="font-bold text-[#111827]">UAE MOFA in Dubai</p>
                 <p className="text-[11px] text-[#666666]">Electronic stamp verification by Ministry of Foreign Affairs UAE.</p>
               </div>
 
               <div className="bg-white p-3.5 rounded-lg border border-[#E6D7C3] space-y-1">
-                <span className="text-[10px] font-bold text-[#B8864B]">STEP 4</span>
+                <span className="text-[10px] font-black text-[#B8864B]">STEP 4</span>
                 <p className="font-bold text-[#111827]">Legal Arabic Translation</p>
                 <p className="text-[11px] text-[#666666]">Certified Ministry of Justice (MOJ) legal translation into Arabic.</p>
               </div>
             </div>
 
             <div className="mt-4 pt-3 border-t border-[#DECBB5] flex flex-wrap items-center justify-between gap-3 text-[11px] text-[#6B7280]">
-              <span>Documents not yet attested? BrightLink handles the entire MOFA and embassy legalization process for you.</span>
+              <span>Documents not yet attested? Brightlink handles the entire MOFA and embassy legalization process for you.</span>
               <button
                 type="button"
                 onClick={() => onOpenConsultation('Document Attestation & Translation Assistance')}

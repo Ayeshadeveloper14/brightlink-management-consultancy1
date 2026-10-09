@@ -116,7 +116,7 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
           fineStatus: 'Overstay fine accumulation active',
           sponsor: 'Cancelled Employment Record',
           issuingAuthority: 'GDRFA Dubai',
-          actionAdvice: 'Eligible for BrightLink Fine Reduction Petition (up to 70% reduction possible).'
+          actionAdvice: 'Eligible for Brightlink Fine Reduction Petition (up to 70% reduction possible).'
         });
       }
     }, 850);
@@ -124,7 +124,7 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
 
   const handleWhatsAppSend = () => {
     const text = encodeURIComponent(
-      `Hello BrightLink Immigration,\n\nI just checked my UAE visa validity on your website.\nPassport: ${passportNumber || 'N/A'}\nNationality: ${nationality}\nVisa Type: ${visaType}\nStatus: ${result ? result.status : 'Inquiry'}\n\nPlease verify my official immigration file and assist me with renewal/status advice.`
+      `Hello Brightlink Immigration,\n\nI just checked my UAE visa validity on your website.\nPassport: ${passportNumber || 'N/A'}\nNationality: ${nationality}\nVisa Type: ${visaType}\nStatus: ${result ? result.status : 'Inquiry'}\n\nPlease verify my official immigration file and assist me with renewal/status advice.`
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };
@@ -147,7 +147,7 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
   };
 
   return (
-    <section id="visa-checker-tool" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
+    <section id="visa-checker-tool" className="relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
       {/* Background Architectural Patterns with Subtle Float Animation */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <motion.div 

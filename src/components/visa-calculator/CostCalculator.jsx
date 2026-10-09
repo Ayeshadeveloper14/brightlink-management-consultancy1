@@ -94,7 +94,7 @@ export const CostCalculator = ({ onOpenConsultation }) => {
 
   const handleWhatsAppQuote = () => {
     const text = encodeURIComponent(
-      `Hello BrightLink, I calculated an estimate of AED ${est.totalEstimate.toLocaleString()} for ${visaType} (${dependents} person). Can I proceed with document verification?`
+      `Hello Brightlink, I calculated an estimate of AED ${est.totalEstimate.toLocaleString()} for ${visaType} (${dependents} person). Can I proceed with document verification?`
     );
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
@@ -310,7 +310,7 @@ export const CostCalculator = ({ onOpenConsultation }) => {
             Total Estimated Investment
           </span>
           <div className="flex items-baseline justify-between">
-            <span className="text-3xl font-bold text-[#222222] tracking-tight">
+            <span className="text-3xl font-black text-[#222222] tracking-tight">
               AED {est.totalEstimate.toLocaleString()}
             </span>
             <span className="text-xs text-neutral-500 font-medium">All inclusive</span>

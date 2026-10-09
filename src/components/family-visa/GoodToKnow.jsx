@@ -57,7 +57,7 @@ export const GoodToKnow = () => {
               className="p-7 rounded-3xl bg-[#FCFAF8] border border-[#DECBB5] shadow-xs hover:border-[#B8864B] hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="text-3xl sm:text-4xl font-bold text-[#0F172A] font-heading tracking-tight mb-4 text-[#B8864B]">
+                <div className="text-3xl sm:text-4xl font-black text-[#0F172A] font-heading tracking-tight mb-4 text-[#B8864B]">
                   {item.number}
                 </div>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed font-sans">

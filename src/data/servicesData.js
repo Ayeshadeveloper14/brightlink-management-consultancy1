@@ -1,4 +1,4 @@
-// BrightLink UAE Services Dataset - All 12 Government & Visa Services
+// Brightlink UAE Services Dataset - All 12 Government & Visa Services
 
 export const SERVICES_DATA = [
   {
@@ -11,7 +11,7 @@ export const SERVICES_DATA = [
     popular: true,
     processingTime: '3 - 7 Working Days',
     validity: '10 Years (Self-Sponsored)',
-    overview: 'The UAE Golden Visa provides self-sponsored long-term residency without requiring a local employer or national sponsor. BrightLink assists with nominations, real estate deed clearance, and end-to-end processing across all Emirates.',
+    overview: 'The UAE Golden Visa provides self-sponsored long-term residency without requiring a local employer or national sponsor. Brightlink assists with nominations, real estate deed clearance, and end-to-end processing across all Emirates.',
     eligibility: [
       'Real Estate Investors (Property value ≥ AED 2 Million, mortgages permitted with NOC)',
       'Public Investment & Business Owners (Capital ≥ AED 2 Million)',
@@ -43,7 +43,7 @@ export const SERVICES_DATA = [
     popular: true,
     processingTime: '2 - 5 Working Days',
     validity: '1 - 3 Years (Matches Sponsor)',
-    overview: 'Bring your family to live with you in Dubai and the UAE. BrightLink handles the entire sponsorship process from entry permit issuance to VIP medical fitness typing, biometrics, and Emirates ID delivery.',
+    overview: 'Bring your family to live with you in Dubai and the UAE. Brightlink handles the entire sponsorship process from entry permit issuance to VIP medical fitness typing, biometrics, and Emirates ID delivery.',
     eligibility: [
       'Employed residents with minimum monthly salary of AED 4,000 or AED 3,000 + accommodation',
       'Valid UAE Residence Visa & Emirates ID of sponsor',
@@ -133,7 +133,7 @@ export const SERVICES_DATA = [
     category: 'Travel',
     processingTime: '24 - 48 Hours',
     validity: '30 / 60 Days (Extendable)',
-    overview: 'Experience the magic of Dubai and the UAE with seamless entry permits. BrightLink offers same-day submission and express 24-hour turnaround for individuals and group travelers.',
+    overview: 'Experience the magic of Dubai and the UAE with seamless entry permits. Brightlink offers same-day submission and express 24-hour turnaround for individuals and group travelers.',
     eligibility: [
       'Tourists, visitors, and relatives from all eligible international destinations',
       'No local sponsor required for standard visitor visa categories'
@@ -161,7 +161,7 @@ export const SERVICES_DATA = [
     category: 'Health',
     processingTime: 'Same Day / 24 Hours',
     validity: 'Single / Multiple Entry or Annual Fitness',
-    overview: 'Fast-track your residency medical fitness examination with zero queues. BrightLink arranges VIP and 4-hour express medical appointments across Dubai Health Authority (DHA) and ICP centers.',
+    overview: 'Fast-track your residency medical fitness examination with zero queues. Brightlink arranges VIP and 4-hour express medical appointments across Dubai Health Authority (DHA) and ICP centers.',
     eligibility: [
       'Patients seeking healthcare treatment in certified UAE hospitals',
       'All newly applied or renewing UAE residence visa holders requiring medical tests'
@@ -224,7 +224,7 @@ export const SERVICES_DATA = [
     documentsRequired: [
       'Current original passport & copies of first, last, and visa pages',
       'UAE residence visa and original Emirates ID',
-      'Consulate application form typed by BrightLink authorized agents',
+      'Consulate application form typed by Brightlink authorized agents',
       'Police lost report (in case of lost passports)'
     ],
     features: [
@@ -244,7 +244,7 @@ export const SERVICES_DATA = [
     category: 'Renewal',
     processingTime: '2 - 3 Working Days',
     validity: '1 - 3 Years',
-    overview: 'Avoid penalties and legal interruptions. BrightLink handles your complete visa renewal cycle up to 6 months before expiry, including medical fitness, health insurance updates, and Emirates ID card replacement.',
+    overview: 'Avoid penalties and legal interruptions. Brightlink handles your complete visa renewal cycle up to 6 months before expiry, including medical fitness, health insurance updates, and Emirates ID card replacement.',
     eligibility: [
       'All active UAE residence visa holders approaching expiry or within the grace period',
       'Individuals seeking renewal for family members or company employees'
@@ -283,7 +283,7 @@ export const SERVICES_DATA = [
     documentsRequired: [
       'Original Certificate to be attested',
       'Passport copy of document owner',
-      'Authorization letter (prepared by BrightLink)'
+      'Authorization letter (prepared by Brightlink)'
     ],
     features: [
       'End-to-end doorstep collection and delivery worldwide',
@@ -303,7 +303,7 @@ export const SERVICES_DATA = [
     category: 'Residency',
     processingTime: '24 Hours - 3 Days',
     validity: 'Synced with Visa',
-    overview: 'The mandatory National Identity Card of the UAE. BrightLink handles new registrations, renewals, lost card replacements, and urgent biometrics scheduling across all Federal ICP centers.',
+    overview: 'The mandatory National Identity Card of the UAE. Brightlink handles new registrations, renewals, lost card replacements, and urgent biometrics scheduling across all Federal ICP centers.',
     eligibility: [
       'All UAE citizens, GCC nationals, and expatriate residency holders'
     ],
@@ -330,7 +330,7 @@ export const SERVICES_DATA = [
     popular: true,
     processingTime: '3 - 7 Working Days',
     validity: '1 Year (Annual License)',
-    overview: 'Launch your dream enterprise in the world’s business hub. BrightLink provides complete commercial trade licensing, trade name reservation, initial approvals, MOA drafting, and corporate bank account introduction.',
+    overview: 'Launch your dream enterprise in the world’s business hub. Brightlink provides complete commercial trade licensing, trade name reservation, initial approvals, MOA drafting, and corporate bank account introduction.',
     eligibility: [
       'Global entrepreneurs, investors, freelancers, and foreign corporations'
     ],
@@ -612,27 +612,27 @@ export const FAQ_DATA = [
   },
   {
     question: 'How long does the UAE residence visa process typically take?',
-    answer: 'With BrightLink express typing and VIP medical fitness, the entire process—from entry permit issuance to medical test, biometrics, and electronic residence visa stamping—is typically finalized within 3 to 5 business days.',
+    answer: 'With Brightlink express typing and VIP medical fitness, the entire process—from entry permit issuance to medical test, biometrics, and electronic residence visa stamping—is typically finalized within 3 to 5 business days.',
     category: 'Processing Time'
   },
   {
-    question: 'Can BrightLink assist with Indian Passport Renewal and Tatkal service?',
-    answer: 'Yes! BrightLink is a premier specialist for Indian passport services in Dubai. We handle BLS online forms, document collation, Tatkal expedited appointment booking, photo compliance, and police verification formalities for renewals, damaged passports, or newborn registrations.',
+    question: 'Can Brightlink assist with Indian Passport Renewal and Tatkal service?',
+    answer: 'Yes! Brightlink is a premier specialist for Indian passport services in Dubai. We handle BLS online forms, document collation, Tatkal expedited appointment booking, photo compliance, and police verification formalities for renewals, damaged passports, or newborn registrations.',
     category: 'Passport Renewal'
   },
   {
     question: 'How does VIP Medical Fitness test typing work in Dubai?',
-    answer: 'Every resident over 18 requires a blood test and chest X-ray. BrightLink books VIP priority slots at DHA Salem Smart centers (e.g., City Walk, Business Bay, Al Muhaisnah). Results and medical fitness certificates are issued within 4 to 24 hours directly to the immigration system.',
+    answer: 'Every resident over 18 requires a blood test and chest X-ray. Brightlink books VIP priority slots at DHA Salem Smart centers (e.g., City Walk, Business Bay, Al Muhaisnah). Results and medical fitness certificates are issued within 4 to 24 hours directly to the immigration system.',
     category: 'Medical Visa'
   },
   {
     question: 'What documents are required for UAE Document Attestation?',
-    answer: 'For educational or personal documents (Degrees, Marriage or Birth certificates), we require the original certificate, a copy of the passport, and authorization. BrightLink coordinates home country Ministry verification, UAE Embassy stamp, and local MOFA electronic attestation.',
+    answer: 'For educational or personal documents (Degrees, Marriage or Birth certificates), we require the original certificate, a copy of the passport, and authorization. Brightlink coordinates home country Ministry verification, UAE Embassy stamp, and local MOFA electronic attestation.',
     category: 'Required Documents'
   },
   {
     question: 'Can I renew my UAE visa or change status without leaving the country?',
-    answer: 'Yes. You can complete an inside-country "Change of Status" without exiting the UAE. BrightLink processes the status change directly through GDRFA and ICP portals, eliminating costly border runs.',
+    answer: 'Yes. You can complete an inside-country "Change of Status" without exiting the UAE. Brightlink processes the status change directly through GDRFA and ICP portals, eliminating costly border runs.',
     category: 'Residence Visa'
   }
 ];
@@ -648,7 +648,7 @@ export const TESTIMONIALS_DATA = [
     rating: 5,
     date: 'September 2026',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&h=160&q=80',
-    review: 'BrightLink handled our family Golden Visa seamlessly. From title deed verification to VIP medical, our Emirates IDs arrived in 4 days!'
+    review: 'Brightlink handled our family Golden Visa seamlessly. From title deed verification to VIP medical, our Emirates IDs arrived in 4 days!'
   },
   {
     id: '2',

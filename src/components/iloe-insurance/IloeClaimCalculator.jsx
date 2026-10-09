@@ -194,7 +194,7 @@ export const IloeClaimCalculator = ({ onOpenConsultation }) => {
                   <span className="text-xs text-slate-300 block mb-0.5">
                     Maximum Total Claim Payout (3 Months):
                   </span>
-                  <div className="text-3xl sm:text-4xl font-bold text-white font-heading">
+                  <div className="text-3xl sm:text-4xl font-black text-white font-heading">
                     AED {totalPayout.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </div>
                   <span className="text-[10px] text-slate-400 block mt-0.5">

@@ -24,7 +24,7 @@ export const TrustBar = () => {
 
           {/* Rating */}
           <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-2xl border border-[#DECBB5] shadow-2xs">
-            <span className="text-xl font-bold text-[#0F172A] font-heading">4.9</span>
+            <span className="text-xl font-black text-[#0F172A] font-heading">4.9</span>
             <div className="flex items-center gap-0.5 text-[#B8864B]">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3.5 h-3.5 fill-current" />

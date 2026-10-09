@@ -11,7 +11,7 @@ import {
 
 export const DriverMidCtaSection = ({ onOpenConsultation }) => {
   const handleWhatsApp = () => {
-    const query = encodeURIComponent("Hello BrightLink, I would like to verify if my foreign driver's license can be directly exchanged in Dubai without tests.");
+    const query = encodeURIComponent("Hello Brightlink, I would like to verify if my foreign driver's license can be directly exchanged in Dubai without tests.");
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 

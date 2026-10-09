@@ -92,7 +92,7 @@ export const Hero = ({ onOpenConsultation }) => {
   const currentActive = dashboardServices.find(s => s.id === activeDashboardTab) || dashboardServices[0];
 
   return (
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden border-b border-[#F1EBE1]">
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden border-b border-[#F1EBE1]">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-[#B8864B]/15 via-[#C5985B]/10 to-transparent rounded-full blur-3xl" />

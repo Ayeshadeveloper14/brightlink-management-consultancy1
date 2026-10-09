@@ -36,8 +36,8 @@ export const StatusGuide = ({ onOpenConsultation }) => {
       a: 'The official UAE government fine for overstaying is unified at AED 50 per day for all categories. In addition to daily fines, service fees and exit clearance charges apply.'
     },
     {
-      q: 'Can BrightLink help reduce overstay fines or clear absconding cases?',
-      a: 'Yes. BrightLink types official fine reduction petitions before the GDRFA and ICP legal committees for humanitarian, health, or procedural causes, often securing substantial discounts or waivers.'
+      q: 'Can Brightlink help reduce overstay fines or clear absconding cases?',
+      a: 'Yes. Brightlink types official fine reduction petitions before the GDRFA and ICP legal committees for humanitarian, health, or procedural causes, often securing substantial discounts or waivers.'
     }
   ];
 

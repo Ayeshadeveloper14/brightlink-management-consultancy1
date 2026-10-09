@@ -10,7 +10,7 @@ export const MedicalFinderModal = ({
   if (!isOpen) return null;
 
   const handleWhatsAppBooking = (centerName) => {
-    const text = encodeURIComponent(`Hello BrightLink, I would like to book a VIP Medical Fitness appointment at ${centerName}. Please assist with typing and express slot.`);
+    const text = encodeURIComponent(`Hello Brightlink, I would like to book a VIP Medical Fitness appointment at ${centerName}. Please assist with typing and express slot.`);
     window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
@@ -48,7 +48,7 @@ export const MedicalFinderModal = ({
             <div className="text-xs text-[#444444] leading-relaxed">
               <p className="font-bold text-[#222222] text-sm">Need VIP Medical Typing with Zero Waiting Queues?</p>
               <p className="mt-1">
-                BrightLink pre-types your DHA application, arranges express blood test and chest X-ray appointments at premier smart centers in Dubai, and pushes certificates directly to the GDRFA residency system.
+                Brightlink pre-types your DHA application, arranges express blood test and chest X-ray appointments at premier smart centers in Dubai, and pushes certificates directly to the GDRFA residency system.
               </p>
             </div>
           </div>
@@ -125,7 +125,7 @@ export const MedicalFinderModal = ({
             <ul className="space-y-1 list-disc list-inside">
               <li>Original valid passport & copy of UAE entry permit or visa cancellation</li>
               <li>2 passport-sized photographs on white background</li>
-              <li>BrightLink pre-typed DHA medical fitness application with barcode</li>
+              <li>Brightlink pre-typed DHA medical fitness application with barcode</li>
             </ul>
           </div>
         </div>

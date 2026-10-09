@@ -108,7 +108,7 @@ export const ReraHowItWorksInPractice = () => {
           </p>
 
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            Navigating RERA licensing involves synchronizing with four separate UAE government portals: DED, DREI, Dubai Police, and Dubai Land Department (Trakheesi). Here is the actual sequence handled by BrightLink on your behalf.
+            Navigating RERA licensing involves synchronizing with four separate UAE government portals: DED, DREI, Dubai Police, and Dubai Land Department (Trakheesi). Here is the actual sequence handled by Brightlink on your behalf.
           </p>
         </div>
 
@@ -176,7 +176,7 @@ export const ReraHowItWorksInPractice = () => {
                 Important Compliance Note on Advertising
               </h4>
               <p className="text-xs sm:text-sm text-[#555555] leading-relaxed max-w-2xl">
-                As per DLD circulars, any real estate advertisement published online or on social media without a valid <strong>Trakheesi QR Code Permit</strong> is subject to an immediate AED 50,000 penalty. BrightLink ensures your Trakheesi integration is active on day one.
+                As per DLD circulars, any real estate advertisement published online or on social media without a valid <strong>Trakheesi QR Code Permit</strong> is subject to an immediate AED 50,000 penalty. Brightlink ensures your Trakheesi integration is active on day one.
               </p>
             </div>
           </div>

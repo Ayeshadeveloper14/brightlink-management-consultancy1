@@ -147,7 +147,7 @@ export const ReraServiceOverview = ({ onOpenConsultation }) => {
           </p>
 
           <p className="text-sm sm:text-base text-[#555555] leading-relaxed">
-            The <strong>Real Estate Regulatory Agency (RERA)</strong>, an executive arm of the <strong>Dubai Land Department (DLD)</strong>, governs and licenses every real estate transaction, professional agent, and commercial agency in the Emirate of Dubai. Operating without an authorized RERA license or Trakheesi permit carries severe financial fines up to AED 50,000 and blacklisting. BrightLink provides complete, turnkey processing for every tier of RERA licensing.
+            The <strong>Real Estate Regulatory Agency (RERA)</strong>, an executive arm of the <strong>Dubai Land Department (DLD)</strong>, governs and licenses every real estate transaction, professional agent, and commercial agency in the Emirate of Dubai. Operating without an authorized RERA license or Trakheesi permit carries severe financial fines up to AED 50,000 and blacklisting. Brightlink provides complete, turnkey processing for every tier of RERA licensing.
           </p>
         </div>
 

@@ -36,7 +36,7 @@ export const FamilyDeadlinesAndFines = ({ onOpenConsultation }) => {
       timeframe: 'AED 50 / Day',
       title: 'Standard UAE Overstay Fine Rate',
       desc: 'Under unified ICP regulations, individuals who exceed their legal visa validity or grace period are charged a standardized fine of AED 50 for every day of overstay.',
-      impact: 'BrightLink files fine reduction requests and humanitarian amnesty petitions for qualifying families.'
+      impact: 'Brightlink files fine reduction requests and humanitarian amnesty petitions for qualifying families.'
     }
   ];
 
@@ -75,7 +75,7 @@ export const FamilyDeadlinesAndFines = ({ onOpenConsultation }) => {
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-[#B8864B] font-heading">
+                  <span className="text-2xl font-black text-[#B8864B] font-heading">
                     {item.timeframe}
                   </span>
                   <span className="w-8 h-8 rounded-lg bg-[#FAF5EC] text-[#8C6230] flex items-center justify-center font-bold text-xs">
@@ -112,7 +112,7 @@ export const FamilyDeadlinesAndFines = ({ onOpenConsultation }) => {
               Overstay Fine Waiver & Humanitarian Legalization
             </h4>
             <p className="text-xs sm:text-sm text-[#555555] max-w-2xl leading-relaxed">
-              If your family members have accrued overstay fines due to unforeseen delays in birth certificate attestation or passport renewal, BrightLink can submit a formal fine reduction petition to the GDRFA Dubai committee on your behalf.
+              If your family members have accrued overstay fines due to unforeseen delays in birth certificate attestation or passport renewal, Brightlink can submit a formal fine reduction petition to the GDRFA Dubai committee on your behalf.
             </p>
           </div>
 

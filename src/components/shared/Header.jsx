@@ -1104,23 +1104,23 @@ export const Header = ({ onOpenConsultation }) => {
           : 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200/80 py-3.5'
       }`}
     >
-      <div dir="ltr" className="w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-3.5 sm:px-6 xl:px-6 2xl:px-8 flex items-center justify-between flex-nowrap gap-2 sm:gap-3 lg:gap-4 xl:gap-5">
+      <div className="w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 xl:px-6 2xl:px-8 flex items-center justify-between gap-3 lg:gap-4 xl:gap-5">
         
-        {/* Left: BrightLink Logo */}
-        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group shrink min-w-0 sm:shrink-0">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C5985B] to-[#976A36] text-white flex items-center justify-center font-bold text-lg shadow-sm shadow-[#B8864B]/30 group-hover:scale-105 transition-transform duration-200 shrink-0">
+        {/* Left: Brightlink Logo */}
+        <Link to="/" className="flex items-center gap-2.5 group shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C5985B] to-[#976A36] text-white flex items-center justify-center font-bold text-lg shadow-sm shadow-[#B8864B]/30 group-hover:scale-105 transition-transform duration-200">
             BT
           </div>
-          <div className="flex flex-col min-w-0">
+          <div className="flex flex-col">
             <span
-              className={`text-xl font-bold tracking-tight leading-none transition-colors truncate ${
+              className={`text-xl font-bold tracking-tight leading-none transition-colors ${
                 isTransparent ? 'text-white' : 'text-[#222222]'
               }`}
             >
-              Bright<span className={isTransparent ? 'text-[#F5D7A1]' : 'text-[#B8864B]'}>Link</span>
+              Bright<span className={isTransparent ? 'text-[#F5D7A1]' : 'text-[#B8864B]'}>link</span>
             </span>
             <span
-              className={`text-[10px] uppercase tracking-wider font-semibold mt-0.5 transition-colors truncate max-w-[140px] xs:max-w-[180px] sm:max-w-none ${
+              className={`text-[10px] uppercase tracking-wider font-semibold mt-0.5 transition-colors ${
                 isTransparent ? 'text-neutral-300' : 'text-neutral-500'
               }`}
             >
@@ -1345,7 +1345,7 @@ export const Header = ({ onOpenConsultation }) => {
         </div>
 
         {/* Mobile/Tablet Right Controls: Free Consultation (sm:flex) + Language Selector + Hamburger */}
-        <div className="flex items-center gap-2 xl:hidden shrink-0 flex-nowrap">
+        <div className="flex items-center gap-2 xl:hidden">
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
@@ -1360,11 +1360,11 @@ export const Header = ({ onOpenConsultation }) => {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
-            className={`p-2 rounded-lg cursor-pointer transition-colors shrink-0 flex items-center justify-center ${
+            className={`p-2 rounded-lg cursor-pointer transition-colors ${
               isTransparent ? 'text-white hover:text-[#F5D7A1]' : 'text-[#222222] hover:text-[#B8864B]'
             }`}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 shrink-0" /> : <Menu className="w-6 h-6 shrink-0" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 

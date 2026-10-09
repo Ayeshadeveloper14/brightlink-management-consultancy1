@@ -122,7 +122,7 @@ export const ThreeStepsProcess = ({ onOpenConsultation }) => {
                   </motion.div>
                   
                   {/* Step Number: Subtle Scale-In */}
-                  <span className="text-3xl font-bold text-[#E2D8C9] font-heading group-hover:text-[#B8864B] transition-colors duration-300 select-none">
+                  <span className="text-3xl font-black text-[#E2D8C9] font-heading group-hover:text-[#B8864B] transition-colors duration-300 select-none">
                     {item.stepNumber}
                   </span>
                 </div>

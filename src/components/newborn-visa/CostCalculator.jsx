@@ -155,7 +155,7 @@ export const CostCalculator = () => {
                 </span>
                 <span className="text-[10px] text-slate-400">Zero markup on official government receipts</span>
               </div>
-              <span className="text-2xl font-bold text-emerald-800 font-heading">
+              <span className="text-2xl font-black text-emerald-800 font-heading">
                 AED {totalGovFee}
               </span>
             </div>

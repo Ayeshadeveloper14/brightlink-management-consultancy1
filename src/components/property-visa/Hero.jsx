@@ -42,7 +42,7 @@ export const Hero = ({ onOpenCalculator, onOpenConsultation }) => {
   };
 
   return (
-    <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-16 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-12 lg:pb-16 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
       {/* Ambient Architectural Lighting */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <motion.div 
@@ -103,7 +103,7 @@ export const Hero = ({ onOpenCalculator, onOpenConsultation }) => {
               initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight leading-[1.15] font-heading"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight leading-[1.15] font-heading"
             >
               Your UAE property is your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8864B] via-[#C5985B] to-[#976A36]">route to residency.</span>
             </motion.h1>

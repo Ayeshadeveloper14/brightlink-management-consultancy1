@@ -26,7 +26,7 @@ export const DriverLicenseHero = ({ onOpenConsultation }) => {
   const opacityBg = useTransform(scrollYProgress, [0, 0.9], [0.85, 0.4]);
 
   const handleWhatsApp = () => {
-    const query = encodeURIComponent("Hello BrightLink, I am inquiring about getting / exchanging a Driver's License in the UAE. Can you assist me?");
+    const query = encodeURIComponent("Hello Brightlink, I am inquiring about getting / exchanging a Driver's License in the UAE. Can you assist me?");
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 
@@ -59,7 +59,7 @@ export const DriverLicenseHero = ({ onOpenConsultation }) => {
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#B8864B]/25 blur-3xl pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-28 pb-16 lg:pt-36 lg:pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24">
         {/* Breadcrumb Navigation */}
         <motion.nav
           initial={{ opacity: 0, y: -10 }}

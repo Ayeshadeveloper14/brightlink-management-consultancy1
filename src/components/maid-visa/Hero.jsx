@@ -26,7 +26,7 @@ export const Hero = ({ onOpenConsultation, onScrollToProcess }) => {
   };
 
   return (
-    <section className="relative pt-24 pb-14 lg:pt-32 lg:pb-20 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-14 lg:pb-20 bg-gradient-to-b from-[#FAF7F2] via-[#FFFFFF] to-[#FCFAF8] overflow-hidden">
       {/* Ambient Glows */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <motion.div 
@@ -80,7 +80,7 @@ export const Hero = ({ onOpenConsultation, onScrollToProcess }) => {
                 initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.1 }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight leading-[1.15] font-heading"
+                className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight leading-[1.15] font-heading"
               >
                 Sponsor your nanny or maid.
               </motion.h1>

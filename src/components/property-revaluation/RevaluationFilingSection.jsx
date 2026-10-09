@@ -120,7 +120,7 @@ export const RevaluationFilingSection = () => {
 
               <div className="pt-2 text-center">
                 <span className="text-[11px] text-[#976A36] font-semibold">
-                  BrightLink coordinates the surveyor timing directly with your building security.
+                  Brightlink coordinates the surveyor timing directly with your building security.
                 </span>
               </div>
             </div>

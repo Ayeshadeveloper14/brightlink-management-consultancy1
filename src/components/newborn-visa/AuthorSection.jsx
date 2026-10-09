@@ -21,7 +21,7 @@ export const AuthorSection = () => {
           <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
             
             {/* Avatar / Monogram */}
-            <div className="w-16 h-16 rounded-2xl bg-[#0F172A] text-[#F5D7A1] font-bold text-xl flex items-center justify-center font-heading shrink-0 shadow-xs">
+            <div className="w-16 h-16 rounded-2xl bg-[#0F172A] text-[#F5D7A1] font-black text-xl flex items-center justify-center font-heading shrink-0 shadow-xs">
               RA
             </div>
 

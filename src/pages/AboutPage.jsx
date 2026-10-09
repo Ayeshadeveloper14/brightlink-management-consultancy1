@@ -17,8 +17,8 @@ export const AboutPage = ({ onOpenConsultation }) => {
       <PageHero
         badge="20+ Years Dubai Immigration Heritage"
         title="About"
-        titleHighlight="BrightLink Typing"
-        description="Headquartered in Crystal Tower, Business Bay, BrightLink is Dubai’s premier authorized government typing and visa consulting center, helping thousands of families, investors, and corporations secure UAE residency."
+        titleHighlight="Brightlink Typing"
+        description="Headquartered in Crystal Tower, Business Bay, Brightlink is Dubai’s premier authorized government typing and visa consulting center, helping thousands of families, investors, and corporations secure UAE residency."
         breadcrumbs={[
           { label: 'About Us' }
         ]}

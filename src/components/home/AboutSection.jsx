@@ -47,7 +47,7 @@ export const AboutSection = ({ onOpenConsultation, onExploreServices }) => {
             <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-neutral-100 aspect-[4/3] group">
               <img
                 src="https://website-imges.vercel.app/about_visa_consultant_1790842347102.jpg"
-                alt="BrightLink senior consultant assisting client in Dubai"
+                alt="Brightlink senior consultant assisting client in Dubai"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
@@ -85,7 +85,7 @@ export const AboutSection = ({ onOpenConsultation, onExploreServices }) => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F1EB] border border-[#B8864B]/20">
               <span className="w-2 h-2 rounded-full bg-[#B8864B]" />
               <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider">
-                {t('about_badge', 'About BrightLink Consulting')}
+                {t('about_badge', 'About Brightlink Consulting')}
               </span>
             </div>
 

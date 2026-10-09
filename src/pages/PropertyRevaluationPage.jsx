@@ -10,7 +10,7 @@ import { RevaluationFinalCtaSection } from '../components/property-revaluation/R
 
 export const PropertyRevaluationPage = ({ onOpenConsultation }) => {
   useLayoutEffect(() => {
-    document.title = 'Official Property Revaluation Dubai: DLD Valuation Certificate | BrightLink';
+    document.title = 'Official Property Revaluation Dubai: DLD Valuation Certificate | Brightlink';
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (document.documentElement) document.documentElement.scrollTop = 0;
     if (document.body) document.body.scrollTop = 0;

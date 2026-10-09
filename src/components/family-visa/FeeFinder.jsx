@@ -120,7 +120,7 @@ export const FeeFinder = ({ onOpenConsultation }) => {
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-[#DECBB5]/70">
-                  <span className="text-sm sm:text-base font-bold text-[#0F172A] font-heading">
+                  <span className="text-sm sm:text-base font-black text-[#0F172A] font-heading">
                     {opt.price}
                   </span>
                 </div>

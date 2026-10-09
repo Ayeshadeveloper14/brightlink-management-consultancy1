@@ -135,7 +135,7 @@ export const RevaluationRequiredDocsSection = () => {
               </p>
             </div>
             <a
-              href="https://wa.me/971566556645?text=Hello%20BrightLink%2C%20I%20would%20like%20to%20verify%20the%20exact%20DLD%20valuation%20fees%20for%20my%20property."
+              href="https://wa.me/971566556645?text=Hello%20Brightlink%2C%20I%20would%20like%20to%20verify%20the%20exact%20DLD%20valuation%20fees%20for%20my%20property."
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-xl bg-[#B8864B] hover:bg-[#976A36] text-white text-xs font-bold whitespace-nowrap transition-colors shadow-xs self-start md:self-auto"

@@ -72,7 +72,7 @@ export const IloeFinesSection = ({ onOpenConsultation }) => {
                   <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 border border-red-200 px-3 py-1 rounded-full font-heading">
                     {fine.label}
                   </span>
-                  <span className="text-2xl sm:text-3xl font-bold text-red-600 font-heading">
+                  <span className="text-2xl sm:text-3xl font-black text-red-600 font-heading">
                     {fine.amount}
                   </span>
                 </div>
@@ -128,7 +128,7 @@ export const IloeFinesSection = ({ onOpenConsultation }) => {
             </div>
           </motion.div>
 
-          {/* FamilyVisa / BrightLink Fine Settlement Assistance Banner */}
+          {/* FamilyVisa / Brightlink Fine Settlement Assistance Banner */}
           <motion.div 
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.985 }}
             whileInView={{ opacity: 1, scale: 1 }}

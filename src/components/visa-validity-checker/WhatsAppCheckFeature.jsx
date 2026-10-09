@@ -25,7 +25,7 @@ export const WhatsAppCheckFeature = ({ onOpenConsultation }) => {
 
   const handleWhatsAppClick = () => {
     const text = encodeURIComponent(
-      'Hello BrightLink! I would like to verify my UAE visa validity and status via WhatsApp. Please advise on the required documents.'
+      'Hello Brightlink! I would like to verify my UAE visa validity and status via WhatsApp. Please advise on the required documents.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

@@ -11,7 +11,7 @@ import {
 
 export const RevaluationFinalCtaSection = () => {
   const handleWhatsApp = () => {
-    const query = encodeURIComponent('Hello BrightLink, I am ready to start my Property Revaluation process in Dubai. Please check my Title Deed.');
+    const query = encodeURIComponent('Hello Brightlink, I am ready to start my Property Revaluation process in Dubai. Please check my Title Deed.');
     window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
   };
 
