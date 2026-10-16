@@ -34,7 +34,7 @@ export const AuthorSection = () => {
                   Written by Razeeb Abdulla
                 </h4>
                 <p className="text-xs text-[#64748B] font-medium font-heading">
-                  CEO · FamilyVisa.ae · 800 DOCS LLC SOC
+                  CEO · FamilyVisa.ae · Brightlink Typing LLC SOC
                 </p>
               </div>
 

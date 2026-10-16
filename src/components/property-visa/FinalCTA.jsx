@@ -7,7 +7,7 @@ export const FinalCTA = ({ onOpenCalculator, onOpenConsultation }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello 800 DOCS! I want to consult a property visa specialist about my Dubai property residency.'
+      'Hello Brightlink Typing! I want to consult a property visa specialist about my Dubai property residency.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

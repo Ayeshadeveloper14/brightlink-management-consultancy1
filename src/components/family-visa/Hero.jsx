@@ -34,7 +34,7 @@ export const Hero = ({ onOpenConsultation, onOpenCalculator }) => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      'Hello 800 DOCS / Brightlink! I would like to sponsor my family for UAE residence. Please share the checklist and fee breakdown.'
+      'Hello Brightlink / Brightlink! I would like to sponsor my family for UAE residence. Please share the checklist and fee breakdown.'
     );
     window.open(`https://wa.me/971501234567?text=${message}`, '_blank');
   };
@@ -123,7 +123,7 @@ export const Hero = ({ onOpenConsultation, onOpenCalculator }) => {
               transition={{ duration: 0.6, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
               className="text-base sm:text-lg text-[#475569] leading-relaxed font-sans max-w-2xl mx-auto lg:mx-0 font-normal"
             >
-              800 DOCS prepares the sponsorship, files it with GDRFA or ICP, books the medical and Emirates ID appointments close to you, and brings the stamped passport back to your door. Every government fee is shown before you pay a dirham.
+              Brightlink prepares the sponsorship, files it with GDRFA or ICP, books the medical and Emirates ID appointments close to you, and brings the stamped passport back to your door. Every government fee is shown before you pay a dirham.
             </motion.p>
 
             {/* CTA Buttons: Staggered Reveal */}
@@ -222,7 +222,7 @@ export const Hero = ({ onOpenConsultation, onOpenCalculator }) => {
                 {/* Floating Top Badge */}
                 <div className="absolute top-5 left-5 right-5 flex justify-between items-center pointer-events-none">
                   <span className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[#F5D7A1] text-xs font-bold shadow-lg">
-                    800 DOCS · Dubai & UAE
+                    Brightlink · Dubai & UAE
                   </span>
                   <span className="px-3 py-1 rounded-full bg-emerald-500/90 text-white text-[11px] font-bold shadow-md">
                     GDRFA & ICP File Open

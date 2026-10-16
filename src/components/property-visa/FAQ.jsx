@@ -36,7 +36,7 @@ export const FAQ = () => {
 
   const handleWhatsAppInquiry = () => {
     const text = encodeURIComponent(
-      'Hello 800 DOCS! I have a question about Dubai Property Visa requirements and mortgaged properties.'
+      'Hello Brightlink Typing! I have a question about Dubai Property Visa requirements and mortgaged properties.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

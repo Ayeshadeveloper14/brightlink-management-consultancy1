@@ -38,7 +38,7 @@ export const OnlineProcess = ({ onOpenCalculator, onOpenConsultation }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello 800 DOCS! I want to start my Property Visa application online from my phone. Please review my property documents.'
+      'Hello Brightlink Typing! I want to start my Property Visa application online from my phone. Please review my property documents.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

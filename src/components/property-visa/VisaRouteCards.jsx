@@ -66,7 +66,7 @@ export const VisaRouteCards = ({ onOpenCalculator, onOpenConsultation }) => {
 
   const handleWhatsAppRoute = (cardTitle) => {
     const text = encodeURIComponent(
-      `Hello 800 DOCS! I am interested in the ${cardTitle} via Dubai property. Please confirm the requirements and government fees.`
+      `Hello Brightlink Typing! I am interested in the ${cardTitle} via Dubai property. Please confirm the requirements and government fees.`
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

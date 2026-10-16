@@ -7,7 +7,7 @@ export const FinalCTA = ({ onOpenConsultation }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello 800 DOCS! I want to send my family visa documents on WhatsApp tonight to file tomorrow. Please send me the checklist.'
+      'Hello Brightlink Typing! I want to send my family visa documents on WhatsApp tonight to file tomorrow. Please send me the checklist.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

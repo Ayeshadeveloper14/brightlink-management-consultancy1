@@ -72,7 +72,7 @@ export const HowItWorks = ({ onOpenConsultation }) => {
           </h2>
         </motion.div>
 
-        {/* Split Layout: Customer Responsibilities vs 800 DOCS Responsibilities */}
+        {/* Split Layout: Customer Responsibilities vs Brightlink Typing Responsibilities */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-20">
           
           {/* You (5 cols) */}
@@ -119,7 +119,7 @@ export const HowItWorks = ({ onOpenConsultation }) => {
             </div>
           </motion.div>
 
-          {/* 800 DOCS (7 cols) */}
+          {/* Brightlink Typing (7 cols) */}
           <motion.div 
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: 15 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -130,7 +130,7 @@ export const HowItWorks = ({ onOpenConsultation }) => {
             <div>
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
                 <span className="text-xs font-bold text-[#F5D7A1] uppercase tracking-wider font-heading">
-                  800 DOCS
+                  Brightlink Typing
                 </span>
                 <span className="text-xs font-bold text-white bg-white/10 px-3 py-1 rounded-full border border-white/20">
                   The rest of the file

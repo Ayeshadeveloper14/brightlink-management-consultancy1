@@ -61,7 +61,7 @@ export const DriverLicenseFinalCtaSection = () => {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 backdrop-blur-md transition-all cursor-pointer whitespace-nowrap"
           >
             <PhoneCall className="w-4 h-4 text-[#F5D7A1]" />
-            <span>Call 800 DOCS (3627)</span>
+            <span>Call Brightlink Typing (3627)</span>
           </a>
         </div>
 

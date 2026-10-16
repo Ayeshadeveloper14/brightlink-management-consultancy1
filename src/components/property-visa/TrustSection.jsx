@@ -15,13 +15,13 @@ export const TrustSection = () => {
             Licensed UAE Documentation Company
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight font-heading mb-4">
-            We are 800 DOCS — on your side, working on your behalf.
+            We are Brightlink Typing — on your side, working on your behalf.
           </h2>
           <div className="text-xs font-bold uppercase tracking-wider text-[#8C6230] font-heading mb-4">
-            The FamilyVisa.ae team — 800 DOCS, Deira, Dubai
+            The FamilyVisa.ae team — Brightlink Typing, Deira, Dubai
           </div>
           <p className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans">
-            800 DOCS LLC SOC is the licensed documentation company behind FamilyVisa.ae — a private typing centre, not a government office. We check your eligibility free, file through the official DLD, GDRFA and ICP channels, and follow up until your Emirates ID is in your hand.
+            Brightlink Typing LLC SOC is the licensed documentation company behind FamilyVisa.ae — a private typing centre, not a government office. We check your eligibility free, file through the official DLD, GDRFA and ICP channels, and follow up until your Emirates ID is in your hand.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export const TrustSection = () => {
                     Razeeb Abdulla
                   </h4>
                   <p className="text-xs text-[#8C6230] font-medium font-heading">
-                    CEO · FamilyVisa.ae · 800 DOCS LLC SOC
+                    CEO · FamilyVisa.ae · Brightlink Typing LLC SOC
                   </p>
                 </div>
               </div>

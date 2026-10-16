@@ -47,7 +47,7 @@ export const WhoYouCanSponsor = ({ onOpenConsultation }) => {
 
   const handleCheckCase = () => {
     const text = encodeURIComponent(
-      "Hello 800 DOCS! I want to check my family sponsorship case (salary/profession/relative eligibility). Here are my details:"
+      "Hello Brightlink Typing! I want to check my family sponsorship case (salary/profession/relative eligibility). Here are my details:"
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

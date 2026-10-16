@@ -56,7 +56,7 @@ export const FeeFinder = ({ onOpenConsultation }) => {
 
   const handleWhatsAppQuote = () => {
     const text = encodeURIComponent(
-      `Hello 800 DOCS! I used the Fee Finder on your website for ${currentOption.title} (${currentOption.price}). Please send me the complete itemized government fee sheet and service quote on WhatsApp.`
+      `Hello Brightlink Typing! I used the Fee Finder on your website for ${currentOption.title} (${currentOption.price}). Please send me the complete itemized government fee sheet and service quote on WhatsApp.`
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

@@ -16,7 +16,7 @@ const FAQS = [
     answer: 'Marriage certificates (for spouses) and birth certificates (for children) must be attested by the issuing country, the UAE Embassy there, and the UAE Ministry of Foreign Affairs (MOFA). We manage the complete attestation chain and certified Arabic legal translation.'
   },
   {
-    question: 'How long does a Dubai family visa take with 800 DOCS?',
+    question: 'How long does a Dubai family visa take with Brightlink Typing?',
     answer: 'A new family visa typically takes 5–10 working days from file opening to stamped passport delivery. Renewals take 3–5 working days. Express VIP medical options (results in 30 minutes) are available if you are in a rush.'
   },
   {

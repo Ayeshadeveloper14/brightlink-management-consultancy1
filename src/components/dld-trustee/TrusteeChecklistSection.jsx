@@ -79,7 +79,7 @@ export const TrusteeChecklistSection = () => {
                     href="tel:8003627"
                     className="text-lg sm:text-xl font-extrabold text-[#222222] hover:text-[#B8864B] transition-colors"
                   >
-                    800 DOCS (3627)
+                    Brightlink Typing (3627)
                   </a>
                 </div>
               </div>

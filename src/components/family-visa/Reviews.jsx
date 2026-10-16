@@ -9,7 +9,7 @@ export const Reviews = () => {
     {
       author: 'Sameer & Hina K.',
       title: 'Wife & 2 Kids Stamped in 4 Days',
-      quote: 'We sent our marriage certificate and passports on WhatsApp at 9 PM. By 10 AM next morning, 800 DOCS had our entry permits ready. Medical booked at Smart Salem, zero queue.'
+      quote: 'We sent our marriage certificate and passports on WhatsApp at 9 PM. By 10 AM next morning, Brightlink Typing had our entry permits ready. Medical booked at Smart Salem, zero queue.'
     },
     {
       author: 'David R.',
@@ -90,7 +90,7 @@ export const Reviews = () => {
 
         {/* Supporting text & Link */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 text-xs text-[#64748B]">
-          <span>Across all 800 DOCS services in Dubai</span>
+          <span>Across all Brightlink Typing services in Dubai</span>
           <a
             href="https://google.com"
             target="_blank"

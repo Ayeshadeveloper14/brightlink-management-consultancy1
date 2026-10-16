@@ -64,7 +64,7 @@ export const GovernmentAuthorities = () => {
 
         {/* Clear Distinction Disclaimer */}
         <p className="text-center text-[11px] text-[#64748B] mt-6 max-w-2xl mx-auto">
-          800 DOCS LLC SOC is an authorized private documentation and typing center facilitating electronic filings with these official authorities. We are not a government agency.
+          Brightlink Typing LLC SOC is an authorized private documentation and typing center facilitating electronic filings with these official authorities. We are not a government agency.
         </p>
 
       </div>

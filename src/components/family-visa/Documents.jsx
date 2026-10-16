@@ -70,7 +70,7 @@ export const Documents = () => {
       .map(item => `⏳ Need assistance: ${item.title}`);
 
     const message = encodeURIComponent(
-      `Hello 800 DOCS! Here is my Family Visa document status for ${activeTab.toUpperCase()}:\n\n` +
+      `Hello Brightlink Typing! Here is my Family Visa document status for ${activeTab.toUpperCase()}:\n\n` +
       `Ready (${readyCount}/${totalCount}):\n` +
       readyNames.join('\n') +
       `\n\nPending / Need help:\n` +
@@ -186,7 +186,7 @@ export const Documents = () => {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs text-white bg-[#0F172A] hover:bg-[#B8864B] transition-all cursor-pointer shadow-sm font-sans"
             >
               <MessageSquare className="w-4 h-4 text-[#F5D7A1]" />
-              <span>Send my list to 800 DOCS</span>
+              <span>Send my list to Brightlink Typing</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </motion.button>
           </div>
