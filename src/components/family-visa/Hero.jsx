@@ -87,21 +87,6 @@ export const Hero = ({ onOpenConsultation, onOpenCalculator }) => {
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-[#0F172A] font-semibold">Family Visa</span>
           </div>
-
-          {/* Quick Service Context Indicator */}
-          <div className="hidden sm:flex items-center gap-3 text-[11px] uppercase tracking-wider text-[#8C6230] font-heading font-semibold">
-            <span className="font-bold text-[#0F172A]">800 DOCS</span>
-            <span className="text-slate-300">·</span>
-            <a href="/business-setup" className="hover:text-[#0F172A] transition-colors">Business Setup</a>
-            <span className="text-slate-300">·</span>
-            <a href="/services" className="hover:text-[#0F172A] transition-colors">PRO Services</a>
-            <span className="text-slate-300">·</span>
-            <a href="/golden-visa" className="hover:text-[#0F172A] transition-colors">Golden Visa</a>
-            <span className="text-slate-300">·</span>
-            <span className="text-[#B8864B] font-bold">Family Visa</span>
-            <span className="text-slate-300">·</span>
-            <a href="/contact" className="hover:text-[#0F172A] transition-colors">Contact</a>
-          </div>
         </motion.div>
 
         {/* Hero 2-Column Split: Editorial Left + High-End Cinematic Visual Right */}
