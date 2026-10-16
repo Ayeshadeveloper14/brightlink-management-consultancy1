@@ -4,6 +4,7 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext.jsx';
 import { Header } from './components/shared/Header.jsx';
 import { Footer } from './components/shared/Footer.jsx';
 import { FloatingWhatsApp } from './components/shared/FloatingWhatsApp.jsx';
+import { BackToTop } from './components/shared/BackToTop.jsx';
 import { ServiceDetailModal } from './components/shared/ServiceDetailModal.jsx';
 import { ConsultationModal } from './components/shared/ConsultationModal.jsx';
 import { VisaCalculatorModal } from './components/shared/VisaCalculatorModal.jsx';
@@ -1161,6 +1162,9 @@ function AppContent() {
 
       {/* Floating WhatsApp Action */}
       <FloatingWhatsApp />
+
+      {/* Floating Back to Top Button */}
+      <BackToTop />
 
       {/* Modals & Interactive Tools */}
       <ServiceDetailModal
