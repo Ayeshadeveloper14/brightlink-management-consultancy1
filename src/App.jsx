@@ -20,6 +20,7 @@ import { FaqPage } from './pages/FaqPage.jsx';
 import { FamilyVisaPage } from './pages/FamilyVisaPage.jsx';
 import { GoldenVisaPage } from './pages/GoldenVisaPage.jsx';
 import { VisaCalculatorPage } from './pages/VisaCalculatorPage.jsx';
+import { CalculatorPage } from './pages/CalculatorPage.jsx';
 import { MedicalFinderPage } from './pages/MedicalFinderPage.jsx';
 import { PassportServicesPage } from './pages/PassportServicesPage.jsx';
 import { ContactPage } from './pages/ContactPage.jsx';
@@ -188,6 +189,24 @@ function AppContent() {
             path="/visa/golden-visa"
             element={
               <GoldenVisaPage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/calculator"
+            element={
+              <CalculatorPage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/service-calculator"
+            element={
+              <CalculatorPage
                 onOpenConsultation={handleOpenConsultation}
               />
             }
