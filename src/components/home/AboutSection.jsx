@@ -120,15 +120,17 @@ export const AboutSection = ({ onOpenConsultation, onExploreServices }) => {
 
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
-              <motion.button
+              <motion.a
+                href="https://wa.me/971566556645"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => onOpenConsultation('About Us Consultation')}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#B8864B] hover:bg-[#9F7038] text-white font-semibold text-xs sm:text-sm shadow-md shadow-[#B8864B]/20 transition-all cursor-pointer"
               >
-                <span>{t('about_btn_consultation', 'Request Case Evaluation')}</span>
+                <span>{t('about_btn_consultation', 'Schedule Expert Consultation')}</span>
                 <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-              </motion.button>
+              </motion.a>
 
               <button
                 onClick={onExploreServices}

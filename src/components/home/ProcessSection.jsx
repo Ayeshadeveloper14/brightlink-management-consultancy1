@@ -105,7 +105,7 @@ export const ProcessSection = ({ onOpenConsultation }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.1 }}
-              onClick={() => onOpenConsultation(`Process Step ${item.step}: ${item.title}`)}
+              onClick={() => window.open('https://wa.me/971566556645', '_blank')}
               className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 border border-white/60 hover:border-[#B8864B] shadow-xl hover:shadow-2xl hover:shadow-[#B8864B]/20 transition-all duration-300 cursor-pointer flex flex-col justify-between group hover:-translate-y-1.5"
             >
               <div>
@@ -136,10 +136,16 @@ export const ProcessSection = ({ onOpenConsultation }) => {
                   <Clock className="w-3.5 h-3.5 text-[#B8864B]" />
                   <span>{item.duration}</span>
                 </span>
-                <span className="text-[#B8864B] group-hover:translate-x-1 transition-transform flex items-center gap-1 font-bold">
-                  <span>{t('process_cta_btn', 'Get Started')}</span>
+                <a
+                  href="https://wa.me/971566556645"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-[#B8864B] group-hover:translate-x-1 transition-transform flex items-center gap-1 font-bold cursor-pointer"
+                >
+                  <span>{t('process_cta_btn', 'Start Your Application Today')}</span>
                   <ArrowRight className={`w-3 h-3 ${isRTL ? 'rotate-180' : ''}`} />
-                </span>
+                </a>
               </div>
             </motion.div>
           ))}

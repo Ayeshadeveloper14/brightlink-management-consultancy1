@@ -122,15 +122,17 @@ export const Hero = ({
             transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
             className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
           >
-            <motion.button
+            <motion.a
+              href="https://wa.me/971566556645"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              onClick={onOpenConsultation}
               className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#C5985B] to-[#976A36] hover:from-[#D4A76A] hover:to-[#A77945] text-white font-semibold text-sm shadow-xl shadow-[#B8864B]/35 hover:shadow-2xl hover:shadow-[#B8864B]/50 transition-all cursor-pointer whitespace-nowrap"
             >
-              <span>{t('hero_cta_consultation', 'Get Free Consultation')}</span>
+              <span>{t('hero_cta_consultation', 'Book Free Consultation')}</span>
               <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-            </motion.button>
+            </motion.a>
 
             <motion.button
               whileHover={{ scale: 1.03 }}
