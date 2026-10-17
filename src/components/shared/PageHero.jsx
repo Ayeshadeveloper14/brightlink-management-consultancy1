@@ -137,23 +137,25 @@ export const PageHero = ({
               transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
               className="pt-2 flex flex-wrap items-center gap-3"
             >
-              {showConsultationBtn && onOpenConsultation && (
-                <button
-                  onClick={onOpenConsultation}
+              {showConsultationBtn && (
+                <a
+                  href="https://wa.me/971566556645"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#C5985B] to-[#976A36] hover:from-[#D4A76A] hover:to-[#A77945] text-white font-semibold text-xs sm:text-sm shadow-lg shadow-[#B8864B]/30 hover:shadow-xl transition-all cursor-pointer whitespace-nowrap"
                 >
                   Consult Specialist Now
-                </button>
+                </a>
               )}
 
               {showWhatsAppBtn && (
-                <button
-                  onClick={handleWhatsApp}
+                <Link
+                  to="/calculator"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-semibold text-xs sm:text-sm shadow-md transition-all cursor-pointer whitespace-nowrap"
                 >
                   <MessageSquare className="w-4 h-4 fill-current" />
                   <span>WhatsApp Inquiry</span>
-                </button>
+                </Link>
               )}
             </motion.div>
           )}

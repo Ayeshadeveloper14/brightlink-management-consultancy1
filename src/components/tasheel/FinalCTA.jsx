@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   FileCheck2, 
@@ -12,18 +13,15 @@ import {
 } from 'lucide-react';
 
 export const FinalCTA = ({ onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleGetStarted = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Tasheel Final CTA - Get Started');
-    }
+    window.open('https://wa.me/971566556645', '_blank', 'noopener,noreferrer');
   };
 
   const handleContactUs = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Tasheel Final CTA - Contact Us');
-    }
+    navigate('/calculator');
   };
 
   return (

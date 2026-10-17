@@ -46,18 +46,19 @@ export const Hero = ({ onOpenConsultation }) => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
-              <button
-                type="button"
-                onClick={() => onOpenConsultation ? onOpenConsultation('Tawjeeh Services') : navigate('/contact')}
+              <a
+                href="https://wa.me/971566556645"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#C5985B] via-[#B8864B] to-[#976A36] hover:brightness-105 active:scale-98 shadow-md shadow-[#B8864B]/20 transition-all cursor-pointer"
               >
                 <span>Get Started</span>
                 <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-              </button>
+              </a>
 
               <button
                 type="button"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/calculator')}
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold text-[#222222] bg-white border border-[#DECBB5] hover:border-[#B8864B] hover:text-[#976A36] hover:bg-[#FAF6F0] active:scale-98 transition-all shadow-xs cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4 text-[#B8864B]" />

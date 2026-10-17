@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   FileCheck2, 
@@ -12,18 +13,15 @@ import {
 } from 'lucide-react';
 
 export const Hero = ({ onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleGetStarted = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Tasheel Services - Get Started (Hero)');
-    }
+    window.open('https://wa.me/971566556645', '_blank', 'noopener,noreferrer');
   };
 
   const handleContactUs = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Tasheel Services - Contact Us (Hero)');
-    }
+    navigate('/calculator');
   };
 
   return (

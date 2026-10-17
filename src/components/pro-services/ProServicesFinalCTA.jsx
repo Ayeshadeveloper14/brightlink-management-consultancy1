@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -14,18 +15,15 @@ import {
 } from 'lucide-react';
 
 export const ProServicesFinalCTA = ({ onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleApply = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('PRO Services - Apply Now (Final CTA)');
-    }
+    window.open('https://wa.me/971566556645', '_blank', 'noopener,noreferrer');
   };
 
   const handleBookConsultation = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('PRO Services - Book Free Consultation (Final CTA)');
-    }
+    navigate('/calculator');
   };
 
   const handleWhatsApp = () => {

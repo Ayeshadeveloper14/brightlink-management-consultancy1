@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -12,17 +13,15 @@ import {
 } from 'lucide-react';
 
 export const GoldenVisaFinalCTA = ({ onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleBookConsultation = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Golden Visa - Final CTA Book Consultation');
-    }
+    window.open('https://wa.me/971566556645', '_blank');
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent('Hello Brightlink, I would like to inquire about the UAE 10-Year Golden Visa application. Please guide me through eligibility and fees.');
-    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
+    navigate('/calculator');
   };
 
   return (

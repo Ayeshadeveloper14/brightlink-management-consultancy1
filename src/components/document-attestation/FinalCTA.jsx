@@ -41,18 +41,19 @@ export const FinalCTA = ({ onOpenConsultation }) => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
-              <button
-                type="button"
-                onClick={() => onOpenConsultation ? onOpenConsultation('Document Attestation Quote') : navigate('/contact')}
+              <a
+                href="https://wa.me/971566556645"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#C5985B] via-[#B8864B] to-[#976A36] hover:brightness-105 active:scale-98 shadow-md shadow-black/30 transition-all cursor-pointer"
               >
                 <span>Request a Quote</span>
                 <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-              </button>
+              </a>
 
               <button
                 type="button"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/calculator')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold text-white bg-white/10 border border-white/20 hover:bg-white/15 active:scale-98 transition-all cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4 text-[#E5C9A4]" />

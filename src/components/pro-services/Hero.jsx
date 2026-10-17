@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   Building2, 
@@ -15,18 +16,15 @@ import {
 } from 'lucide-react';
 
 export const Hero = ({ onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleApply = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Corporate PRO Services - Apply Now');
-    }
+    window.open('https://wa.me/971566556645', '_blank', 'noopener,noreferrer');
   };
 
   const handleConsultation = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Corporate PRO Services - Free Consultation');
-    }
+    navigate('/calculator');
   };
 
   return (

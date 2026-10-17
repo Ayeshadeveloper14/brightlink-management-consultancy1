@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   Star, 
@@ -15,18 +16,15 @@ import {
 } from 'lucide-react';
 
 export const GoldenVisaHero = ({ onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleApply = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Golden Visa - Apply Now');
-    }
+    window.open('https://wa.me/971566556645', '_blank');
   };
 
   const handleConsultation = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Golden Visa - Free Consultation');
-    }
+    navigate('/calculator');
   };
 
   const scrollToEligibility = () => {
