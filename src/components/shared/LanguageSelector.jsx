@@ -294,7 +294,7 @@ export const MobileLanguageSelector = ({ isTransparent = false }) => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left shrink-0">
       {/* Existing Mobile Trigger Button Design Preserved 100% */}
       <button
         ref={buttonRef}
@@ -303,7 +303,7 @@ export const MobileLanguageSelector = ({ isTransparent = false }) => {
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-label="Select Language"
-        className={`p-2 rounded-xl border transition-colors cursor-pointer flex items-center justify-center ${
+        className={`w-9 h-9 p-2 rounded-xl border transition-colors cursor-pointer flex items-center justify-center shrink-0 ${
           isOpen
             ? 'border-[#B8864B] bg-[#FAF5EC] text-[#976A36]'
             : isTransparent
@@ -311,7 +311,7 @@ export const MobileLanguageSelector = ({ isTransparent = false }) => {
             : 'border-[#E6D7C3] bg-neutral-50/80 text-[#222222] hover:bg-[#FAF6F0] hover:text-[#B8864B]'
         }`}
       >
-        <Globe className="w-4 h-4 text-[#B8864B]" />
+        <Globe className="w-4 h-4 text-[#B8864B] shrink-0" />
       </button>
 
       {/* Viewport-bounded Dropdown Menu via Portal */}

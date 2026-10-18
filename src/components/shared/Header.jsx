@@ -790,10 +790,10 @@ export const FREE_ZONE_ITEMS = [
   { id: 'abu-dhabi-free-zone', title: 'Abu Dhabi Free Zone', path: '/business-setup/free-zone/abu-dhabi-free-zone' },
   { id: 'sharjah-free-zone', title: 'Sharjah Free Zone', path: '/business-setup/free-zone/sharjah-free-zone' },
   { id: 'ajman-free-zone', title: 'Ajman Free Zone', path: '/business-setup/free-zone/ajman-free-zone' },
-  { id: 'fujairah-free-zone', title: 'Fujairah Free Zone' },
-  { id: 'rak-free-zone', title: 'RAK Free Zone' },
-  { id: 'uaq-free-zone', title: 'UAQ Free Zone' },
-  { id: 'all-free-zones', title: 'All Free Zones', isSpecial: true }
+  { id: 'fujairah-free-zone', title: 'Fujairah Free Zone', path: '/business-setup/free-zone/fujairah-free-zone' },
+  { id: 'rak-free-zone', title: 'RAK Free Zone', path: '/business-setup/free-zone/rak-free-zone' },
+  { id: 'uaq-free-zone', title: 'UAQ Free Zone', path: '/business-setup/free-zone/uaq-free-zone' },
+  { id: 'all-free-zones', title: 'All Free Zones', path: '/business-setup/free-zone/all-free-zones', isSpecial: true }
 ];
 
 export const OFFSHORE_ITEMS = [
@@ -894,7 +894,13 @@ export const BusinessSetupMegaDropdown = ({
                         return (
                           <div
                             key={item.id}
-                            onClick={() => onOpenConsultation('Free Zone Setup - All Free Zones')}
+                            onClick={() => {
+                              if (item.path && onNavigate) {
+                                onNavigate(item.path);
+                              } else {
+                                onOpenConsultation('Free Zone Setup - All Free Zones');
+                              }
+                            }}
                             className="group flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-[#FAF2E6] to-[#F5E8D4] border border-[#B8864B]/60 hover:from-[#F5E8D4] hover:to-[#EED8BC] transition-all duration-150 cursor-pointer select-none shadow-xs mt-0.5"
                           >
                             <div className="flex items-center gap-2">
@@ -1110,23 +1116,23 @@ export const Header = ({ onOpenConsultation }) => {
           : 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200/80 py-3.5'
       }`}
     >
-      <div className="w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 xl:px-6 2xl:px-8 flex items-center justify-between gap-3 lg:gap-4 xl:gap-5">
+      <div dir="ltr" className="w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-3.5 sm:px-6 xl:px-6 2xl:px-8 flex items-center justify-between flex-nowrap gap-2 sm:gap-3 lg:gap-4 xl:gap-5">
         
         {/* Left: Brightlink Logo */}
-        <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C5985B] to-[#976A36] text-white flex items-center justify-center font-bold text-lg shadow-sm shadow-[#B8864B]/30 group-hover:scale-105 transition-transform duration-200">
+        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group shrink min-w-0 sm:shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#C5985B] to-[#976A36] text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-sm shadow-[#B8864B]/30 group-hover:scale-105 transition-transform duration-200 shrink-0">
             BT
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col min-w-0">
             <span
-              className={`text-xl font-bold tracking-tight leading-none transition-colors ${
+              className={`text-lg sm:text-xl font-bold tracking-tight leading-none transition-colors truncate ${
                 isTransparent ? 'text-white' : 'text-[#222222]'
               }`}
             >
               Bright<span className={isTransparent ? 'text-[#F5D7A1]' : 'text-[#B8864B]'}>link</span>
             </span>
             <span
-              className={`text-[10px] uppercase tracking-wider font-semibold mt-0.5 transition-colors ${
+              className={`text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold mt-0.5 transition-colors truncate ${
                 isTransparent ? 'text-neutral-300' : 'text-neutral-500'
               }`}
             >
@@ -1351,12 +1357,12 @@ export const Header = ({ onOpenConsultation }) => {
         </div>
 
         {/* Mobile/Tablet Right Controls: Free Consultation (sm:flex) + Language Selector + Hamburger */}
-        <div className="flex items-center gap-2 xl:hidden">
+        <div className="flex items-center gap-2 xl:hidden shrink-0 flex-nowrap">
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => window.open('https://wa.me/971566556645', '_blank')}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#B8864B] hover:bg-[#9F7038] rounded-xl shadow-md shadow-[#B8864B]/20 transition-all cursor-pointer whitespace-nowrap"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#B8864B] hover:bg-[#9F7038] rounded-xl shadow-md shadow-[#B8864B]/20 transition-all cursor-pointer whitespace-nowrap shrink-0"
           >
             <span>{t('nav_consultation_btn', 'Free Consultation')}</span>
           </motion.button>
@@ -1366,11 +1372,11 @@ export const Header = ({ onOpenConsultation }) => {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
-            className={`p-2 rounded-lg cursor-pointer transition-colors ${
+            className={`w-9 h-9 p-1.5 rounded-xl cursor-pointer transition-colors shrink-0 flex items-center justify-center ${
               isTransparent ? 'text-white hover:text-[#F5D7A1]' : 'text-[#222222] hover:text-[#B8864B]'
             }`}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 shrink-0" /> : <Menu className="w-6 h-6 shrink-0" />}
           </button>
         </div>
 

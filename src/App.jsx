@@ -31,6 +31,10 @@ import { DubaiFreeZonePage } from './pages/DubaiFreeZonePage.jsx';
 import { AbuDhabiFreeZonePage } from './pages/AbuDhabiFreeZonePage.jsx';
 import { SharjahFreeZonePage } from './pages/SharjahFreeZonePage.jsx';
 import { AjmanFreeZonePage } from './pages/AjmanFreeZonePage.jsx';
+import { FujairahFreeZonePage } from './pages/FujairahFreeZonePage.jsx';
+import { RakFreeZonePage } from './pages/RakFreeZonePage.jsx';
+import { UaqFreeZonePage } from './pages/UaqFreeZonePage.jsx';
+import { AllFreeZonesPage } from './pages/AllFreeZonesPage.jsx';
 import { RakOffshorePage } from './pages/RakOffshorePage.jsx';
 import { JafzaOffshorePage } from './pages/JafzaOffshorePage.jsx';
 import { AjmanOffshorePage } from './pages/AjmanOffshorePage.jsx';
@@ -546,6 +550,177 @@ function AppContent() {
             path="/ajman-free-zone"
             element={
               <AjmanFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/fujairah-free-zone"
+            element={
+              <FujairahFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/fujairah-free-zone"
+            element={
+              <FujairahFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/services/business-setup/fujairah-free-zone"
+            element={
+              <FujairahFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/fujairah-free-zone"
+            element={
+              <FujairahFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/rak-free-zone"
+            element={
+              <RakFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/rak-free-zone/"
+            element={
+              <RakFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/rak-free-zone"
+            element={
+              <RakFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/services/business-setup/rak-free-zone"
+            element={
+              <RakFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/rak-free-zone"
+            element={
+              <RakFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/uaq-free-zone"
+            element={
+              <UaqFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/uaq-free-zone/"
+            element={
+              <UaqFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/uaq-free-zone"
+            element={
+              <UaqFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/services/business-setup/uaq-free-zone"
+            element={
+              <UaqFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/uaq-free-zone"
+            element={
+              <UaqFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/all-free-zones/"
+            element={
+              <AllFreeZonesPage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/all-free-zones"
+            element={
+              <AllFreeZonesPage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/all-free-zones"
+            element={
+              <AllFreeZonesPage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/services/business-setup/all-free-zones"
+            element={
+              <AllFreeZonesPage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/all-free-zones"
+            element={
+              <AllFreeZonesPage
                 onOpenConsultation={handleOpenConsultation}
               />
             }
