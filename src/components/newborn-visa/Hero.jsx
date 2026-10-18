@@ -1,15 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Baby, Calculator, Sparkles, ChevronRight, CheckCircle2, Heart } from 'lucide-react';
 
 export const Hero = ({ onOpenCalculator, onScrollToCalculator }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleCalculatorClick = () => {
-    if (onScrollToCalculator) {
-      onScrollToCalculator();
-    } else if (onOpenCalculator) {
+    if (onOpenCalculator) {
       onOpenCalculator();
+    } else if (onScrollToCalculator) {
+      onScrollToCalculator();
+    } else {
+      navigate('/calculator');
     }
   };
 

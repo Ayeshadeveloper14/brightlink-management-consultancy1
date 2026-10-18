@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   FileCheck2, 
   Baby, 
@@ -16,18 +16,20 @@ import {
 } from 'lucide-react';
 
 export const ProcessPhases = ({ onOpenCalculator, onScrollToCalculator, onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
       'Hello Brightlink! I have a question about the newborn baby visa process and 120-day timeline in Dubai.'
     );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
   const handleCalculator = () => {
-    if (onScrollToCalculator) onScrollToCalculator();
-    else if (onOpenCalculator) onOpenCalculator();
+    if (onOpenCalculator) onOpenCalculator();
+    else if (onScrollToCalculator) onScrollToCalculator();
+    else navigate('/calculator');
   };
 
   return (

@@ -1,22 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Calculator, MessageSquare, ArrowRight, ShieldCheck, Home } from 'lucide-react';
 
 export const FinalCTA = ({ onOpenCalculator, onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello Brightlink Typing! I want to consult a property visa specialist about my Dubai property residency.'
+      'Hello 800 DOCS! I want to consult a property visa specialist about my Dubai property residency.'
     );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
   const handleCalculator = () => {
     if (onOpenCalculator) {
       onOpenCalculator();
-    } else if (onOpenConsultation) {
-      onOpenConsultation('Property Visa Calculator');
+    } else {
+      navigate('/calculator');
     }
   };
 

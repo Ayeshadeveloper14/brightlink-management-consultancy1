@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   Calculator, 
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 
 export const OnlineProcess = ({ onOpenCalculator, onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const steps = [
@@ -38,16 +40,16 @@ export const OnlineProcess = ({ onOpenCalculator, onOpenConsultation }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello Brightlink Typing! I want to start my Property Visa application online from my phone. Please review my property documents.'
+      'Hello 800 DOCS! I want to start my Property Visa application online from my phone. Please review my property documents.'
     );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
   const handleCalculatorClick = () => {
     if (onOpenCalculator) {
       onOpenCalculator();
-    } else if (onOpenConsultation) {
-      onOpenConsultation('Property Visa Calculator');
+    } else {
+      navigate('/calculator');
     }
   };
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Hero } from '../components/newborn-visa/Hero.jsx';
 import { TrustBar } from '../components/newborn-visa/TrustBar.jsx';
 import { VisaEstimator } from '../components/newborn-visa/VisaEstimator.jsx';
@@ -14,6 +15,8 @@ import { FinalCTA } from '../components/newborn-visa/FinalCTA.jsx';
 import { GovernmentAuthorities } from '../components/newborn-visa/GovernmentAuthorities.jsx';
 
 export const NewbornVisa = ({ onOpenCalculator, onOpenConsultation }) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = 'Newborn Visa UAE | Newborn Family Visa Dubai';
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -26,17 +29,20 @@ export const NewbornVisa = ({ onOpenCalculator, onOpenConsultation }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const scrollToCalculator = () => {
-    const el = document.getElementById('cost-calculator');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const handleCalculatorClick = () => {
+    if (onOpenCalculator) {
+      onOpenCalculator();
+    } else {
+      navigate('/calculator');
+    }
   };
 
   return (
     <div className="bg-[#FFFFFF] min-h-screen text-[#0F172A] selection:bg-[#B8864B] selection:text-white">
       {/* 1. Hero Section */}
       <Hero 
-        onOpenCalculator={onOpenCalculator}
-        onScrollToCalculator={scrollToCalculator}
+        onOpenCalculator={handleCalculatorClick}
+        onScrollToCalculator={handleCalculatorClick}
       />
 
       {/* 2. Featured / Trust Bar */}
@@ -44,8 +50,8 @@ export const NewbornVisa = ({ onOpenCalculator, onOpenConsultation }) => {
 
       {/* 3. Newborn Visa Estimator Preview */}
       <VisaEstimator 
-        onOpenCalculator={onOpenCalculator}
-        onScrollToCalculator={scrollToCalculator}
+        onOpenCalculator={handleCalculatorClick}
+        onScrollToCalculator={handleCalculatorClick}
       />
 
       {/* 4. Section 1 — Know the Timeline (120-Day Grace Period) */}
@@ -53,8 +59,8 @@ export const NewbornVisa = ({ onOpenCalculator, onOpenConsultation }) => {
 
       {/* 5. Section 2 — The Full Journey in 5 Phases */}
       <ProcessPhases 
-        onOpenCalculator={onOpenCalculator}
-        onScrollToCalculator={scrollToCalculator}
+        onOpenCalculator={handleCalculatorClick}
+        onScrollToCalculator={handleCalculatorClick}
         onOpenConsultation={onOpenConsultation}
       />
 
@@ -78,8 +84,8 @@ export const NewbornVisa = ({ onOpenCalculator, onOpenConsultation }) => {
 
       {/* 12. Final CTA */}
       <FinalCTA 
-        onOpenCalculator={onOpenCalculator}
-        onScrollToCalculator={scrollToCalculator}
+        onOpenCalculator={handleCalculatorClick}
+        onScrollToCalculator={handleCalculatorClick}
       />
 
       {/* 13. Official UAE Government Authorities */}

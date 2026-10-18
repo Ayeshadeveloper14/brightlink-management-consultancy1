@@ -160,7 +160,7 @@ export const Footer = ({
               </li>
               <li>
                 <Link
-                  to="/visa-calculator"
+                  to="/calculator"
                   className="hover:text-[#B8864B] transition-colors text-left cursor-pointer flex items-center gap-1.5"
                 >
                   <ArrowRight className="w-3 h-3 text-[#B8864B]" />

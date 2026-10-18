@@ -1,15 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Calculator, ArrowRight, CheckCircle2, Info, Sparkles } from 'lucide-react';
 
 export const VisaEstimator = ({ onOpenCalculator, onScrollToCalculator }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleGetExactFigure = () => {
-    if (onScrollToCalculator) {
-      onScrollToCalculator();
-    } else if (onOpenCalculator) {
+    if (onOpenCalculator) {
       onOpenCalculator();
+    } else if (onScrollToCalculator) {
+      onScrollToCalculator();
+    } else {
+      navigate('/calculator');
     }
   };
 

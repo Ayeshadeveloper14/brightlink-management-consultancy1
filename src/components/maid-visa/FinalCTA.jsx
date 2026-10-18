@@ -1,26 +1,19 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Calculator, ArrowRight, MessageSquare } from 'lucide-react';
 
 export const FinalCTA = ({ onOpenConsultation, onOpenCalculator }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleFreeQuote = () => {
-    if (onOpenConsultation) {
-      onOpenConsultation('Maid Visa / Domestic Worker Sponsorship');
-    } else {
-      const text = encodeURIComponent(
-        'Hello Brightlink! I want to check my eligibility and get a quote for a maid / domestic worker visa.'
-      );
-      window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
-    }
+    window.open('https://wa.me/971566556645', '_blank');
   };
 
   const handleEstimateCost = () => {
-    if (onOpenCalculator) {
-      onOpenCalculator();
-    }
+    navigate('/calculator');
   };
 
   return (
@@ -83,7 +76,7 @@ export const FinalCTA = ({ onOpenConsultation, onOpenCalculator }) => {
               </motion.button>
             ) : (
               <Link
-                to="/visa-calculator"
+                to="/calculator"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-xs text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all cursor-pointer backdrop-blur-sm font-sans"
               >
                 <Calculator className="w-4 h-4 text-[#F5D7A1]" />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './context/LanguageContext.jsx';
 import { Header } from './components/shared/Header.jsx';
 import { Footer } from './components/shared/Footer.jsx';
@@ -7,7 +7,6 @@ import { FloatingWhatsApp } from './components/shared/FloatingWhatsApp.jsx';
 import { BackToTop } from './components/shared/BackToTop.jsx';
 import { ServiceDetailModal } from './components/shared/ServiceDetailModal.jsx';
 import { ConsultationModal } from './components/shared/ConsultationModal.jsx';
-import { VisaCalculatorModal } from './components/shared/VisaCalculatorModal.jsx';
 import { MedicalFinderModal } from './components/shared/MedicalFinderModal.jsx';
 import { ScrollToTop } from './components/shared/ScrollToTop.jsx';
 
@@ -19,8 +18,8 @@ import { ReviewsPage } from './pages/ReviewsPage.jsx';
 import { FaqPage } from './pages/FaqPage.jsx';
 import { FamilyVisaPage } from './pages/FamilyVisaPage.jsx';
 import { GoldenVisaPage } from './pages/GoldenVisaPage.jsx';
-import { VisaCalculatorPage } from './pages/VisaCalculatorPage.jsx';
 import { CalculatorPage } from './pages/CalculatorPage.jsx';
+import { VisaCalculatorPage } from './pages/VisaCalculatorPage.jsx';
 import { MedicalFinderPage } from './pages/MedicalFinderPage.jsx';
 import { PassportServicesPage } from './pages/PassportServicesPage.jsx';
 import { ContactPage } from './pages/ContactPage.jsx';
@@ -60,16 +59,19 @@ import { WillsTestamentPage } from './pages/WillsTestamentPage.jsx';
 import { SERVICES_DATA } from './data/servicesData.js';
 
 function AppContent() {
+  const navigate = useNavigate();
   const { dir, isRTL } = useLanguage();
   const [selectedService, setSelectedService] = useState(null);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
-  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isMedicalFinderOpen, setIsMedicalFinderOpen] = useState(false);
   const [consultationDefaultService, setConsultationDefaultService] = useState('Golden Visa');
 
+  const handleOpenCalculator = () => {
+    navigate('/calculator');
+  };
+
   const handleOpenConsultation = (serviceName = 'Golden Visa') => {
-    setConsultationDefaultService(serviceName);
-    setIsConsultationOpen(true);
+    window.open('https://wa.me/971566556645', '_blank');
   };
 
   const handleOpenServiceById = (serviceId) => {
@@ -95,7 +97,7 @@ function AppContent() {
             element={
               <HomePage
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
                 onSelectService={(service) => setSelectedService(service)}
               />
             }
@@ -152,7 +154,7 @@ function AppContent() {
             element={
               <FamilyVisaPage
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
               />
             }
           />
@@ -162,7 +164,7 @@ function AppContent() {
             element={
               <FamilyVisaPage
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
               />
             }
           />
@@ -586,7 +588,7 @@ function AppContent() {
             element={
               <PropertyVisa
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
               />
             }
           />
@@ -596,7 +598,7 @@ function AppContent() {
             element={
               <PropertyVisa
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
               />
             }
           />
@@ -624,7 +626,7 @@ function AppContent() {
             element={
               <NewbornVisa
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
               />
             }
           />
@@ -634,7 +636,7 @@ function AppContent() {
             element={
               <NewbornVisa
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
               />
             }
           />
@@ -644,7 +646,7 @@ function AppContent() {
             element={
               <MaidVisa
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
               />
             }
           />
@@ -654,7 +656,7 @@ function AppContent() {
             element={
               <MaidVisa
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
               />
             }
           />
@@ -1165,7 +1167,7 @@ function AppContent() {
             element={
               <HomePage
                 onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={() => setIsCalculatorOpen(true)}
+                onOpenCalculator={handleOpenCalculator}
                 onSelectService={(service) => setSelectedService(service)}
               />
             }
@@ -1199,14 +1201,6 @@ function AppContent() {
         isOpen={isConsultationOpen}
         onClose={() => setIsConsultationOpen(false)}
         defaultService={consultationDefaultService}
-      />
-
-      <VisaCalculatorModal
-        isOpen={isCalculatorOpen}
-        onClose={() => setIsCalculatorOpen(false)}
-        onSelectServiceConsultation={(serviceName) => {
-          handleOpenConsultation(serviceName);
-        }}
       />
 
       <MedicalFinderModal

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -15,6 +16,7 @@ export const Hero = ({
   onOpenConsultation,
   onOpenCalculator
 }) => {
+  const navigate = useNavigate();
   const { t, isRTL } = useLanguage();
   const videoRef = useRef(null);
 
@@ -137,7 +139,10 @@ export const Hero = ({
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              onClick={onOpenCalculator}
+              onClick={() => {
+                if (onOpenCalculator) onOpenCalculator();
+                else navigate('/calculator');
+              }}
               className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-black/50 hover:bg-black/70 text-white border border-white/30 backdrop-blur-md text-xs sm:text-sm font-semibold transition-all cursor-pointer whitespace-nowrap shadow-md"
             >
               <Calculator className="w-4 h-4 text-[#F5D7A1]" />

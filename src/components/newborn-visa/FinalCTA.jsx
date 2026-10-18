@@ -1,20 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Calculator, MessageSquare, ArrowRight, Baby, Heart } from 'lucide-react';
 
 export const FinalCTA = ({ onOpenCalculator, onScrollToCalculator }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
       'Hello Brightlink! I want to start my newborn baby visa application. Please send me the checklist and next steps.'
     );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
   const handleCalculator = () => {
-    if (onScrollToCalculator) onScrollToCalculator();
-    else if (onOpenCalculator) onOpenCalculator();
+    if (onOpenCalculator) onOpenCalculator();
+    else if (onScrollToCalculator) onScrollToCalculator();
+    else navigate('/calculator');
   };
 
   return (

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Calculator, CheckCircle2, ArrowRight, MessageSquare, Info } from 'lucide-react';
 
 export const CostCalculator = () => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
   const [sponsorType, setSponsorType] = useState('2yr'); // '2yr' | '3yr' | 'golden'
   const [certOption, setCertOption] = useState('bilingual'); // 'arabic' | 'bilingual'
@@ -18,7 +20,7 @@ export const CostCalculator = () => {
     const text = encodeURIComponent(
       `Hello Brightlink! I calculated my newborn visa fees (${sponsorType.toUpperCase()} sponsor, ${certOption} birth certificate) at approximately AED ${totalGovFee}. Please confirm and send me the itemized quote.`
     );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
   return (
@@ -167,7 +169,7 @@ export const CostCalculator = () => {
               type="button"
               whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.02 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-              onClick={handleWhatsAppQuote}
+              onClick={() => navigate('/calculator')}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#0F172A] hover:bg-[#B8864B] shadow-md transition-all cursor-pointer font-sans"
             >
               <Calculator className="w-4 h-4 text-[#F5D7A1]" />

@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   DollarSign, 
   Receipt, 
   CheckCircle2, 
   ArrowRight, 
-  Info,
-  Calculator,
-  ShieldAlert
+  Info, 
+  Calculator, 
+  ShieldAlert 
 } from 'lucide-react';
 
 export const GovernmentFees = ({ onOpenCalculator, onOpenConsultation }) => {
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
   const [selectedCase, setSelectedCase] = useState(0);
 
@@ -66,11 +68,8 @@ export const GovernmentFees = ({ onOpenCalculator, onOpenConsultation }) => {
   const handleOpenEstimator = () => {
     if (onOpenCalculator) {
       onOpenCalculator();
-    } else if (onOpenConsultation) {
-      onOpenConsultation('Family Visa Fee Estimator');
     } else {
-      const el = document.getElementById('fee-finder');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      navigate('/calculator');
     }
   };
 
