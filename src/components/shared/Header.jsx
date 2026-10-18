@@ -786,10 +786,10 @@ export const MAINLAND_ITEMS = [
 ];
 
 export const FREE_ZONE_ITEMS = [
-  { id: 'dubai-free-zone', title: 'Dubai Free Zone' },
-  { id: 'abu-dhabi-free-zone', title: 'Abu Dhabi Free Zone' },
-  { id: 'sharjah-free-zone', title: 'Sharjah Free Zone' },
-  { id: 'ajman-free-zone', title: 'Ajman Free Zone' },
+  { id: 'dubai-free-zone', title: 'Dubai Free Zone', path: '/business-setup/free-zone/dubai-free-zone' },
+  { id: 'abu-dhabi-free-zone', title: 'Abu Dhabi Free Zone', path: '/business-setup/free-zone/abu-dhabi-free-zone' },
+  { id: 'sharjah-free-zone', title: 'Sharjah Free Zone', path: '/business-setup/free-zone/sharjah-free-zone' },
+  { id: 'ajman-free-zone', title: 'Ajman Free Zone', path: '/business-setup/free-zone/ajman-free-zone' },
   { id: 'fujairah-free-zone', title: 'Fujairah Free Zone' },
   { id: 'rak-free-zone', title: 'RAK Free Zone' },
   { id: 'uaq-free-zone', title: 'UAQ Free Zone' },
@@ -911,7 +911,13 @@ export const BusinessSetupMegaDropdown = ({
                       return (
                         <div
                           key={item.id}
-                          onClick={() => onOpenConsultation(`Free Zone Setup - ${item.title}`)}
+                          onClick={() => {
+                            if (item.path && onNavigate) {
+                              onNavigate(item.path);
+                            } else {
+                              onOpenConsultation(`Free Zone Setup - ${item.title}`);
+                            }
+                          }}
                           className="group flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/85 border border-[#EFEAE2] hover:bg-[#FAF6F0] hover:border-[#DECBB5] transition-all duration-150 cursor-pointer select-none shadow-2xs"
                         >
                           <span className="text-xs font-medium text-[#2B2B2B] group-hover:text-[#B8864B] group-hover:font-semibold transition-colors">
@@ -1337,7 +1343,7 @@ export const Header = ({ onOpenConsultation }) => {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => onOpenConsultation()}
+            onClick={() => window.open('https://wa.me/971566556645', '_blank')}
             className="inline-flex items-center gap-1.5 px-3.5 2xl:px-4 py-2 text-xs font-semibold text-white bg-[#B8864B] hover:bg-[#9F7038] rounded-xl shadow-md shadow-[#B8864B]/20 transition-all cursor-pointer whitespace-nowrap shrink-0"
           >
             <span>{t('nav_consultation_btn', 'Free Consultation')}</span>
@@ -1349,7 +1355,7 @@ export const Header = ({ onOpenConsultation }) => {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => onOpenConsultation()}
+            onClick={() => window.open('https://wa.me/971566556645', '_blank')}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#B8864B] hover:bg-[#9F7038] rounded-xl shadow-md shadow-[#B8864B]/20 transition-all cursor-pointer whitespace-nowrap"
           >
             <span>{t('nav_consultation_btn', 'Free Consultation')}</span>
@@ -1565,7 +1571,14 @@ export const Header = ({ onOpenConsultation }) => {
                                 type="button"
                                 onClick={() => {
                                   setMobileMenuOpen(false);
-                                  onOpenConsultation(`Free Zone Setup - ${item.title}`);
+                                  if (item.path) {
+                                    navigate(item.path);
+                                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                                    if (document.documentElement) document.documentElement.scrollTop = 0;
+                                    if (document.body) document.body.scrollTop = 0;
+                                  } else {
+                                    onOpenConsultation(`Free Zone Setup - ${item.title}`);
+                                  }
                                 }}
                                 className="w-full text-left text-xs py-1.5 px-2.5 rounded-lg text-neutral-700 hover:text-[#B8864B] hover:bg-[#F5F1EB] transition-colors flex items-center justify-between group cursor-pointer"
                               >
@@ -1628,7 +1641,7 @@ export const Header = ({ onOpenConsultation }) => {
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    onOpenConsultation();
+                    window.open('https://wa.me/971566556645', '_blank');
                   }}
                   className="w-full py-3 px-4 text-sm font-bold text-white bg-[#B8864B] rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >

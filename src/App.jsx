@@ -27,6 +27,10 @@ import { BusinessSetupPage } from './pages/BusinessSetupPage.jsx';
 import { ProfessionalLicensePage } from './pages/ProfessionalLicensePage.jsx';
 import { LlcCompanyPage } from './pages/LlcCompanyPage.jsx';
 import { BranchRepOfficePage } from './pages/BranchRepOfficePage.jsx';
+import { DubaiFreeZonePage } from './pages/DubaiFreeZonePage.jsx';
+import { AbuDhabiFreeZonePage } from './pages/AbuDhabiFreeZonePage.jsx';
+import { SharjahFreeZonePage } from './pages/SharjahFreeZonePage.jsx';
+import { AjmanFreeZonePage } from './pages/AjmanFreeZonePage.jsx';
 import { RakOffshorePage } from './pages/RakOffshorePage.jsx';
 import { JafzaOffshorePage } from './pages/JafzaOffshorePage.jsx';
 import { AjmanOffshorePage } from './pages/AjmanOffshorePage.jsx';
@@ -398,6 +402,150 @@ function AppContent() {
             path="/services/branch-rep-office"
             element={
               <BranchRepOfficePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/dubai-free-zone"
+            element={
+              <DubaiFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/dubai-free-zone"
+            element={
+              <DubaiFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/services/business-setup/dubai-free-zone"
+            element={
+              <DubaiFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/dubai-free-zone"
+            element={
+              <DubaiFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/abu-dhabi-free-zone"
+            element={
+              <AbuDhabiFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/abu-dhabi-free-zone"
+            element={
+              <AbuDhabiFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/services/business-setup/abu-dhabi-free-zone"
+            element={
+              <AbuDhabiFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/abu-dhabi-free-zone"
+            element={
+              <AbuDhabiFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/sharjah-free-zone"
+            element={
+              <SharjahFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/sharjah-free-zone"
+            element={
+              <SharjahFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/services/business-setup/sharjah-free-zone"
+            element={
+              <SharjahFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/sharjah-free-zone"
+            element={
+              <SharjahFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/free-zone/ajman-free-zone"
+            element={
+              <AjmanFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/business-setup/ajman-free-zone"
+            element={
+              <AjmanFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/services/business-setup/ajman-free-zone"
+            element={
+              <AjmanFreeZonePage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
+          />
+
+          <Route
+            path="/ajman-free-zone"
+            element={
+              <AjmanFreeZonePage
                 onOpenConsultation={handleOpenConsultation}
               />
             }

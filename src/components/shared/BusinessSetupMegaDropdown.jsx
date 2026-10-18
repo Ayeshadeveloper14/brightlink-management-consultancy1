@@ -16,10 +16,10 @@ export const MAINLAND_ITEMS = [
 ];
 
 export const FREE_ZONE_ITEMS = [
-  { id: 'dubai-free-zone', title: 'Dubai Free Zone' },
-  { id: 'abu-dhabi-free-zone', title: 'Abu Dhabi Free Zone' },
-  { id: 'sharjah-free-zone', title: 'Sharjah Free Zone' },
-  { id: 'ajman-free-zone', title: 'Ajman Free Zone' },
+  { id: 'dubai-free-zone', title: 'Dubai Free Zone', path: '/business-setup/free-zone/dubai-free-zone' },
+  { id: 'abu-dhabi-free-zone', title: 'Abu Dhabi Free Zone', path: '/business-setup/free-zone/abu-dhabi-free-zone' },
+  { id: 'sharjah-free-zone', title: 'Sharjah Free Zone', path: '/business-setup/free-zone/sharjah-free-zone' },
+  { id: 'ajman-free-zone', title: 'Ajman Free Zone', path: '/business-setup/free-zone/ajman-free-zone' },
   { id: 'fujairah-free-zone', title: 'Fujairah Free Zone' },
   { id: 'rak-free-zone', title: 'RAK Free Zone' },
   { id: 'uaq-free-zone', title: 'UAQ Free Zone' },
@@ -35,6 +35,7 @@ export const OFFSHORE_ITEMS = [
 export const BusinessSetupMegaDropdown = ({
   isOpen,
   onOpenConsultation,
+  onNavigate,
   onMouseEnter,
   onMouseLeave
 }) => {
@@ -132,7 +133,13 @@ export const BusinessSetupMegaDropdown = ({
                       return (
                         <div
                           key={item.id}
-                          onClick={() => onOpenConsultation(`Free Zone Setup - ${item.title}`)}
+                          onClick={() => {
+                            if (item.path && onNavigate) {
+                              onNavigate(item.path);
+                            } else {
+                              onOpenConsultation(`Free Zone Setup - ${item.title}`);
+                            }
+                          }}
                           className="group flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/85 border border-[#EFEAE2] hover:bg-[#FAF6F0] hover:border-[#DECBB5] transition-all duration-150 cursor-pointer select-none shadow-2xs"
                         >
                           <span className="text-xs font-medium text-[#2B2B2B] group-hover:text-[#B8864B] group-hover:font-semibold transition-colors">
