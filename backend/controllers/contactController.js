@@ -2,7 +2,7 @@ import { contactsStore } from '../models/store.js';
 
 export const createContact = async (req, res) => {
   try {
-    const { name, email, phone, service, message } = req.body;
+    const { name, email, phone, service, subject, message } = req.body;
 
     if (!name || !email || !phone) {
       return res.status(400).json({
@@ -17,6 +17,7 @@ export const createContact = async (req, res) => {
       email: email.trim().toLowerCase(),
       phone: phone.trim(),
       service: service || 'General Visa Inquiry',
+      subject: subject ? subject.trim() : '',
       message: message ? message.trim() : '',
       status: 'New',
       createdAt: new Date().toISOString()

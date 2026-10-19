@@ -3,8 +3,6 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { 
   Search, 
   ShieldCheck, 
-  Clock, 
-  AlertTriangle, 
   CheckCircle2, 
   Calendar, 
   Globe, 
@@ -13,10 +11,10 @@ import {
   RotateCcw, 
   HelpCircle,
   ExternalLink,
-  PhoneCall,
   User,
   ArrowRight,
-  ShieldAlert
+  AlertCircle,
+  MessageSquare
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
@@ -47,103 +45,119 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
   const [activeTab, setActiveTab] = useState('passport'); // 'passport' | 'application'
   
   // Form State
+  const [fullName, setFullName] = useState('');
   const [passportNumber, setPassportNumber] = useState('');
   const [nationality, setNationality] = useState('India');
-  const [dob, setDob] = useState('1990-05-15');
+  const [dob, setDob] = useState('');
   const [visaType, setVisaType] = useState('Residence Visa (Dubai / GDRFA)');
   const [whatsappNumber, setWhatsappNumber] = useState('');
 
   // Application/File tab state
   const [fileNumber, setFileNumber] = useState('');
   const [emirate, setEmirate] = useState('Dubai (GDRFA)');
+  const [issueYear, setIssueYear] = useState('2024');
 
-  // Simulation Status
-  const [isSearching, setIsSearching] = useState(false);
-  const [result, setResult] = useState(null);
-  const [statusPreset, setStatusPreset] = useState('valid'); // 'valid' | 'expiring' | 'expired'
+  // Validation & Submission State
+  const [errors, setErrors] = useState({});
+  const [submittedRequest, setSubmittedRequest] = useState(null);
 
-  const handleSearch = (e) => {
-    if (e) e.preventDefault();
-    setIsSearching(true);
-    setResult(null);
+  const validateForm = () => {
+    const newErrors = {};
 
-    setTimeout(() => {
-      setIsSearching(false);
-      if (statusPreset === 'valid') {
-        setResult({
-          status: 'Active & Valid',
-          statusColor: 'green',
-          visaType: visaType || 'Residence Visa (Mainland LLC)',
-          fileNo: '201/2023/1849204',
-          unifiedId: '784-1990-4829104-1',
-          issueDate: '15 Oct 2023',
-          expiryDate: '14 Oct 2025',
-          daysRemaining: 224,
-          gracePeriod: '30 Days after expiration',
-          finesAccumulated: 'AED 0.00',
-          fineStatus: 'No Violations / Clear Immigration Record',
-          sponsor: 'Commercial Establishment (Dubai DED)',
-          issuingAuthority: 'GDRFA Dubai'
-        });
-      } else if (statusPreset === 'expiring') {
-        setResult({
-          status: 'Expiring Soon (Under 30 Days)',
-          statusColor: 'amber',
-          visaType: visaType || 'Tourist / Visit Visa (60 Days)',
-          fileNo: '101/2024/938102',
-          unifiedId: '784-1992-9182301-3',
-          issueDate: '10 Feb 2025',
-          expiryDate: '11 Apr 2025',
-          daysRemaining: 12,
-          gracePeriod: '10 Days grace period',
-          finesAccumulated: 'AED 0.00',
-          fineStatus: 'Renewal Required Before 11 Apr 2025',
-          sponsor: 'Self / Tourism Entry Permit',
-          issuingAuthority: 'ICP Federal (Abu Dhabi/Sharjah)'
-        });
-      } else {
-        setResult({
-          status: 'Expired / Overstay Fines Active',
-          statusColor: 'red',
-          visaType: 'Employment Residence Visa',
-          fileNo: '201/2022/672109',
-          unifiedId: '784-1988-1290348-7',
-          issueDate: '01 Jan 2022',
-          expiryDate: '31 Dec 2024',
-          daysRemaining: -48,
-          gracePeriod: 'Grace period ended on 30 Jan 2025',
-          finesAccumulated: 'AED 2,400.00 (AED 50/day x 48 days)',
-          fineStatus: 'Overstay fine accumulation active',
-          sponsor: 'Cancelled Employment Record',
-          issuingAuthority: 'GDRFA Dubai',
-          actionAdvice: 'Eligible for Brightlink Fine Reduction Petition (up to 70% reduction possible).'
-        });
+    if (activeTab === 'passport') {
+      if (!passportNumber.trim()) {
+        newErrors.passportNumber = 'Please enter your passport number.';
       }
-    }, 850);
-  };
-
-  const handleWhatsAppSend = () => {
-    const text = encodeURIComponent(
-      `Hello Brightlink Immigration,\n\nI just checked my UAE visa validity on your website.\nPassport: ${passportNumber || 'N/A'}\nNationality: ${nationality}\nVisa Type: ${visaType}\nStatus: ${result ? result.status : 'Inquiry'}\n\nPlease verify my official immigration file and assist me with renewal/status advice.`
-    );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
-  };
-
-  const loadPreset = (preset) => {
-    setStatusPreset(preset);
-    if (preset === 'valid') {
-      setPassportNumber('N8291048');
-      setNationality('India');
-      setVisaType('Residence Visa (Dubai / GDRFA)');
-    } else if (preset === 'expiring') {
-      setPassportNumber('P3948201');
-      setNationality('Philippines');
-      setVisaType('Tourist / Visit Visa');
+      if (!nationality.trim()) {
+        newErrors.nationality = 'Please select your nationality.';
+      }
+      if (!dob) {
+        newErrors.dob = 'Please select your date of birth.';
+      }
     } else {
-      setPassportNumber('K9018472');
-      setNationality('Pakistan');
-      setVisaType('Employment Visa (Overstay)');
+      if (!fileNumber.trim()) {
+        newErrors.fileNumber = 'Please enter your application or file number.';
+      }
     }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const generateWhatsAppMessage = () => {
+    const lines = [
+      'Visa Check Assistance Request',
+      ''
+    ];
+
+    if (fullName.trim()) {
+      lines.push(`Name: ${fullName.trim()}`);
+    }
+
+    if (activeTab === 'passport') {
+      lines.push(`Visa Type: ${visaType}`);
+      lines.push(`Passport Number: ${passportNumber.trim().toUpperCase()}`);
+      lines.push(`Nationality: ${nationality}`);
+      if (dob) {
+        lines.push(`Date of Birth: ${dob}`);
+      }
+    } else {
+      lines.push(`Visa Type: ${emirate}`);
+      lines.push(`Application Number: ${fileNumber.trim()}`);
+      if (issueYear) {
+        lines.push(`Year of Issue: ${issueYear}`);
+      }
+      if (nationality) {
+        lines.push(`Nationality: ${nationality}`);
+      }
+    }
+
+    if (whatsappNumber.trim()) {
+      lines.push(`Contact Number: ${whatsappNumber.trim()}`);
+    }
+
+    lines.push('');
+    lines.push('Request: Please assist me with checking my visa status.');
+
+    return lines.join('\n');
+  };
+
+  const handleSubmit = (e) => {
+    if (e) e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    const message = generateWhatsAppMessage();
+    const waUrl = `https://wa.me/971566556645?text=${encodeURIComponent(message)}`;
+
+    // Store submitted information before attempting to open
+    const summaryData = {
+      method: activeTab === 'passport' ? 'Passport Details' : 'File / Application Number',
+      fullName: fullName.trim(),
+      passportNumber: passportNumber.trim().toUpperCase(),
+      fileNumber: fileNumber.trim(),
+      nationality,
+      dob,
+      visaType: activeTab === 'passport' ? visaType : emirate,
+      whatsappNumber: whatsappNumber.trim(),
+      waUrl
+    };
+
+    setSubmittedRequest(summaryData);
+
+    // Direct opening of WhatsApp without popup form
+    try {
+      window.open(waUrl, '_blank');
+    } catch (err) {
+      console.error('Auto-open WhatsApp blocked by browser:', err);
+    }
+  };
+
+  const handleReset = () => {
+    setSubmittedRequest(null);
+    setErrors({});
   };
 
   return (
@@ -188,10 +202,10 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF5EC] border border-[#B8864B]/30 text-[#8C6230] text-[11px] font-bold tracking-wider uppercase mb-5 shadow-xs"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#B8864B]" />
-            <span>Official UAE Immigration Status Check • GDRFA & ICP Compliant</span>
+            <span>Official UAE Immigration Visa Check Assistance • GDRFA & ICP Portals</span>
           </motion.div>
 
-          {/* Main Heading: Elegant Fade-Up with Slight Delay */}
+          {/* Main Heading */}
           <motion.h1 
             initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -201,67 +215,18 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
             Check your UAE visa status by passport number
           </motion.h1>
 
-          {/* Supporting Text: Smooth Delayed Reveal */}
+          {/* Supporting Text */}
           <motion.p 
             initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
             className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl mx-auto font-sans"
           >
-            Verify residency validity, entry permit status, remaining grace periods, and overstay fines in real time. Fast, secure, and officially synchronized with UAE immigration portals.
+            Submit your information below to request an official visa status check. Our authorized typists verify your records directly through authorized GDRFA Dubai and ICP Federal systems with instant WhatsApp support.
           </motion.p>
-
-          {/* Quick preset pills for easy interactive testing */}
-          <motion.div 
-            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-            className="mt-5 flex flex-wrap items-center justify-center gap-2 text-xs"
-          >
-            <span className="text-neutral-500 font-medium">Quick Test Scenarios:</span>
-            <motion.button
-              type="button"
-              whileHover={shouldReduceMotion ? {} : { y: -1, scale: 1.02 }}
-              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-              onClick={() => { loadPreset('valid'); setTimeout(() => handleSearch(), 50); }}
-              className={`px-3 py-1 rounded-full border text-[11px] font-semibold transition-colors cursor-pointer ${
-                statusPreset === 'valid'
-                  ? 'bg-[#B8864B] text-white border-[#B8864B] shadow-xs'
-                  : 'bg-white text-neutral-700 border-neutral-300 hover:border-[#B8864B]'
-              }`}
-            >
-              Active Resident
-            </motion.button>
-            <motion.button
-              type="button"
-              whileHover={shouldReduceMotion ? {} : { y: -1, scale: 1.02 }}
-              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-              onClick={() => { loadPreset('expiring'); setTimeout(() => handleSearch(), 50); }}
-              className={`px-3 py-1 rounded-full border text-[11px] font-semibold transition-colors cursor-pointer ${
-                statusPreset === 'expiring'
-                  ? 'bg-[#B8864B] text-white border-[#B8864B] shadow-xs'
-                  : 'bg-white text-neutral-700 border-neutral-300 hover:border-[#B8864B]'
-              }`}
-            >
-              Expiring Soon
-            </motion.button>
-            <motion.button
-              type="button"
-              whileHover={shouldReduceMotion ? {} : { y: -1, scale: 1.02 }}
-              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-              onClick={() => { loadPreset('expired'); setTimeout(() => handleSearch(), 50); }}
-              className={`px-3 py-1 rounded-full border text-[11px] font-semibold transition-colors cursor-pointer ${
-                statusPreset === 'expired'
-                  ? 'bg-[#B8864B] text-white border-[#B8864B] shadow-xs'
-                  : 'bg-white text-neutral-700 border-neutral-300 hover:border-[#B8864B]'
-              }`}
-            >
-              Overstay Fine Case
-            </motion.button>
-          </motion.div>
         </motion.div>
 
-        {/* Prominent Visa Status Checker Interface / Form Card: Smooth Scale-in + Fade */}
+        {/* Prominent Visa Status Checker Interface / Form Card */}
         <motion.div 
           initial={shouldReduceMotion ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.985, y: 24 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -273,7 +238,7 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
           <div className="flex border-b border-neutral-200 bg-[#F8FAFC]">
             <button
               type="button"
-              onClick={() => setActiveTab('passport')}
+              onClick={() => { setActiveTab('passport'); setErrors({}); }}
               className={`flex-1 py-3.5 px-4 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-all cursor-pointer ${
                 activeTab === 'passport'
                   ? 'border-[#B8864B] text-[#0F172A] bg-white'
@@ -289,7 +254,7 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
 
             <button
               type="button"
-              onClick={() => setActiveTab('application')}
+              onClick={() => { setActiveTab('application'); setErrors({}); }}
               className={`flex-1 py-3.5 px-4 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-all cursor-pointer ${
                 activeTab === 'application'
                   ? 'border-[#B8864B] text-[#0F172A] bg-white'
@@ -303,7 +268,7 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
 
           {/* Form Content */}
           <div className="p-6 sm:p-8 lg:p-10">
-            <form onSubmit={handleSearch} className="space-y-6">
+            <form onSubmit={handleSubmit} noValidate className="space-y-6">
               
               {activeTab === 'passport' ? (
                 <>
@@ -316,17 +281,30 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
                       <div className="relative group">
                         <input
                           type="text"
-                          required
                           value={passportNumber}
-                          onChange={(e) => setPassportNumber(e.target.value)}
+                          onChange={(e) => {
+                            setPassportNumber(e.target.value);
+                            if (errors.passportNumber) setErrors(prev => ({ ...prev, passportNumber: null }));
+                          }}
                           placeholder="e.g. N8291048 or A1234567"
-                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm font-medium text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-[#B8864B] focus:ring-2 focus:ring-[#B8864B]/20 transition-all uppercase hover:border-slate-400"
+                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm font-medium text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-all uppercase hover:border-slate-400 ${
+                            errors.passportNumber 
+                              ? 'border-red-400 focus:border-red-500 focus:ring-red-200 bg-red-50/20' 
+                              : 'border-slate-300 focus:border-[#B8864B] focus:ring-[#B8864B]/20'
+                          }`}
                         />
                         <FileText className="w-4 h-4 text-slate-400 group-hover:text-[#B8864B] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none transition-colors" />
                       </div>
-                      <span className="text-[11px] text-slate-500 mt-1 block">
-                        Enter exactly as printed on your passport information page.
-                      </span>
+                      {errors.passportNumber ? (
+                        <span className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          {errors.passportNumber}
+                        </span>
+                      ) : (
+                        <span className="text-[11px] text-slate-500 mt-1 block">
+                          Enter exactly as printed on your passport information page.
+                        </span>
+                      )}
                     </div>
 
                     {/* Nationality */}
@@ -337,8 +315,15 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
                       <div className="relative group">
                         <select
                           value={nationality}
-                          onChange={(e) => setNationality(e.target.value)}
-                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm font-medium text-[#0F172A] bg-white focus:outline-none focus:border-[#B8864B] focus:ring-2 focus:ring-[#B8864B]/20 transition-all cursor-pointer hover:border-slate-400"
+                          onChange={(e) => {
+                            setNationality(e.target.value);
+                            if (errors.nationality) setErrors(prev => ({ ...prev, nationality: null }));
+                          }}
+                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm font-medium text-[#0F172A] bg-white focus:outline-none focus:ring-2 transition-all cursor-pointer hover:border-slate-400 ${
+                            errors.nationality 
+                              ? 'border-red-400 focus:border-red-500 focus:ring-red-200' 
+                              : 'border-slate-300 focus:border-[#B8864B] focus:ring-[#B8864B]/20'
+                          }`}
                         >
                           {POPULAR_NATIONALITIES.map((nat) => (
                             <option key={nat} value={nat}>{nat}</option>
@@ -346,9 +331,16 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
                         </select>
                         <Globe className="w-4 h-4 text-slate-400 group-hover:text-[#B8864B] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none transition-colors" />
                       </div>
-                      <span className="text-[11px] text-slate-500 mt-1 block">
-                        Country corresponding to the passport number entered.
-                      </span>
+                      {errors.nationality ? (
+                        <span className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          {errors.nationality}
+                        </span>
+                      ) : (
+                        <span className="text-[11px] text-slate-500 mt-1 block">
+                          Country corresponding to the passport number entered.
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -361,13 +353,25 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
                       <div className="relative group">
                         <input
                           type="date"
-                          required
                           value={dob}
-                          onChange={(e) => setDob(e.target.value)}
-                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm font-medium text-[#0F172A] focus:outline-none focus:border-[#B8864B] focus:ring-2 focus:ring-[#B8864B]/20 transition-all hover:border-slate-400"
+                          onChange={(e) => {
+                            setDob(e.target.value);
+                            if (errors.dob) setErrors(prev => ({ ...prev, dob: null }));
+                          }}
+                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm font-medium text-[#0F172A] focus:outline-none focus:ring-2 transition-all hover:border-slate-400 ${
+                            errors.dob 
+                              ? 'border-red-400 focus:border-red-500 focus:ring-red-200 bg-red-50/20' 
+                              : 'border-slate-300 focus:border-[#B8864B] focus:ring-[#B8864B]/20'
+                          }`}
                         />
                         <Calendar className="w-4 h-4 text-slate-400 group-hover:text-[#B8864B] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none transition-colors" />
                       </div>
+                      {errors.dob && (
+                        <span className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          {errors.dob}
+                        </span>
+                      )}
                     </div>
 
                     {/* Visa Type Category */}
@@ -392,20 +396,20 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
                       </div>
                     </div>
 
-                    {/* WhatsApp Number */}
+                    {/* Full Name (Optional) */}
                     <div>
                       <label className="block text-xs font-bold text-[#1E293B] mb-1.5 uppercase tracking-wider">
-                        WhatsApp Number <span className="text-[10px] font-normal text-slate-400">(For Instant PDF)</span>
+                        Full Name <span className="text-[10px] font-normal text-slate-400">(Optional)</span>
                       </label>
                       <div className="relative group">
                         <input
-                          type="tel"
-                          value={whatsappNumber}
-                          onChange={(e) => setWhatsappNumber(e.target.value)}
-                          placeholder="+971 50 123 4567"
+                          type="text"
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
+                          placeholder="e.g. John Doe"
                           className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm font-medium text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-[#B8864B] focus:ring-2 focus:ring-[#B8864B]/20 transition-all hover:border-slate-400"
                         />
-                        <Send className="w-4 h-4 text-slate-400 group-hover:text-[#B8864B] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none transition-colors" />
+                        <User className="w-4 h-4 text-slate-400 group-hover:text-[#B8864B] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none transition-colors" />
                       </div>
                     </div>
                   </div>
@@ -437,23 +441,36 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
                       </label>
                       <input
                         type="text"
-                        required
                         value={fileNumber}
-                        onChange={(e) => setFileNumber(e.target.value)}
+                        onChange={(e) => {
+                          setFileNumber(e.target.value);
+                          if (errors.fileNumber) setErrors(prev => ({ ...prev, fileNumber: null }));
+                        }}
                         placeholder="e.g. 201/2023/1234567 or 101/..."
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm font-medium text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-[#B8864B] focus:ring-2 focus:ring-[#B8864B]/20 transition-all hover:border-slate-400"
+                        className={`w-full px-4 py-3 rounded-xl border text-sm font-medium text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-all hover:border-slate-400 ${
+                          errors.fileNumber 
+                            ? 'border-red-400 focus:border-red-500 focus:ring-red-200 bg-red-50/20' 
+                            : 'border-slate-300 focus:border-[#B8864B] focus:ring-[#B8864B]/20'
+                        }`}
                       />
+                      {errors.fileNumber && (
+                        <span className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          {errors.fileNumber}
+                        </span>
+                      )}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <div>
                       <label className="block text-xs font-bold text-[#1E293B] mb-1.5 uppercase tracking-wider">
                         Year of Issue
                       </label>
                       <input
                         type="number"
-                        defaultValue="2023"
+                        value={issueYear}
+                        onChange={(e) => setIssueYear(e.target.value)}
                         min="2010"
                         max="2026"
                         className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm font-medium text-[#0F172A] focus:outline-none focus:border-[#B8864B]"
@@ -461,15 +478,29 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-[#1E293B] mb-1.5 uppercase tracking-wider">
-                        WhatsApp Number for Results
+                        Full Name <span className="text-[10px] font-normal text-slate-400">(Optional)</span>
                       </label>
                       <input
-                        type="tel"
-                        value={whatsappNumber}
-                        onChange={(e) => setWhatsappNumber(e.target.value)}
-                        placeholder="+971 50 123 4567"
+                        type="text"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        placeholder="e.g. John Doe"
                         className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm font-medium text-[#0F172A] focus:outline-none focus:border-[#B8864B]"
                       />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-[#1E293B] mb-1.5 uppercase tracking-wider">
+                        Nationality
+                      </label>
+                      <select
+                        value={nationality}
+                        onChange={(e) => setNationality(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm font-medium text-[#0F172A] bg-white focus:outline-none focus:border-[#B8864B]"
+                      >
+                        {POPULAR_NATIONALITIES.map((nat) => (
+                          <option key={nat} value={nat}>{nat}</option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                 </>
@@ -478,53 +509,30 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
               {/* Submit CTA Bar */}
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-4 justify-between border-t border-slate-100">
                 <div className="flex items-center gap-2 text-xs text-slate-500">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Verified with official GDRFA & ICP Federal standards</span>
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Authorized UAE typing assistance for GDRFA & ICP Federal portals</span>
                 </div>
 
                 <div className="flex items-center gap-3 w-full sm:w-auto">
-                  {result && (
-                    <motion.button
-                      type="button"
-                      whileHover={shouldReduceMotion ? {} : { y: -1, scale: 1.02 }}
-                      whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                      onClick={() => { setResult(null); setPassportNumber(''); }}
-                      className="px-4 py-3 text-xs font-bold text-slate-600 hover:text-slate-900 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
-                    >
-                      <RotateCcw className="w-3.5 h-3.5" />
-                      <span>Reset</span>
-                    </motion.button>
-                  )}
-
-                  {/* Primary CTA Button: Smooth lift / scale animation on hover */}
+                  {/* Primary Submit CTA Button */}
                   <motion.button
                     type="submit"
-                    disabled={isSearching}
                     whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.015 }}
                     whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
                     transition={{ duration: 0.18, ease: 'easeOut' }}
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] hover:from-[#B8864B] hover:via-[#C5985B] hover:to-[#976A36] shadow-lg shadow-slate-900/10 hover:shadow-[#B8864B]/25 transition-all duration-300 cursor-pointer disabled:opacity-60"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] hover:from-[#B8864B] hover:via-[#C5985B] hover:to-[#976A36] shadow-lg shadow-slate-900/10 hover:shadow-[#B8864B]/25 transition-all duration-300 cursor-pointer"
                   >
-                    {isSearching ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Querying Immigration Portals...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Search className="w-4 h-4 text-[#C5985B]" />
-                        <span>Check UAE Visa Status Now</span>
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                      </>
-                    )}
+                    <Search className="w-4 h-4 text-[#C5985B]" />
+                    <span>Check UAE Visa Status Now</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </motion.button>
                 </div>
               </div>
             </form>
 
-            {/* Results Display Area */}
+            {/* Honest WhatsApp Confirmation Panel */}
             <AnimatePresence>
-              {result && (
+              {submittedRequest && (
                 <motion.div
                   initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16, scale: 0.99 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -532,115 +540,108 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="mt-8 pt-6 border-t border-slate-200"
                 >
-                  <div className="rounded-2xl border border-slate-200 bg-[#FCFAF8] p-5 sm:p-6 shadow-sm">
+                  <div className="rounded-2xl border border-[#DECBB5] bg-[#FAF8F5] p-5 sm:p-7 shadow-sm space-y-6">
                     
-                    {/* Status Result Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-200">
+                    {/* Header */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E6D7C3]">
                       <div>
-                        <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                          Official Verification Result
+                        <span className="text-[11px] font-bold text-[#8C6230] uppercase tracking-wider block mb-1">
+                          Direct WhatsApp Assistance Request
                         </span>
-                        <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] flex items-center gap-2 font-heading">
-                          {result.visaType}
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] font-heading flex items-center gap-2">
+                          <CheckCircle2 className="w-6 h-6 text-[#16A34A] shrink-0" />
+                          <span>Visa Check Request Prepared</span>
                         </h3>
-                        <p className="text-xs text-slate-600 mt-0.5">
-                          Authority: <strong className="text-slate-900">{result.issuingAuthority}</strong> • File: <span className="font-mono">{result.fileNo}</span>
+                        <p className="text-xs text-slate-600 mt-1">
+                          Your request has been prepared for the Brightlink Typing immigration team. Send the message on WhatsApp to begin verification.
                         </p>
                       </div>
 
-                      {/* Status Badge */}
-                      <div>
-                        {result.statusColor === 'green' && (
-                          <motion.div 
-                            initial={shouldReduceMotion ? {} : { scale: 0.9 }}
-                            animate={{ scale: 1 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-xs"
-                          >
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                            <span>{result.status}</span>
-                          </motion.div>
-                        )}
-                        {result.statusColor === 'amber' && (
-                          <motion.div 
-                            initial={shouldReduceMotion ? {} : { scale: 0.9 }}
-                            animate={{ scale: 1 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold shadow-xs"
-                          >
-                            <Clock className="w-4 h-4 text-amber-600" />
-                            <span>{result.status}</span>
-                          </motion.div>
-                        )}
-                        {result.statusColor === 'red' && (
-                          <motion.div 
-                            initial={shouldReduceMotion ? {} : { scale: 0.9 }}
-                            animate={{ scale: 1 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-50 border border-red-200 text-red-900 text-xs font-bold shadow-xs"
-                          >
-                            <AlertTriangle className="w-4 h-4 text-red-600" />
-                            <span>{result.status}</span>
-                          </motion.div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Breakdown Data Grid */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-5 border-b border-slate-200 text-xs">
-                      <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-xs">
-                        <span className="text-slate-400 block mb-1">Expiration Date</span>
-                        <span className="font-bold text-slate-800 text-sm">{result.expiryDate}</span>
-                      </div>
-                      <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-xs">
-                        <span className="text-slate-400 block mb-1">Days Remaining</span>
-                        <span className={`font-bold text-sm ${result.daysRemaining < 0 ? 'text-red-600' : result.daysRemaining < 30 ? 'text-amber-600' : 'text-emerald-700'}`}>
-                          {result.daysRemaining > 0 ? `${result.daysRemaining} Days Left` : `${Math.abs(result.daysRemaining)} Days Overstayed`}
-                        </span>
-                      </div>
-                      <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-xs">
-                        <span className="text-slate-400 block mb-1">Grace Period</span>
-                        <span className="font-bold text-slate-800">{result.gracePeriod}</span>
-                      </div>
-                      <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-xs">
-                        <span className="text-slate-400 block mb-1">Overstay Fines</span>
-                        <span className={`font-bold text-sm ${result.daysRemaining < 0 ? 'text-red-600 font-mono' : 'text-emerald-700'}`}>
-                          {result.finesAccumulated}
+                      <div className="shrink-0">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
+                          <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                          <span>+971 56 655 6645</span>
                         </span>
                       </div>
                     </div>
 
-                    {/* Extra Notes or Advice */}
-                    {result.actionAdvice && (
-                      <div className="mt-4 p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 flex items-start gap-2.5 text-xs text-amber-900">
-                        <ShieldAlert className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
-                        <div>
-                          <strong>Immigration Advisory:</strong> {result.actionAdvice}
+                    {/* Summary of Submitted Fields */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-xs">
+                      <div className="p-3 rounded-xl bg-white border border-[#E6D7C3]/60 shadow-xs">
+                        <span className="text-slate-400 block mb-1">Search Method</span>
+                        <span className="font-bold text-slate-800">{submittedRequest.method}</span>
+                      </div>
+
+                      {submittedRequest.passportNumber && (
+                        <div className="p-3 rounded-xl bg-white border border-[#E6D7C3]/60 shadow-xs">
+                          <span className="text-slate-400 block mb-1">Passport Number</span>
+                          <span className="font-bold text-slate-800 font-mono">{submittedRequest.passportNumber}</span>
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    {/* Action Buttons for Result */}
-                    <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-                      <motion.button
-                        type="button"
-                        whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.015 }}
-                        whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                        onClick={handleWhatsAppSend}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold shadow-md shadow-[#25D366]/20 transition-colors cursor-pointer"
+                      {submittedRequest.fileNumber && (
+                        <div className="p-3 rounded-xl bg-white border border-[#E6D7C3]/60 shadow-xs">
+                          <span className="text-slate-400 block mb-1">File / App Number</span>
+                          <span className="font-bold text-slate-800 font-mono">{submittedRequest.fileNumber}</span>
+                        </div>
+                      )}
+
+                      <div className="p-3 rounded-xl bg-white border border-[#E6D7C3]/60 shadow-xs">
+                        <span className="text-slate-400 block mb-1">Nationality</span>
+                        <span className="font-bold text-slate-800">{submittedRequest.nationality}</span>
+                      </div>
+
+                      {submittedRequest.dob && (
+                        <div className="p-3 rounded-xl bg-white border border-[#E6D7C3]/60 shadow-xs">
+                          <span className="text-slate-400 block mb-1">Date of Birth</span>
+                          <span className="font-bold text-slate-800">{submittedRequest.dob}</span>
+                        </div>
+                      )}
+
+                      {submittedRequest.visaType && (
+                        <div className="p-3 rounded-xl bg-white border border-[#E6D7C3]/60 shadow-xs">
+                          <span className="text-slate-400 block mb-1">Visa Type / Authority</span>
+                          <span className="font-bold text-slate-800">{submittedRequest.visaType}</span>
+                        </div>
+                      )}
+
+                      {submittedRequest.fullName && (
+                        <div className="p-3 rounded-xl bg-white border border-[#E6D7C3]/60 shadow-xs">
+                          <span className="text-slate-400 block mb-1">Applicant Name</span>
+                          <span className="font-bold text-slate-800">{submittedRequest.fullName}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Honest Advisory Disclosure */}
+                    <div className="p-4 rounded-xl bg-[#FAF5EC] border border-[#DECBB5] flex items-start gap-3 text-xs text-[#6D4518] leading-relaxed">
+                      <HelpCircle className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
+                      <div>
+                        <strong>Honest Verification Process:</strong> Visa statuses are not automatically checked or verified on this website. Our registered typing specialists will manually query your active file on authorized GDRFA Dubai or ICP Smart Services portals upon receiving your WhatsApp request.
+                      </div>
+                    </div>
+
+                    {/* Action Buttons: Primary WhatsApp + Reset/Edit */}
+                    <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+                      <a
+                        href={submittedRequest.waUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#25D366]/25 transition-all cursor-pointer"
                       >
-                        <Send className="w-3.5 h-3.5" />
-                        <span>Send Official Status Report to WhatsApp</span>
-                      </motion.button>
+                        <Send className="w-4 h-4" />
+                        <span>Open WhatsApp (+971 56 655 6645)</span>
+                        <ExternalLink className="w-4 h-4 opacity-80" />
+                      </a>
 
-                      <div className="flex items-center gap-2">
-                        <motion.button
-                          type="button"
-                          whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.015 }}
-                          whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                          onClick={() => onOpenConsultation('Visa Status & Renewal Inquiry')}
-                          className="px-4 py-2.5 rounded-xl bg-[#0F172A] hover:bg-[#B8864B] text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
-                        >
-                          Book Renewal Consultation
-                        </motion.button>
-                      </div>
+                      <button
+                        type="button"
+                        onClick={handleReset}
+                        className="w-full sm:w-auto px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 border border-slate-300 rounded-xl hover:bg-white transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        <RotateCcw className="w-3.5 h-3.5" />
+                        <span>Edit / Modify Details</span>
+                      </button>
                     </div>
 
                   </div>
@@ -650,18 +651,18 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
 
           </div>
 
-          {/* Bottom Security / Sync Bar */}
+          {/* Bottom Security / Informational Bar */}
           <div className="bg-[#FAF7F2] px-6 py-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1.5 font-medium">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                GDRFA Dubai & ICP Live Database Check
+                GDRFA Dubai & ICP Smart Services Support
               </span>
               <span className="hidden sm:inline text-slate-300">•</span>
-              <span className="hidden sm:inline font-medium">256-Bit SSL Data Confidentiality</span>
+              <span className="hidden sm:inline font-medium">Direct WhatsApp Assistance</span>
             </div>
             <div className="text-[11px] text-slate-500">
-              Zero government login credentials stored.
+              Zero government login passwords or OTPs required.
             </div>
           </div>
 

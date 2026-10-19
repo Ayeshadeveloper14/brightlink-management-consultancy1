@@ -27,18 +27,22 @@ export const CoreValues = () => {
   ];
 
   return (
-    <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-      <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider">
-        Our Principles
-      </span>
-      <h2 className="text-3xl sm:text-4xl font-bold text-[#222222] tracking-tight">
-        Why Dubai Residents Choose Us
-      </h2>
-      <p className="text-sm text-[#666666]">
-        Built upon integrity, legal rigor, and an uncompromising commitment to customer satisfaction.
-      </p>
+    <div className="w-full mb-14">
+      {/* Section Header */}
+      <div className="text-center max-w-2xl mx-auto space-y-3 mb-10 sm:mb-12">
+        <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider">
+          Our Principles
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#222222] tracking-tight">
+          Why Dubai Residents Choose Us
+        </h2>
+        <p className="text-sm text-[#666666]">
+          Built upon integrity, legal rigor, and an uncompromising commitment to customer satisfaction.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 text-left">
+      {/* Principles Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left items-stretch">
         {coreValues.map((val, idx) => (
           <motion.div
             key={idx}
@@ -47,15 +51,15 @@ export const CoreValues = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: idx * 0.1 }}
             whileHover={{ y: -6 }}
-            className="bg-white rounded-2xl p-6 border border-neutral-200/80 hover:border-[#B8864B]/50 transition-all shadow-sm hover:shadow-xl space-y-3"
+            className="h-full flex flex-col justify-start bg-white rounded-2xl p-6 border border-neutral-200/80 hover:border-[#B8864B]/50 transition-all shadow-sm hover:shadow-xl space-y-3"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#F5F1EB] text-[#B8864B] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#F5F1EB] text-[#B8864B] flex items-center justify-center shrink-0">
               {val.icon}
             </div>
-            <h3 className="text-base font-bold text-[#222222]">
+            <h3 className="text-base font-bold text-[#222222] min-h-[3rem] flex items-center">
               {val.title}
             </h3>
-            <p className="text-xs sm:text-sm text-[#555555] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#555555] leading-relaxed flex-1">
               {val.desc}
             </p>
           </motion.div>

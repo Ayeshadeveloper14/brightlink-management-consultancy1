@@ -1094,7 +1094,11 @@ function AppContent() {
 
           <Route
             path="/contact"
-            element={<ContactPage />}
+            element={
+              <ContactPage
+                onOpenConsultation={handleOpenConsultation}
+              />
+            }
           />
 
           <Route
