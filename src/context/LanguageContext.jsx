@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { ARABIC_DICTIONARY, translateToArabic } from '../translations/arabicDictionary.js';
 
 export const LANGUAGES = [
   { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr', flag: '🇬🇧' },
@@ -1119,13 +1120,230 @@ export const LanguageProvider = ({ children }) => {
     document.documentElement.dir = languageConfig.dir;
     document.documentElement.lang = currentLang;
 
-    // Optional body class for styling adjustments if needed
+    // Body class for styling adjustments
     if (isRTL) {
       document.body.classList.add('rtl-layout');
     } else {
       document.body.classList.remove('rtl-layout');
     }
   }, [currentLang, languageConfig, isRTL]);
+
+  // Static DOM Translator Effect for Complete Arabic Coverage
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+
+    if (currentLang !== 'ar') {
+      // In English or other languages, restore any translated text nodes to their original English
+      try {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node.__originalEnText !== undefined) {
+            node.nodeValue = node.__originalEnText;
+            delete node.__originalEnText;
+            delete node.__translatedValue;
+          }
+        }
+
+        // Restore input/textarea placeholders
+        document.querySelectorAll('input, textarea').forEach(el => {
+          if (el.__originalPlaceholder !== undefined) {
+            el.placeholder = el.__originalPlaceholder;
+            delete el.__originalPlaceholder;
+          }
+        });
+
+        // Restore optgroups
+        document.querySelectorAll('optgroup').forEach(el => {
+          if (el.__originalLabel !== undefined) {
+            el.label = el.__originalLabel;
+            delete el.__originalLabel;
+          }
+        });
+
+        // Restore select options
+        document.querySelectorAll('option').forEach(el => {
+          if (el.__originalText !== undefined) {
+            el.textContent = el.__originalText;
+            delete el.__originalText;
+          }
+        });
+
+        // Restore input buttons & submit
+        document.querySelectorAll('input[type="submit"], input[type="button"]').forEach(el => {
+          if (el.__originalValue !== undefined) {
+            el.value = el.__originalValue;
+            delete el.__originalValue;
+          }
+        });
+
+        // Restore titles
+        document.querySelectorAll('[title]').forEach(el => {
+          if (el.__originalTitle !== undefined) {
+            el.title = el.__originalTitle;
+            delete el.__originalTitle;
+          }
+        });
+      } catch (err) {
+        console.error('Error restoring original English DOM text:', err);
+      }
+      return;
+    }
+
+    // Arabic mode: Translate matching DOM text nodes safely
+    const translateNode = (node) => {
+      const parent = node.parentElement;
+      if (!parent) return;
+      const tag = parent.tagName;
+      if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE' || tag === 'NOSCRIPT') return;
+      if (parent.closest && parent.closest('.notranslate, [dir="ltr"]')) return;
+
+      const raw = node.nodeValue;
+      if (!raw || !raw.trim()) return;
+
+      const trimmed = raw.trim();
+
+      // Skip pure numbers, dates, times, prices without text, emails, and URLs
+      if (/^[\d\s\.,\-\+•·:/%#\(\)]+$/.test(trimmed)) return;
+      if (trimmed.includes('@') && trimmed.includes('.')) return;
+      if (trimmed.startsWith('http') || trimmed.startsWith('wa.me')) return;
+
+      // Check dictionary via translateToArabic
+      const translated = translateToArabic(trimmed);
+      if (translated && translated !== trimmed) {
+        if (node.__originalEnText === undefined) {
+          node.__originalEnText = raw;
+        }
+        const leading = raw.match(/^\s*/)[0];
+        const trailing = raw.match(/\s*$/)[0];
+        const finalVal = leading + translated.trim() + trailing;
+        node.__translatedValue = finalVal;
+        node.nodeValue = finalVal;
+      }
+    };
+
+    const translateElementAttrs = (el) => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        const ph = el.placeholder;
+        if (ph && ph.trim()) {
+          const phTrimmed = ph.trim();
+          const translatedPh = translateToArabic(phTrimmed);
+          if (translatedPh && translatedPh !== phTrimmed) {
+            if (el.__originalPlaceholder === undefined) {
+              el.__originalPlaceholder = ph;
+            }
+            el.placeholder = translatedPh;
+          }
+        }
+        if ((el.type === 'submit' || el.type === 'button') && el.value) {
+          const valTrimmed = el.value.trim();
+          const translatedVal = translateToArabic(valTrimmed);
+          if (translatedVal && translatedVal !== valTrimmed) {
+            if (el.__originalValue === undefined) {
+              el.__originalValue = el.value;
+            }
+            el.value = translatedVal;
+          }
+        }
+      }
+      if (el.title && el.title.trim()) {
+        const tTrimmed = el.title.trim();
+        const translatedT = translateToArabic(tTrimmed);
+        if (translatedT && translatedT !== tTrimmed) {
+          if (el.__originalTitle === undefined) {
+            el.__originalTitle = el.title;
+          }
+          el.title = translatedT;
+        }
+      }
+      if (el.tagName === 'OPTGROUP') {
+        const lbl = el.label;
+        if (lbl && lbl.trim()) {
+          const translated = translateToArabic(lbl.trim());
+          if (translated && translated !== lbl.trim()) {
+            if (el.__originalLabel === undefined) {
+              el.__originalLabel = lbl;
+            }
+            el.label = translated;
+          }
+        }
+      }
+      if (el.tagName === 'OPTION') {
+        const txt = el.textContent;
+        if (txt && txt.trim()) {
+          const translated = translateToArabic(txt.trim());
+          if (translated && translated !== txt.trim()) {
+            if (el.__originalText === undefined) {
+              el.__originalText = txt;
+            }
+            el.textContent = translated;
+          }
+        }
+      }
+    };
+
+    const scanAndTranslate = (root) => {
+      if (!root) return;
+      try {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          translateNode(node);
+        }
+        if (root.querySelectorAll) {
+          root.querySelectorAll('input, textarea, optgroup, option').forEach(translateElementAttrs);
+        }
+      } catch (err) {
+        console.error('Static Arabic DOM translation error:', err);
+      }
+    };
+
+    // Initial translation pass
+    scanAndTranslate(document.body);
+    // Follow-up frames to catch async or animation transitions
+    requestAnimationFrame(() => scanAndTranslate(document.body));
+    const timer = setTimeout(() => scanAndTranslate(document.body), 150);
+
+    // Dynamic observer for page navigation, modals, accordions, and calculator interactions
+    const observer = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        if (m.type === 'childList') {
+          m.addedNodes.forEach(added => {
+            if (added.nodeType === Node.TEXT_NODE) {
+              translateNode(added);
+            } else if (added.nodeType === Node.ELEMENT_NODE) {
+              scanAndTranslate(added);
+            }
+          });
+        } else if (m.type === 'characterData') {
+          if (m.target.__translatedValue === undefined || m.target.nodeValue !== m.target.__translatedValue) {
+            translateNode(m.target);
+          }
+        }
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
+
+    // Handle client-side route navigation
+    const handleNavigation = () => {
+      scanAndTranslate(document.body);
+      requestAnimationFrame(() => scanAndTranslate(document.body));
+      setTimeout(() => scanAndTranslate(document.body), 100);
+    };
+
+    window.addEventListener('popstate', handleNavigation);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+      window.removeEventListener('popstate', handleNavigation);
+    };
+  }, [currentLang]);
 
   const setLanguage = (code) => {
     const valid = LANGUAGES.some(l => l.code === code);
@@ -1135,9 +1353,17 @@ export const LanguageProvider = ({ children }) => {
   };
 
   const t = (key, fallback = '') => {
+    if (currentLang === 'en') {
+      return fallback || (TRANSLATIONS.en && TRANSLATIONS.en[key]) || key;
+    }
     const langDict = TRANSLATIONS[currentLang];
     if (langDict && langDict[key]) {
       return langDict[key];
+    }
+    if (currentLang === 'ar') {
+      if (ARABIC_DICTIONARY[key]) return ARABIC_DICTIONARY[key];
+      if (fallback && ARABIC_DICTIONARY[fallback]) return ARABIC_DICTIONARY[fallback];
+      return translateToArabic(fallback || key);
     }
     // Fallback to English
     if (TRANSLATIONS.en && TRANSLATIONS.en[key]) {
@@ -1152,6 +1378,10 @@ export const LanguageProvider = ({ children }) => {
     const itemDict = ITEM_TRANSLATIONS[title];
     if (itemDict && itemDict[currentLang]) {
       return itemDict[currentLang];
+    }
+    if (currentLang === 'ar') {
+      if (ARABIC_DICTIONARY[title]) return ARABIC_DICTIONARY[title];
+      return translateToArabic(title);
     }
     return title;
   };
