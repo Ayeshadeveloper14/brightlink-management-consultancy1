@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
-  Star, 
   Award, 
   ArrowRight, 
   CheckCircle2, 
-  Building2, 
   ShieldCheck, 
   Sparkles,
   MessageSquare
@@ -66,9 +64,9 @@ export const VisaRouteCards = ({ onOpenCalculator, onOpenConsultation }) => {
 
   const handleWhatsAppRoute = (cardTitle) => {
     const text = encodeURIComponent(
-      `Hello Brightlink Typing! I am interested in the ${cardTitle} via Dubai property. Please confirm the requirements and government fees.`
+      `Hello 800 DOCS! I am interested in the ${cardTitle} via Dubai property. Please confirm the requirements and government fees.`
     );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
   return (
@@ -151,51 +149,6 @@ export const VisaRouteCards = ({ onOpenCalculator, onOpenConsultation }) => {
             );
           })}
         </div>
-
-        {/* Trust Statistics Strip Below Route Cards */}
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-30px' }}
-          transition={{ duration: 0.5 }}
-          className="p-6 sm:p-8 rounded-2xl bg-[#FAF7F2] border border-[#DECBB5] flex flex-col sm:flex-row items-center justify-around gap-6 text-center sm:text-left"
-        >
-          {/* Trust Stat 1: 625+ Google reviews */}
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-white border border-[#DECBB5] flex items-center justify-center text-[#B8864B] shadow-xs">
-              <Star className="w-6 h-6 fill-current" />
-            </div>
-            <div>
-              <div className="flex items-center justify-center sm:justify-start gap-1 text-[#B8864B] mb-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
-              </div>
-              <span className="text-base sm:text-lg font-black text-[#0F172A] font-heading block">
-                625+ Google reviews
-              </span>
-              <span className="text-[11px] text-[#64748B]">Verified Dubai property buyers</span>
-            </div>
-          </div>
-
-          <div className="hidden sm:block h-10 w-[1px] bg-[#DECBB5]" />
-
-          {/* Trust Stat 2: 20K+ visas processed */}
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-white border border-[#DECBB5] flex items-center justify-center text-[#B8864B] shadow-xs">
-              <Building2 className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl font-black text-[#0F172A] font-heading leading-tight">
-                20K+
-              </div>
-              <span className="text-xs sm:text-sm font-bold text-[#8C6230] font-heading block">
-                visas processed
-              </span>
-              <span className="text-[11px] text-[#64748B]">Through official DLD & GDRFA channels</span>
-            </div>
-          </div>
-        </motion.div>
 
       </div>
     </section>

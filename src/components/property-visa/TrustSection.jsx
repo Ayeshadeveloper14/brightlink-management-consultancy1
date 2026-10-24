@@ -18,7 +18,7 @@ export const TrustSection = () => {
             We are Brightlink Typing — on your side, working on your behalf.
           </h2>
           <div className="text-xs font-bold uppercase tracking-wider text-[#8C6230] font-heading mb-4">
-            The FamilyVisa.ae team — Brightlink Typing, Deira, Dubai
+            The  team — Brightlink Typing, Deira, Dubai
           </div>
           <p className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans">
             Brightlink Typing LLC SOC is the licensed documentation company behind FamilyVisa.ae — a private typing centre, not a government office. We check your eligibility free, file through the official DLD, GDRFA and ICP channels, and follow up until your Emirates ID is in your hand.
@@ -43,20 +43,7 @@ export const TrustSection = () => {
                 “We process around 300 property visa applications a month — Golden, Retirement and 2-Year Investor. Everything on this page comes from real case handling, not copy-pasted content.”
               </blockquote>
 
-              <div className="pt-2 flex items-center gap-3.5">
-                {/* Monogram RA */}
-                <div className="w-12 h-12 rounded-2xl bg-[#0F172A] text-[#F5D7A1] font-black text-sm flex items-center justify-center font-heading shadow-xs">
-                  RA
-                </div>
-                <div>
-                  <h4 className="font-bold text-base text-[#0F172A] font-heading">
-                    Razeeb Abdulla
-                  </h4>
-                  <p className="text-xs text-[#8C6230] font-medium font-heading">
-                    CEO · FamilyVisa.ae · Brightlink Typing LLC SOC
-                  </p>
-                </div>
-              </div>
+            
             </div>
 
             {/* Google Rating Badge */}

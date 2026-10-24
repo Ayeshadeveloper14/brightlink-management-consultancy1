@@ -54,10 +54,7 @@ export const ArticleModal = ({ article, onClose, onOpenConsultation }) => {
 
               <div className="pt-6 border-t border-neutral-100 flex flex-wrap items-center justify-between gap-4">
                 <button
-                  onClick={() => {
-                    onClose();
-                    onOpenConsultation(article.title);
-                  }}
+                  onClick={() => { onClose(); window.open('https://wa.me/971566556645', '_blank'); }}
                   className="py-2.5 px-5 rounded-xl bg-[#B8864B] hover:bg-[#9F7038] text-white text-xs font-bold cursor-pointer"
                 >
                   Consult on this Topic

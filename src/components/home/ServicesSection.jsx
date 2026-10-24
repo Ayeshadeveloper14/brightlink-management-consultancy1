@@ -66,9 +66,10 @@ export const ServicesSection = ({ onSelectService }) => {
     }
   };
 
-  const filteredServices = activeTab === 'all' 
+  const filteredServices = (activeTab === 'all' 
     ? SERVICES_DATA 
-    : SERVICES_DATA.filter(s => s.category.toLowerCase() === activeTab.toLowerCase());
+    : SERVICES_DATA.filter(s => s.category.toLowerCase() === activeTab.toLowerCase())
+  ).filter(s => s.id !== 'passport-services');
 
   return (
     <section id="services" className="py-24 bg-[#FCFAF8] relative overflow-hidden">
@@ -123,8 +124,7 @@ export const ServicesSection = ({ onSelectService }) => {
               { id: 'family', label: t('services_tab_golden', 'Family Visa') },
               { id: 'corporate', label: t('services_tab_corporate', 'Business & Setup') },
               { id: 'travel', label: 'Tourist & Travel' },
-              { id: 'legal', label: t('services_tab_typing', 'Legal & Attestation') },
-              { id: 'consular', label: 'Passport & Consular' }
+              { id: 'legal', label: t('services_tab_typing', 'Legal & Attestation') }
             ].map((tab) => (
               <button
                 key={tab.id}

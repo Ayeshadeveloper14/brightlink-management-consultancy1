@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Calendar, User, BookOpen } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 
 export const LatestUpdates = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -11,21 +11,21 @@ export const LatestUpdates = () => {
       title: '10-Year Golden Visa in Dubai through property — property worth AED 2 million or more, 11 steps, 7–14 working days, family included',
       description: 'Golden Visa Dubai Property AED 2M: Cost, Rules & Steps (2026)',
       additionalDescription: 'Golden Visa through Dubai property worth AED 2M+: who qualifies, AED 9,421 government fees, family fees, 3 documents, 11 steps, 7–14 days, work permit OK.',
-      authorDate: 'Razeeb Abdulla · 5 Oct 2026',
+      date: '5 Oct 2026',
       badge: 'Golden Visa'
     },
     {
       title: '5-Year Retirement Visa in Dubai through property — age 55 or over, property worth AED 1 million or more, 11 steps, 7–14 working days',
       description: '5-Year Retirement Visa Dubai Property: Cost & Requirements (2026)',
       additionalDescription: 'Dubai 5-year retirement visa through property, age 55+ and AED 1M+: who qualifies, AED 6,311 government fees, family fees, 3 documents, 11 steps, 7–14 days.',
-      authorDate: 'Razeeb Abdulla · 5 Oct 2026',
+      date: '5 Oct 2026',
       badge: 'Retirement Visa'
     },
     {
       title: '2-Year Property Investor Visa in Dubai — property under AED 2 million, no minimum value, PCC required, 10–18 working days',
       description: 'Dubai 2-Year Property Investor Visa: Cost & Requirements (2026)',
       additionalDescription: 'Dubai 2-year property investor visa: no minimum value (joint owners AED 400K+ each), AED 9,834 government fees, 10–18 working days, PCC required. 15 steps.',
-      authorDate: 'Razeeb Abdulla · 5 Oct 2026',
+      date: '5 Oct 2026',
       badge: 'Investor Visa'
     }
   ];
@@ -85,8 +85,8 @@ export const LatestUpdates = () => {
 
               <div className="mt-6 pt-4 border-t border-[#EBE4D8] flex items-center justify-between text-[11px] text-[#64748B]">
                 <div className="flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>{item.authorDate}</span>
+                  <Calendar className="w-3.5 h-3.5 text-[#B8864B]" />
+                  <span>{item.date}</span>
                 </div>
               </div>
             </motion.article>

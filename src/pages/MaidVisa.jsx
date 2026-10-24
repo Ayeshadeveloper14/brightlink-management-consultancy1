@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Hero } from '../components/maid-visa/Hero.jsx';
-import { TrustBar } from '../components/maid-visa/TrustBar.jsx';
 import { VisaOverview } from '../components/maid-visa/VisaOverview.jsx';
 import { Eligibility } from '../components/maid-visa/Eligibility.jsx';
 import { Process } from '../components/maid-visa/Process.jsx';
@@ -37,8 +36,6 @@ export const MaidVisa = ({ onOpenConsultation, onOpenCalculator }) => {
         onScrollToProcess={handleScrollToProcess}
       />
 
-      {/* 2. Featured / Trust Bar */}
-      <TrustBar />
 
       {/* 3. Domestic Worker Visa Overview */}
       <VisaOverview
