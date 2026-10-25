@@ -1,19 +1,19 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ShieldCheck, Building2, Landmark, Scale, FileCheck, Globe } from 'lucide-react';
+import { Landmark, ExternalLink } from 'lucide-react';
 
 export const GovernmentAuthorities = () => {
   const shouldReduceMotion = useReducedMotion();
 
   const authorities = [
-    { name: 'GDRFA Dubai', desc: 'General Directorate of Residency and Foreigners Affairs' },
-    { name: 'ICP', desc: 'Federal Authority for Identity, Citizenship, Customs & Port Security' },
-    { name: 'MOFA UAE', desc: 'Ministry of Foreign Affairs — Document Attestation' },
-    { name: 'MOHRE', desc: 'Ministry of Human Resources and Emiratisation' },
-    { name: 'Dubai Economy', desc: 'Department of Economy and Tourism (DET)' },
-    { name: 'Dubai Land Dept.', desc: 'Ejari Tenancy Attestation & Freehold Title' },
-    { name: 'Ministry of Justice', desc: 'Certified Legal Arabic Translation' },
-    { name: 'u.ae Portal', desc: 'Official UAE Government Smart Services' }
+    { name: 'GDRFA Dubai', desc: 'General Directorate of Residency and Foreigners Affairs', url: 'https://gdrfad.gov.ae/en' },
+    { name: 'ICP', desc: 'Federal Authority for Identity, Citizenship, Customs & Port Security', url: 'https://icp.gov.ae/en/' },
+    { name: 'MOFA UAE', desc: 'Ministry of Foreign Affairs — Document Attestation', url: 'https://www.mofa.gov.ae/en' },
+    { name: 'MOHRE', desc: 'Ministry of Human Resources and Emiratisation', url: 'https://www.mohre.gov.ae/en/home.aspx' },
+    { name: 'Dubai Economy', desc: 'Department of Economy and Tourism (DET)', url: 'https://www.economy.gov.ae/' },
+    { name: 'Dubai Land Dept.', desc: 'Ejari Tenancy Attestation & Freehold Title', url: 'https://dubailand.gov.ae/en/' },
+    { name: 'Ministry of Justice', desc: 'Certified Legal Arabic Translation', url: 'https://www.moj.gov.ae/' },
+    { name: 'u.ae Portal', desc: 'Official UAE Government Smart Services', url: 'https://u.ae/en' }
   ];
 
   return (
@@ -32,25 +32,28 @@ export const GovernmentAuthorities = () => {
         {/* Authorities Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
           {authorities.map((item, idx) => (
-            <motion.div
+            <motion.a
               key={idx}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.35, delay: idx * 0.05 }}
               whileHover={shouldReduceMotion ? {} : { y: -2 }}
-              className="p-3.5 rounded-xl bg-white border border-[#EBE4D8] shadow-2xs text-center flex flex-col justify-center items-center hover:border-[#B8864B] transition-all"
+              className="p-3.5 rounded-xl bg-white border border-[#EBE4D8] shadow-2xs text-center flex flex-col justify-center items-center hover:border-[#B8864B] hover:shadow-sm transition-all cursor-pointer group"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#FAF5EC] border border-[#DECBB5] flex items-center justify-center text-[#B8864B] mb-2 shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-[#FAF5EC] border border-[#DECBB5] flex items-center justify-center text-[#B8864B] group-hover:bg-[#B8864B] group-hover:text-white mb-2 shrink-0 transition-colors">
                 <Landmark className="w-4 h-4" />
               </div>
-              <strong className="text-xs font-bold text-[#0F172A] font-heading block">
+              <strong className="text-xs font-bold text-[#0F172A] group-hover:text-[#B8864B] font-heading block transition-colors">
                 {item.name}
               </strong>
               <span className="text-[9.5px] text-[#64748B] mt-1 leading-tight line-clamp-2">
                 {item.desc}
               </span>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 

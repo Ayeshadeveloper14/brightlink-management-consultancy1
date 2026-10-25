@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Landmark, ShieldCheck, Globe, KeyRound } from 'lucide-react';
+import { Landmark, ExternalLink } from 'lucide-react';
 
 export const GovernmentAuthorities = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -8,23 +8,28 @@ export const GovernmentAuthorities = () => {
   const authorities = [
     {
       name: 'GDRFA Dubai',
-      desc: 'General Directorate of Residency and Foreigners Affairs Dubai'
+      desc: 'General Directorate of Residency and Foreigners Affairs Dubai',
+      url: 'https://gdrfad.gov.ae/en'
     },
     {
       name: 'ICP',
-      desc: 'Federal Authority for Identity, Citizenship, Customs & Port Security'
+      desc: 'Federal Authority for Identity, Citizenship, Customs & Port Security',
+      url: 'https://icp.gov.ae/en/'
     },
     {
       name: 'MOFA UAE',
-      desc: 'Ministry of Foreign Affairs — Document Legalization & Attestation'
+      desc: 'Ministry of Foreign Affairs — Document Legalization & Attestation',
+      url: 'https://www.mofa.gov.ae/en'
     },
     {
       name: 'UAE Pass',
-      desc: 'National Digital Identity for Government Smart Services'
+      desc: 'National Digital Identity for Government Smart Services',
+      url: 'https://selfcare.uaepass.ae/'
     },
     {
       name: 'u.ae Portal',
-      desc: 'The Official Portal of the United Arab Emirates Government'
+      desc: 'The Official Portal of the United Arab Emirates Government',
+      url: 'https://u.ae/en'
     }
   ];
 
@@ -44,30 +49,33 @@ export const GovernmentAuthorities = () => {
         {/* 5 Authorities Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {authorities.map((item, idx) => (
-            <motion.div
+            <motion.a
               key={idx}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.35, delay: idx * 0.08 }}
               whileHover={shouldReduceMotion ? {} : { y: -2 }}
-              className="p-4 sm:p-5 rounded-2xl bg-white border border-[#EBE4D8] shadow-2xs text-center flex flex-col justify-center items-center hover:border-[#B8864B] transition-all"
+              className="p-4 sm:p-5 rounded-2xl bg-white border border-[#EBE4D8] shadow-2xs text-center flex flex-col justify-center items-center hover:border-[#B8864B] hover:shadow-sm transition-all cursor-pointer group"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#FAF5EC] border border-[#DECBB5] flex items-center justify-center text-[#B8864B] mb-2.5">
+              <div className="w-10 h-10 rounded-xl bg-[#FAF5EC] border border-[#DECBB5] flex items-center justify-center text-[#B8864B] group-hover:bg-[#B8864B] group-hover:text-white mb-2.5 transition-colors">
                 <Landmark className="w-5 h-5" />
               </div>
-              <strong className="text-xs sm:text-sm font-bold text-[#0F172A] font-heading block">
+              <strong className="text-xs sm:text-sm font-bold text-[#0F172A] group-hover:text-[#B8864B] font-heading block transition-colors">
                 {item.name}
               </strong>
               <span className="text-[10px] text-[#64748B] mt-1 leading-tight line-clamp-2">
                 {item.desc}
               </span>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
         <p className="text-center text-[11px] text-[#64748B] mt-6 max-w-2xl mx-auto">
-          Brightlink and Brightlink Typing LLC SOC operate as an authorized private government documentation typing center facilitating filings through these official authorities. We are not a government agency.
+          Brightlink Typing LLC SOC is an authorized private government documentation typing center facilitating filings through these official authorities. We are not a government agency.
         </p>
 
       </div>
