@@ -1116,7 +1116,7 @@ export const Header = ({ onOpenConsultation }) => {
           : 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200/80 py-3.5'
       }`}
     >
-      <div dir="ltr" className="w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-3.5 sm:px-6 xl:px-6 2xl:px-8 flex items-center justify-between flex-nowrap gap-2 sm:gap-3 lg:gap-4 xl:gap-5">
+      <div dir={isRTL ? 'rtl' : 'ltr'} className="w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-3.5 sm:px-6 xl:px-6 2xl:px-8 flex items-center justify-between flex-nowrap gap-2 sm:gap-3 lg:gap-4 xl:gap-5">
         
         {/* Left: Brightlink Logo */}
         <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group shrink min-w-0 sm:shrink-0">
