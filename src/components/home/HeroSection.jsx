@@ -102,7 +102,7 @@ export const HeroSection = ({
           >
             {t('hero_title_prefix', 'Fast & Reliable')} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FCEFD5] via-[#E2B77A] to-[#C5985B]">
-              {t('hero_title_highlight', 'UAE Visa & Passport')}
+              {t('hero_title_highlight', 'UAE Government')}
             </span>{' '}
             {t('hero_title_suffix', 'Services')}
           </motion.h1>
@@ -114,7 +114,7 @@ export const HeroSection = ({
             transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
             className="text-base sm:text-lg text-neutral-100 leading-relaxed max-w-2xl font-normal drop-shadow-md"
           >
-            {t('hero_subtitle', 'Authorized assistance for 10-Year Golden Visas, Family Sponsorship, Emirates ID, BLS Indian Passport Renewals, and Business Setup in Dubai. Transparent pricing, legal auditing, and express same-day submission.')}
+            {t('hero_subtitle', 'Authorized assistance for 10-Year Golden Visas, Family Sponsorship, Emirates ID, BLS, and Business Setup in Dubai. Transparent pricing, legal auditing, and express same-day submission.')}
           </motion.p>
 
           {/* CTA Action Buttons */}
