@@ -52,7 +52,7 @@ export const HeroSection = ({
       targetNumber: 15,
       suffix: '+',
       label: t('hero_stat_4_lbl', 'Govt Accreditations'),
-      desc: t('hero_stat_4_desc', 'GDRFA • ICP • BLS • MOHRE Portals'),
+      desc: t('hero_stat_4_desc', 'GDRFA • ICP • Tasheel • MOHRE Portals'),
       icon: <Landmark className="w-5 h-5 text-[#B8864B]" />
     }
   ];
@@ -89,8 +89,8 @@ export const HeroSection = ({
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#B8864B]/15 blur-3xl pointer-events-none" />
       </div>
 
-      {/* Hero Content with Top Spacing for Floating Navbar */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-32 sm:pt-40 lg:pt-48 pb-24 lg:pb-32">
+      {/* Hero Content with Top Spacing for Floating Navbar - Aligned with Navbar Container */}
+      <div className="relative z-10 w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-3.5 sm:px-6 xl:px-6 2xl:px-8 pt-32 sm:pt-40 lg:pt-48 pb-24 lg:pb-32">
         <div className="max-w-3xl space-y-6">
           
           {/* Main Headline */}
@@ -114,7 +114,7 @@ export const HeroSection = ({
             transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
             className="text-base sm:text-lg text-neutral-100 leading-relaxed max-w-2xl font-normal drop-shadow-md"
           >
-            {t('hero_subtitle', 'Authorized assistance for 10-Year Golden Visas, Family Sponsorship, Emirates ID, BLS, and Business Setup in Dubai. Transparent pricing, legal auditing, and express same-day submission.')}
+            {t('hero_subtitle', 'Authorized assistance for 10-Year Golden Visas, Family Sponsorship, Emirates ID, Business Setup, and Corporate PRO Services in Dubai. Transparent pricing, legal auditing, and express same-day government submission.')}
           </motion.p>
 
           {/* CTA Action Buttons */}
@@ -153,8 +153,8 @@ export const HeroSection = ({
         </div>
       </div>
 
-      {/* Stats Counter Cards */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 -mb-12">
+      {/* Stats Counter Cards - Aligned with Navbar Container */}
+      <div className="relative z-20 w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-3.5 sm:px-6 xl:px-6 2xl:px-8 -mb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {statCards.map((stat, idx) => (
             <motion.div

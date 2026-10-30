@@ -5,9 +5,9 @@ export const HOME_TRANSLATIONS = {
   en: {
     // Hero
     hero_title_prefix: 'Fast & Reliable',
-    hero_title_highlight: 'UAE Visa & Passport',
+    hero_title_highlight: 'UAE Government',
     hero_title_suffix: 'Services',
-    hero_subtitle: 'Authorized assistance for 10-Year Golden Visas, Family Sponsorship, Emirates ID, BLS Indian Passport Renewals, and Business Setup in Dubai. Transparent pricing, legal auditing, and express same-day submission.',
+    hero_subtitle: 'Authorized assistance for 10-Year Golden Visas, Family Sponsorship, Emirates ID, Business Setup, and Corporate PRO Services in Dubai. Transparent pricing, legal auditing, and express same-day government submission.',
     hero_cta_consultation: 'Book Free Consultation',
     hero_cta_calculator: 'Visa Cost Calculator',
     hero_stat_1_val: '20+',
@@ -21,7 +21,7 @@ export const HOME_TRANSLATIONS = {
     hero_stat_3_desc: '5-Star verified client satisfaction',
     hero_stat_4_val: '15+',
     hero_stat_4_lbl: 'Govt Accreditations',
-    hero_stat_4_desc: 'GDRFA • ICP • BLS • MOHRE Portals',
+    hero_stat_4_desc: 'GDRFA • ICP • Tasheel • MOHRE Portals',
 
     // About
     about_badge: 'ABOUT BRIGHTLINK TYPING',
@@ -118,9 +118,9 @@ export const HOME_TRANSLATIONS = {
 
   ar: {
     hero_title_prefix: 'خدمات سريعة وموثوقة لـ',
-    hero_title_highlight: 'تأشيرات وجوازات السفر',
-    hero_title_suffix: 'في الإمارات',
-    hero_subtitle: 'مساعدة معتمدة للحصول على الإقامة الذهبية لمدة 10 سنوات، كفالة الأسرة، الهوية الإماراتية، تجديد جواز السفر الهندي BLS، وتأسيس الشركات في دبي مع تدقيق قانوني وإنجاز في نفس اليوم.',
+    hero_title_highlight: 'المعاملات الحكومية',
+    hero_title_suffix: 'في دولة الإمارات',
+    hero_subtitle: 'مساعدة معتمدة للحصول على الإقامة الذهبية لمدة 10 سنوات، كفالة الأسرة، الهوية الإماراتية، تأسيس الشركات، وخدمات العلاقات العامة الحكومية (PRO) في دبي مع تدقيق قانوني وإنجاز في نفس اليوم.',
     hero_cta_consultation: 'احجز استشارة مجانية',
     hero_cta_calculator: 'حاسبة تكاليف التأشيرة',
     hero_stat_1_val: '+20',
@@ -225,9 +225,9 @@ export const HOME_TRANSLATIONS = {
 
   ur: {
     hero_title_prefix: 'تیز ترین اور قابل اعتماد',
-    hero_title_highlight: 'یو اے ای ویزا و پاسپورٹ',
+    hero_title_highlight: 'یو اے ای حکومتی',
     hero_title_suffix: 'سروسز',
-    hero_subtitle: '10 سالہ گولڈن ویزا، فیملی اسپانسرشپ، امارات آئی ڈی، بی ایل ایس انڈین پاسپورٹ تجدید، اور دبئی میں بزنس سیٹ اپ کے لیے مجاز اور قانونی معاونت۔ شفاف فیس اور اسی دن پراسیسنگ۔',
+    hero_subtitle: '10 سالہ گولڈن ویزا، فیملی اسپانسرشپ، امارات آئی ڈی، کمپنی فارمیشن اور دبئی میں پی آر او سروسز کے لیے مجاز اور قانونی معاونت۔ شفاف فیس اور اسی دن پراسیسنگ۔',
     hero_cta_consultation: 'مفت مشاورت حاصل کریں',
     hero_cta_calculator: 'ویزا خرچ کیلکولیٹر',
     hero_stat_1_val: '+20',
@@ -332,9 +332,9 @@ export const HOME_TRANSLATIONS = {
 
   zh: {
     hero_title_prefix: '高效可靠的',
-    hero_title_highlight: '阿联酋签证与护照',
+    hero_title_highlight: '阿联酋政府政务',
     hero_title_suffix: '综合服务',
-    hero_subtitle: '迪拜官方认证机构，专业协助办理10年黄金签证、家属团聚签、阿联酋身份证、BLS印度护照更换及迪拜公司设立。收费透明，加急当天递交。',
+    hero_subtitle: '迪拜官方认证机构，专业协助办理10年黄金签证、家属团聚签、阿联酋身份证、公司设立及企业PRO政务服务。收费透明，加急当天递交。',
     hero_cta_consultation: '预约免费咨询',
     hero_cta_calculator: '签证费用计算器',
     hero_stat_1_val: '20+年',
@@ -438,10 +438,10 @@ export const HOME_TRANSLATIONS = {
   },
 
   es: {
-    hero_title_prefix: 'Servicios Rápidos y Confiables de',
-    hero_title_highlight: 'Visados y Pasaportes en EAU',
+    hero_title_prefix: 'Servicios Rápidos y Confiables del',
+    hero_title_highlight: 'Gobierno de los EAU',
     hero_title_suffix: 'en Dubái',
-    hero_subtitle: 'Asistencia autorizada para Golden Visa de 10 años, patrocinio familiar, Emirates ID, renovaciones de pasaportes y creación de empresas en Dubái. Precios transparentes y tramitación en el mismo día.',
+    hero_subtitle: 'Asistencia autorizada para Golden Visa de 10 años, patrocinio familiar, Emirates ID, constitución de empresas y servicios PRO corporativos en Dubái. Precios transparentes y tramitación en el mismo día.',
     hero_cta_consultation: 'Reservar Consulta Gratuita',
     hero_cta_calculator: 'Calculadora de Costes de Visado',
     hero_stat_1_val: '+20',
@@ -545,10 +545,10 @@ export const HOME_TRANSLATIONS = {
   },
 
   fr: {
-    hero_title_prefix: 'Services Rapides et Agréés de',
-    hero_title_highlight: 'Visas & Passeports aux EAU',
+    hero_title_prefix: 'Services Rapides et Agréés du',
+    hero_title_highlight: 'Gouvernement des EAU',
     hero_title_suffix: 'à Dubaï',
-    hero_subtitle: 'Assistance officielle pour le Golden Visa de 10 ans, le parrainage familial, l’Emirates ID, les passeports et la création d’entreprise à Dubaï. Tarifs transparents et dépôt le jour même.',
+    hero_subtitle: 'Assistance officielle pour le Golden Visa de 10 ans, le parrainage familial, l’Emirates ID, la création d’entreprise et les services PRO à Dubaï. Tarifs transparents et dépôt le jour même.',
     hero_cta_consultation: 'Réserver une Consultation Gratuite',
     hero_cta_calculator: 'Calculateur de Coût de Visa',
     hero_stat_1_val: '+20',
@@ -653,9 +653,9 @@ export const HOME_TRANSLATIONS = {
 
   de: {
     hero_title_prefix: 'Schnelle & Zuverlässige',
-    hero_title_highlight: 'VAE Visum- & Passdienste',
+    hero_title_highlight: 'VAE Regierungsdienste',
     hero_title_suffix: 'in Dubai',
-    hero_subtitle: 'Autorisierte Unterstützung für 10-Jahres Golden Visa, Familienvisum, Emirates ID, Passerneuerung und Unternehmensgründung in Dubai. Transparente Preise und Bearbeitung am selben Tag.',
+    hero_subtitle: 'Autorisierte Unterstützung für 10-Jahres Golden Visa, Familienvisum, Emirates ID, Unternehmensgründung und PRO-Dienste in Dubai. Transparente Preise und Bearbeitung am selben Tag.',
     hero_cta_consultation: 'Kostenlose Beratung Buchen',
     hero_cta_calculator: 'Visakosten-Rechner',
     hero_stat_1_val: '20+',
@@ -669,7 +669,7 @@ export const HOME_TRANSLATIONS = {
     hero_stat_3_desc: 'Verifizierte 5-Sterne Zufriedenheit',
     hero_stat_4_val: '15+',
     hero_stat_4_lbl: 'Staatliche Akkreditierungen',
-    hero_stat_4_desc: 'GDRFA • ICP • BLS • MOHRE Portale',
+    hero_stat_4_desc: 'GDRFA • ICP • Tasheel • MOHRE Portale',
 
     about_badge: 'ÜBER BRIGHTLINK TYPING',
     about_title: 'Dubais Führendes Zentrum für Behördengänge & Visabearbeitung',
@@ -760,9 +760,9 @@ export const HOME_TRANSLATIONS = {
 
   ru: {
     hero_title_prefix: 'Быстрые и Надежные',
-    hero_title_highlight: 'Визовые и Паспортные Услуги',
+    hero_title_highlight: 'Государственные Услуги ОАЭ',
     hero_title_suffix: 'в Дубае',
-    hero_subtitle: 'Официальное сопровождение получения 10-летних Золотых виз, виз для членов семьи, Emirates ID, паспортных услуг и открытия бизнеса в Дубае. Прозрачные цены и подача в день обращения.',
+    hero_subtitle: 'Официальное сопровождение получения 10-летних Золотых виз, виз для членов семьи, Emirates ID, регистрации компаний и PRO-услуг в Дубае. Прозрачные цены и подача в день обращения.',
     hero_cta_consultation: 'Записаться на Консультацию',
     hero_cta_calculator: 'Калькулятор Стоимости Визы',
     hero_stat_1_val: '20+',
@@ -776,7 +776,7 @@ export const HOME_TRANSLATIONS = {
     hero_stat_3_desc: 'Рейтинг 5 звезд от клиентов',
     hero_stat_4_val: '15+',
     hero_stat_4_lbl: 'Государственных Аккредитаций',
-    hero_stat_4_desc: 'Порталы GDRFA • ICP • BLS • MOHRE',
+    hero_stat_4_desc: 'Порталы GDRFA • ICP • Tasheel • MOHRE',
 
     about_badge: 'О ЦЕНТРЕ BRIGHTLINK',
     about_title: 'Ведущий Центр Государственного Документооборота и Оформления Виз в Дубае',
@@ -867,9 +867,9 @@ export const HOME_TRANSLATIONS = {
 
   tr: {
     hero_title_prefix: 'Hızlı & Güvenilir',
-    hero_title_highlight: 'BAE Vize ve Pasaport',
+    hero_title_highlight: 'BAE Devlet',
     hero_title_suffix: 'Hizmetleri',
-    hero_subtitle: '10 Yıllık Golden Vize, aile oturumu, Emirates ID, pasaport yenileme ve Dubai şirket kurulumunda yetkili resmi destek. Şeffaf fiyatlandırma ve aynı gün başvuru imkanı.',
+    hero_subtitle: '10 Yıllık Golden Vize, aile oturumu, Emirates ID, şirket kuruluşu ve kurumsal PRO hizmetlerinde yetkili resmi destek. Şeffaf fiyatlandırma ve aynı gün başvuru imkanı.',
     hero_cta_consultation: 'Ücretsiz Danışmanlık Alın',
     hero_cta_calculator: 'Vize Masraf Hesaplayıcı',
     hero_stat_1_val: '20+',
