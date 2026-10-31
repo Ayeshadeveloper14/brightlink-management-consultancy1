@@ -1,18 +1,18 @@
 import React from 'react';
 import { X, CheckCircle2, Clock, ShieldCheck, FileText, ArrowRight, MessageSquare } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { openWhatsApp } from '../../utils/whatsapp.js';
 
 export const ServiceDetailModal = ({
   service,
   onClose,
   onOpenConsultation
 }) => {
-  const { t, tItem, isRTL } = useLanguage();
+  const { currentLanguage, t, tItem, isRTL } = useLanguage();
   if (!service) return null;
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent(`Hello Brightlink, I would like to inquire about the ${service.title} service. Could you please guide me on requirements and timeline?`);
-    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
+    openWhatsApp(service.id || service.title, currentLanguage);
   };
 
   return (

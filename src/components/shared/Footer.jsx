@@ -14,9 +14,10 @@ import {
   FileText
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl } from '../../utils/whatsapp.js';
 
 export const Footer = () => {
-  const { t, tItem, getLocalizedPath } = useLanguage();
+  const { currentLanguage, t, tItem, getLocalizedPath } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   // Verified Official UAE Government Portals
@@ -90,7 +91,7 @@ export const Footer = () => {
             {/* Direct Channel Action Icons */}
             <div className="pt-2 flex items-center gap-2.5">
               <a
-                href="https://wa.me/971566556645"
+                href={getWhatsAppUrl(null, currentLanguage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp (+971 56 655 6645)"
@@ -193,7 +194,7 @@ export const Footer = () => {
                 <div>
                   <span className="block text-[10px] uppercase font-bold text-neutral-500">{t('contact_whatsapp_desk', 'WhatsApp Desk')}</span>
                   <a 
-                    href="https://wa.me/971566556645" 
+                    href={getWhatsAppUrl(null, currentLanguage)} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-neutral-200 hover:text-[#25D366] font-medium tabular-nums transition-colors"

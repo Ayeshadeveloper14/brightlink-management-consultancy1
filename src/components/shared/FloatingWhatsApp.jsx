@@ -1,11 +1,14 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { openWhatsApp } from '../../utils/whatsapp.js';
 
 export const FloatingWhatsApp = () => {
+  const location = useLocation();
+  const { currentLanguage } = useLanguage();
+
   const handleWhatsApp = () => {
-    const text = encodeURIComponent(
-      'Hello Brightlink, I would like to inquire about UAE Visa & Passport Services.'
-    );
-    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
+    openWhatsApp(null, currentLanguage, { pathname: location.pathname });
   };
 
   return (

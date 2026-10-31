@@ -6,9 +6,10 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl } from '../../utils/whatsapp.js';
 
 export const AboutSection = ({ onOpenConsultation, onExploreServices }) => {
-  const { t, isRTL } = useLanguage();
+  const { currentLanguage, t, isRTL } = useLanguage();
 
   const features = [
     {
@@ -121,7 +122,7 @@ export const AboutSection = ({ onOpenConsultation, onExploreServices }) => {
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <motion.a
-                href="https://wa.me/971566556645"
+                href={getWhatsAppUrl(null, currentLanguage, { type: 'consultation' })}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}

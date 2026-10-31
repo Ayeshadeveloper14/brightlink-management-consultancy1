@@ -12,7 +12,11 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl } from '../../utils/whatsapp.js';
+
 export const ContactHero = ({ onOpenConsultation }) => {
+  const { currentLanguage } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
   const scrollToForm = () => {
@@ -97,7 +101,7 @@ export const ContactHero = ({ onOpenConsultation }) => {
               </button>
 
               <a
-                href="https://wa.me/971566556645?text=Hello%20Brightlink%2C%20I%20have%20an%20inquiry%20regarding%20UAE%20visa%20and%20typing%20services.%20Please%20assist%20me."
+                href={getWhatsAppUrl(null, currentLanguage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-neutral-50 text-[#0F172A] border border-[#DECBB5] hover:border-[#B8864B] text-sm font-bold tracking-wide transition-all shadow-xs flex items-center justify-center gap-2.5 cursor-pointer"

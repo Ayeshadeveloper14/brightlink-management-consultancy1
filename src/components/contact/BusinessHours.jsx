@@ -10,7 +10,11 @@ import {
   Sparkles
 } from 'lucide-react';
 
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl } from '../../utils/whatsapp.js';
+
 export const BusinessHours = () => {
+  const { currentLanguage } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
   // Configured Weekly Schedule
@@ -213,7 +217,7 @@ export const BusinessHours = () => {
           </p>
         </div>
         <a
-          href="https://wa.me/971566556645?text=Hello%20Brightlink%2C%20I%20have%20an%20urgent%20weekend%20inquiry."
+          href={getWhatsAppUrl(null, currentLanguage, { customText: currentLanguage === 'ar' ? 'مرحباً برايت لينك، لدي استفسار عاجل خارج أوقات الدوام الرسمي.' : currentLanguage === 'zh' ? '您好 Brightlink，我在非工作时间有紧急签证事务需要咨询。' : currentLanguage === 'fr' ? 'Bonjour Brightlink, j\'ai une demande urgente en dehors des horaires d\'ouverture.' : currentLanguage === 'de' ? 'Hallo Brightlink, ich habe eine dringende Anfrage außerhalb der Geschäftszeiten.' : 'Hello Brightlink, I have an urgent weekend inquiry.' })}
           target="_blank"
           rel="noopener noreferrer"
           className="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold shrink-0 transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs"

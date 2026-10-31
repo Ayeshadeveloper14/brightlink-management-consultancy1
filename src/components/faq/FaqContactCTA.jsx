@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { MessageSquare } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl, openWhatsApp } from '../../utils/whatsapp.js';
 
 export const FaqContactCTA = ({ onOpenConsultation }) => {
-  const { t, getLocalizedPath } = useLanguage();
+  const { currentLanguage, t } = useLanguage();
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-14">
@@ -14,15 +14,17 @@ export const FaqContactCTA = ({ onOpenConsultation }) => {
           <p className="text-xs text-[#666666]">{t('faq_cta_subtitle', 'Our legal typing team in Crystal Tower is available for direct inquiries.')}</p>
         </div>
         <div className="flex items-center gap-3">
-          <Link
-            to={getLocalizedPath('/calculator')}
+          <a
+            href={getWhatsAppUrl(null, currentLanguage)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold transition-all shadow-sm cursor-pointer whitespace-nowrap"
           >
             <MessageSquare className="w-3.5 h-3.5 fill-current" />
             <span>{t('btn_ask_whatsapp', 'Ask on WhatsApp')}</span>
-          </Link>
+          </a>
           <button
-            onClick={() => window.open('https://wa.me/971566556645', '_blank')}
+            onClick={() => openWhatsApp(null, currentLanguage, { type: 'consultation' })}
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#B8864B] hover:bg-[#9F7038] text-white text-xs font-bold transition-all shadow-sm cursor-pointer whitespace-nowrap"
           >
             <span>{t('btn_book_consultation', 'Book Consultation')}</span>

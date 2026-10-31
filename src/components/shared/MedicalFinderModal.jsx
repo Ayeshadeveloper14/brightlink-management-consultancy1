@@ -8,12 +8,20 @@ export const MedicalFinderModal = ({
   onClose,
   onBookMedical
 }) => {
-  const { t, tItem, isRTL } = useLanguage();
+  const { currentLanguage, t, tItem, isRTL } = useLanguage();
   if (!isOpen) return null;
 
   const handleWhatsAppBooking = (centerName) => {
-    const text = encodeURIComponent(`Hello Brightlink, I would like to book a VIP Medical Fitness appointment at ${centerName}. Please assist with typing and express slot.`);
-    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
+    const text = (() => {
+      switch (currentLanguage) {
+        case 'ar': return `مرحباً برايت لينك، أود حجز موعد فحص طبي VIP للإقامة في مركز ${centerName}. يرجى المساعدة في الطباعة والحجز السريع.`;
+        case 'zh': return `您好 Brightlink，我想预约在${centerName}的VIP居留快捷体检服务。请协助我办理打字与加急预约名额。`;
+        case 'fr': return `Bonjour Brightlink, je souhaite prendre rendez-vous pour une visite médicale VIP de résidence au centre ${centerName}. Merci de m'assister pour la frappe et le créneau express.`;
+        case 'de': return `Hallo Brightlink, ich möchte einen Termin für die VIP Medical Fitness Untersuchung im Zentrum ${centerName} buchen. Bitte unterstützen Sie mich bei der Beantragung.`;
+        default: return `Hello Brightlink, I would like to book a VIP Medical Fitness appointment at ${centerName}. Please assist with typing and express slot.`;
+      }
+    })();
+    window.open(`https://wa.me/971566556645?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (

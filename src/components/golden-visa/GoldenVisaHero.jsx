@@ -15,12 +15,16 @@ import {
   HelpCircle
 } from 'lucide-react';
 
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { openWhatsApp } from '../../utils/whatsapp.js';
+
 export const GoldenVisaHero = ({ onOpenConsultation }) => {
   const navigate = useNavigate();
+  const { currentLanguage } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
   const handleApply = () => {
-    window.open('https://wa.me/971566556645', '_blank');
+    openWhatsApp('golden-visa', currentLanguage);
   };
 
   const handleConsultation = () => {

@@ -15,9 +15,10 @@ import {
   Sparkles
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl, openWhatsApp } from '../../utils/whatsapp.js';
 
 export const ContactSection = () => {
-  const { t, tItem, isRTL } = useLanguage();
+  const { currentLanguage, t, tItem, isRTL } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -159,7 +160,7 @@ export const ContactSection = () => {
               </a>
 
               <a
-                href="https://wa.me/971566556645"
+                href={getWhatsAppUrl(null, currentLanguage)}
                 target="_blank"
                 rel="noreferrer"
                 className="p-4 rounded-xl border border-neutral-200/90 bg-white hover:border-[#25D366] transition-all flex items-center gap-3 shadow-xs group"
@@ -353,8 +354,7 @@ export const ContactSection = () => {
                 <div className="pt-3 flex justify-center gap-3">
                   <button
                     onClick={() => {
-                      const text = encodeURIComponent(`Hi Brightlink, I submitted an inquiry for ${formData.service}. My name is ${formData.name}.`);
-                      window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
+                      openWhatsApp(formData.service, currentLanguage, { extraDetails: formData.name ? `Client: ${formData.name}` : '' });
                     }}
                     className="px-4 py-2 rounded-xl bg-[#25D366] text-white text-xs font-bold hover:bg-[#1EBE5D] transition-colors cursor-pointer"
                   >

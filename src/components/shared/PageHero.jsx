@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Home, Sparkles, MessageSquare, PhoneCall } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl, openWhatsApp } from '../../utils/whatsapp.js';
 
 export const PageHero = ({
   badge = 'Official UAE Government Service',
@@ -16,7 +17,7 @@ export const PageHero = ({
   showConsultationBtn = true,
   showWhatsAppBtn = true
 }) => {
-  const { t, tItem, isRTL, getLocalizedPath } = useLanguage();
+  const { currentLanguage, t, tItem, isRTL, getLocalizedPath } = useLanguage();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -28,8 +29,7 @@ export const PageHero = ({
   const opacityBg = useTransform(scrollYProgress, [0, 0.9], [0.85, 0.4]);
 
   const handleWhatsApp = () => {
-    const query = encodeURIComponent(`Hello Brightlink Typing, I am inquiring regarding ${title}. Can you please assist me?`);
-    window.open(`https://wa.me/971566556645?text=${query}`, '_blank');
+    openWhatsApp(title, currentLanguage);
   };
 
   return (
@@ -141,7 +141,7 @@ export const PageHero = ({
             >
               {showConsultationBtn && (
                 <a
-                  href="https://wa.me/971566556645"
+                  href={getWhatsAppUrl(title, currentLanguage, { type: 'consultation' })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#C5985B] to-[#976A36] hover:from-[#D4A76A] hover:to-[#A77945] text-white font-semibold text-xs sm:text-sm shadow-lg shadow-[#B8864B]/30 hover:shadow-xl transition-all cursor-pointer whitespace-nowrap"
@@ -151,13 +151,15 @@ export const PageHero = ({
               )}
 
               {showWhatsAppBtn && (
-                <Link
-                  to={getLocalizedPath('/calculator')}
+                <a
+                  href={getWhatsAppUrl(title, currentLanguage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-semibold text-xs sm:text-sm shadow-md transition-all cursor-pointer whitespace-nowrap"
                 >
                   <MessageSquare className="w-4 h-4 fill-current" />
                   <span>{tItem('WhatsApp Inquiry')}</span>
-                </Link>
+                </a>
               )}
             </motion.div>
           )}

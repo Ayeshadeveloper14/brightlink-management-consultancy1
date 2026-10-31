@@ -13,7 +13,11 @@ import {
   MessageSquare 
 } from 'lucide-react';
 
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { openWhatsApp, getWhatsAppUrl } from '../../utils/whatsapp.js';
+
 export const VisaCategoryGrid = ({ onOpenConsultation }) => {
+  const { currentLanguage } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const visaCategories = [
@@ -237,7 +241,7 @@ export const VisaCategoryGrid = ({ onOpenConsultation }) => {
                 </Link>
               ) : (
                 <button
-                  onClick={() => onOpenConsultation(visa.title)}
+                  onClick={() => openWhatsApp(visa.title, currentLanguage, { type: 'consultation' })}
                   className="flex-1 py-3 px-4 rounded-xl bg-[#B8864B] hover:bg-[#9F7038] text-white font-bold text-xs shadow-md shadow-[#B8864B]/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <span>Consult on {visa.title}</span>
@@ -246,7 +250,7 @@ export const VisaCategoryGrid = ({ onOpenConsultation }) => {
               )}
 
               <a
-                href={`https://wa.me/971566556645?text=${encodeURIComponent(`Hello Brightlink, I would like to inquire about ${visa.title}. Can you guide me on requirements and fees?`)}`}
+                href={getWhatsAppUrl(visa.title, currentLanguage)}
                 target="_blank"
                 rel="noreferrer"
                 className="py-3 px-3.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"

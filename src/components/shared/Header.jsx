@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import { LanguageSelector, MobileLanguageSelector } from './LanguageSelector.jsx';
+import { openWhatsApp } from '../../utils/whatsapp.js';
 
 /* =========================================================================
    VISA MEGA DROPDOWN DATA & COMPONENT
@@ -1350,7 +1351,7 @@ export const Header = ({ onOpenConsultation }) => {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => window.open('https://wa.me/971566556645', '_blank')}
+            onClick={() => openWhatsApp(null, currentLanguage, { pathname: location.pathname, type: 'consultation' })}
             className="inline-flex items-center gap-1.5 px-3.5 2xl:px-4 py-2 text-xs font-semibold text-white bg-[#B8864B] hover:bg-[#9F7038] rounded-xl shadow-md shadow-[#B8864B]/20 transition-all cursor-pointer whitespace-nowrap shrink-0"
           >
             <span>{t('nav_consultation_btn', 'Free Consultation')}</span>
@@ -1362,7 +1363,7 @@ export const Header = ({ onOpenConsultation }) => {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => window.open('https://wa.me/971566556645', '_blank')}
+            onClick={() => openWhatsApp(null, currentLanguage, { pathname: location.pathname, type: 'consultation' })}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#B8864B] hover:bg-[#9F7038] rounded-xl shadow-md shadow-[#B8864B]/20 transition-all cursor-pointer whitespace-nowrap shrink-0"
           >
             <span>{t('nav_consultation_btn', 'Free Consultation')}</span>
@@ -1649,7 +1650,7 @@ export const Header = ({ onOpenConsultation }) => {
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    window.open('https://wa.me/971566556645', '_blank');
+                    openWhatsApp(null, currentLanguage, { pathname: location.pathname, type: 'consultation' });
                   }}
                   className="w-full py-3 px-4 text-sm font-bold text-white bg-[#B8864B] rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >

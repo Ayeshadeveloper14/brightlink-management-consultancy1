@@ -9,9 +9,10 @@ import {
   Sparkles
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { openWhatsApp, getWhatsAppUrl } from '../../utils/whatsapp.js';
 
 export const ProcessSection = ({ onOpenConsultation }) => {
-  const { t, isRTL } = useLanguage();
+  const { currentLanguage, t, isRTL } = useLanguage();
   const containerRef = useRef(null);
 
   // Parallax tracking bound to the section's viewport entry and exit
@@ -105,7 +106,7 @@ export const ProcessSection = ({ onOpenConsultation }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.1 }}
-              onClick={() => window.open('https://wa.me/971566556645', '_blank')}
+              onClick={() => openWhatsApp(item.title, currentLanguage)}
               className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 border border-white/60 hover:border-[#B8864B] shadow-xl hover:shadow-2xl hover:shadow-[#B8864B]/20 transition-all duration-300 cursor-pointer flex flex-col justify-between group hover:-translate-y-1.5"
             >
               <div>
@@ -137,7 +138,7 @@ export const ProcessSection = ({ onOpenConsultation }) => {
                   <span>{item.duration}</span>
                 </span>
                 <a
-                  href="https://wa.me/971566556645"
+                  href={getWhatsAppUrl(item.title, currentLanguage)}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}

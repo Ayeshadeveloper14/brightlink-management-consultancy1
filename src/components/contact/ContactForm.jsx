@@ -8,12 +8,15 @@ import {
   Clock, 
   ShieldCheck, 
   RotateCcw, 
-  MessageSquare,
+  MessageSquare, 
   ExternalLink,
   ChevronDown
 } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl } from '../../utils/whatsapp.js';
 
 export const ContactForm = () => {
+  const { currentLanguage, t, tItem } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
   const serviceOptions = [
@@ -49,33 +52,33 @@ export const ContactForm = () => {
     const errs = {};
 
     if (!formData.name.trim()) {
-      errs.name = 'Please enter your full name.';
+      errs.name = tItem('Please enter your full name.');
     } else if (formData.name.trim().length < 2) {
-      errs.name = 'Name must be at least 2 characters.';
+      errs.name = tItem('Name must be at least 2 characters.');
     }
 
     if (!formData.email.trim()) {
-      errs.email = 'Please enter your email address.';
+      errs.email = tItem('Please enter your email address.');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-      errs.email = 'Please provide a valid email address (e.g. name@example.com).';
+      errs.email = tItem('Please provide a valid email address (e.g. name@example.com).');
     }
 
     if (!formData.phone.trim()) {
-      errs.phone = 'Please enter your contact phone number.';
+      errs.phone = tItem('Please enter your contact phone number.');
     } else if (formData.phone.replace(/[^0-9]/g, '').length < 7) {
-      errs.phone = 'Please enter a valid phone number with country/area code.';
+      errs.phone = tItem('Please enter a valid phone number with country/area code.');
     }
 
     if (!formData.subject.trim()) {
-      errs.subject = 'Please enter an inquiry subject.';
+      errs.subject = tItem('Please enter an inquiry subject.');
     } else if (formData.subject.trim().length < 3) {
-      errs.subject = 'Subject must be at least 3 characters.';
+      errs.subject = tItem('Subject must be at least 3 characters.');
     }
 
     if (!formData.message.trim()) {
-      errs.message = 'Please provide details or questions regarding your inquiry.';
+      errs.message = tItem('Please provide details or questions regarding your inquiry.');
     } else if (formData.message.trim().length < 10) {
-      errs.message = 'Please enter at least 10 characters describing your case.';
+      errs.message = tItem('Please enter at least 10 characters describing your case.');
     }
 
     setErrors(errs);
@@ -140,7 +143,7 @@ export const ContactForm = () => {
   };
 
   const generateWhatsAppBackupUrl = () => {
-    if (!submittedData) return 'https://wa.me/971566556645';
+    if (!submittedData) return getWhatsAppUrl(formData.service, currentLanguage);
     const text = [
       `*New Inquiry (Ref: ${submittedData.id})*`,
       `*Name:* ${submittedData.name}`,
@@ -162,13 +165,13 @@ export const ContactForm = () => {
       {/* Form Header */}
       <div className="space-y-2 border-b border-neutral-100 pb-5">
         <span className="text-xs font-bold uppercase tracking-wider text-[#8C5E28] font-heading">
-          ONLINE INQUIRY & FILE REGISTRATION
+          {tItem('ONLINE INQUIRY & FILE REGISTRATION')}
         </span>
         <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] font-heading tracking-tight">
-          Send Us a Direct Message
+          {tItem('Send Us a Direct Message')}
         </h3>
         <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-          Submit your requirements to our registered typing consultants in Business Bay. We review cases within 30 minutes during business hours.
+          {tItem('Submit your requirements to our registered typing consultants in Business Bay. We review cases within 30 minutes during business hours.')}
         </p>
       </div>
 
@@ -188,19 +191,19 @@ export const ContactForm = () => {
               <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm space-y-2">
                 <div className="flex items-center gap-2 font-bold">
                   <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
-                  <span>Submission Error</span>
+                  <span>{tItem('Submission Error')}</span>
                 </div>
                 <p className="text-xs text-red-700 leading-relaxed">
                   {serverError}
                 </p>
                 <div className="pt-1 flex items-center gap-3">
                   <a
-                    href="https://wa.me/971566556645"
+                    href={getWhatsAppUrl(formData.service, currentLanguage)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-bold text-[#15803D] hover:underline flex items-center gap-1"
                   >
-                    <span>Send directly via WhatsApp</span>
+                    <span>{tItem('Send directly via WhatsApp')}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -210,14 +213,14 @@ export const ContactForm = () => {
             {/* Name Field */}
             <div>
               <label htmlFor="contact-name" className="block text-xs font-bold text-[#0F172A] mb-1.5">
-                Full Name <span className="text-red-500">*</span>
+                {tItem('Full Name')} <span className="text-red-500">*</span>
               </label>
               <input
                 id="contact-name"
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleChange('name', e.target.value)}
-                placeholder="e.g. Mohammed Al-Hashimi"
+                placeholder={tItem('e.g. Mohammed Al-Hashimi')}
                 className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm bg-neutral-50/50 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
                   errors.name 
                     ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/20' 
@@ -236,14 +239,14 @@ export const ContactForm = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="contact-email" className="block text-xs font-bold text-[#0F172A] mb-1.5">
-                  Email Address <span className="text-red-500">*</span>
+                  {tItem('Email Address')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="contact-email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleChange('email', e.target.value)}
-                  placeholder="name@example.com"
+                  placeholder={tItem('name@example.com')}
                   className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm bg-neutral-50/50 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
                     errors.email 
                       ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/20' 
@@ -260,7 +263,7 @@ export const ContactForm = () => {
 
               <div>
                 <label htmlFor="contact-phone" className="block text-xs font-bold text-[#0F172A] mb-1.5">
-                  Phone Number (WhatsApp) <span className="text-red-500">*</span>
+                  {tItem('Phone Number')} (WhatsApp) <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="contact-phone"
@@ -287,7 +290,7 @@ export const ContactForm = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="contact-service" className="block text-xs font-bold text-[#0F172A] mb-1.5">
-                  Service of Interest
+                  {tItem('Service Needed')}
                 </label>
                 <div className="relative">
                   <select
@@ -298,7 +301,7 @@ export const ContactForm = () => {
                   >
                     {serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>
-                        {opt}
+                        {tItem(opt)}
                       </option>
                     ))}
                   </select>
@@ -308,14 +311,14 @@ export const ContactForm = () => {
 
               <div>
                 <label htmlFor="contact-subject" className="block text-xs font-bold text-[#0F172A] mb-1.5">
-                  Subject <span className="text-red-500">*</span>
+                  {tItem('Subject')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="contact-subject"
                   type="text"
                   value={formData.subject}
                   onChange={(e) => handleChange('subject', e.target.value)}
-                  placeholder="e.g. Spouse Visa Transfer & Medical"
+                  placeholder={tItem('e.g. Spouse Visa Transfer & Medical')}
                   className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm bg-neutral-50/50 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
                     errors.subject 
                       ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/20' 
@@ -334,14 +337,14 @@ export const ContactForm = () => {
             {/* Message Area */}
             <div>
               <label htmlFor="contact-message" className="block text-xs font-bold text-[#0F172A] mb-1.5">
-                Message & Case Details <span className="text-red-500">*</span>
+                {tItem('Message / Specific Requirements')} <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="contact-message"
                 rows={4}
                 value={formData.message}
                 onChange={(e) => handleChange('message', e.target.value)}
-                placeholder="Please describe your current residency status, document requirements, or any questions you have for our typing team..."
+                placeholder={tItem('Please describe your visa status, family members, or business setup goals...')}
                 className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm bg-neutral-50/50 transition-colors focus:bg-white focus:outline-none focus:ring-2 resize-none ${
                   errors.message 
                     ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/20' 
@@ -360,7 +363,7 @@ export const ContactForm = () => {
             <div className="p-3.5 rounded-xl bg-[#FAF7F0] border border-[#DECBB5] flex items-start gap-2 text-xs text-[#6D4518] leading-relaxed">
               <ShieldCheck className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
               <span>
-                <strong>Client Confidentiality:</strong> Your contact information is protected under UAE data privacy standards and used strictly to process your consultation. We never request banking credentials, OTPs, or passwords.
+                <strong>{tItem('Client Confidentiality:')}</strong> {tItem('Your contact information is protected under UAE data privacy standards and used strictly to process your consultation. We never request banking credentials, OTPs, or passwords.')}
               </span>
             </div>
 
@@ -377,12 +380,12 @@ export const ContactForm = () => {
               {loading ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  <span>Submitting Message to Typist...</span>
+                  <span>{tItem('Submitting Request...')}</span>
                 </>
               ) : (
                 <>
                   <Send className="w-4 h-4" />
-                  <span>Submit Message</span>
+                  <span>{tItem('Submit')}</span>
                 </>
               )}
             </button>
@@ -402,32 +405,32 @@ export const ContactForm = () => {
 
             <div className="space-y-1">
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#16A34A] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                Inquiry Logged Successfully
+                {tItem('Inquiry Logged Successfully')}
               </span>
               <h4 className="text-2xl font-bold text-[#0F172A] font-heading pt-2">
-                Thank You, {submittedData.name}
+                {tItem('Thank You')}, {submittedData.name}
               </h4>
               <p className="text-xs sm:text-sm text-[#475569] max-w-md mx-auto leading-relaxed">
-                Your message has been registered with reference ID <strong className="text-[#0F172A] font-mono">{submittedData.id}</strong>. A Brightlink legal typist will review your details and contact you promptly.
+                {tItem('Your consultation has been booked successfully! A representative will call you shortly.')}
               </p>
             </div>
 
             {/* Submission Summary Card */}
             <div className="max-w-md mx-auto p-4 rounded-2xl bg-neutral-50 border border-neutral-200 text-left text-xs space-y-2">
               <div className="flex justify-between py-1 border-b border-neutral-200/60">
-                <span className="text-neutral-500">Service:</span>
-                <span className="font-semibold text-[#0F172A]">{submittedData.service}</span>
+                <span className="text-neutral-500">{tItem('Service Needed')}:</span>
+                <span className="font-semibold text-[#0F172A]">{tItem(submittedData.service)}</span>
               </div>
               <div className="flex justify-between py-1 border-b border-neutral-200/60">
-                <span className="text-neutral-500">Subject:</span>
+                <span className="text-neutral-500">{tItem('Subject')}:</span>
                 <span className="font-semibold text-[#0F172A]">{submittedData.subject}</span>
               </div>
               <div className="flex justify-between py-1 border-b border-neutral-200/60">
-                <span className="text-neutral-500">Phone:</span>
+                <span className="text-neutral-500">{tItem('Phone Number')}:</span>
                 <span className="font-semibold text-[#0F172A] tabular-nums">{submittedData.phone}</span>
               </div>
               <div className="flex justify-between py-1">
-                <span className="text-neutral-500">Email:</span>
+                <span className="text-neutral-500">{tItem('Email Address')}:</span>
                 <span className="font-semibold text-[#0F172A]">{submittedData.email}</span>
               </div>
             </div>
@@ -441,7 +444,7 @@ export const ContactForm = () => {
                 className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 fill-current" />
-                <span>Also Follow Up via WhatsApp</span>
+                <span>{tItem('Also Follow Up via WhatsApp')}</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-80" />
               </a>
 
@@ -451,7 +454,7 @@ export const ContactForm = () => {
                 className="w-full sm:w-auto px-5 py-3 rounded-xl border border-neutral-300 hover:bg-neutral-50 text-neutral-700 text-xs font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
-                <span>Send Another Message</span>
+                <span>{tItem('Send Another Message')}</span>
               </button>
             </div>
           </motion.div>

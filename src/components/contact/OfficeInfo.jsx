@@ -1,7 +1,10 @@
 import React from 'react';
 import { MapPin, Navigation, Phone, MessageSquare, Mail, Clock } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl } from '../../utils/whatsapp.js';
 
 export const OfficeInfo = () => {
+  const { currentLanguage } = useLanguage();
   const openGoogleMaps = () => {
     window.open('https://maps.google.com/?q=Crystal+Tower+Business+Bay+Dubai', '_blank');
   };
@@ -68,7 +71,7 @@ export const OfficeInfo = () => {
         </a>
 
         <a
-          href="https://wa.me/971566556645"
+          href={getWhatsAppUrl(null, currentLanguage)}
           target="_blank"
           rel="noreferrer"
           className="p-4 rounded-xl border border-neutral-200/90 bg-white hover:border-[#25D366] transition-all flex items-center gap-3 shadow-xs"

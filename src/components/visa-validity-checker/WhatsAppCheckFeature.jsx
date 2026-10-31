@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MessageSquare, ShieldCheck, Clock, FileCheck, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { openWhatsApp } from '../../utils/whatsapp.js';
 
 export const WhatsAppCheckFeature = ({ onOpenConsultation }) => {
+  const { currentLanguage } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
   const steps = [
@@ -24,10 +27,7 @@ export const WhatsAppCheckFeature = ({ onOpenConsultation }) => {
   ];
 
   const handleWhatsAppClick = () => {
-    const text = encodeURIComponent(
-      'Hello Brightlink! I would like to verify my UAE visa validity and status via WhatsApp. Please advise on the required documents.'
-    );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    openWhatsApp('visa-validity-checker', currentLanguage);
   };
 
   const containerVariants = {

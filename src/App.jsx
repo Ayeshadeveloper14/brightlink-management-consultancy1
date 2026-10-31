@@ -9,6 +9,7 @@ import { ServiceDetailModal } from './components/shared/ServiceDetailModal.jsx';
 import { ConsultationModal } from './components/shared/ConsultationModal.jsx';
 import { MedicalFinderModal } from './components/shared/MedicalFinderModal.jsx';
 import { ScrollToTop } from './components/shared/ScrollToTop.jsx';
+import { openWhatsApp } from './utils/whatsapp.js';
 
 import { HomePage } from './pages/HomePage.jsx';
 import { ServicesPage } from './pages/ServicesPage.jsx';
@@ -68,7 +69,7 @@ import { SERVICES_DATA } from './data/servicesData.js';
 
 function AppContent() {
   const navigate = useNavigate();
-  const { dir, isRTL, getLocalizedPath } = useLanguage();
+  const { currentLanguage, dir, isRTL, getLocalizedPath } = useLanguage();
   const [selectedService, setSelectedService] = useState(null);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [isMedicalFinderOpen, setIsMedicalFinderOpen] = useState(false);
@@ -78,8 +79,8 @@ function AppContent() {
     navigate(getLocalizedPath('/calculator'));
   };
 
-  const handleOpenConsultation = (serviceName = 'Golden Visa') => {
-    window.open('https://wa.me/971566556645', '_blank');
+  const handleOpenConsultation = (serviceName) => {
+    openWhatsApp(serviceName || null, currentLanguage, { type: 'consultation' });
   };
 
   const handleOpenServiceById = (serviceId) => {

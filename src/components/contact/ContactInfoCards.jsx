@@ -10,7 +10,11 @@ import {
   Navigation
 } from 'lucide-react';
 
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl } from '../../utils/whatsapp.js';
+
 export const ContactInfoCards = () => {
+  const { currentLanguage } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
   const channels = [
@@ -33,7 +37,7 @@ export const ContactInfoCards = () => {
       value: '+971 56 655 6645',
       note: 'Send passport copies, entry permits, and document scans for complimentary preliminary eligibility review.',
       actionLabel: 'Open WhatsApp',
-      actionUrl: 'https://wa.me/971566556645?text=Hello%20Brightlink%2C%20I%20need%20assistance%20with%20UAE%20visa%20and%20typing%20services.',
+      actionUrl: getWhatsAppUrl(null, currentLanguage),
       icon: <MessageSquare className="w-5 h-5 fill-current" />,
       accentBg: 'bg-emerald-50 text-[#25D366]',
       borderHover: 'hover:border-[#25D366]'

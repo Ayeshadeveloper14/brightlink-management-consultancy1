@@ -14,7 +14,10 @@ import {
   Info
 } from 'lucide-react';
 
+import { useLanguage } from '../../context/LanguageContext.jsx';
+
 export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
+  const { currentLanguage } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
   // Wizard state: 1, 2, 3, or 'result'
@@ -117,20 +120,65 @@ export const VisaStatusCheckerHero = ({ onOpenConsultation }) => {
         ]
       };
 
-  const waCheckMessage = encodeURIComponent(
-    `Hello Brightlink, I would like a free check for my UAE visa status and file validity.\n\n` +
-    (selectedEmirate ? `Emirate: ${selectedEmirate}\n` : '') +
-    (selectedVisaType ? `Visa Type: ${selectedVisaType}\n` : '') +
-    (selectedDetailType ? `Available Document: ${selectedDetailType}\n` : '') +
-    `Please assist me in checking my active record.`
-  );
+  const getWaCheckText = () => {
+    switch (currentLanguage) {
+      case 'ar':
+        return `مرحباً برايت لينك، أود فحص حالة وصلاحية تأشيرتي في الإمارات.\n\n` +
+          (selectedEmirate ? `الإمارة: ${selectedEmirate}\n` : '') +
+          (selectedVisaType ? `نوع التأشيرة: ${selectedVisaType}\n` : '') +
+          (selectedDetailType ? `الوثيقة المتوفرة: ${selectedDetailType}\n` : '') +
+          `يرجى مساعدتي في مراجعة الملف على النظام الرسمي.`;
+      case 'zh':
+        return `您好 Brightlink，我想免费查询我的阿联酋签证状态与文件有效期。\n\n` +
+          (selectedEmirate ? `办理酋长国: ${selectedEmirate}\n` : '') +
+          (selectedVisaType ? `签证类型: ${selectedVisaType}\n` : '') +
+          (selectedDetailType ? `所备文件: ${selectedDetailType}\n` : '') +
+          `请协助我核对官方系统有效记录。`;
+      case 'fr':
+        return `Bonjour Brightlink, je souhaite vérifier gratuitement le statut et la validité de mon visa aux EAU.\n\n` +
+          (selectedEmirate ? `Émirat: ${selectedEmirate}\n` : '') +
+          (selectedVisaType ? `Type de visa: ${selectedVisaType}\n` : '') +
+          (selectedDetailType ? `Document disponible: ${selectedDetailType}\n` : '') +
+          `Merci de m'assister pour vérifier mon dossier sur le portail officiel.`;
+      case 'de':
+        return `Hallo Brightlink, ich möchte meinen Visastatus und die Gültigkeit für die VAE kostenlos überprüfen lassen.\n\n` +
+          (selectedEmirate ? `Emirat: ${selectedEmirate}\n` : '') +
+          (selectedVisaType ? `Visumtyp: ${selectedVisaType}\n` : '') +
+          (selectedDetailType ? `Verfügbares Dokument: ${selectedDetailType}\n` : '') +
+          `Bitte unterstützen Sie mich bei der Überprüfung im offiziellen Portal.`;
+      default:
+        return `Hello Brightlink, I would like a free check for my UAE visa status and file validity.\n\n` +
+          (selectedEmirate ? `Emirate: ${selectedEmirate}\n` : '') +
+          (selectedVisaType ? `Visa Type: ${selectedVisaType}\n` : '') +
+          (selectedDetailType ? `Available Document: ${selectedDetailType}\n` : '') +
+          `Please assist me in checking my active record.`;
+    }
+  };
+
+  const waCheckMessage = encodeURIComponent(getWaCheckText());
 
   const waGeneralUrl = 'https://wa.me/971566556645?text=' + encodeURIComponent(
-    'Hello Brightlink, I would like to check my UAE visa status and file validity.'
+    currentLanguage === 'ar'
+      ? 'مرحباً برايت لينك، أود فحص حالة وصلاحية تأشيرتي في الإمارات.'
+      : currentLanguage === 'zh'
+      ? '您好 Brightlink，我想核实我的阿联酋签证状态与有效期。'
+      : currentLanguage === 'fr'
+      ? 'Bonjour Brightlink, je souhaite vérifier mon statut et la validité de mon visa aux EAU.'
+      : currentLanguage === 'de'
+      ? 'Hallo Brightlink, ich möchte meinen Visastatus und die Gültigkeit in den VAE prüfen.'
+      : 'Hello Brightlink, I would like to check my UAE visa status and file validity.'
   );
 
   const waPassportUrl = 'https://wa.me/971566556645?text=' + encodeURIComponent(
-    'Hello Brightlink, here are my passport details for a free visa status check.'
+    currentLanguage === 'ar'
+      ? 'مرحباً برايت لينك، أود إرسال بيانات جواز السفر لفحص حالة التأشيرة مجاناً.'
+      : currentLanguage === 'zh'
+      ? '您好 Brightlink，我想发送护照信息进行免费阿联酋签证状态核实。'
+      : currentLanguage === 'fr'
+      ? 'Bonjour Brightlink, voici mes détails de passeport pour une vérification de visa gratuite.'
+      : currentLanguage === 'de'
+      ? 'Hallo Brightlink, hier sind meine Passdaten für eine kostenlose Visastatus-Überprüfung.'
+      : 'Hello Brightlink, here are my passport details for a free visa status check.'
   );
 
   return (

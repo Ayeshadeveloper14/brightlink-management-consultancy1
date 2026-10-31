@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Search, MessageSquare, PhoneCall, ShieldCheck, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { openWhatsApp as openWhatsAppFromUtil } from '../../utils/whatsapp.js';
 
 export const FinalCtaSection = ({ onOpenConsultation }) => {
+  const { currentLanguage } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
   const scrollToChecker = () => {
@@ -13,10 +16,7 @@ export const FinalCtaSection = ({ onOpenConsultation }) => {
   };
 
   const openWhatsApp = () => {
-    const text = encodeURIComponent(
-      'Hello Brightlink! I am unsure about my UAE visa status and validity. Please connect me with an immigration consultant.'
-    );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    openWhatsAppFromUtil('visa-validity-checker', currentLanguage);
   };
 
   return (

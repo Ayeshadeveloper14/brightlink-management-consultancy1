@@ -11,13 +11,14 @@ import {
 } from 'lucide-react';
 import { CountUp } from '../shared/CountUp.jsx';
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getWhatsAppUrl } from '../../utils/whatsapp.js';
 
 export const HeroSection = ({
   onOpenConsultation,
   onOpenCalculator
 }) => {
   const navigate = useNavigate();
-  const { t, isRTL, getLocalizedPath } = useLanguage();
+  const { currentLanguage, t, isRTL, getLocalizedPath } = useLanguage();
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -125,7 +126,7 @@ export const HeroSection = ({
             className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
           >
             <motion.a
-              href="https://wa.me/971566556645"
+              href={getWhatsAppUrl(null, currentLanguage, { type: 'consultation' })}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
