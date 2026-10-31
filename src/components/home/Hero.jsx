@@ -17,7 +17,7 @@ export const Hero = ({
   onOpenCalculator
 }) => {
   const navigate = useNavigate();
-  const { t, isRTL } = useLanguage();
+  const { t, isRTL, getLocalizedPath } = useLanguage();
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -141,7 +141,7 @@ export const Hero = ({
               whileTap={{ scale: 0.98 }}
               onClick={() => {
                 if (onOpenCalculator) onOpenCalculator();
-                else navigate('/calculator');
+                else navigate(getLocalizedPath('/calculator'));
               }}
               className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-black/50 hover:bg-black/70 text-white border border-white/30 backdrop-blur-md text-xs sm:text-sm font-semibold transition-all cursor-pointer whitespace-nowrap shadow-md"
             >

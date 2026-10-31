@@ -229,7 +229,7 @@ export const VisaMegaDropdown = ({
                           {tItem(currentVisa.title)}
                         </h3>
                         <p className="text-xs text-white/85 leading-relaxed font-normal line-clamp-3 mb-4">
-                          {currentVisa.description}
+                          {tItem(currentVisa.description)}
                         </p>
                       </motion.div>
                     </AnimatePresence>
@@ -245,7 +245,7 @@ export const VisaMegaDropdown = ({
                       }}
                       className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-[#C5985B] via-[#B8864B] to-[#976A36] hover:brightness-105 active:scale-98 rounded-full shadow-md shadow-black/25 transition-all cursor-pointer"
                     >
-                      <span>{currentVisa.id === 'family-visa' ? 'Explore Family Visa' : currentVisa.ctaText}</span>
+                      <span>{tItem(currentVisa.id === 'family-visa' ? 'Explore Family Visa' : currentVisa.ctaText)}</span>
                       <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
                     </button>
                   </div>
@@ -539,8 +539,8 @@ export const ServicesMegaDropdown = ({
 
   const isDefault = currentService.id === 'default-services';
   const displayTitle = isDefault ? t('services_default_title', currentService.title) : tItem(currentService.title);
-  const displayDesc = isDefault ? t('services_default_desc', currentService.description) : currentService.description;
-  const displayCta = isDefault ? t('services_default_btn', currentService.ctaText) : currentService.ctaText;
+  const displayDesc = isDefault ? t('services_default_desc', currentService.description) : tItem(currentService.description);
+  const displayCta = isDefault ? t('services_default_btn', currentService.ctaText) : tItem(currentService.ctaText);
 
   return (
     <AnimatePresence>
@@ -644,7 +644,7 @@ export const ServicesMegaDropdown = ({
                       }}
                       className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-[#C5985B] via-[#B8864B] to-[#976A36] hover:brightness-105 active:scale-98 rounded-full shadow-md shadow-black/25 transition-all cursor-pointer"
                     >
-                      <span>{currentService.id === 'dld-trustee' ? 'Explore DLD Trustee Service' : displayCta}</span>
+                      <span>{currentService.id === 'dld-trustee' ? tItem('Explore DLD Trustee Service') : displayCta}</span>
                       <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
                     </button>
                   </div>
@@ -986,7 +986,7 @@ export const BusinessSetupMegaDropdown = ({
    ========================================================================= */
 
 export const Header = ({ onOpenConsultation }) => {
-  const { t, tItem, isRTL, currentLanguage, languageConfig } = useLanguage();
+  const { t, tItem, isRTL, currentLanguage, languageConfig, getLocalizedPath } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -1092,7 +1092,7 @@ export const Header = ({ onOpenConsultation }) => {
     };
   }, []);
 
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === '/' || location.pathname === '/en' || location.pathname === '/en/' || location.pathname === '/ar' || location.pathname === '/ar/';
   const isTransparent = isHome && !scrolled;
 
   const navItems = [
@@ -1119,7 +1119,7 @@ export const Header = ({ onOpenConsultation }) => {
       <div dir={isRTL ? 'rtl' : 'ltr'} className="w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-3.5 sm:px-6 xl:px-6 2xl:px-8 flex items-center justify-between flex-nowrap gap-2 sm:gap-3 lg:gap-4 xl:gap-5">
         
         {/* Left: Brightlink Logo */}
-        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group shrink min-w-0 sm:shrink-0">
+        <Link to={getLocalizedPath('/')} className="flex items-center gap-2 sm:gap-2.5 group shrink min-w-0 sm:shrink-0">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#C5985B] to-[#976A36] text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-sm shadow-[#B8864B]/30 group-hover:scale-105 transition-transform duration-200 shrink-0">
             BT
           </div>
@@ -1319,8 +1319,9 @@ export const Header = ({ onOpenConsultation }) => {
               );
             }
 
-            const itemPath = item.path || (item.id === 'home' ? '/' : `/${item.id}`);
-            const isItemActive = item.id === 'home' ? isHome : location.pathname === itemPath;
+            const rawPath = item.path || (item.id === 'home' ? '/' : `/${item.id}`);
+            const itemPath = getLocalizedPath(rawPath);
+            const isItemActive = item.id === 'home' ? isHome : (location.pathname === itemPath || location.pathname === rawPath);
 
             return (
               <Link
@@ -1624,8 +1625,9 @@ export const Header = ({ onOpenConsultation }) => {
                   );
                 }
 
-                const itemPath = item.path || (item.id === 'home' ? '/' : `/${item.id}`);
-                const isItemActive = item.id === 'home' ? isHome : location.pathname === itemPath;
+                const rawPath = item.path || (item.id === 'home' ? '/' : `/${item.id}`);
+                const itemPath = getLocalizedPath(rawPath);
+                const isItemActive = item.id === 'home' ? isHome : (location.pathname === itemPath || location.pathname === rawPath);
 
                 return (
                   <Link

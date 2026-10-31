@@ -8,12 +8,11 @@ import { useLanguage } from '../../context/LanguageContext.jsx';
  * Calculates viewport-bounded coordinates for the language dropdown.
  * Guarantees that:
  * 1. The dropdown prefers opening below the button.
- * 2. Top is NEVER less than 8px (never extends beyond top of screen).
- * 3. Bottom is NEVER greater than viewportHeight - 8px.
- * 4. MaxHeight is adjusted so the complete dropdown remains inside the viewport.
- * 5. Horizontal bounds stay safely within [8px, viewportWidth - 8px].
+ * 2. Position is always aligned with the trigger button.
+ * 3. Horizontal bounds stay safely within [8px, viewportWidth - 8px].
+ * 4. MaxHeight is adjusted so the complete dropdown remains inside viewport.
  */
-const getDropdownCoordinates = (triggerEl, isRTL) => {
+const getDropdownCoordinates = (triggerEl) => {
   if (!triggerEl) {
     return { top: 60, left: 8, width: 224, maxHeight: 360 };
   }
@@ -22,9 +21,8 @@ const getDropdownCoordinates = (triggerEl, isRTL) => {
   const vWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
   const vHeight = typeof window !== 'undefined' ? window.innerHeight : 768;
 
-  // Dropdown card width (224px default w-56, clamped if viewport is very narrow)
   const width = Math.min(224, Math.max(180, vWidth - 16));
-  const targetDropdownHeight = 360;
+  const targetDropdownHeight = 340;
 
   // Determine vertical positioning - prefer opening below
   const spaceBelow = vHeight - rect.bottom;
@@ -33,45 +31,31 @@ const getDropdownCoordinates = (triggerEl, isRTL) => {
   let top;
   let maxHeight;
 
-  // Prefer opening below when there is sufficient space or more space below than above
   if (spaceBelow >= 160 || spaceBelow >= spaceAbove) {
-    // Position below button
     top = rect.bottom + 8;
-    // Strict guard: Top must NEVER extend beyond top edge of screen
     top = Math.max(8, top);
-    // Constrain maxHeight so it never extends below the viewport
-    maxHeight = Math.max(140, Math.min(targetDropdownHeight, vHeight - top - 10));
+    maxHeight = Math.max(160, Math.min(targetDropdownHeight, vHeight - top - 10));
   } else {
-    // If opening above is necessary, clamp top to at least 8px
     const rawTop = rect.top - targetDropdownHeight - 8;
     top = Math.max(8, rawTop);
-    const availableSpace = Math.max(120, rect.top - top - 8);
+    const availableSpace = Math.max(160, rect.top - top - 8);
     maxHeight = Math.min(targetDropdownHeight, availableSpace);
   }
 
-  // Final vertical bounds sanity enforcement:
   if (top < 8) top = 8;
   if (top + maxHeight > vHeight - 8) {
     maxHeight = Math.max(120, vHeight - top - 8);
   }
 
-  // Horizontal positioning
-  let left;
-  if (isRTL) {
-    // RTL: align with left edge of button
-    left = rect.left;
-    if (left + width > vWidth - 8) {
-      left = Math.max(8, vWidth - width - 8);
-    }
-    if (left < 8) left = 8;
-  } else {
-    // LTR: align with right edge of button
-    left = rect.right - width;
-    if (left < 8) left = 8;
-    if (left + width > vWidth - 8) {
-      left = Math.max(8, vWidth - width - 8);
-    }
+  // Horizontal positioning: align right edge with button, or fall back to left alignment
+  let left = rect.right - width;
+  if (left < 8) {
+    left = Math.max(8, rect.left);
   }
+  if (left + width > vWidth - 8) {
+    left = Math.max(8, vWidth - width - 8);
+  }
+  if (left < 8) left = 8;
 
   return {
     top: Math.round(top),
@@ -90,19 +74,18 @@ const LanguageDropdownMenu = ({
   onClose,
   onSelectLanguage,
   currentLanguage,
-  languages,
-  isRTL
+  languages
 }) => {
   const menuRef = useRef(null);
   const [coords, setCoords] = useState(() =>
-    getDropdownCoordinates(triggerRef.current, isRTL)
+    getDropdownCoordinates(triggerRef.current)
   );
 
   const updateCoords = useCallback(() => {
     if (triggerRef.current) {
-      setCoords(getDropdownCoordinates(triggerRef.current, isRTL));
+      setCoords(getDropdownCoordinates(triggerRef.current));
     }
-  }, [triggerRef, isRTL]);
+  }, [triggerRef]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -156,25 +139,30 @@ const LanguageDropdownMenu = ({
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.96 }}
           transition={{ duration: 0.15, ease: 'easeOut' }}
+          dir="ltr"
           style={{
             position: 'fixed',
             top: `${coords.top}px`,
             left: `${coords.left}px`,
             width: `${coords.width}px`,
             maxHeight: `${coords.maxHeight}px`,
-            zIndex: 9999
+            zIndex: 99999
           }}
-          className="bg-[#FCFAF8] rounded-2xl border border-[#E6D7C3] shadow-2xl shadow-black/15 p-1.5 overflow-hidden backdrop-blur-sm flex flex-col pointer-events-auto select-none"
+          className="bg-[#FCFAF8] rounded-2xl border border-[#E6D7C3] shadow-2xl shadow-black/20 p-1.5 overflow-hidden backdrop-blur-sm flex flex-col pointer-events-auto select-none"
           role="listbox"
+          aria-label="Languages"
         >
-          {/* Header label - shrink-0 ensures never clipped */}
-          <div className="px-3 py-2 border-b border-[#EFEAE2] mb-1 shrink-0">
+          {/* Header label */}
+          <div className="px-3 py-2 border-b border-[#EFEAE2] mb-1 shrink-0 flex items-center justify-between">
             <span className="text-[10px] font-extrabold tracking-[0.14em] text-[#B8864B] uppercase font-heading">
               SELECT LANGUAGE
             </span>
+            <span className="text-[9px] font-bold text-neutral-400 uppercase">
+              {currentLanguage}
+            </span>
           </div>
 
-          {/* List of 9 supported languages with smooth scroll */}
+          {/* List of 5 supported languages: en, ar, zh, fr, de */}
           <div className="flex flex-col gap-0.5 overflow-y-auto flex-1 overscroll-contain pr-0.5">
             {languages.map((lang) => {
               const isSelected = lang.code === currentLanguage;
@@ -184,7 +172,17 @@ const LanguageDropdownMenu = ({
                   type="button"
                   role="option"
                   aria-selected={isSelected}
-                  onClick={() => onSelectLanguage(lang.code)}
+                  onMouseDown={(e) => {
+                    e.stopPropagation();
+                  }}
+                  onTouchStart={(e) => {
+                    e.stopPropagation();
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onSelectLanguage(lang.code);
+                  }}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all duration-150 cursor-pointer select-none text-left shrink-0 ${
                     isSelected
                       ? 'bg-[#FAF2E6] text-[#8C5E28] font-bold border border-[#B8864B]/40 shadow-xs'
@@ -220,7 +218,7 @@ const LanguageDropdownMenu = ({
 };
 
 export const LanguageSelector = ({ isTransparent = false }) => {
-  const { currentLanguage, languageConfig, languages, setLanguage, isRTL } = useLanguage();
+  const { currentLanguage, languageConfig, languages, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef(null);
 
@@ -231,11 +229,10 @@ export const LanguageSelector = ({ isTransparent = false }) => {
 
   return (
     <div className="relative inline-block text-left">
-      {/* Existing Trigger Button Design Preserved 100% */}
       <button
         ref={buttonRef}
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(prev => !prev)}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-label="Change Language"
@@ -269,7 +266,6 @@ export const LanguageSelector = ({ isTransparent = false }) => {
         />
       </button>
 
-      {/* Viewport-bounded Dropdown Menu via Portal */}
       <LanguageDropdownMenu
         isOpen={isOpen}
         triggerRef={buttonRef}
@@ -277,14 +273,13 @@ export const LanguageSelector = ({ isTransparent = false }) => {
         onSelectLanguage={handleSelectLanguage}
         currentLanguage={currentLanguage}
         languages={languages}
-        isRTL={isRTL}
       />
     </div>
   );
 };
 
 export const MobileLanguageSelector = ({ isTransparent = false }) => {
-  const { currentLanguage, languages, setLanguage, isRTL } = useLanguage();
+  const { currentLanguage, languages, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef(null);
 
@@ -295,11 +290,10 @@ export const MobileLanguageSelector = ({ isTransparent = false }) => {
 
   return (
     <div className="relative inline-block text-left shrink-0">
-      {/* Existing Mobile Trigger Button Design Preserved 100% */}
       <button
         ref={buttonRef}
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(prev => !prev)}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-label="Select Language"
@@ -314,7 +308,6 @@ export const MobileLanguageSelector = ({ isTransparent = false }) => {
         <Globe className="w-4 h-4 text-[#B8864B] shrink-0" />
       </button>
 
-      {/* Viewport-bounded Dropdown Menu via Portal */}
       <LanguageDropdownMenu
         isOpen={isOpen}
         triggerRef={buttonRef}
@@ -322,11 +315,9 @@ export const MobileLanguageSelector = ({ isTransparent = false }) => {
         onSelectLanguage={handleSelectLanguage}
         currentLanguage={currentLanguage}
         languages={languages}
-        isRTL={isRTL}
       />
     </div>
   );
 };
 
 export default LanguageSelector;
-

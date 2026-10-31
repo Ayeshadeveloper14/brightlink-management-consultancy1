@@ -68,14 +68,14 @@ import { SERVICES_DATA } from './data/servicesData.js';
 
 function AppContent() {
   const navigate = useNavigate();
-  const { dir, isRTL } = useLanguage();
+  const { dir, isRTL, getLocalizedPath } = useLanguage();
   const [selectedService, setSelectedService] = useState(null);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [isMedicalFinderOpen, setIsMedicalFinderOpen] = useState(false);
   const [consultationDefaultService, setConsultationDefaultService] = useState('Golden Visa');
 
   const handleOpenCalculator = () => {
-    navigate('/calculator');
+    navigate(getLocalizedPath('/calculator'));
   };
 
   const handleOpenConsultation = (serviceName = 'Golden Visa') => {
@@ -89,1406 +89,420 @@ function AppContent() {
     }
   };
 
+  // Route definitions with support for bare, /en, and /ar URL prefixes
+  const routeConfigs = [
+    {
+      paths: ['/'],
+      element: (
+        <HomePage
+          onOpenConsultation={handleOpenConsultation}
+          onOpenCalculator={handleOpenCalculator}
+          onSelectService={(service) => setSelectedService(service)}
+        />
+      )
+    },
+    {
+      paths: ['/services'],
+      element: (
+        <ServicesPage
+          onSelectService={(service) => setSelectedService(service)}
+          onOpenConsultation={handleOpenConsultation}
+        />
+      )
+    },
+    {
+      paths: ['/about'],
+      element: <AboutPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/how-it-works'],
+      element: <HowItWorksPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/reviews'],
+      element: <ReviewsPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/faq'],
+      element: <FaqPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/family-visa', '/services/family-visa'],
+      element: (
+        <FamilyVisaPage
+          onOpenConsultation={handleOpenConsultation}
+          onOpenCalculator={handleOpenCalculator}
+        />
+      )
+    },
+    {
+      paths: ['/golden-visa', '/services/golden-visa', '/visa/golden-visa'],
+      element: <GoldenVisaPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/calculator', '/service-calculator'],
+      element: <CalculatorPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/visa-calculator'],
+      element: <VisaCalculatorPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/medical-finder',
+        '/services/medical-aur-eid-visa',
+        '/medical-aur-eid-visa',
+        '/services/visa-medical-emirates-id',
+        '/services/medical-eid'
+      ],
+      element: <MedicalFinderPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/passport-services'],
+      element: <PassportServicesPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/business-setup'],
+      element: <BusinessSetupPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/mainland/professional-license',
+        '/professional-license',
+        '/business-setup/professional-license',
+        '/mainland/professional-license'
+      ],
+      element: <ProfessionalLicensePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/mainland/llc-company',
+        '/llc-company',
+        '/business-setup/llc-company',
+        '/mainland/llc-company'
+      ],
+      element: <LlcCompanyPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/mainland/branch-rep-office',
+        '/branch-rep-office',
+        '/business-setup/branch-rep-office',
+        '/mainland/branch-rep-office',
+        '/services/branch-rep-office'
+      ],
+      element: <BranchRepOfficePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/free-zone/dubai-free-zone',
+        '/business-setup/dubai-free-zone',
+        '/services/business-setup/dubai-free-zone',
+        '/dubai-free-zone'
+      ],
+      element: <DubaiFreeZonePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/free-zone/abu-dhabi-free-zone',
+        '/business-setup/abu-dhabi-free-zone',
+        '/services/business-setup/abu-dhabi-free-zone',
+        '/abu-dhabi-free-zone'
+      ],
+      element: <AbuDhabiFreeZonePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/free-zone/sharjah-free-zone',
+        '/business-setup/sharjah-free-zone',
+        '/services/business-setup/sharjah-free-zone',
+        '/sharjah-free-zone'
+      ],
+      element: <SharjahFreeZonePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/free-zone/ajman-free-zone',
+        '/business-setup/ajman-free-zone',
+        '/services/business-setup/ajman-free-zone',
+        '/ajman-free-zone'
+      ],
+      element: <AjmanFreeZonePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/free-zone/fujairah-free-zone',
+        '/business-setup/fujairah-free-zone',
+        '/services/business-setup/fujairah-free-zone',
+        '/fujairah-free-zone'
+      ],
+      element: <FujairahFreeZonePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/free-zone/rak-free-zone',
+        '/business-setup/free-zone/rak-free-zone/',
+        '/business-setup/rak-free-zone',
+        '/services/business-setup/rak-free-zone',
+        '/rak-free-zone'
+      ],
+      element: <RakFreeZonePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/free-zone/uaq-free-zone',
+        '/business-setup/free-zone/uaq-free-zone/',
+        '/business-setup/uaq-free-zone',
+        '/services/business-setup/uaq-free-zone',
+        '/uaq-free-zone'
+      ],
+      element: <UaqFreeZonePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/free-zone/all-free-zones/',
+        '/business-setup/free-zone/all-free-zones',
+        '/business-setup/all-free-zones',
+        '/services/business-setup/all-free-zones',
+        '/all-free-zones'
+      ],
+      element: <AllFreeZonesPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/offshore/rak-offshore',
+        '/rak-offshore',
+        '/business-setup/rak-offshore',
+        '/offshore/rak-offshore'
+      ],
+      element: <RakOffshorePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/offshore/jafza-offshore',
+        '/jafza-offshore',
+        '/business-setup/jafza-offshore',
+        '/offshore/jafza-offshore'
+      ],
+      element: <JafzaOffshorePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/business-setup/offshore/ajman-offshore',
+        '/ajman-offshore',
+        '/business-setup/ajman-offshore',
+        '/offshore/ajman-offshore'
+      ],
+      element: <AjmanOffshorePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/visa'],
+      element: <VisaPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/tourist-visa',
+        '/services/tourist-visa',
+        '/visa/tourist-visa',
+        '/services/visa/tourist-visa'
+      ],
+      element: <TouristVisa onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/virtual-work-visa',
+        '/services/virtual-work-visa',
+        '/visa/virtual-work-visa'
+      ],
+      element: <VirtualWorkVisa onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/property-visa', '/services/property-visa'],
+      element: <PropertyVisa onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/investor-visa', '/services/investor-visa'],
+      element: <InvestorVisa onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/newborn-visa', '/services/newborn-visa'],
+      element: <NewbornVisa onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/maid-visa', '/services/maid-visa'],
+      element: <MaidVisa onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/visa-validity-checker',
+        '/visa-validity-checker',
+        '/visa-check'
+      ],
+      element: <VisaValidityCheckerPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/iloe-insurance',
+        '/iloe-insurance',
+        '/services/iloe-insurance-check',
+        '/iloe-insurance-check'
+      ],
+      element: <IloeInsurancePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/product-registration',
+        '/product-registration',
+        '/services/product-registration-dubai',
+        '/product-registration-dubai'
+      ],
+      element: <ProductRegistrationPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/blog'],
+      element: <BlogPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/contact'],
+      element: <ContactPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/services/pro-services', '/pro-services'],
+      element: <ProServicesPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/services/emirates-id', '/emirates-id'],
+      element: <EmiratesIdPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/services/amer-center', '/amer-center'],
+      element: <AmerCenterPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/services/tasheel-services', '/tasheel-services'],
+      element: <TasheelPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/tawjeeh-services',
+        '/tawjeeh-services',
+        '/services/tawjeeh',
+        '/tawjeeh'
+      ],
+      element: <TawjeehPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/document-attestation',
+        '/document-attestation',
+        '/services/attestation',
+        '/attestation'
+      ],
+      element: <DocumentAttestationPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/legal-translation',
+        '/legal-translation',
+        '/services/translation',
+        '/translation'
+      ],
+      element: <LegalTranslationPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/notary-services',
+        '/notary-services',
+        '/services/notary',
+        '/notary',
+        '/services/poa',
+        '/poa'
+      ],
+      element: <NotaryServicesPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/wills-testament',
+        '/wills-testament',
+        '/services/wills',
+        '/wills'
+      ],
+      element: <WillsTestamentPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/dld-trustee',
+        '/dld-trustee',
+        '/dld-trustee-service'
+      ],
+      element: <DldTrusteePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/rera-license',
+        '/services/rera-license-dubai',
+        '/rera-license',
+        '/rera-license-dubai'
+      ],
+      element: <ReraLicensePage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/services/property-revaluation', '/property-revaluation'],
+      element: <PropertyRevaluationPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: [
+        '/services/drivers-license',
+        '/services/drivers-license-in-the-uae',
+        '/drivers-license',
+        '/drivers-license-uae'
+      ],
+      element: <DriverLicensePage onOpenConsultation={handleOpenConsultation} />
+    }
+  ];
+
   return (
     <div dir={dir} className={`min-h-screen flex flex-col bg-[#FFFFFF] text-[#222222] font-sans antialiased selection:bg-[#B8864B] selection:text-white ${isRTL ? 'text-right' : 'text-left'}`}>
       <ScrollToTop />
       {/* Sticky Header with all navbar page links */}
-      <Header
-        onOpenConsultation={handleOpenConsultation}
-      />
+      <Header onOpenConsultation={handleOpenConsultation} />
 
       {/* Dynamic Route Pages */}
       <main className="flex-1">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-                onSelectService={(service) => setSelectedService(service)}
-              />
-            }
-          />
-
-          <Route
-            path="/services"
-            element={
-              <ServicesPage
-                onSelectService={(service) => setSelectedService(service)}
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/about"
-            element={
-              <AboutPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/how-it-works"
-            element={
-              <HowItWorksPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/reviews"
-            element={
-              <ReviewsPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/faq"
-            element={
-              <FaqPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/family-visa"
-            element={
-              <FamilyVisaPage
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-              />
-            }
-          />
-
-          <Route
-            path="/services/family-visa"
-            element={
-              <FamilyVisaPage
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-              />
-            }
-          />
-
-          <Route
-            path="/golden-visa"
-            element={
-              <GoldenVisaPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/golden-visa"
-            element={
-              <GoldenVisaPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/visa/golden-visa"
-            element={
-              <GoldenVisaPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/calculator"
-            element={
-              <CalculatorPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/service-calculator"
-            element={
-              <CalculatorPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/visa-calculator"
-            element={
-              <VisaCalculatorPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/medical-finder"
-            element={
-              <MedicalFinderPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/medical-aur-eid-visa"
-            element={
-              <MedicalFinderPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/medical-aur-eid-visa"
-            element={
-              <MedicalFinderPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/visa-medical-emirates-id"
-            element={
-              <MedicalFinderPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/medical-eid"
-            element={
-              <MedicalFinderPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/passport-services"
-            element={
-              <PassportServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup"
-            element={
-              <BusinessSetupPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/mainland/professional-license"
-            element={
-              <ProfessionalLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/professional-license"
-            element={
-              <ProfessionalLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/professional-license"
-            element={
-              <ProfessionalLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/mainland/professional-license"
-            element={
-              <ProfessionalLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/mainland/llc-company"
-            element={
-              <LlcCompanyPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/llc-company"
-            element={
-              <LlcCompanyPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/llc-company"
-            element={
-              <LlcCompanyPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/mainland/llc-company"
-            element={
-              <LlcCompanyPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/mainland/branch-rep-office"
-            element={
-              <BranchRepOfficePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/branch-rep-office"
-            element={
-              <BranchRepOfficePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/branch-rep-office"
-            element={
-              <BranchRepOfficePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/mainland/branch-rep-office"
-            element={
-              <BranchRepOfficePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/branch-rep-office"
-            element={
-              <BranchRepOfficePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/dubai-free-zone"
-            element={
-              <DubaiFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/dubai-free-zone"
-            element={
-              <DubaiFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/business-setup/dubai-free-zone"
-            element={
-              <DubaiFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/dubai-free-zone"
-            element={
-              <DubaiFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/abu-dhabi-free-zone"
-            element={
-              <AbuDhabiFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/abu-dhabi-free-zone"
-            element={
-              <AbuDhabiFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/business-setup/abu-dhabi-free-zone"
-            element={
-              <AbuDhabiFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/abu-dhabi-free-zone"
-            element={
-              <AbuDhabiFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/sharjah-free-zone"
-            element={
-              <SharjahFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/sharjah-free-zone"
-            element={
-              <SharjahFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/business-setup/sharjah-free-zone"
-            element={
-              <SharjahFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/sharjah-free-zone"
-            element={
-              <SharjahFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/ajman-free-zone"
-            element={
-              <AjmanFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/ajman-free-zone"
-            element={
-              <AjmanFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/business-setup/ajman-free-zone"
-            element={
-              <AjmanFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/ajman-free-zone"
-            element={
-              <AjmanFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/fujairah-free-zone"
-            element={
-              <FujairahFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/fujairah-free-zone"
-            element={
-              <FujairahFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/business-setup/fujairah-free-zone"
-            element={
-              <FujairahFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/fujairah-free-zone"
-            element={
-              <FujairahFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/rak-free-zone"
-            element={
-              <RakFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/rak-free-zone/"
-            element={
-              <RakFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/rak-free-zone"
-            element={
-              <RakFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/business-setup/rak-free-zone"
-            element={
-              <RakFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/rak-free-zone"
-            element={
-              <RakFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/uaq-free-zone"
-            element={
-              <UaqFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/uaq-free-zone/"
-            element={
-              <UaqFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/uaq-free-zone"
-            element={
-              <UaqFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/business-setup/uaq-free-zone"
-            element={
-              <UaqFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/uaq-free-zone"
-            element={
-              <UaqFreeZonePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/all-free-zones/"
-            element={
-              <AllFreeZonesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/free-zone/all-free-zones"
-            element={
-              <AllFreeZonesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/all-free-zones"
-            element={
-              <AllFreeZonesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/business-setup/all-free-zones"
-            element={
-              <AllFreeZonesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/all-free-zones"
-            element={
-              <AllFreeZonesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/offshore/rak-offshore"
-            element={
-              <RakOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/rak-offshore"
-            element={
-              <RakOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/rak-offshore"
-            element={
-              <RakOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/offshore/rak-offshore"
-            element={
-              <RakOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/offshore/jafza-offshore"
-            element={
-              <JafzaOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/jafza-offshore"
-            element={
-              <JafzaOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/jafza-offshore"
-            element={
-              <JafzaOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/offshore/jafza-offshore"
-            element={
-              <JafzaOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/offshore/ajman-offshore"
-            element={
-              <AjmanOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/ajman-offshore"
-            element={
-              <AjmanOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/business-setup/ajman-offshore"
-            element={
-              <AjmanOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/offshore/ajman-offshore"
-            element={
-              <AjmanOffshorePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/visa"
-            element={
-              <VisaPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/tourist-visa"
-            element={
-              <TouristVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/tourist-visa"
-            element={
-              <TouristVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/visa/tourist-visa"
-            element={
-              <TouristVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/visa/tourist-visa"
-            element={
-              <TouristVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/virtual-work-visa"
-            element={
-              <VirtualWorkVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/virtual-work-visa"
-            element={
-              <VirtualWorkVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/visa/virtual-work-visa"
-            element={
-              <VirtualWorkVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/property-visa"
-            element={
-              <PropertyVisa
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-              />
-            }
-          />
-
-          <Route
-            path="/services/property-visa"
-            element={
-              <PropertyVisa
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-              />
-            }
-          />
-
-          <Route
-            path="/investor-visa"
-            element={
-              <InvestorVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/investor-visa"
-            element={
-              <InvestorVisa
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/newborn-visa"
-            element={
-              <NewbornVisa
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-              />
-            }
-          />
-
-          <Route
-            path="/services/newborn-visa"
-            element={
-              <NewbornVisa
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-              />
-            }
-          />
-
-          <Route
-            path="/maid-visa"
-            element={
-              <MaidVisa
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-              />
-            }
-          />
-
-          <Route
-            path="/services/maid-visa"
-            element={
-              <MaidVisa
-                onOpenConsultation={handleOpenConsultation}
-                onOpenCalculator={handleOpenCalculator}
-              />
-            }
-          />
-
-          <Route
-            path="/services/visa-validity-checker"
-            element={
-              <VisaValidityCheckerPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/visa-validity-checker"
-            element={
-              <VisaValidityCheckerPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/visa-check"
-            element={
-              <VisaValidityCheckerPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/iloe-insurance"
-            element={
-              <IloeInsurancePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/iloe-insurance"
-            element={
-              <IloeInsurancePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/iloe-insurance-check"
-            element={
-              <IloeInsurancePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/iloe-insurance-check"
-            element={
-              <IloeInsurancePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/product-registration"
-            element={
-              <ProductRegistrationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/product-registration"
-            element={
-              <ProductRegistrationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/product-registration-dubai"
-            element={
-              <ProductRegistrationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/product-registration-dubai"
-            element={
-              <ProductRegistrationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/blog"
-            element={
-              <BlogPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/contact"
-            element={
-              <ContactPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/pro-services"
-            element={
-              <ProServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/pro-services"
-            element={
-              <ProServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/emirates-id"
-            element={
-              <EmiratesIdPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/emirates-id"
-            element={
-              <EmiratesIdPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/amer-center"
-            element={
-              <AmerCenterPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/amer-center"
-            element={
-              <AmerCenterPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/tasheel-services"
-            element={
-              <TasheelPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/tasheel-services"
-            element={
-              <TasheelPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/tawjeeh-services"
-            element={
-              <TawjeehPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/tawjeeh-services"
-            element={
-              <TawjeehPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/tawjeeh"
-            element={
-              <TawjeehPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/tawjeeh"
-            element={
-              <TawjeehPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/document-attestation"
-            element={
-              <DocumentAttestationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/document-attestation"
-            element={
-              <DocumentAttestationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/attestation"
-            element={
-              <DocumentAttestationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/attestation"
-            element={
-              <DocumentAttestationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/legal-translation"
-            element={
-              <LegalTranslationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/legal-translation"
-            element={
-              <LegalTranslationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/translation"
-            element={
-              <LegalTranslationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/translation"
-            element={
-              <LegalTranslationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/notary-services"
-            element={
-              <NotaryServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/notary-services"
-            element={
-              <NotaryServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/notary"
-            element={
-              <NotaryServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/notary"
-            element={
-              <NotaryServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/poa"
-            element={
-              <NotaryServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/poa"
-            element={
-              <NotaryServicesPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/wills-testament"
-            element={
-              <WillsTestamentPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/wills-testament"
-            element={
-              <WillsTestamentPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/wills"
-            element={
-              <WillsTestamentPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/wills"
-            element={
-              <WillsTestamentPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/dld-trustee"
-            element={
-              <DldTrusteePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/dld-trustee"
-            element={
-              <DldTrusteePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/dld-trustee-service"
-            element={
-              <DldTrusteePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/rera-license"
-            element={
-              <ReraLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/rera-license-dubai"
-            element={
-              <ReraLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/rera-license"
-            element={
-              <ReraLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/rera-license-dubai"
-            element={
-              <ReraLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/property-revaluation"
-            element={
-              <PropertyRevaluationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/property-revaluation"
-            element={
-              <PropertyRevaluationPage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/drivers-license"
-            element={
-              <DriverLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/services/drivers-license-in-the-uae"
-            element={
-              <DriverLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/drivers-license"
-            element={
-              <DriverLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          <Route
-            path="/drivers-license-uae"
-            element={
-              <DriverLicensePage
-                onOpenConsultation={handleOpenConsultation}
-              />
-            }
-          />
-
-          {/* Fallback to Home */}
+          {routeConfigs.flatMap((config, cfgIdx) =>
+            config.paths.flatMap((rawPath) => {
+              const langCodes = ['en', 'ar', 'zh', 'fr', 'de'];
+              if (rawPath === '/') {
+                return [
+                  <Route key={`root-${cfgIdx}`} path="/" element={config.element} />,
+                  ...langCodes.flatMap((code) => [
+                    <Route key={`${code}-root-${cfgIdx}`} path={`/${code}`} element={config.element} />,
+                    <Route key={`${code}-root-slash-${cfgIdx}`} path={`/${code}/`} element={config.element} />
+                  ])
+                ];
+              }
+              const clean = rawPath.endsWith('/') && rawPath.length > 1 ? rawPath.slice(0, -1) : rawPath;
+              const hasTrailingSlash = rawPath.endsWith('/');
+              const routes = [
+                <Route key={`bare-${rawPath}`} path={rawPath} element={config.element} />
+              ];
+              if (!hasTrailingSlash) {
+                routes.push(
+                  <Route key={`bare-${rawPath}-slash`} path={`${rawPath}/`} element={config.element} />
+                );
+              }
+              langCodes.forEach((code) => {
+                routes.push(
+                  <Route key={`${code}-${clean}`} path={`/${code}${clean}`} element={config.element} />,
+                  <Route key={`${code}-${clean}-slash`} path={`/${code}${clean}/`} element={config.element} />
+                );
+              });
+              return routes;
+            })
+          )}
+
+          {/* Fallback to Home for unknown routes */}
           <Route
             path="*"
             element={
@@ -1543,10 +557,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <LanguageProvider>
         <AppContent />
-      </BrowserRouter>
-    </LanguageProvider>
+      </LanguageProvider>
+    </BrowserRouter>
   );
 }

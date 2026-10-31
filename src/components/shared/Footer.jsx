@@ -16,7 +16,7 @@ import {
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const Footer = () => {
-  const { t, tItem } = useLanguage();
+  const { t, tItem, getLocalizedPath } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   // Verified Official UAE Government Portals
@@ -34,9 +34,9 @@ export const Footer = () => {
     { label: t('nav_home', 'Home'), path: '/' },
     { label: t('nav_about', 'About Us'), path: '/about' },
     { label: t('nav_services', 'All Services'), path: '/services' },
-    { label: 'Visa Check', path: '/visa-check' },
+    { label: t('nav_visa_check', 'Visa Check'), path: '/visa-check' },
     { label: t('hero_cta_calculator', 'Calculator'), path: '/calculator' },
-    { label: 'Blog', path: '/blog' },
+    { label: t('nav_blog', 'Blog'), path: '/blog' },
     { label: t('nav_contact', 'Contact Us'), path: '/contact' }
   ];
 
@@ -47,8 +47,8 @@ export const Footer = () => {
     { label: tItem('Partner & Investor Visa'), path: '/investor-visa' },
     { label: tItem('Dubai & UAE Tourist Visa'), path: '/tourist-visa' },
     { label: tItem('Virtual Work Visa'), path: '/virtual-work-visa' },
-    { label: 'Business Setup & Free Zones', path: '/business-setup' },
-    { label: 'Document Attestation (MOFA)', path: '/attestation' },
+    { label: tItem('Business Setup & Free Zones'), path: '/business-setup' },
+    { label: tItem('Document Attestation (MOFA)'), path: '/attestation' },
     { label: tItem('Medical & Emirates ID'), path: '/medical-finder' }
   ];
 
@@ -63,7 +63,7 @@ export const Footer = () => {
           
           {/* Column 1: Brand and Introduction (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="inline-flex items-center gap-2.5 group">
+            <Link to={getLocalizedPath('/')} className="inline-flex items-center gap-2.5 group">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C5985B] to-[#976A36] text-white flex items-center justify-center font-bold text-lg shadow-sm transition-transform group-hover:scale-105">
                 BT
               </div>
@@ -136,7 +136,7 @@ export const Footer = () => {
               {quickLinks.map((item) => (
                 <li key={item.path}>
                   <Link 
-                    to={item.path} 
+                    to={getLocalizedPath(item.path)} 
                     className="text-neutral-400 hover:text-[#B8864B] transition-colors inline-block py-0.5"
                   >
                     {item.label}
@@ -155,7 +155,7 @@ export const Footer = () => {
               {serviceLinks.map((srv) => (
                 <li key={srv.path}>
                   <Link
-                    to={srv.path}
+                    to={getLocalizedPath(srv.path)}
                     className="text-neutral-400 hover:text-[#B8864B] transition-colors flex items-center gap-1.5 py-0.5 group"
                   >
                     <ArrowRight className="w-3 h-3 text-[#B8864B]/80 group-hover:translate-x-0.5 transition-transform shrink-0" />

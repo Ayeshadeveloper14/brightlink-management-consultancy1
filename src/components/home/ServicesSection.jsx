@@ -44,7 +44,7 @@ const SERVICE_PATH_MAP = {
 };
 
 export const ServicesSection = ({ onSelectService }) => {
-  const { t, tItem, isRTL } = useLanguage();
+  const { t, tItem, isRTL, getLocalizedPath } = useLanguage();
   const [activeTab, setActiveTab] = useState('all');
 
   const getIcon = (name) => {
@@ -154,7 +154,7 @@ export const ServicesSection = ({ onSelectService }) => {
               className="bg-white rounded-2xl overflow-hidden border border-neutral-200/85 hover:border-[#B8864B]/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <Link to={SERVICE_PATH_MAP[service.id] || `/services`} className="block">
+                <Link to={getLocalizedPath(SERVICE_PATH_MAP[service.id] || `/services`)} className="block">
                   {/* Attractive Image with Subtle Zoom on Hover */}
                   <div className="h-52 w-full overflow-hidden bg-neutral-100 relative">
                     <img
@@ -200,7 +200,7 @@ export const ServicesSection = ({ onSelectService }) => {
               {/* Attractive CTA Button */}
               <div className="px-5 pb-5 pt-2">
                 <Link
-                  to={SERVICE_PATH_MAP[service.id] || `/services`}
+                  to={getLocalizedPath(SERVICE_PATH_MAP[service.id] || `/services`)}
                   className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-bold text-[#222222] bg-[#F5F1EB] group-hover:bg-[#B8864B] group-hover:text-white transition-all duration-200 cursor-pointer shadow-xs"
                 >
                   <span>{t('service_card_details', 'View Details')}</span>

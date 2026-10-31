@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Home, Sparkles, MessageSquare, PhoneCall } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const PageHero = ({
   badge = 'Official UAE Government Service',
@@ -15,6 +16,7 @@ export const PageHero = ({
   showConsultationBtn = true,
   showWhatsAppBtn = true
 }) => {
+  const { t, tItem, isRTL, getLocalizedPath } = useLanguage();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -62,25 +64,25 @@ export const PageHero = ({
           aria-label="Breadcrumb"
         >
           <Link
-            to="/"
+            to={getLocalizedPath('/')}
             className="flex items-center gap-1.5 hover:text-[#F5D7A1] transition-colors"
           >
             <Home className="w-3.5 h-3.5 text-[#F5D7A1]" />
-            <span>Home</span>
+            <span>{t('nav_home', 'Home')}</span>
           </Link>
 
           {breadcrumbs.map((crumb, idx) => (
             <React.Fragment key={idx}>
-              <ChevronRight className="w-3 h-3 text-neutral-400" />
+              <ChevronRight className={`w-3 h-3 text-neutral-400 ${isRTL ? 'rotate-180' : ''}`} />
               {crumb.path ? (
                 <Link
-                  to={crumb.path}
+                  to={getLocalizedPath(crumb.path)}
                   className="hover:text-[#F5D7A1] transition-colors"
                 >
-                  {crumb.label}
+                  {tItem(crumb.label)}
                 </Link>
               ) : (
-                <span className="text-[#F5D7A1] font-semibold">{crumb.label}</span>
+                <span className="text-[#F5D7A1] font-semibold">{tItem(crumb.label)}</span>
               )}
             </React.Fragment>
           ))}
@@ -97,7 +99,7 @@ export const PageHero = ({
             >
               <Sparkles className="w-3.5 h-3.5 text-[#F5D7A1]" />
               <span className="uppercase tracking-wider text-[11px] font-bold text-neutral-100">
-                {badge}
+                {tItem(badge)}
               </span>
             </motion.div>
           )}
@@ -109,10 +111,10 @@ export const PageHero = ({
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-md"
           >
-            {title}{' '}
+            {tItem(title)}{' '}
             {titleHighlight && (
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FCEFD5] via-[#E2B77A] to-[#C5985B]">
-                {titleHighlight}
+                {tItem(titleHighlight)}
               </span>
             )}
           </motion.h1>
@@ -125,7 +127,7 @@ export const PageHero = ({
               transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
               className="text-sm sm:text-base text-neutral-200 leading-relaxed font-normal max-w-2xl drop-shadow-md"
             >
-              {description}
+              {tItem(description)}
             </motion.p>
           )}
 
@@ -144,17 +146,17 @@ export const PageHero = ({
                   rel="noopener noreferrer"
                   className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#C5985B] to-[#976A36] hover:from-[#D4A76A] hover:to-[#A77945] text-white font-semibold text-xs sm:text-sm shadow-lg shadow-[#B8864B]/30 hover:shadow-xl transition-all cursor-pointer whitespace-nowrap"
                 >
-                  Consult Specialist Now
+                  {tItem('Consult Specialist Now')}
                 </a>
               )}
 
               {showWhatsAppBtn && (
                 <Link
-                  to="/calculator"
+                  to={getLocalizedPath('/calculator')}
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-semibold text-xs sm:text-sm shadow-md transition-all cursor-pointer whitespace-nowrap"
                 >
                   <MessageSquare className="w-4 h-4 fill-current" />
-                  <span>WhatsApp Inquiry</span>
+                  <span>{tItem('WhatsApp Inquiry')}</span>
                 </Link>
               )}
             </motion.div>
@@ -177,7 +179,7 @@ export const PageHero = ({
                     {s.value}
                   </div>
                   <div className="text-[11px] text-neutral-300 font-medium">
-                    {s.label}
+                    {tItem(s.label)}
                   </div>
                 </div>
               ))}
