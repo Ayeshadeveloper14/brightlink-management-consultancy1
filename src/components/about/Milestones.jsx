@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const Milestones = () => {
+  const { tItem } = useLanguage();
+
   const milestones = [
     { year: '2006', title: 'Founded in Dubai', desc: 'Started as a boutique typing center handling labor and immigration files.' },
     { year: '2012', title: 'Federal ICP Accreditation', desc: 'Authorized for direct electronic UAE entry permits and status adjustments.' },
@@ -11,7 +14,7 @@ export const Milestones = () => {
   return (
     <div className="mt-20 pt-16 border-t border-neutral-200/60">
       <h3 className="text-2xl font-bold text-center text-[#222222] mb-12">
-        Our Journey in the Emirates
+        {tItem('Our Journey in the Emirates')}
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
         {milestones.map((m, idx) => (
@@ -20,10 +23,10 @@ export const Milestones = () => {
               {m.year}
             </span>
             <h4 className="text-sm font-bold text-[#222222]">
-              {m.title}
+              {tItem(m.title)}
             </h4>
             <p className="text-xs text-[#666666] leading-relaxed">
-              {m.desc}
+              {tItem(m.desc)}
             </p>
           </div>
         ))}

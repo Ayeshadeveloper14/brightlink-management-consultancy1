@@ -123,7 +123,7 @@ export const ServicesSection = ({ onSelectService }) => {
               { id: 'residency', label: t('services_tab_residency', 'Residency & Golden') },
               { id: 'family', label: t('services_tab_golden', 'Family Visa') },
               { id: 'corporate', label: t('services_tab_corporate', 'Business & Setup') },
-              { id: 'travel', label: 'Tourist & Travel' },
+              { id: 'travel', label: t('services_tab_travel', 'Tourist & Travel') },
               { id: 'legal', label: t('services_tab_typing', 'Legal & Attestation') }
             ].map((tab) => (
               <button
@@ -172,10 +172,10 @@ export const ServicesSection = ({ onSelectService }) => {
                     {/* Category Pill and Starting Fee */}
                     <div className="flex items-center justify-between text-xs font-semibold text-[#8C6230]">
                       <span className="uppercase tracking-wider text-[11px] font-bold">
-                        {service.category}
+                        {tItem(service.category)}
                       </span>
                       <span className="text-neutral-500 font-medium">
-                        From {service.startingFee}
+                        {t('fee_from', 'From')} {service.startingFee}
                       </span>
                     </div>
 
@@ -191,7 +191,7 @@ export const ServicesSection = ({ onSelectService }) => {
 
                     {/* Short Description */}
                     <p className="text-xs sm:text-sm text-[#666666] leading-relaxed line-clamp-3">
-                      {service.shortDesc}
+                      {tItem(service.shortDesc)}
                     </p>
                   </div>
                 </Link>

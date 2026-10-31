@@ -1,11 +1,13 @@
 import React from 'react';
 import { X, CheckCircle2, Clock, ShieldCheck, FileText, ArrowRight, MessageSquare } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const ServiceDetailModal = ({
   service,
   onClose,
   onOpenConsultation
 }) => {
+  const { t, tItem, isRTL } = useLanguage();
   if (!service) return null;
 
   const handleWhatsApp = () => {
@@ -23,7 +25,7 @@ export const ServiceDetailModal = ({
         <div className="relative h-40 w-full overflow-hidden rounded-t-2xl bg-neutral-100">
           <img 
             src={service.image} 
-            alt={service.title} 
+            alt={tItem(service.title)} 
             loading="lazy"
             decoding="async"
             className="w-full h-full object-cover"
@@ -31,8 +33,8 @@ export const ServiceDetailModal = ({
           
           <button
             onClick={onClose}
-            aria-label="Close modal"
-            className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-xs transition-colors cursor-pointer"
+            aria-label={t('btn_close', 'Close modal')}
+            className={`absolute top-3 ${isRTL ? 'left-3' : 'right-3'} w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-xs transition-colors cursor-pointer`}
           >
             <X className="w-4 h-4" />
           </button>
@@ -43,14 +45,14 @@ export const ServiceDetailModal = ({
           <div>
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider">
-                {service.category}
+                {tItem(service.category)}
               </span>
               <span className="text-xs font-bold text-[#B8864B]">
-                From {service.startingFee}
+                {t('fee_from', 'From')} {service.startingFee}
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold text-[#222222] mt-0.5">
-              {service.title}
+              {tItem(service.title)}
             </h2>
           </div>
 
@@ -58,34 +60,34 @@ export const ServiceDetailModal = ({
           <div className="grid grid-cols-2 gap-3 p-3 bg-[#F5F1EB] rounded-xl border border-[#B8864B]/15 text-xs">
             <div>
               <p className="text-neutral-500 font-medium flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-[#B8864B]" /> Processing Time
+                <Clock className="w-3.5 h-3.5 text-[#B8864B]" /> {t('modal_processing_time', 'Processing Time')}
               </p>
-              <p className="font-bold text-[#222222] mt-0.5">{service.processingTime}</p>
+              <p className="font-bold text-[#222222] mt-0.5">{tItem(service.processingTime)}</p>
             </div>
             <div>
               <p className="text-neutral-500 font-medium flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#B8864B]" /> Validity
+                <ShieldCheck className="w-3.5 h-3.5 text-[#B8864B]" /> {t('modal_validity', 'Validity')}
               </p>
-              <p className="font-bold text-[#222222] mt-0.5">{service.validity}</p>
+              <p className="font-bold text-[#222222] mt-0.5">{tItem(service.validity)}</p>
             </div>
           </div>
 
           {/* Overview */}
           <div>
-            <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wider mb-1">Service Overview</h3>
-            <p className="text-xs text-[#555555] leading-relaxed">{service.overview}</p>
+            <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wider mb-1">{t('modal_service_overview', 'Service Overview')}</h3>
+            <p className="text-xs text-[#555555] leading-relaxed">{tItem(service.overview)}</p>
           </div>
 
           {/* Eligibility */}
           <div>
             <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#B8864B]" /> Eligibility
+              <ShieldCheck className="w-3.5 h-3.5 text-[#B8864B]" /> {t('modal_eligibility', 'Eligibility')}
             </h3>
             <ul className="space-y-1.5 text-xs text-[#555555]">
               {service.eligibility.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B8864B] shrink-0 mt-0.5" />
-                  <span>{item}</span>
+                  <span>{tItem(item)}</span>
                 </li>
               ))}
             </ul>
@@ -94,14 +96,14 @@ export const ServiceDetailModal = ({
           {/* Required Documents */}
           <div>
             <h3 className="text-xs font-bold text-[#222222] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-              <FileText className="w-3.5 h-3.5 text-[#B8864B]" /> Required Documents
+              <FileText className="w-3.5 h-3.5 text-[#B8864B]" /> {t('modal_required_docs', 'Required Documents')}
             </h3>
             <div className="bg-[#FAF8F5] p-3 rounded-xl border border-neutral-200">
               <ul className="space-y-1.5 text-xs text-[#555555]">
                 {service.documentsRequired.map((doc, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#B8864B] mt-1.5 shrink-0" />
-                    <span>{doc}</span>
+                    <span>{tItem(doc)}</span>
                   </li>
                 ))}
               </ul>
@@ -111,21 +113,18 @@ export const ServiceDetailModal = ({
           {/* Action CTAs */}
           <div className="pt-2 border-t border-neutral-100 flex gap-2.5">
             <button
-              onClick={() => {
-                onClose();
-                onOpenConsultation(service.title);
-              }}
+              onClick={() => { onClose(); window.open('https://wa.me/971566556645', '_blank'); }}
               className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#B8864B] hover:bg-[#9F7038] text-white font-semibold text-xs transition-colors cursor-pointer"
             >
-              <span>Get Free Assessment</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>{t('btn_get_free_assessment', 'Get Free Assessment')}</span>
+              <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
             </button>
             <button
-              onClick={handleWhatsApp}
+              onClick={() => { onClose(); window.location.href = '/calculator'; }}
               className="px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-semibold text-xs transition-colors cursor-pointer flex items-center gap-1.5"
             >
               <MessageSquare className="w-3.5 h-3.5 fill-current" />
-              <span>WhatsApp</span>
+              <span>{t('btn_whatsapp', 'WhatsApp')}</span>
             </button>
           </div>
         </div>

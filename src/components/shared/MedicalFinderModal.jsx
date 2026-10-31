@@ -1,12 +1,14 @@
 import React from 'react';
 import { X, Stethoscope, MapPin, Clock, CheckCircle2, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { MEDICAL_CENTERS } from '../../data/servicesData.js';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const MedicalFinderModal = ({
   isOpen,
   onClose,
   onBookMedical
 }) => {
+  const { t, tItem, isRTL } = useLanguage();
   if (!isOpen) return null;
 
   const handleWhatsAppBooking = (centerName) => {
@@ -27,13 +29,13 @@ export const MedicalFinderModal = ({
               <Stethoscope className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-[#222222]">Dubai Medical Fitness Centers & Finder</h2>
-              <p className="text-xs text-[#666666]">DHA & ICP Authorized Medical Testing Typing with 4-Hour Express Results</p>
+              <h2 className="text-xl font-bold text-[#222222]">{t('medical_modal_title', 'Dubai Medical Fitness Centers & Finder')}</h2>
+              <p className="text-xs text-[#666666]">{t('medical_modal_sub', 'DHA & ICP Authorized Medical Testing Typing with 4-Hour Express Results')}</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            aria-label="Close"
+            aria-label={t('btn_close', 'Close')}
             className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
@@ -46,9 +48,9 @@ export const MedicalFinderModal = ({
           <div className="p-4 bg-[#F5F1EB] rounded-2xl border border-[#B8864B]/20 flex items-start gap-3">
             <Sparkles className="w-5 h-5 text-[#B8864B] shrink-0 mt-0.5" />
             <div className="text-xs text-[#444444] leading-relaxed">
-              <p className="font-bold text-[#222222] text-sm">Need VIP Medical Typing with Zero Waiting Queues?</p>
+              <p className="font-bold text-[#222222] text-sm">{t('medical_modal_alert_title', 'Need VIP Medical Typing with Zero Waiting Queues?')}</p>
               <p className="mt-1">
-                Brightlink pre-types your DHA application, arranges express blood test and chest X-ray appointments at premier smart centers in Dubai, and pushes certificates directly to the GDRFA residency system.
+                {t('medical_modal_alert_desc', 'Brightlink pre-types your DHA application, arranges express blood test and chest X-ray appointments at premier smart centers in Dubai, and pushes certificates directly to the GDRFA residency system.')}
               </p>
             </div>
           </div>
@@ -56,7 +58,7 @@ export const MedicalFinderModal = ({
           {/* Centers List */}
           <div className="space-y-4">
             <h3 className="text-sm font-bold text-[#222222] uppercase tracking-wider">
-              Recommended DHA Certified Centers
+              {t('medical_modal_rec_title', 'Recommended DHA Certified Centers')}
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -68,27 +70,27 @@ export const MedicalFinderModal = ({
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between">
                       <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-bold">
-                        {center.type}
+                        {tItem(center.type)}
                       </span>
-                      <span className="text-xs font-bold text-[#B8864B]">{center.fee}</span>
+                      <span className="text-xs font-bold text-[#B8864B]">{tItem(center.fee)}</span>
                     </div>
 
-                    <h4 className="text-sm font-bold text-[#222222]">{center.name}</h4>
+                    <h4 className="text-sm font-bold text-[#222222]">{tItem(center.name)}</h4>
 
                     <p className="text-xs text-[#666666] flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5 text-[#B8864B] shrink-0" />
-                      <span>{center.location}</span>
+                      <span>{tItem(center.location)}</span>
                     </p>
 
                     <p className="text-xs text-[#666666] flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Turnaround: <strong className="text-[#222222]">{center.resultTime}</strong></span>
+                      <span>{t('medical_modal_turnaround', 'Turnaround:')} <strong className="text-[#222222]">{tItem(center.resultTime)}</strong></span>
                     </p>
 
                     <div className="pt-2 flex flex-wrap gap-1.5">
                       {center.features.map((feat, i) => (
                         <span key={i} className="px-2 py-0.5 rounded-sm bg-neutral-100 text-[#555555] text-[10px] font-medium">
-                          {feat}
+                          {tItem(feat)}
                         </span>
                       ))}
                     </div>
@@ -102,7 +104,7 @@ export const MedicalFinderModal = ({
                       }}
                       className="flex-1 py-2 text-center text-xs font-bold rounded-xl bg-[#B8864B] hover:bg-[#9F7038] text-white transition-colors cursor-pointer"
                     >
-                      Book Center Slot
+                      {t('medical_modal_book_btn', 'Book Center Slot')}
                     </button>
                     <button
                       onClick={() => handleWhatsAppBooking(center.name)}
@@ -120,12 +122,12 @@ export const MedicalFinderModal = ({
           {/* Documents Checklist for Medical */}
           <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200 text-xs text-[#555555] space-y-2">
             <p className="font-bold text-[#222222] flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#B8864B]" /> Required for Medical Fitness Examination:
+              <ShieldCheck className="w-4 h-4 text-[#B8864B]" /> {t('medical_modal_req_title', 'Required for Medical Fitness Examination:')}
             </p>
             <ul className="space-y-1 list-disc list-inside">
-              <li>Original valid passport & copy of UAE entry permit or visa cancellation</li>
-              <li>2 passport-sized photographs on white background</li>
-              <li>Brightlink pre-typed DHA medical fitness application with barcode</li>
+              <li>{t('medical_modal_req_1', 'Original valid passport & copy of UAE entry permit or visa cancellation')}</li>
+              <li>{t('medical_modal_req_2', '2 passport-sized photographs on white background')}</li>
+              <li>{t('medical_modal_req_3', 'Brightlink pre-typed DHA medical fitness application with barcode')}</li>
             </ul>
           </div>
         </div>

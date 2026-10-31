@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FAQ_DATA } from '../../data/servicesData.js';
 import { Plus, Minus, Search } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const FaqAccordion = () => {
+  const { t, tItem } = useLanguage();
   const [openIndex, setOpenIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
@@ -11,7 +13,11 @@ export const FaqAccordion = () => {
   const categories = ['All', 'Golden Visa', 'Family Visa', 'Residence Visa', 'Passport Renewal', 'Medical Visa'];
 
   const filteredFaqs = FAQ_DATA.filter((faq) => {
-    const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const questionText = tItem(faq.question);
+    const answerText = tItem(faq.answer);
+    const matchesSearch = questionText.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          answerText.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = activeCategory === 'All' || faq.category.toLowerCase() === activeCategory.toLowerCase();
     return matchesSearch && matchesCategory;
@@ -31,7 +37,7 @@ export const FaqAccordion = () => {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search questions (e.g. Golden Visa salary, Family visa Ejari, Tatkal passport)..."
+            placeholder={t('faq_search_placeholder', 'Search questions (e.g. Golden Visa salary, Family visa Ejari, Tatkal passport)...')}
             className="w-full pl-10 pr-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:border-[#B8864B] bg-white text-xs sm:text-sm"
           />
         </div>
@@ -50,7 +56,7 @@ export const FaqAccordion = () => {
                   : 'bg-white text-[#555555] border-neutral-200 hover:border-neutral-300'
               }`}
             >
-              {cat}
+              {cat === 'All' ? t('services_tab_all', 'All') : tItem(cat)}
             </button>
           ))}
         </div>
@@ -81,7 +87,7 @@ export const FaqAccordion = () => {
                 <span className={`text-xs sm:text-sm font-bold leading-snug transition-colors ${
                   isOpen ? 'text-[#B8864B]' : 'text-[#222222]'
                 }`}>
-                  {faq.question}
+                  {tItem(faq.question)}
                 </span>
                 
                 <motion.div 
@@ -111,11 +117,11 @@ export const FaqAccordion = () => {
                     transition={{ duration: 0.25 }}
                   >
                     <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#555555] leading-relaxed border-t border-neutral-100">
-                      <p>{faq.answer}</p>
+                      <p>{tItem(faq.answer)}</p>
                       <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-[#8C6230]">
-                        <span className="px-2 py-0.5 rounded-md bg-[#F5F1EB]">Category: {faq.category}</span>
+                        <span className="px-2 py-0.5 rounded-md bg-[#F5F1EB]">{t('faq_category_prefix', 'Category:')} {tItem(faq.category)}</span>
                         <span>·</span>
-                        <span>Verified with Official GDRFA / ICP Circulars</span>
+                        <span>{t('faq_verified_note', 'Verified with Official GDRFA / ICP Circulars')}</span>
                       </div>
                     </div>
                   </motion.div>

@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Award, Clock, HeartHandshake } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const CoreValues = () => {
+  const { tItem } = useLanguage();
+
   const coreValues = [
     {
       title: 'Legal Precision & Compliance',
@@ -31,13 +34,13 @@ export const CoreValues = () => {
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3 mb-10 sm:mb-12">
         <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider">
-          Our Principles
+          {tItem('Our Principles')}
         </span>
         <h2 className="text-3xl sm:text-4xl font-bold text-[#222222] tracking-tight">
-          Why Dubai Residents Choose Us
+          {tItem('Why Dubai Residents Choose Us')}
         </h2>
         <p className="text-sm text-[#666666]">
-          Built upon integrity, legal rigor, and an uncompromising commitment to customer satisfaction.
+          {tItem('Built upon integrity, legal rigor, and an uncompromising commitment to customer satisfaction.')}
         </p>
       </div>
 
@@ -57,10 +60,10 @@ export const CoreValues = () => {
               {val.icon}
             </div>
             <h3 className="text-base font-bold text-[#222222] min-h-[3rem] flex items-center">
-              {val.title}
+              {tItem(val.title)}
             </h3>
             <p className="text-xs sm:text-sm text-[#555555] leading-relaxed flex-1">
-              {val.desc}
+              {tItem(val.desc)}
             </p>
           </motion.div>
         ))}

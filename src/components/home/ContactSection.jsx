@@ -17,7 +17,7 @@ import {
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const ContactSection = () => {
-  const { t, isRTL } = useLanguage();
+  const { t, tItem, isRTL } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -104,7 +104,16 @@ export const ContactSection = () => {
                     <circle cx="0" cy="0" r="8" fill="#B8864B" />
                     <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
                   </g>
+                  <text x="485" y="358" textAnchor="middle" fill="#8C6230" fontSize="10" fontWeight="bold">
+                    {t('map_pin_name', 'Brightlink')}
+                  </text>
                 </svg>
+
+                {/* Map Overlay Badge */}
+                <div className={`absolute top-3 ${isRTL ? 'right-3' : 'left-3'} bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-lg shadow-xs border border-neutral-200 text-xs font-semibold text-[#222222] flex items-center gap-1.5`}>
+                  <MapPin className="w-3.5 h-3.5 text-[#B8864B]" />
+                  <span>{t('map_location_badge', 'Business Bay, Dubai')}</span>
+                </div>
               </div>
 
               {/* Address bar */}
@@ -113,10 +122,14 @@ export const ContactSection = () => {
                   <MapPin className="w-5 h-5 text-[#B8864B] shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-[#222222] text-sm">
-                      Office M08-27, M1 Floor, Crystal Tower
+                      {t('map_address_office', 'Office M08-27, M1 Floor, Crystal Tower')}
                     </p>
-                    <p className="text-neutral-500 mt-0.5">Millennium Central Building, Al Asayel St, Business Bay, Dubai</p>
-                    <p className="text-[#888888] mt-0.5">Easy visitor parking & 5 mins from Business Bay Metro Station</p>
+                    <p className="text-neutral-500 mt-0.5">
+                      {t('map_address_building', 'Millennium Central Building, Al Asayel St, Business Bay, Dubai')}
+                    </p>
+                    <p className="text-[#888888] mt-0.5">
+                      {t('map_address_parking', 'Easy visitor parking & 5 mins from Business Bay Metro Station')}
+                    </p>
                   </div>
                 </div>
 
@@ -125,7 +138,7 @@ export const ContactSection = () => {
                   className="px-3.5 py-2 rounded-xl bg-[#222222] hover:bg-[#B8864B] text-white text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shrink-0 shadow-sm"
                 >
                   <Navigation className="w-3.5 h-3.5" />
-                  <span>Directions</span>
+                  <span>{t('map_directions', 'Directions')}</span>
                 </button>
               </div>
             </div>
@@ -140,7 +153,7 @@ export const ContactSection = () => {
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-neutral-500 uppercase">Direct Helpline</p>
+                  <p className="text-[11px] font-bold text-neutral-500 uppercase">{t('contact_direct_helpline', 'Direct Helpline')}</p>
                   <p className="text-xs sm:text-sm font-bold text-[#222222] tabular-nums mt-0.5">+971 56 655 6645</p>
                 </div>
               </a>
@@ -155,7 +168,7 @@ export const ContactSection = () => {
                   <MessageSquare className="w-4 h-4 fill-current" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-neutral-500 uppercase">WhatsApp Desk</p>
+                  <p className="text-[11px] font-bold text-neutral-500 uppercase">{t('contact_whatsapp_desk', 'WhatsApp Desk')}</p>
                   <p className="text-xs sm:text-sm font-bold text-[#222222] tabular-nums mt-0.5">+971 56 655 6645</p>
                 </div>
               </a>
@@ -168,7 +181,7 @@ export const ContactSection = () => {
                   <Mail className="w-4 h-4" />
                 </div>
                 <div className="truncate">
-                  <p className="text-[11px] font-bold text-neutral-500 uppercase">Official Email</p>
+                  <p className="text-[11px] font-bold text-neutral-500 uppercase">{t('contact_official_email', 'Official Email')}</p>
                   <p className="text-xs font-bold text-[#222222] truncate mt-0.5">info@brightlinkconsulting.ae</p>
                 </div>
               </a>
@@ -178,8 +191,8 @@ export const ContactSection = () => {
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-neutral-500 uppercase">Working Hours</p>
-                  <p className="text-xs font-bold text-[#222222] mt-0.5">Mon – Sat: 9 AM – 6 PM</p>
+                  <p className="text-[11px] font-bold text-neutral-500 uppercase">{t('contact_working_hours', 'Working Hours')}</p>
+                  <p className="text-xs font-bold text-[#222222] mt-0.5">{t('contact_working_hours_val', 'Mon – Sat: 9 AM – 6 PM')}</p>
                 </div>
               </div>
             </div>
@@ -272,18 +285,18 @@ export const ContactSection = () => {
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-neutral-50 rounded-xl border border-neutral-300 focus:bg-white focus:border-[#B8864B] focus:ring-1 focus:ring-[#B8864B] focus:outline-none transition-all"
                     >
-                      <option value="Golden Visa">UAE Golden Visa (10-Yr)</option>
-                      <option value="Family Visa">Family Visa Sponsorship</option>
-                      <option value="Business Visa">Business & Partner Visa</option>
-                      <option value="Residence Visa">Employment Residence Visa</option>
-                      <option value="Tourist Visa">Tourist & Visit Visa</option>
-                      <option value="Medical Visa">Medical Visa & VIP Fitness</option>
-                      <option value="Visa Assistance">Visa Assistance & Fine Waivers</option>
-                      <option value="Passport Services">Passport Services (BLS/Indian/Global)</option>
-                      <option value="Visa Renewal">Visa Renewal & Emirates ID</option>
-                      <option value="Document Attestation">MOFA Document Attestation</option>
-                      <option value="Emirates ID">Emirates ID Registration</option>
-                      <option value="Business Setup">Business Setup & Trade License</option>
+                      <option value="Golden Visa">{t('service_golden_visa', 'UAE Golden Visa (10-Yr)')}</option>
+                      <option value="Family Visa">{t('service_family_visa', 'Family Visa Sponsorship')}</option>
+                      <option value="Business Visa">{t('service_business_visa', 'Business & Partner Visa')}</option>
+                      <option value="Residence Visa">{t('service_residence_visa', 'Employment Residence Visa')}</option>
+                      <option value="Tourist Visa">{t('service_tourist_visa', 'Tourist & Visit Visa')}</option>
+                      <option value="Medical Visa">{t('service_medical_visa', 'Medical Visa & VIP Fitness')}</option>
+                      <option value="Visa Assistance">{t('service_visa_assistance', 'Visa Assistance & Fine Waivers')}</option>
+                      <option value="Passport Services">{t('service_passport_services', 'Passport Services (BLS/Indian/Global)')}</option>
+                      <option value="Visa Renewal">{t('service_visa_renewal', 'Visa Renewal & Emirates ID')}</option>
+                      <option value="Document Attestation">{t('service_doc_attest', 'MOFA Document Attestation')}</option>
+                      <option value="Emirates ID">{t('service_emirates_id', 'Emirates ID Registration')}</option>
+                      <option value="Business Setup">{t('service_business_setup', 'Business Setup & Trade License')}</option>
                     </select>
                   </div>
 
@@ -322,7 +335,7 @@ export const ContactSection = () => {
                   </div>
 
                   <p className="text-center text-xs text-neutral-500 pt-1">
-                    Direct government accredited typing. No agency spam.
+                    {t('contact_trust_badge', 'Direct government accredited typing. No agency spam.')}
                   </p>
                 </form>
               </>
@@ -332,7 +345,7 @@ export const ContactSection = () => {
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-[#222222]">
-                  {t('contact_form_success', 'Consultation Request Sent!')}
+                  {t('contact_form_success_title', 'Consultation Request Sent!')}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#555555] max-w-sm mx-auto leading-relaxed">
                   {t('contact_form_success', 'Thank you! Your request has been received. Our senior legal consultant will contact you within 15 minutes.')}
@@ -351,7 +364,7 @@ export const ContactSection = () => {
                     onClick={() => setSubmitted(false)}
                     className="px-4 py-2 rounded-xl bg-neutral-100 text-neutral-700 text-xs font-bold hover:bg-neutral-200 transition-colors cursor-pointer"
                   >
-                    OK
+                    {t('btn_ok', 'OK')}
                   </button>
                 </div>
               </div>

@@ -153,18 +153,18 @@ export const ConsultationModal = ({
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-3 py-2.5 text-sm bg-neutral-50 rounded-xl border border-neutral-200 focus:border-[#B8864B] focus:ring-1 focus:ring-[#B8864B] focus:outline-none transition-all"
                     >
-                      <option value="Golden Visa">Golden Visa (10-Year)</option>
-                      <option value="Family Visa">Family Visa Sponsorship</option>
-                      <option value="Business Visa">Business & Partner Visa</option>
-                      <option value="Residence Visa">Employment Residence Visa</option>
-                      <option value="Tourist Visa">Tourist / Visit Visa</option>
-                      <option value="Medical Visa">Medical Fitness & Visa</option>
-                      <option value="Visa Assistance">Visa Assistance & Waivers</option>
-                      <option value="Passport Services">Passport Services (BLS/Consulate)</option>
-                      <option value="Visa Renewal">Visa Renewal / Emirates ID</option>
-                      <option value="Document Attestation">Document Attestation (MOFA)</option>
-                      <option value="Emirates ID">Emirates ID Registration</option>
-                      <option value="Business Setup">Business Setup in UAE</option>
+                      <option value="Golden Visa">{t('service_golden_visa', 'Golden Visa (10-Year)')}</option>
+                      <option value="Family Visa">{t('service_family_visa', 'Family Visa Sponsorship')}</option>
+                      <option value="Business Visa">{t('service_business_visa', 'Business & Partner Visa')}</option>
+                      <option value="Residence Visa">{t('service_residence_visa', 'Employment Residence Visa')}</option>
+                      <option value="Tourist Visa">{t('service_tourist_visa', 'Tourist / Visit Visa')}</option>
+                      <option value="Medical Visa">{t('service_medical_visa', 'Medical Fitness & Visa')}</option>
+                      <option value="Visa Assistance">{t('service_visa_assistance', 'Visa Assistance & Waivers')}</option>
+                      <option value="Passport Services">{t('service_passport_services', 'Passport Services (BLS/Consulate)')}</option>
+                      <option value="Visa Renewal">{t('service_visa_renewal', 'Visa Renewal / Emirates ID')}</option>
+                      <option value="Document Attestation">{t('service_doc_attest', 'Document Attestation (MOFA)')}</option>
+                      <option value="Emirates ID">{t('service_emirates_id', 'Emirates ID Registration')}</option>
+                      <option value="Business Setup">{t('service_business_setup', 'Business Setup in UAE')}</option>
                     </select>
                   </div>
 
@@ -177,9 +177,9 @@ export const ConsultationModal = ({
                       onChange={(e) => setFormData({ ...formData, urgency: e.target.value })}
                       className="w-full px-3 py-2.5 text-sm bg-neutral-50 rounded-xl border border-neutral-200 focus:border-[#B8864B] focus:ring-1 focus:ring-[#B8864B] focus:outline-none transition-all"
                     >
-                      <option value="Express (24-48 hours)">VIP Express (24-48 hrs)</option>
-                      <option value="Standard (3-5 days)">Standard (3-5 days)</option>
-                      <option value="Planning ahead (Within a month)">Planning Ahead</option>
+                      <option value="Express (24-48 hours)">{t('urgency_express', 'VIP Express (24-48 hrs)')}</option>
+                      <option value="Standard (3-5 days)">{t('urgency_standard', 'Standard (3-5 days)')}</option>
+                      <option value="Planning ahead (Within a month)">{t('urgency_planning', 'Planning Ahead')}</option>
                     </select>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ export const ConsultationModal = ({
 
                 <div className="flex items-center justify-center gap-1.5 text-xs text-neutral-500 pt-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>Licensed under Dubai Economy & Tourism. Your data is strictly confidential.</span>
+                  <span>{t('modal_consult_trust', 'Licensed under Dubai Economy & Tourism. Your data is strictly confidential.')}</span>
                 </div>
               </form>
             </>
@@ -229,7 +229,7 @@ export const ConsultationModal = ({
                 {t('modal_consult_success', 'Consultation Request Received!')}
               </h3>
               <p className="text-sm text-[#555555] max-w-sm mx-auto leading-relaxed">
-                Thank you, <span className="font-semibold text-[#222222]">{formData.name}</span>. Our senior visa consultant has received your inquiry for <span className="font-semibold text-[#B8864B]">{formData.service}</span> and will reach out to you within 30 minutes via WhatsApp or phone.
+                {t('modal_consult_success_msg_prefix', 'Thank you')}, <span className="font-semibold text-[#222222]">{formData.name}</span>. {t('modal_consult_success_msg_body', 'Our senior visa consultant has received your inquiry and will reach out to you within 30 minutes via WhatsApp or phone.')}
               </p>
               <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
                 <button
@@ -245,7 +245,7 @@ export const ConsultationModal = ({
                   onClick={handleResetAndClose}
                   className="px-5 py-2.5 rounded-xl bg-neutral-100 text-neutral-700 font-medium text-sm hover:bg-neutral-200 transition-colors cursor-pointer"
                 >
-                  Close
+                  {t('btn_close', 'Close')}
                 </button>
               </div>
             </div>

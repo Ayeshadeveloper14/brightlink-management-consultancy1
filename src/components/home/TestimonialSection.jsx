@@ -5,7 +5,7 @@ import { Star, Quote, Sparkles } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const TestimonialSection = () => {
-  const { t } = useLanguage();
+  const { t, tItem } = useLanguage();
 
   return (
     <section id="testimonials" className="py-20 bg-[#FCFAF8] relative overflow-hidden border-t border-neutral-100">
@@ -74,7 +74,7 @@ export const TestimonialSection = () => {
 
                 {/* Review Text with Medium Length */}
                 <p className="text-xs sm:text-sm text-[#444444] leading-relaxed">
-                  "{item.review}"
+                  "{t(`testimonial_${item.id}_review`, item.review)}"
                 </p>
               </div>
 
@@ -83,7 +83,7 @@ export const TestimonialSection = () => {
                 <div className="relative shrink-0">
                   <img
                     src={item.avatar}
-                    alt={item.name}
+                    alt={t(`testimonial_${item.id}_name`, tItem(item.name))}
                     className="w-11 h-11 rounded-full object-cover ring-2 ring-[#B8864B]/30 group-hover:ring-[#B8864B] group-hover:scale-105 transition-all duration-300"
                     loading="lazy"
                     decoding="async"
@@ -91,13 +91,13 @@ export const TestimonialSection = () => {
                 </div>
                 <div className="space-y-0.5 truncate min-w-0">
                   <h4 className="text-sm font-bold text-[#222222] group-hover:text-[#B8864B] transition-colors truncate">
-                    {item.name}
+                    {t(`testimonial_${item.id}_name`, tItem(item.name))}
                   </h4>
                   <p className="text-xs text-[#666666] truncate">
-                    {item.role} · <span className="font-medium text-[#222222]">{item.country}</span>
+                    {t(`testimonial_${item.id}_role`, tItem(item.role))} · <span className="font-medium text-[#222222]">{t(`testimonial_${item.id}_country`, tItem(item.country))}</span>
                   </p>
                   <span className="inline-block text-[10px] font-bold text-[#8C6230] uppercase tracking-wide">
-                    {item.service}
+                    {t(`testimonial_${item.id}_service`, tItem(item.service))}
                   </span>
                 </div>
               </div>

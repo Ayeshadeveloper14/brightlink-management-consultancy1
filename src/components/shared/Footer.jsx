@@ -72,7 +72,7 @@ export const Footer = () => {
                   Bright<span className="text-[#B8864B]">link</span>
                 </span>
                 <span className="text-[10px] uppercase tracking-wider font-semibold text-neutral-400 mt-0.5">
-                  Typing & Consulting
+                  {t('nav_typing_sub', 'Typing & Consulting')}
                 </span>
               </div>
             </Link>
@@ -84,7 +84,7 @@ export const Footer = () => {
             {/* Accreditation Badge */}
             <div className="pt-1 flex items-center gap-2 text-xs text-neutral-300 font-medium">
               <ShieldCheck className="w-4 h-4 text-[#B8864B] shrink-0" />
-              <span>DET Licensed · GDRFA & ICP Portal Assistance</span>
+              <span>{t('footer_badge_det', 'DET Licensed · GDRFA & ICP Portal Assistance')}</span>
             </div>
 
             {/* Direct Channel Action Icons */}
@@ -130,7 +130,7 @@ export const Footer = () => {
           {/* Column 2: Quick Links (lg:col-span-2) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-heading">
-              Quick Links
+              {t('footer_quick_links', 'Quick Links')}
             </h4>
             <ul className="space-y-2 text-xs">
               {quickLinks.map((item) => (
@@ -149,7 +149,7 @@ export const Footer = () => {
           {/* Column 3: Our Services (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-heading">
-              Our Services
+              {t('footer_our_services', 'Our Services')}
             </h4>
             <ul className="space-y-2 text-xs">
               {serviceLinks.map((srv) => (
@@ -169,7 +169,7 @@ export const Footer = () => {
           {/* Column 4: Contact Information (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-heading">
-              Contact Information
+              {t('footer_contact_info', 'Contact Information')}
             </h4>
             <div className="space-y-3 text-xs text-neutral-400">
               
@@ -177,7 +177,7 @@ export const Footer = () => {
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[10px] uppercase font-bold text-neutral-500">Phone Helpline</span>
+                  <span className="block text-[10px] uppercase font-bold text-neutral-500">{t('contact_direct_helpline', 'Phone Helpline')}</span>
                   <a 
                     href="tel:+971566556645" 
                     className="text-neutral-200 hover:text-[#B8864B] font-medium tabular-nums transition-colors"
@@ -191,7 +191,7 @@ export const Footer = () => {
               <div className="flex items-start gap-2.5">
                 <MessageSquare className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[10px] uppercase font-bold text-neutral-500">WhatsApp Desk</span>
+                  <span className="block text-[10px] uppercase font-bold text-neutral-500">{t('contact_whatsapp_desk', 'WhatsApp Desk')}</span>
                   <a 
                     href="https://wa.me/971566556645" 
                     target="_blank" 
@@ -207,7 +207,7 @@ export const Footer = () => {
               <div className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
                 <div className="min-w-0">
-                  <span className="block text-[10px] uppercase font-bold text-neutral-500">Official Email</span>
+                  <span className="block text-[10px] uppercase font-bold text-neutral-500">{t('contact_official_email', 'Official Email')}</span>
                   <a 
                     href="mailto:info@brightlinkconsulting.ae" 
                     className="text-neutral-200 hover:text-[#B8864B] transition-colors break-all"
@@ -221,9 +221,9 @@ export const Footer = () => {
               <div className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[10px] uppercase font-bold text-neutral-500">Working Hours</span>
-                  <p className="text-neutral-200">Mon – Sat: 9:00 AM – 6:00 PM GST</p>
-                  <p className="text-neutral-500">Sunday: Closed</p>
+                  <span className="block text-[10px] uppercase font-bold text-neutral-500">{t('contact_working_hours', 'Working Hours')}</span>
+                  <p className="text-neutral-200">{t('footer_working_hours_val', 'Mon – Sat: 9:00 AM – 6:00 PM GST')}</p>
+                  <p className="text-neutral-500">{t('footer_sunday_closed', 'Sunday: Closed')}</p>
                 </div>
               </div>
 
@@ -231,7 +231,7 @@ export const Footer = () => {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#B8864B] shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[10px] uppercase font-bold text-neutral-500">Headquarters</span>
+                  <span className="block text-[10px] uppercase font-bold text-neutral-500">{t('footer_headquarters', 'Headquarters')}</span>
                   <a
                     href="https://maps.google.com/?q=Crystal+Tower+Business+Bay+Dubai"
                     target="_blank"
@@ -255,10 +255,10 @@ export const Footer = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <h5 className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 font-heading flex items-center gap-1.5">
               <Building2 className="w-3.5 h-3.5 text-[#B8864B]" />
-              <span>Official Government Portals (Direct Applicant Access)</span>
+              <span>{t('footer_govt_portals', 'Official Government Portals (Direct Applicant Access)')}</span>
             </h5>
             <span className="text-[11px] text-neutral-500">
-              Verified UAE Government Immigration & Business Gateways
+              {t('footer_govt_portals_sub', 'Verified UAE Government Immigration & Business Gateways')}
             </span>
           </div>
 
@@ -286,7 +286,7 @@ export const Footer = () => {
           <div className="flex items-center gap-2">
             <FileText className="w-4 h-4 text-[#B8864B] shrink-0" />
             <h5 className="text-xs font-bold uppercase tracking-wider text-white font-heading">
-              Business & Service Disclaimer
+              {t('footer_disclaimer_title', 'Business & Service Disclaimer')}
             </h5>
           </div>
 
@@ -310,7 +310,7 @@ export const Footer = () => {
         {/* ============================================================ */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
           <p className="text-center sm:text-left">
-            © {currentYear} Brightlink Management Consultancy L.L.C. All rights reserved.
+            © {currentYear} Brightlink Management Consultancy L.L.C. {t('footer_rights_reserved', 'All rights reserved.')}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-neutral-400 text-center sm:text-right">
@@ -318,7 +318,7 @@ export const Footer = () => {
             <span className="hidden sm:inline">·</span>
             <span>Crystal Tower, Business Bay, Dubai</span>
             <span className="hidden sm:inline">·</span>
-            <span className="text-[#B8864B]">Independent Private Consultancy</span>
+            <span className="text-[#B8864B]">{t('footer_indep_consultancy', 'Independent Private Consultancy')}</span>
           </div>
         </div>
 
