@@ -20,6 +20,7 @@ import { FaqPage } from './pages/FaqPage.jsx';
 import { FamilyVisaPage } from './pages/FamilyVisaPage.jsx';
 import { GoldenVisaPage } from './pages/GoldenVisaPage.jsx';
 import { CalculatorPage } from './pages/CalculatorPage.jsx';
+import { CalculatorResultsPage } from './pages/CalculatorResultsPage.jsx';
 import { VisaCalculatorPage } from './pages/VisaCalculatorPage.jsx';
 import { MedicalFinderPage } from './pages/MedicalFinderPage.jsx';
 import { PassportServicesPage } from './pages/PassportServicesPage.jsx';
@@ -45,6 +46,7 @@ import { VisaValidityCheckerPage } from './pages/VisaValidityCheckerPage.jsx';
 import { IloeInsurancePage } from './pages/IloeInsurancePage.jsx';
 import { ProductRegistrationPage } from './pages/ProductRegistrationPage.jsx';
 import { BlogPage } from './pages/BlogPage.jsx';
+import { BlogArticlePage } from './pages/BlogArticlePage.jsx';
 import { DldTrusteePage } from './pages/DldTrusteePage.jsx';
 import { ReraLicensePage } from './pages/ReraLicensePage.jsx';
 import { PropertyRevaluationPage } from './pages/PropertyRevaluationPage.jsx';
@@ -143,6 +145,10 @@ function AppContent() {
     {
       paths: ['/calculator', '/service-calculator'],
       element: <CalculatorPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/calculator/results', '/calculator-results'],
+      element: <CalculatorResultsPage onOpenConsultation={handleOpenConsultation} />
     },
     {
       paths: ['/visa-calculator'],
@@ -362,6 +368,10 @@ function AppContent() {
     {
       paths: ['/blog'],
       element: <BlogPage onOpenConsultation={handleOpenConsultation} />
+    },
+    {
+      paths: ['/blog/:slug', '/blog/article/:slug'],
+      element: <BlogArticlePage onOpenConsultation={handleOpenConsultation} />
     },
     {
       paths: ['/contact'],

@@ -117,7 +117,7 @@ export const Articles = () => {
 
               <div className="p-6 pt-0">
                 <Link
-                  to="/blog"
+                  to={`/blog/${item.id}`}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B8864B] group-hover:text-[#976A36]"
                 >
                   <span>Read full guide</span>

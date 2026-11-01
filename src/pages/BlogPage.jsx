@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PageHero } from '../components/shared/PageHero.jsx';
 import { ArticleCatalog } from '../components/blog/ArticleCatalog.jsx';
-import { ArticleModal } from '../components/blog/ArticleModal.jsx';
 
 export const BlogPage = ({ onOpenConsultation }) => {
-  const [selectedArticle, setSelectedArticle] = useState(null);
-
   return (
     <div className="bg-[#FFFFFF] min-h-screen">
       <PageHero
@@ -26,9 +23,9 @@ export const BlogPage = ({ onOpenConsultation }) => {
         showWhatsAppBtn={true}
       />
 
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <ArticleCatalog onSelectArticle={(article) => setSelectedArticle(article)} />
+          <ArticleCatalog />
 
           {/* Expert Consultation Callout */}
           <div className="mt-16 p-8 rounded-3xl bg-neutral-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -45,12 +42,6 @@ export const BlogPage = ({ onOpenConsultation }) => {
           </div>
         </div>
       </section>
-
-      <ArticleModal
-        article={selectedArticle}
-        onClose={() => setSelectedArticle(null)}
-        onOpenConsultation={onOpenConsultation}
-      />
     </div>
   );
 };

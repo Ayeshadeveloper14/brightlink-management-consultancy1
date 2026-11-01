@@ -110,7 +110,7 @@ export const TrusteeArticlesSection = () => {
 
               <div className="px-6 pb-6 pt-2">
                 <Link
-                  to="/blog"
+                  to={`/blog/${article.id}`}
                   className="inline-flex items-center gap-1 text-xs font-bold text-[#B8864B] group-hover:text-[#9F7038] transition-colors"
                 >
                   <span>Read Full Guide</span>

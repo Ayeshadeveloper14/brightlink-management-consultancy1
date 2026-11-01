@@ -5,6 +5,7 @@ import {
   Menu, 
   X,
   ChevronDown,
+  Calculator,
   Users, 
   Star, 
   Home, 
@@ -1346,6 +1347,18 @@ export const Header = ({ onOpenConsultation }) => {
 
         {/* Right: Desktop CTA Actions & Language Selector */}
         <div className="hidden xl:flex items-center gap-2 2xl:gap-2.5 shrink-0">
+          <Link
+            to={getLocalizedPath('/calculator')}
+            className={`inline-flex items-center gap-1.5 px-3 2xl:px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+              isTransparent
+                ? 'bg-white/15 hover:bg-white/25 text-white border border-white/25'
+                : 'bg-[#FBF7F0] hover:bg-[#F5EFE6] text-[#8C6230] border border-[#B8864B]/35 hover:border-[#B8864B] shadow-xs'
+            }`}
+          >
+            <Calculator className="w-3.5 h-3.5 text-[#B8864B]" />
+            <span>{t('nav_fee_calculator', 'Fee Calculator')}</span>
+          </Link>
+
           <LanguageSelector isTransparent={isTransparent} />
 
           <motion.button
@@ -1358,8 +1371,20 @@ export const Header = ({ onOpenConsultation }) => {
           </motion.button>
         </div>
 
-        {/* Mobile/Tablet Right Controls: Free Consultation (sm:flex) + Language Selector + Hamburger */}
+        {/* Mobile/Tablet Right Controls: Fee Calculator + Free Consultation (sm:flex) + Language Selector + Hamburger */}
         <div className="flex items-center gap-2 xl:hidden shrink-0 flex-nowrap">
+          <Link
+            to={getLocalizedPath('/calculator')}
+            className={`hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+              isTransparent
+                ? 'bg-white/15 hover:bg-white/25 text-white border border-white/25'
+                : 'bg-[#FBF7F0] hover:bg-[#F5EFE6] text-[#8C6230] border border-[#B8864B]/35'
+            }`}
+          >
+            <Calculator className="w-3.5 h-3.5 text-[#B8864B]" />
+            <span>{t('nav_fee_calculator', 'Fee Calculator')}</span>
+          </Link>
+
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
@@ -1395,6 +1420,18 @@ export const Header = ({ onOpenConsultation }) => {
             className="xl:hidden bg-white border-b border-neutral-200 px-6 py-6 shadow-2xl overflow-y-auto max-h-[85vh]"
           >
             <nav className="flex flex-col space-y-2 text-sm font-semibold text-[#333333]">
+              {/* Fee Calculator Button inside mobile navigation */}
+              <Link
+                to={getLocalizedPath('/calculator')}
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-2.5 px-3 rounded-xl border border-[#B8864B]/35 bg-[#FBF7F0] text-[#8C6230] font-bold text-xs flex items-center justify-between cursor-pointer hover:bg-[#F5EFE6] transition-colors mb-1"
+              >
+                <div className="flex items-center gap-2">
+                  <Calculator className="w-4 h-4 text-[#B8864B]" />
+                  <span>{t('nav_fee_calculator', 'Fee Calculator')}</span>
+                </div>
+                <span className="text-[10px] text-[#B8864B]">→</span>
+              </Link>
               {navItems.map((item) => {
                 const isItemHome = item.id === 'home';
                 const isItemVisa = item.id === 'visa';

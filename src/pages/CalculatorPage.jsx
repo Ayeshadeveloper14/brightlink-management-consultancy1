@@ -1,169 +1,307 @@
-import React from 'react';
-import { PageHero } from '../components/shared/PageHero.jsx';
-import { UniversalCalculator } from '../components/calculator/UniversalCalculator.jsx';
-import { ShieldCheck, CheckCircle2, HelpCircle, FileCheck, PhoneCall, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { RotateCcw, AlertCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
-export const CalculatorPage = ({ onOpenConsultation }) => {
-  const heroStats = [
-    { value: '23+ Services', label: 'All UAE Portals' },
-    { value: '100% Upfront', label: 'Zero Hidden Charges' },
-    { value: 'Official Rates', label: 'GDRFA, ICP & MOHRE' },
-    { value: 'Express 24h', label: 'VIP Speed Tracks' }
-  ];
+export const CalculatorPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { getLocalizedPath } = useLanguage();
 
-  const faqs = [
-    {
-      q: 'Are the fees calculated here official government fees?',
-      a: 'Yes. All statutory fees are synchronized with official GDRFA Dubai, ICP Federal Authority, MOHRE, and Dubai Health Authority fee structures. Typing and consultation charges reflect our certified services in Business Bay, Dubai.'
-    },
-    {
-      q: 'Can fees change depending on inside vs. outside UAE status?',
-      a: 'Yes. When an applicant is already physically present in the UAE on a visit or expired visa, a status change voucher (approx. AED 650) is legally mandated by immigration before stamping residency without exiting the country.'
-    },
-    {
-      q: 'Do you offer VIP same-day medical fitness and Emirates ID typing?',
-      a: 'Yes. We provide priority booking at smart VIP medical fitness centres (results in 2 to 4 hours) as well as expedited Emirates ID biometric appointments.'
-    },
-    {
-      q: 'Can I get a formal quotation for corporate PRO or multi-dependent packages?',
-      a: 'Absolutely. Use our instant WhatsApp button or click "Proceed With Document Audit" to connect directly with our senior immigration consultants for a consolidated corporate invoice.'
+  // Retrieve initial values if returning via "Calculate Again"
+  const previousState = location.state || {};
+
+  // Form fields state (5 required dropdowns)
+  const [service, setService] = useState(previousState.service || '');
+  const [emirate, setEmirate] = useState(previousState.emirate || '');
+  const [childrenCount, setChildrenCount] = useState(previousState.childrenCount !== undefined ? String(previousState.childrenCount) : '');
+  const [sponsorVisaType, setSponsorVisaType] = useState(previousState.sponsorVisaType || '');
+  const [familyLocation, setFamilyLocation] = useState(previousState.familyLocation || '');
+
+  // Validation state
+  const [validationError, setValidationError] = useState('');
+
+  // Synchronize state if route state updates
+  useEffect(() => {
+    if (location.state?.retainValues) {
+      if (location.state.service) setService(location.state.service);
+      if (location.state.emirate) setEmirate(location.state.emirate);
+      if (location.state.childrenCount !== undefined) setChildrenCount(String(location.state.childrenCount));
+      if (location.state.sponsorVisaType) setSponsorVisaType(location.state.sponsorVisaType);
+      if (location.state.familyLocation) setFamilyLocation(location.state.familyLocation);
     }
+  }, [location.state]);
+
+  // Field 1 options
+  const serviceOptions = [
+    'Family New Residency Visa',
+    'Family Residency Visa Renewal',
+    'New Born in U.A.E',
+    'Family Visa Cancellation'
   ];
+
+  // Field 2 options
+  const emirateOptions = [
+    'Sharjah',
+    'Dubai',
+    'Ajman',
+    'Abu Dhabi',
+    'Ras Al Khaimah',
+    'Umm Al Quwain',
+    'Fujairah'
+  ];
+
+  // Field 3 options
+  const childrenOptions = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
+
+  // Field 4 options
+  const sponsorOptions = ['Employment Visa', 'Investor Visa'];
+
+  // Field 5 options
+  const locationOptions = ['Outside Country', 'Inside Country'];
+
+  // Button 1: Calculate Fees
+  const handleCalculateFees = (e) => {
+    e.preventDefault();
+
+    // Validate that all five required dropdowns have a selected value
+    const missing = [];
+    if (!service) missing.push('Select The Service');
+    if (!emirate) missing.push('Select Which Emirates Sponsor Visa Is');
+    if (childrenCount === '') missing.push('Number of Children');
+    if (!sponsorVisaType) missing.push('Sponsor Visa Types');
+    if (!familyLocation) missing.push('Is Family Outside/Inside UAE');
+
+    if (missing.length > 0) {
+      setValidationError(`Please select all required fields to calculate fees: ${missing.join(', ')}.`);
+      return;
+    }
+
+    setValidationError('');
+
+    // Package the user's selected calculator values
+    const calculatorPayload = {
+      service,
+      emirate,
+      childrenCount,
+      sponsorVisaType,
+      familyLocation
+    };
+
+    // Store in sessionStorage to preserve on direct refresh
+    try {
+      sessionStorage.setItem('calculator_selected_values', JSON.stringify(calculatorPayload));
+    } catch {
+      // Ignore private browsing storage restrictions
+    }
+
+    // Navigate to the separate fee results page
+    navigate(getLocalizedPath('/calculator/results'), {
+      state: calculatorPayload
+    });
+  };
+
+  // Button 2: Refresh
+  const handleRefresh = () => {
+    setService('');
+    setEmirate('');
+    setChildrenCount('');
+    setSponsorVisaType('');
+    setFamilyLocation('');
+    setValidationError('');
+    try {
+      sessionStorage.removeItem('calculator_selected_values');
+    } catch {
+      // Ignore
+    }
+  };
 
   return (
-    <div className="bg-[#FFFFFF] min-h-screen">
-      <PageHero
-        badge="Universal Government Fee Transparency"
-        title="UAE Service & Visa"
-        titleHighlight="Cost Calculator"
-        description="Instantly calculate exact government statutory fees, accredited typing charges, Emirates ID, DHA medical fitness, and corporate setup costs across 23+ official UAE portals. 100% transparent pricing with zero hidden fees."
-        breadcrumbs={[
-          { label: 'Tools', path: '/services' },
-          { label: 'Service Cost Calculator' }
-        ]}
-        image="/images/why_fast_process_1790842377870.jpg"
-        stats={heroStats}
-        onOpenConsultation={() => onOpenConsultation('Universal Calculator Inquiry')}
-        showConsultationBtn={true}
-        showWhatsAppBtn={true}
-      />
+    <div className="bg-[#FCFAF8] min-h-[80vh] py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto">
+        {/* 1. Heading */}
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#222222] tracking-tight text-center">
+          Family Visa Fee Calculator
+        </h1>
 
-      {/* Main Interactive Universal Calculator Section */}
-      <section className="py-16 sm:py-24 bg-[#FFFFFF]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider px-3.5 py-1 rounded-full bg-[#FBF7F0] border border-[#B8864B]/30 inline-block mb-3">
-              Real-Time Fee Engine
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#222222] tracking-tight">
-              Select Your Service & Customize Parameters
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-neutral-600">
-              Pick any visa, corporate, legal attestation, or identity service below. Adjust applicant count, urgency, or location to see instant itemized breakdowns.
-            </p>
-          </div>
+        {/* 2. Short description */}
+        <p className="mt-3 text-sm sm:text-base text-neutral-600 text-center max-w-xl mx-auto">
+          Estimate your family visa service fees by selecting the relevant details below.
+        </p>
 
-          <UniversalCalculator onOpenConsultation={onOpenConsultation} />
-        </div>
-      </section>
-
-      {/* Transparency Guarantee & Benefits Section */}
-      <section className="py-16 bg-[#FBF9F6] border-t border-b border-[#EFE9DF]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-7 rounded-2xl border border-[#E8DFD5] shadow-xs">
-              <div className="w-12 h-12 rounded-xl bg-[#F5EFE6] text-[#8C6230] flex items-center justify-center mb-5">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-[#222222] mb-2">
-                100% Upfront Pricing
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                No unexpected add-ons or hidden processing fees at counter. What you calculate is exactly what you pay for government receipts and certified typing.
-              </p>
-            </div>
-
-            <div className="bg-white p-7 rounded-2xl border border-[#E8DFD5] shadow-xs">
-              <div className="w-12 h-12 rounded-xl bg-[#F5EFE6] text-[#8C6230] flex items-center justify-center mb-5">
-                <FileCheck className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-[#222222] mb-2">
-                Pre-Submission File Audit
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                Every application is thoroughly audited by authorized typing PROs before payment vouchers are issued to prevent government fines or application rejection.
-              </p>
-            </div>
-
-            <div className="bg-white p-7 rounded-2xl border border-[#E8DFD5] shadow-xs">
-              <div className="w-12 h-12 rounded-xl bg-[#F5EFE6] text-[#8C6230] flex items-center justify-center mb-5">
-                <Sparkles className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-[#222222] mb-2">
-                Official Ministry Portals
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                Direct integration and accreditation with GDRFA Dubai, ICP Federal, MOHRE, Dubai Land Department (DLD), and Ministry of Foreign Affairs (MOFA).
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Frequently Asked Questions */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-8">
-          <div className="text-center mb-12">
-            <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider">
-              Common Questions
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#222222] mt-1">
-              Fee Structure & Official Policies
-            </h2>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-[#FCFAF8] border border-[#E8DFD5] rounded-xl p-5 sm:p-6"
-              >
-                <div className="flex items-start gap-3">
-                  <HelpCircle className="w-5 h-5 text-[#8C6230] shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-sm sm:text-base font-bold text-[#222222]">
-                      {faq.q}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
-                      {faq.a}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Need help banner */}
-          <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#1E1E1E] to-[#141414] text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-neutral-800">
+        {/* 3. Calculator form with six selection fields (5 user-facing dropdowns + Field 6 logic ready) */}
+        <div className="mt-8 bg-white border border-[#E8DFD5] rounded-2xl shadow-sm p-6 sm:p-8 md:p-10">
+          <form onSubmit={handleCalculateFees} className="space-y-5">
+            {/* Field 1: Select The Service */}
             <div>
-              <h4 className="text-lg font-bold">Need a Custom Commercial or Family Assessment?</h4>
-              <p className="text-xs sm:text-sm text-neutral-400 mt-1">
-                Our senior consultants in Business Bay, Dubai are ready to review your files today.
+              <label
+                htmlFor="select-service"
+                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+              >
+                Select The Service <span className="text-red-500">*</span>
+              </label>
+              <select
+                id="select-service"
+                value={service}
+                onChange={(e) => {
+                  setService(e.target.value);
+                  if (validationError) setValidationError('');
+                }}
+                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+              >
+                <option value="">-- Select The Service --</option>
+                {serviceOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Field 2: Select Which Emirates Sponsor Visa Is */}
+            <div>
+              <label
+                htmlFor="select-emirate"
+                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+              >
+                Select Which Emirates Sponsor Visa Is <span className="text-red-500">*</span>
+              </label>
+              <select
+                id="select-emirate"
+                value={emirate}
+                onChange={(e) => {
+                  setEmirate(e.target.value);
+                  if (validationError) setValidationError('');
+                }}
+                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+              >
+                <option value="">-- Select Emirate --</option>
+                {emirateOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Field 3: Number of Children */}
+            <div>
+              <label
+                htmlFor="select-children"
+                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+              >
+                Number of Children <span className="text-red-500">*</span>
+              </label>
+              <select
+                id="select-children"
+                value={childrenCount}
+                onChange={(e) => {
+                  setChildrenCount(e.target.value);
+                  if (validationError) setValidationError('');
+                }}
+                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+              >
+                <option value="">-- Select Number of Children --</option>
+                {childrenOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Field 4: Sponsor Visa Types */}
+            <div>
+              <label
+                htmlFor="select-sponsor"
+                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+              >
+                Sponsor Visa Types <span className="text-red-500">*</span>
+              </label>
+              <select
+                id="select-sponsor"
+                value={sponsorVisaType}
+                onChange={(e) => {
+                  setSponsorVisaType(e.target.value);
+                  if (validationError) setValidationError('');
+                }}
+                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+              >
+                <option value="">-- Select Sponsor Visa Type --</option>
+                {sponsorOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Field 5: Is Family Outside/Inside UAE */}
+            <div>
+              <label
+                htmlFor="select-location"
+                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+              >
+                Is Family Outside/Inside UAE <span className="text-red-500">*</span>
+              </label>
+              <select
+                id="select-location"
+                value={familyLocation}
+                onChange={(e) => {
+                  setFamilyLocation(e.target.value);
+                  if (validationError) setValidationError('');
+                }}
+                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+              >
+                <option value="">-- Select Location --</option>
+                {locationOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* 4. One short informational message */}
+            <div className="pt-2 text-center">
+              <p className="text-xs sm:text-sm font-medium text-neutral-500">
+                Please select All fields For Accurate Results.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => onOpenConsultation('Calculator Page Custom Assessment')}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#C5985B] via-[#B8864B] to-[#976A36] hover:from-[#B8864B] hover:to-[#865928] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer"
-            >
-              Book Free Consultation
-            </button>
-          </div>
+
+            {/* Validation Message */}
+            {validationError && (
+              <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 shrink-0 text-red-600 mt-0.5" />
+                <span>{validationError}</span>
+              </div>
+            )}
+
+            {/* 5. Two buttons: Calculate Fees and Refresh */}
+            <div className="pt-4 flex flex-col sm:flex-row items-center gap-3">
+              <button
+                type="submit"
+                className="w-full sm:flex-1 py-3 px-6 rounded-xl bg-[#B8864B] hover:bg-[#9F7038] text-white font-bold text-sm sm:text-base shadow-sm hover:shadow transition-all active:scale-98 cursor-pointer text-center"
+              >
+                Calculate Fees
+              </button>
+              <button
+                type="button"
+                onClick={handleRefresh}
+                className="w-full sm:w-auto py-3 px-6 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-semibold text-sm sm:text-base border border-neutral-300 transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-2"
+              >
+                <RotateCcw className="w-4 h-4 text-neutral-600" />
+                <span>Refresh</span>
+              </button>
+            </div>
+          </form>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
 
 export const Calculator = CalculatorPage;
+export const VisaCalculatorPage = CalculatorPage;
+export const VisaCalculator = CalculatorPage;
 export default CalculatorPage;
