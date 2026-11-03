@@ -3,15 +3,53 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
 /**
- * Placeholder pricing configuration structure.
- * Kept configurable for upcoming pricing rules in Task 3.
+ * Pricing Configuration 1: Sponsor File Fee
+ * 
+ * Rules:
+ * 1. Applicable Service: "Family New Residency Visa" only.
+ *    For other services ("Family Residency Visa Renewal", "New Born in U.A.E", "Family Visa Cancellation"),
+ *    returns null so the Sponsor File row is not displayed.
+ * 2. Emirate pricing:
+ *    - Dubai: 260.00 AED
+ *    - Sharjah, Ajman, Abu Dhabi, Ras Al Khaimah, Umm Al Quwain, Fujairah: 400.00 AED
+ * 3. Does not depend on Children Count, Sponsor Visa Type, or Family Location.
+ */
+export const calculateSponsorFileFee = (service, emirate) => {
+  if (!service || service.trim() !== 'Family New Residency Visa') {
+    return null;
+  }
+
+  const cleanEmirate = (emirate || '').trim().toLowerCase();
+  if (!cleanEmirate) {
+    return null;
+  }
+
+  if (cleanEmirate === 'dubai') {
+    return 260.0;
+  }
+
+  const standardEmirates = [
+    'sharjah',
+    'ajman',
+    'abu dhabi',
+    'ras al khaimah',
+    'umm al quwain',
+    'fujairah'
+  ];
+
+  if (standardEmirates.includes(cleanEmirate)) {
+    return 400.0;
+  }
+
+  return 400.0;
+};
+
+/**
+ * Structural placeholders for upcoming pricing rules in subsequent tasks.
  */
 export const INITIAL_PRICING_CONFIG = {
-  primaryFees: {
-    sponsorFile: 400.0,
-  },
   spouseFees: {
-    entryPermit: null, // Placeholder to be configured in Task 3
+    entryPermit: null, // Placeholder for future configuration
     changeStatus: null,
     medicalFitness: null,
     emiratesId: null,
@@ -42,15 +80,16 @@ export const CalculatorResultsPage = () => {
     familyLocation: 'Inside Country',
   };
 
-  // Format amount or render clean placeholder
+  // Dynamic calculation for Sponsor File Fee (Pricing Configuration 1)
+  const sponsorFileFee = calculateSponsorFileFee(selectedValues.service, selectedValues.emirate);
+  const showSponsorFile = sponsorFileFee !== null;
+
+  // Format amount to exactly 2 decimal places (e.g. 400.00 or 260.00)
   const formatAmount = (val) => {
     if (val === null || val === undefined || isNaN(val)) {
       return '--';
     }
-    return Number(val).toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+    return Number(val).toFixed(2);
   };
 
   // Navigate back to the calculator form while retaining selections
@@ -98,14 +137,16 @@ export const CalculatorResultsPage = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-neutral-300">
-                  <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
-                    Sponsor File
-                  </td>
-                  <td className="py-2.5 px-4 text-neutral-800">
-                    {formatAmount(INITIAL_PRICING_CONFIG.primaryFees.sponsorFile)}
-                  </td>
-                </tr>
+                {showSponsorFile && (
+                  <tr className="border-b border-neutral-300">
+                    <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                      Sponsor File
+                    </td>
+                    <td className="py-2.5 px-4 text-neutral-800">
+                      {formatAmount(sponsorFileFee)}
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
