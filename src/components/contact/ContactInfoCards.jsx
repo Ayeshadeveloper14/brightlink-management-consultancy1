@@ -2,7 +2,6 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
   Phone, 
-  MessageSquare, 
   Mail, 
   MapPin, 
   ArrowUpRight,
@@ -12,6 +11,7 @@ import {
 
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import { getWhatsAppUrl } from '../../utils/whatsapp.js';
+import { WhatsAppIcon } from '../shared/WhatsAppIcon.jsx';
 
 export const ContactInfoCards = () => {
   const { currentLanguage } = useLanguage();
@@ -38,7 +38,7 @@ export const ContactInfoCards = () => {
       note: 'Send passport copies, entry permits, and document scans for complimentary preliminary eligibility review.',
       actionLabel: 'Open WhatsApp',
       actionUrl: getWhatsAppUrl(null, currentLanguage),
-      icon: <MessageSquare className="w-5 h-5 fill-current" />,
+      icon: <WhatsAppIcon className="w-5 h-5 fill-current" />,
       accentBg: 'bg-emerald-50 text-[#25D366]',
       borderHover: 'hover:border-[#25D366]'
     },

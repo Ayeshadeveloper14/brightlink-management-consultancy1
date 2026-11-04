@@ -8,12 +8,12 @@ import {
   Clock, 
   ShieldCheck, 
   RotateCcw, 
-  MessageSquare, 
   ExternalLink,
   ChevronDown
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import { getWhatsAppUrl } from '../../utils/whatsapp.js';
+import { WhatsAppIcon } from '../shared/WhatsAppIcon.jsx';
 
 export const ContactForm = () => {
   const { currentLanguage, t, tItem } = useLanguage();
@@ -443,7 +443,7 @@ export const ContactForm = () => {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
               >
-                <MessageSquare className="w-4 h-4 fill-current" />
+                <WhatsAppIcon className="w-4 h-4 fill-current" />
                 <span>{tItem('Also Follow Up via WhatsApp')}</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-80" />
               </a>

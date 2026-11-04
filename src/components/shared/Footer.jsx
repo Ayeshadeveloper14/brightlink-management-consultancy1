@@ -6,7 +6,6 @@ import {
   MapPin, 
   Clock, 
   ArrowRight, 
-  MessageSquare, 
   ShieldCheck, 
   Linkedin,
   ExternalLink,
@@ -15,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import { getWhatsAppUrl } from '../../utils/whatsapp.js';
+import { WhatsAppIcon } from './WhatsAppIcon.jsx';
 
 export const Footer = () => {
   const { currentLanguage, t, tItem, getLocalizedPath } = useLanguage();
@@ -97,7 +97,7 @@ export const Footer = () => {
                 aria-label="WhatsApp (+971 56 655 6645)"
                 className="w-9 h-9 rounded-xl bg-neutral-800/90 hover:bg-[#25D366] text-neutral-300 hover:text-white flex items-center justify-center transition-colors shadow-xs"
               >
-                <MessageSquare className="w-4 h-4 fill-current" />
+                <WhatsAppIcon className="w-4 h-4 fill-current" />
               </a>
 
               <a
@@ -190,7 +190,7 @@ export const Footer = () => {
 
               {/* WhatsApp */}
               <div className="flex items-start gap-2.5">
-                <MessageSquare className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                 <div>
                   <span className="block text-[10px] uppercase font-bold text-neutral-500">{t('contact_whatsapp_desk', 'WhatsApp Desk')}</span>
                   <a 

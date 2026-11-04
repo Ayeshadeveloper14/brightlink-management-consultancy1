@@ -1,7 +1,8 @@
 import React from 'react';
-import { MapPin, Navigation, Phone, MessageSquare, Mail, Clock } from 'lucide-react';
+import { MapPin, Navigation, Phone, Mail, Clock } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import { getWhatsAppUrl } from '../../utils/whatsapp.js';
+import { WhatsAppIcon } from '../shared/WhatsAppIcon.jsx';
 
 export const OfficeInfo = () => {
   const { currentLanguage } = useLanguage();
@@ -77,7 +78,7 @@ export const OfficeInfo = () => {
           className="p-4 rounded-xl border border-neutral-200/90 bg-white hover:border-[#25D366] transition-all flex items-center gap-3 shadow-xs"
         >
           <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shrink-0">
-            <MessageSquare className="w-5 h-5 fill-current" />
+            <WhatsAppIcon className="w-5 h-5 fill-current" />
           </div>
           <div>
             <p className="text-[11px] font-bold text-neutral-500 uppercase">WhatsApp Desk</p>

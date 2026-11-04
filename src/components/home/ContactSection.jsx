@@ -8,7 +8,6 @@ import {
   Clock, 
   Send, 
   CheckCircle2, 
-  MessageSquare, 
   Navigation,
   AlertCircle,
   Building2,
@@ -16,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import { getWhatsAppUrl, openWhatsApp } from '../../utils/whatsapp.js';
+import { WhatsAppIcon } from '../shared/WhatsAppIcon.jsx';
 
 export const ContactSection = () => {
   const { currentLanguage, t, tItem, isRTL } = useLanguage();
@@ -166,7 +166,7 @@ export const ContactSection = () => {
                 className="p-4 rounded-xl border border-neutral-200/90 bg-white hover:border-[#25D366] transition-all flex items-center gap-3 shadow-xs group"
               >
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 group-hover:bg-[#25D366] group-hover:text-white text-[#25D366] flex items-center justify-center shrink-0 transition-colors">
-                  <MessageSquare className="w-4 h-4 fill-current" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current" />
                 </div>
                 <div>
                   <p className="text-[11px] font-bold text-neutral-500 uppercase">{t('contact_whatsapp_desk', 'WhatsApp Desk')}</p>
