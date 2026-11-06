@@ -483,7 +483,7 @@ function AppContent() {
         <Routes>
           {routeConfigs.flatMap((config, cfgIdx) =>
             config.paths.flatMap((rawPath) => {
-              const langCodes = ['en', 'ar', 'zh', 'fr', 'de'];
+              const langCodes = ['en', 'ar', 'zh', 'fr', 'de', 'es', 'pt', 'ru', 'tr', 'bn'];
               if (rawPath === '/') {
                 return [
                   <Route key={`root-${cfgIdx}`} path="/" element={config.element} />,

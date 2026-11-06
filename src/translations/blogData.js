@@ -1517,12 +1517,12 @@ export const BLOG_ARTICLES = [
 ];
 
 export const BLOG_CATEGORIES = [
-  { en: 'All', ar: 'جميع المقالات', zh: '全部文章', fr: 'Tous les Articles', de: 'Alle Artikel' },
-  { en: 'Golden Visa', ar: 'الإقامة الذهبية', zh: '黄金签证', fr: 'Visa Doré', de: 'Goldenes Visum' },
-  { en: 'Family Visa', ar: 'تأشيرة الأسرة', zh: '家庭签证', fr: 'Visa Famille', de: 'Familienvisum' },
-  { en: 'Business Setup', ar: 'تأسيس الشركات', zh: '企业设立', fr: 'Création d’Entreprise', de: 'Firmengründung' },
-  { en: 'Immigration Rules', ar: 'قوانين الهجرة', zh: '移民法规', fr: 'Règles d’Immigration', de: 'Einwanderungsrecht' },
-  { en: 'Passport & BLS', ar: 'الجوازات وBLS', zh: '护照与领事认证', fr: 'Passeports & BLS', de: 'Reisepass & BLS' }
+  { en: 'All', ar: 'جميع المقالات', zh: '全部文章', fr: 'Tous les Articles', de: 'Alle Artikel', es: 'Todos los Artículos', pt: 'Todos os Artigos', ru: 'Все статьи', tr: 'Tüm Makaleler', bn: 'সকল প্রবন্ধ' },
+  { en: 'Golden Visa', ar: 'الإقامة الذهبية', zh: '黄金签证', fr: 'Visa Doré', de: 'Goldenes Visum', es: 'Golden Visa', pt: 'Golden Visa', ru: 'Золотая виза', tr: 'Golden Visa', bn: 'গোল্ডেন ভিসা' },
+  { en: 'Family Visa', ar: 'تأشيرة الأسرة', zh: '家庭签证', fr: 'Visa Famille', de: 'Familienvisum', es: 'Visado Familiar', pt: 'Visto Familiar', ru: 'Семейная виза', tr: 'Aile Vizesi', bn: 'ফ্যামিলি ভিসা' },
+  { en: 'Business Setup', ar: 'تأسيس الشركات', zh: '企业设立', fr: 'Création d’Entreprise', de: 'Firmengründung', es: 'Creación de Empresas', pt: 'Abertura de Empresas', ru: 'Регистрация бизнеса', tr: 'Şirket Kuruluşu', bn: 'ব্যবসা প্রতিষ্ঠা' },
+  { en: 'Immigration Rules', ar: 'قوانين الهجرة', zh: '移民法规', fr: 'Règles d’Immigration', de: 'Einwanderungsrecht', es: 'Normativa de Inmigración', pt: 'Regras de Imigração', ru: 'Иммиграционные правила', tr: 'Göçmenlik Kuralları', bn: 'অভিবাসন আইন' },
+  { en: 'Passport & BLS', ar: 'الجوازات وBLS', zh: '护照与领事认证', fr: 'Passeports & BLS', de: 'Reisepass & BLS', es: 'Pasaporte y BLS', pt: 'Passaporte e BLS', ru: 'Паспорта и BLS', tr: 'Pasaport ve BLS', bn: 'পাসপোর্ট ও বিএলএস' }
 ];
 
 /**

@@ -9,24 +9,24 @@ import { useLanguage } from '../../context/LanguageContext.jsx';
 import { getWhatsAppUrl } from '../../utils/whatsapp.js';
 
 export const AboutSection = ({ onOpenConsultation, onExploreServices }) => {
-  const { currentLanguage, t, isRTL } = useLanguage();
+  const { currentLanguage, t, tItem, isRTL } = useLanguage();
 
   const features = [
     {
-      title: t('about_point_1', 'Senior Typing Specialists'),
-      desc: t('about_point_1', 'Official GDRFA & Amer authorized typing portal')
+      title: tItem('Senior Typing Specialists'),
+      desc: tItem('Official GDRFA & Amer authorized typing portal')
     },
     {
-      title: t('about_point_2', 'VIP Express Medical Fitness'),
-      desc: t('about_point_2', 'VIP express medical fitness & Emirates ID typing')
+      title: tItem('VIP Express Medical Fitness'),
+      desc: tItem('VIP express medical fitness & Emirates ID typing')
     },
     {
-      title: t('about_point_3', 'Fast-Track Corporate Licensing'),
-      desc: t('about_point_3', 'Direct DED & Free Zone corporate licensing division')
+      title: tItem('Fast-Track Corporate Licensing'),
+      desc: tItem('Direct DED & Free Zone corporate licensing division')
     },
     {
-      title: t('about_point_4', 'Certified Legal Attestation'),
-      desc: t('about_point_4', 'Certified MOJ legal translation & document attestation')
+      title: tItem('Certified Legal Attestation'),
+      desc: tItem('Certified MOJ legal translation & document attestation')
     }
   ];
 

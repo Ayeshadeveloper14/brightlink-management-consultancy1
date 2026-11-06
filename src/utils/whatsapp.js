@@ -7,6 +7,8 @@
  * English (en), Arabic (ar), Chinese (zh), French (fr), German (de).
  */
 
+import { MASTER_DICTIONARIES } from '../translations/masterDictionary.js';
+
 export const WHATSAPP_PHONE = '971566556645';
 
 /**
@@ -453,7 +455,7 @@ export const SERVICES_CONFIG = {
 };
 
 /**
- * Message templates localized in the 5 supported languages
+ * Message templates localized in all 10 supported languages
  */
 const MESSAGE_TEMPLATES = {
   // Service-specific inquiry templates
@@ -467,7 +469,17 @@ const MESSAGE_TEMPLATES = {
     fr: (serviceName) =>
       `Bonjour Brightlink, je souhaite me renseigner sur les services de ${serviceName}. Pourriez-vous m'indiquer les conditions requises, la procédure et les tarifs ?`,
     de: (serviceName) =>
-      `Hallo Brightlink, ich möchte mich über die Dienstleistungen für ${serviceName} informieren. Könnten Sie mir bitte die Voraussetzungen, den Ablauf und die Gebühren mitteilen?`
+      `Hallo Brightlink, ich möchte mich über die Dienstleistungen für ${serviceName} informieren. Könnten Sie mir bitte die Voraussetzungen, den Ablauf und die Gebühren mitteilen?`,
+    es: (serviceName) =>
+      `Hola Brightlink, quisiera consultar sobre los servicios de ${serviceName}. ¿Podrían informarme sobre los requisitos, trámites y tarifas?`,
+    pt: (serviceName) =>
+      `Olá Brightlink, gostaria de saber mais sobre os serviços de ${serviceName}. Poderiam me informar sobre os requisitos, prazos e valores?`,
+    ru: (serviceName) =>
+      `Здравствуйте, Brightlink! Я хочу узнать подробнее об услуге ${serviceName}. Подскажите, пожалуйста, требования, порядок оформления и стоимость.`,
+    tr: (serviceName) =>
+      `Merhaba Brightlink, ${serviceName} hizmeti hakkında bilgi almak istiyorum. Gereksinimler, süreç ve ücretler hakkında yardımcı olabilir misiniz?`,
+    bn: (serviceName) =>
+      `নমস্কার / হ্যালো ব্রাইটলিংক, আমি ${serviceName} সেবা সম্পর্কে জানতে চাই। প্রয়োজনীয় ডকুমেন্টস, প্রক্রিয়া ও ফি সম্পর্কে বিস্তারিত জানাবেন কি?`
   },
 
   // General inquiry templates
@@ -481,7 +493,17 @@ const MESSAGE_TEMPLATES = {
     fr: () =>
       `Bonjour Brightlink, je souhaite me renseigner sur vos services de visas et démarches administratives aux EAU. Pourriez-vous m'aider ?`,
     de: () =>
-      `Hallo Brightlink, ich möchte mich über Ihre Visum- und Behördenservices in den VAE informieren. Könnten Sie mir bitte weiterhelfen?`
+      `Hallo Brightlink, ich möchte mich über Ihre Visum- und Behördenservices in den VAE informieren. Könnten Sie mir bitte weiterhelfen?`,
+    es: () =>
+      `Hola Brightlink, quisiera consultar sobre sus servicios de visados y gestiones gubernamentales en los EAU. ¿Podrían orientarme?`,
+    pt: () =>
+      `Olá Brightlink, gostaria de informações sobre os serviços de vistos e assessoria governamental nos EAU. Poderiam me ajudar?`,
+    ru: () =>
+      `Здравствуйте, Brightlink! Я хочу проконсультироваться по визовым и государственным услугам в ОАЭ. Помогите, пожалуйста.`,
+    tr: () =>
+      `Merhaba Brightlink, BAE vize ve resmi başvuru hizmetleriniz hakkında bilgi almak istiyorum. Yardımcı olabilir misiniz?`,
+    bn: () =>
+      `নমস্কার / হ্যালো ব্রাইটলিংক, আমি আপনাদের ইউএই ভিসা এবং সরকারি টাইপিং সেবা সম্পর্কে জানতে চাই। আমাকে সহায়তা করতে পারবেন কি?`
   },
 
   // Consultation booking templates
@@ -495,17 +517,27 @@ const MESSAGE_TEMPLATES = {
     fr: (serviceName) =>
       `Bonjour Brightlink, je souhaite réserver une consultation gratuite concernant ${serviceName}. Pourriez-vous m'indiquer vos disponibilités ?`,
     de: (serviceName) =>
-      `Hallo Brightlink, ich möchte ein kostenloses Beratungsgespräch zu ${serviceName} vereinbaren. Wann haben Sie Zeit dafür?`
+      `Hallo Brightlink, ich möchte ein kostenloses Beratungsgespräch zu ${serviceName} vereinbaren. Wann haben Sie Zeit dafür?`,
+    es: (serviceName) =>
+      `Hola Brightlink, quisiera solicitar una consulta gratuita sobre ${serviceName}. Por favor indíquenme su disponibilidad.`,
+    pt: (serviceName) =>
+      `Olá Brightlink, gostaria de agendar uma consulta gratuita sobre ${serviceName}. Quais horários vocês têm disponíveis?`,
+    ru: (serviceName) =>
+      `Здравствуйте, Brightlink! Я хочу записаться на бесплатную консультацию по услуге ${serviceName}. Подскажите доступное время.`,
+    tr: (serviceName) =>
+      `Merhaba Brightlink, ${serviceName} konusunda ücretsiz danışmanlık randevusu almak istiyorum. Uygun saatleri bildirebilir misiniz?`,
+    bn: (serviceName) =>
+      `নমস্কার / হ্যালো ব্রাইটলিংক, আমি ${serviceName} বিষয়ে একটি বিনামূল্যে পরামর্শ সেবা বুক করতে চাই। অনুগ্রহ করে সময়সূচি জানাবেন।`
   }
 };
 
 /**
- * Normalizes language code to one of 'en', 'ar', 'zh', 'fr', 'de'
+ * Normalizes language code to one of the 10 supported languages
  */
 export const normalizeLanguage = (lang) => {
   if (!lang || typeof lang !== 'string') return 'en';
   const clean = lang.toLowerCase().trim().slice(0, 2);
-  if (['en', 'ar', 'zh', 'fr', 'de'].includes(clean)) {
+  if (['en', 'ar', 'zh', 'fr', 'de', 'es', 'pt', 'ru', 'tr', 'bn'].includes(clean)) {
     return clean;
   }
   return 'en';
@@ -519,7 +551,7 @@ export const getActiveLanguage = () => {
 
   // 1. Check URL pathname prefix
   const pathname = window.location.pathname || '';
-  const match = pathname.match(/^\/(en|ar|zh|fr|de)(\/|$)/i);
+  const match = pathname.match(/^\/(en|ar|zh|fr|de|es|pt|ru|tr|bn)(\/|$)/i);
   if (match) {
     return match[1].toLowerCase();
   }
@@ -540,7 +572,7 @@ export const resolveServiceKey = (input) => {
 
   const raw = input.toLowerCase().trim();
   // Strip language prefixes and slashes
-  const clean = raw.replace(/^\/(en|ar|zh|fr|de)\//i, '/').replace(/^\/+|\/+$/g, '');
+  const clean = raw.replace(/^\/(en|ar|zh|fr|de|es|pt|ru|tr|bn)\//i, '/').replace(/^\/+|\/+$/g, '');
 
   // Exact key match
   if (SERVICES_CONFIG[clean]) return clean;
@@ -609,15 +641,45 @@ export const getLocalizedServiceName = (serviceKeyOrName, lang = 'en') => {
   const key = resolveServiceKey(serviceKeyOrName);
 
   if (key && SERVICES_CONFIG[key]) {
-    return SERVICES_CONFIG[key].names[normLang] || SERVICES_CONFIG[key].names.en;
+    if (SERVICES_CONFIG[key].names[normLang]) {
+      return SERVICES_CONFIG[key].names[normLang];
+    }
+    const enName = SERVICES_CONFIG[key].names.en;
+    if (MASTER_DICTIONARIES?.[normLang]?.[enName]) {
+      return MASTER_DICTIONARIES[normLang][enName];
+    }
+    // Also try matching against key words in dictionary
+    for (const dictKey of Object.keys(MASTER_DICTIONARIES?.[normLang] || {})) {
+      if (dictKey.toLowerCase() === enName.toLowerCase()) {
+        return MASTER_DICTIONARIES[normLang][dictKey];
+      }
+    }
+    return enName;
   }
 
-  // If a raw string was provided that is not a known key, return clean text
+  // If a raw string was provided that is not a known key, return clean text or dictionary translation
   if (typeof serviceKeyOrName === 'string' && serviceKeyOrName.trim()) {
-    return serviceKeyOrName.trim();
+    const raw = serviceKeyOrName.trim();
+    if (MASTER_DICTIONARIES?.[normLang]?.[raw]) {
+      return MASTER_DICTIONARIES[normLang][raw];
+    }
+    return raw;
   }
 
-  return normLang === 'ar' ? 'التأشيرات والخدمات الحكومية' : 'UAE Visa & Government';
+  const defaultFallbacks = {
+    en: 'UAE Visa & Government',
+    ar: 'التأشيرات والخدمات الحكومية',
+    zh: '阿联酋签证与政府事务',
+    fr: 'Visas et démarches administratives aux EAU',
+    de: 'Visadienste und Behördenservices in den VAE',
+    es: 'Servicios de visados y trámites en EAU',
+    pt: 'Serviços de vistos e assessoria nos EAU',
+    ru: 'Визовые и государственные услуги в ОАЭ',
+    tr: 'BAE Vize ve Resmi Hizmetler',
+    bn: 'ইউএই ভিসা এবং সরকারি সেবা'
+  };
+
+  return defaultFallbacks[normLang] || defaultFallbacks.en;
 };
 
 /**

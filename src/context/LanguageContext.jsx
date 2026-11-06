@@ -3,13 +3,18 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { TRANSLATIONS, STATIC_PHRASE_DICTIONARY } from '../data/translations/index.js';
 import { translateSubtree, restoreEnglishSubtree } from '../translations/domTranslator.js';
 
-// The 5 supported languages: English, Arabic, Chinese, French, German
+// The 10 supported languages: English, Arabic, Chinese, French, German, Spanish, Portuguese, Russian, Turkish, Bengali
 export const LANGUAGES = [
   { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr', flag: '🇬🇧' },
   { code: 'ar', name: 'Arabic', nativeName: 'العربية', dir: 'rtl', flag: '🇦🇪' },
   { code: 'zh', name: 'Chinese', nativeName: '中文', dir: 'ltr', flag: '🇨🇳' },
   { code: 'fr', name: 'French', nativeName: 'Français', dir: 'ltr', flag: '🇫🇷' },
-  { code: 'de', name: 'German', nativeName: 'Deutsch', dir: 'ltr', flag: '🇩🇪' }
+  { code: 'de', name: 'German', nativeName: 'Deutsch', dir: 'ltr', flag: '🇩🇪' },
+  { code: 'es', name: 'Spanish', nativeName: 'Español', dir: 'ltr', flag: '🇪🇸' },
+  { code: 'pt', name: 'Portuguese', nativeName: 'Português', dir: 'ltr', flag: '🇵🇹' },
+  { code: 'ru', name: 'Russian', nativeName: 'Русский', dir: 'ltr', flag: '🇷🇺' },
+  { code: 'tr', name: 'Turkish', nativeName: 'Türkçe', dir: 'ltr', flag: '🇹🇷' },
+  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা', dir: 'ltr', flag: '🇧🇩' }
 ];
 
 export { TRANSLATIONS };
@@ -17,27 +22,23 @@ export { TRANSLATIONS };
 // Backward-compatibility export
 export const ITEM_TRANSLATIONS = TRANSLATIONS.en || {};
 
-const SUPPORTED_LANG_CODES = ['en', 'ar', 'zh', 'fr', 'de'];
+export const SUPPORTED_LANG_CODES = ['en', 'ar', 'zh', 'fr', 'de', 'es', 'pt', 'ru', 'tr', 'bn'];
 
 /**
- * Extracts the canonical route pathname by stripping /en, /ar, /zh, /fr, or /de language prefixes.
+ * Extracts the canonical route pathname by stripping /en, /ar, /zh, /fr, /de, /es, /pt, /ru, /tr, or /bn language prefixes.
  * Examples:
  *   /              -> /
  *   /en            -> /
- *   /en/           -> /
- *   /ar            -> /
  *   /ar/           -> /
- *   /zh            -> /
- *   /zh/           -> /
- *   /fr/services   -> /services
- *   /de/services/  -> /services/
+ *   /es/services   -> /services
+ *   /bn/calculator -> /calculator
  *   /services      -> /services
  */
 export const getCleanPathname = (pathname) => {
   if (!pathname || pathname === '/') return '/';
 
   // Check if starts with any supported language prefix
-  const match = pathname.match(/^\/(en|ar|zh|fr|de)(\/.*|$)/);
+  const match = pathname.match(/^\/(en|ar|zh|fr|de|es|pt|ru|tr|bn)(\/.*|$)/);
   if (match) {
     const remainder = match[2];
     if (!remainder || remainder === '/') return '/';
@@ -74,10 +75,10 @@ export const LanguageProvider = ({ children }) => {
 
   // 1. Single source of truth: URL determines active language
   const pathname = location.pathname;
-  const langMatch = pathname.match(/^\/(en|ar|zh|fr|de)(\/.*|$)/);
+  const langMatch = pathname.match(/^\/(en|ar|zh|fr|de|es|pt|ru|tr|bn)(\/.*|$)/);
   const currentLang = langMatch ? langMatch[1] : 'en';
 
-  // Arabic is RTL, all other four languages (en, zh, fr, de) are LTR
+  // Arabic is RTL; English, Chinese, French, German, Spanish, Portuguese, Russian, Turkish, and Bengali are LTR
   const isArabic = currentLang === 'ar';
   const isRTL = isArabic;
   const dir = isRTL ? 'rtl' : 'ltr';

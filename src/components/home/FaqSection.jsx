@@ -5,7 +5,7 @@ import { Plus, Minus } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const FaqSection = () => {
-  const { t } = useLanguage();
+  const { t, tItem, isRTL } = useLanguage();
   // All closed by default to keep the section compact and short
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -55,11 +55,11 @@ export const FaqSection = () => {
               >
                 <button
                   onClick={() => toggleAccordion(idx)}
-                  className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-neutral-100/50 transition-colors"
+                  className={`w-full py-4 px-5 ${isRTL ? 'text-right' : 'text-left'} flex items-center justify-between gap-4 cursor-pointer hover:bg-neutral-100/50 transition-colors`}
                   aria-expanded={isOpen}
                 >
-                  <span className="text-xs sm:text-sm font-bold text-[#222222] leading-snug">
-                    {faq.question}
+                  <span className="text-xs sm:text-sm font-bold text-[#222222] leading-snug flex-1">
+                    {tItem(faq.question)}
                   </span>
                   
                   {/* Plus / Minus Icon with smooth transition */}
@@ -86,7 +86,7 @@ export const FaqSection = () => {
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                     >
                       <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-[#555555] leading-relaxed border-t border-neutral-200/60">
-                        <p>{faq.answer}</p>
+                        <p className={isRTL ? 'text-right' : 'text-left'}>{tItem(faq.answer)}</p>
                       </div>
                     </motion.div>
                   )}

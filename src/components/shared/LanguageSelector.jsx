@@ -22,7 +22,7 @@ const getDropdownCoordinates = (triggerEl) => {
   const vHeight = typeof window !== 'undefined' ? window.innerHeight : 768;
 
   const width = Math.min(224, Math.max(180, vWidth - 16));
-  const targetDropdownHeight = 340;
+  const targetDropdownHeight = 420;
 
   // Determine vertical positioning - prefer opening below
   const spaceBelow = vHeight - rect.bottom;

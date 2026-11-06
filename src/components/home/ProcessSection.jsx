@@ -12,7 +12,7 @@ import { useLanguage } from '../../context/LanguageContext.jsx';
 import { openWhatsApp, getWhatsAppUrl } from '../../utils/whatsapp.js';
 
 export const ProcessSection = ({ onOpenConsultation }) => {
-  const { currentLanguage, t, isRTL } = useLanguage();
+  const { currentLanguage, t, tItem, isRTL } = useLanguage();
   const containerRef = useRef(null);
 
   // Parallax tracking bound to the section's viewport entry and exit
@@ -121,7 +121,7 @@ export const ProcessSection = ({ onOpenConsultation }) => {
 
                 <div className="space-y-1.5">
                   <p className="text-[11px] font-bold text-[#8C6230] uppercase tracking-wider">
-                    {item.subtitle}
+                    {tItem(item.subtitle)}
                   </p>
                   <h3 className="text-lg font-bold text-[#222222] group-hover:text-[#B8864B] transition-colors">
                     {item.title}
@@ -135,7 +135,7 @@ export const ProcessSection = ({ onOpenConsultation }) => {
               <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-semibold">
                 <span className="flex items-center gap-1.5 text-neutral-500">
                   <Clock className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>{item.duration}</span>
+                  <span>{tItem(item.duration)}</span>
                 </span>
                 <a
                   href={getWhatsAppUrl(item.title, currentLanguage)}

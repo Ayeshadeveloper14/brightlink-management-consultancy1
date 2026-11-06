@@ -1,4 +1,14 @@
-import { MASTER_ARABIC_DICTIONARY } from './masterDictionary.js';
+import { 
+  MASTER_ARABIC_DICTIONARY,
+  MASTER_CHINESE_DICTIONARY,
+  MASTER_FRENCH_DICTIONARY,
+  MASTER_GERMAN_DICTIONARY,
+  MASTER_SPANISH_DICTIONARY,
+  MASTER_PORTUGUESE_DICTIONARY,
+  MASTER_RUSSIAN_DICTIONARY,
+  MASTER_TURKISH_DICTIONARY,
+  MASTER_BENGALI_DICTIONARY 
+} from './masterDictionary.js';
 import { CHINESE_DICTIONARY, FRENCH_DICTIONARY, GERMAN_DICTIONARY } from './multilingualDictionary.js';
 import { STATIC_PHRASE_DICTIONARY, TRANSLATIONS } from '../data/translations/index.js';
 
@@ -13,41 +23,37 @@ export const isArabicText = (str) =>
 export const isChineseText = (str) =>
   typeof str === 'string' && /[\u4e00-\u9fa5]/.test(str);
 
-// Primary dictionary lookup table by language code
+// Primary dictionary lookup table by language code across all 10 languages
 const PRIMARY_DICTIONARIES = {
   ar: MASTER_ARABIC_DICTIONARY,
-  zh: CHINESE_DICTIONARY,
-  fr: FRENCH_DICTIONARY,
-  de: GERMAN_DICTIONARY
+  zh: MASTER_CHINESE_DICTIONARY || CHINESE_DICTIONARY,
+  fr: MASTER_FRENCH_DICTIONARY || FRENCH_DICTIONARY,
+  de: MASTER_GERMAN_DICTIONARY || GERMAN_DICTIONARY,
+  es: MASTER_SPANISH_DICTIONARY,
+  pt: MASTER_PORTUGUESE_DICTIONARY,
+  ru: MASTER_RUSSIAN_DICTIONARY,
+  tr: MASTER_TURKISH_DICTIONARY,
+  bn: MASTER_BENGALI_DICTIONARY
 };
+
+const SUPPORTED_NON_EN_LANGS = ['ar', 'zh', 'fr', 'de', 'es', 'pt', 'ru', 'tr', 'bn'];
 
 // Normalized lookup maps for case-insensitive / whitespace-tolerant matching
-const normalizedDictionaries = {
-  ar: new Map(),
-  zh: new Map(),
-  fr: new Map(),
-  de: new Map()
-};
+const normalizedDictionaries = {};
+const reverseDictionaries = {};
+const normalizedReverseDictionaries = {};
 
-// Reverse maps for restoring English from any translated phrase
-const reverseDictionaries = {
-  ar: new Map(),
-  zh: new Map(),
-  fr: new Map(),
-  de: new Map()
-};
-
-// Normalized reverse maps
-const normalizedReverseDictionaries = {
-  ar: new Map(),
-  zh: new Map(),
-  fr: new Map(),
-  de: new Map()
-};
+SUPPORTED_NON_EN_LANGS.forEach((lang) => {
+  normalizedDictionaries[lang] = new Map();
+  reverseDictionaries[lang] = new Map();
+  normalizedReverseDictionaries[lang] = new Map();
+});
 
 // Helper to register an English <-> Translated pair
 const registerPair = (lang, englishText, translatedText) => {
   if (
+    !lang ||
+    !normalizedDictionaries[lang] ||
     !englishText ||
     typeof englishText !== 'string' ||
     !translatedText ||
@@ -82,14 +88,29 @@ const registerPair = (lang, englishText, translatedText) => {
 };
 
 // Populate forward and reverse lookup maps across all dictionaries
-['ar', 'zh', 'fr', 'de'].forEach((lang) => {
+SUPPORTED_NON_EN_LANGS.forEach((lang) => {
   // 1. Primary dictionary entries
   const primary = PRIMARY_DICTIONARIES[lang] || {};
   for (const [key, val] of Object.entries(primary)) {
     registerPair(lang, key, val);
   }
 
-  // 2. STATIC_PHRASE_DICTIONARY entries
+  // 2. Multilingual supplementary dictionary entries
+  if (lang === 'zh') {
+    for (const [key, val] of Object.entries(CHINESE_DICTIONARY)) {
+      registerPair(lang, key, val);
+    }
+  } else if (lang === 'fr') {
+    for (const [key, val] of Object.entries(FRENCH_DICTIONARY)) {
+      registerPair(lang, key, val);
+    }
+  } else if (lang === 'de') {
+    for (const [key, val] of Object.entries(GERMAN_DICTIONARY)) {
+      registerPair(lang, key, val);
+    }
+  }
+
+  // 3. STATIC_PHRASE_DICTIONARY entries
   const staticMap = STATIC_PHRASE_DICTIONARY[lang];
   if (staticMap && staticMap instanceof Map) {
     for (const [key, val] of staticMap.entries()) {
@@ -97,7 +118,7 @@ const registerPair = (lang, englishText, translatedText) => {
     }
   }
 
-  // 3. TRANSLATIONS module entries
+  // 4. TRANSLATIONS module entries
   const moduleDict = TRANSLATIONS[lang] || {};
   const enDict = TRANSLATIONS.en || {};
   for (const [key, val] of Object.entries(moduleDict)) {

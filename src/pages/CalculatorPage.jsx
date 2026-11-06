@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 export const CalculatorPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { getLocalizedPath } = useLanguage();
+  const { getLocalizedPath, tItem } = useLanguage();
 
   // Retrieve initial values if returning via "Calculate Again"
   const previousState = location.state || {};
@@ -121,12 +121,12 @@ export const CalculatorPage = () => {
       <div className="max-w-2xl mx-auto">
         {/* 1. Heading */}
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#222222] tracking-tight text-center">
-          Family Visa Fee Calculator
+          {tItem('Family Visa Fee Calculator')}
         </h1>
 
         {/* 2. Short description */}
         <p className="mt-3 text-sm sm:text-base text-neutral-600 text-center max-w-xl mx-auto">
-          Estimate your family visa service fees by selecting the relevant details below.
+          {tItem('Estimate your family visa service fees by selecting the relevant details below.')}
         </p>
 
         {/* 3. Calculator form with six selection fields (5 user-facing dropdowns + Field 6 logic ready) */}
@@ -138,7 +138,7 @@ export const CalculatorPage = () => {
                 htmlFor="select-service"
                 className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
               >
-                Select The Service <span className="text-red-500">*</span>
+                {tItem('Select The Service')} <span className="text-red-500">*</span>
               </label>
               <select
                 id="select-service"
@@ -149,10 +149,10 @@ export const CalculatorPage = () => {
                 }}
                 className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
               >
-                <option value="">-- Select The Service --</option>
+                <option value="">{tItem('-- Select The Service --')}</option>
                 {serviceOptions.map((opt) => (
                   <option key={opt} value={opt}>
-                    {opt}
+                    {tItem(opt)}
                   </option>
                 ))}
               </select>
@@ -164,7 +164,7 @@ export const CalculatorPage = () => {
                 htmlFor="select-emirate"
                 className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
               >
-                Select Which Emirates Sponsor Visa Is <span className="text-red-500">*</span>
+                {tItem('Select Which Emirates Sponsor Visa Is')} <span className="text-red-500">*</span>
               </label>
               <select
                 id="select-emirate"
@@ -175,10 +175,10 @@ export const CalculatorPage = () => {
                 }}
                 className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
               >
-                <option value="">-- Select Emirate --</option>
+                <option value="">{tItem('-- Select Emirate --')}</option>
                 {emirateOptions.map((opt) => (
                   <option key={opt} value={opt}>
-                    {opt}
+                    {tItem(opt)}
                   </option>
                 ))}
               </select>
@@ -190,7 +190,7 @@ export const CalculatorPage = () => {
                 htmlFor="select-children"
                 className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
               >
-                Number of Children <span className="text-red-500">*</span>
+                {tItem('Number of Children')} <span className="text-red-500">*</span>
               </label>
               <select
                 id="select-children"
@@ -201,7 +201,7 @@ export const CalculatorPage = () => {
                 }}
                 className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
               >
-                <option value="">-- Select Number of Children --</option>
+                <option value="">{tItem('-- Select Number of Children --')}</option>
                 {childrenOptions.map((opt) => (
                   <option key={opt} value={opt}>
                     {opt}
@@ -216,7 +216,7 @@ export const CalculatorPage = () => {
                 htmlFor="select-sponsor"
                 className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
               >
-                Sponsor Visa Types <span className="text-red-500">*</span>
+                {tItem('Sponsor Visa Types')} <span className="text-red-500">*</span>
               </label>
               <select
                 id="select-sponsor"
@@ -227,10 +227,10 @@ export const CalculatorPage = () => {
                 }}
                 className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
               >
-                <option value="">-- Select Sponsor Visa Type --</option>
+                <option value="">{tItem('-- Select Sponsor Visa Type --')}</option>
                 {sponsorOptions.map((opt) => (
                   <option key={opt} value={opt}>
-                    {opt}
+                    {tItem(opt)}
                   </option>
                 ))}
               </select>
@@ -242,7 +242,7 @@ export const CalculatorPage = () => {
                 htmlFor="select-location"
                 className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
               >
-                Is Family Outside/Inside UAE <span className="text-red-500">*</span>
+                {tItem('Is Family Outside/Inside UAE')} <span className="text-red-500">*</span>
               </label>
               <select
                 id="select-location"
@@ -253,10 +253,10 @@ export const CalculatorPage = () => {
                 }}
                 className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
               >
-                <option value="">-- Select Location --</option>
+                <option value="">{tItem('-- Select Family Location --')}</option>
                 {locationOptions.map((opt) => (
                   <option key={opt} value={opt}>
-                    {opt}
+                    {tItem(opt)}
                   </option>
                 ))}
               </select>
@@ -265,7 +265,7 @@ export const CalculatorPage = () => {
             {/* 4. One short informational message */}
             <div className="pt-2 text-center">
               <p className="text-xs sm:text-sm font-medium text-neutral-500">
-                Please select All fields For Accurate Results.
+                {tItem('Please select All fields For Accurate Results.')}
               </p>
             </div>
 
@@ -283,7 +283,7 @@ export const CalculatorPage = () => {
                 type="submit"
                 className="w-full sm:flex-1 py-3 px-6 rounded-xl bg-[#B8864B] hover:bg-[#9F7038] text-white font-bold text-sm sm:text-base shadow-sm hover:shadow transition-all active:scale-98 cursor-pointer text-center"
               >
-                Calculate Fees
+                {tItem('Calculate Fees')}
               </button>
               <button
                 type="button"
@@ -291,7 +291,7 @@ export const CalculatorPage = () => {
                 className="w-full sm:w-auto py-3 px-6 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-semibold text-sm sm:text-base border border-neutral-300 transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-2"
               >
                 <RotateCcw className="w-4 h-4 text-neutral-600" />
-                <span>Refresh</span>
+                <span>{tItem('Refresh')}</span>
               </button>
             </div>
           </form>
