@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { IloeHeroChecker } from '../components/iloe-insurance/IloeHeroChecker.jsx';
 import { IloeClaimCalculator } from '../components/iloe-insurance/IloeClaimCalculator.jsx';
 import { IloeExplanationSection } from '../components/iloe-insurance/IloeExplanationSection.jsx';
 import { IloeFinesSection } from '../components/iloe-insurance/IloeFinesSection.jsx';
@@ -16,7 +15,7 @@ export const IloeInsurancePage = ({ onOpenConsultation }) => {
   return (
     <div className="bg-[#FFFFFF] min-h-screen text-[#0F172A] selection:bg-[#B8864B] selection:text-white">
       {/* 1. Hero Heading & ILOE Status / Fine Checker Panel */}
-      <IloeHeroChecker onOpenConsultation={onOpenConsultation} />
+
 
       {/* 2. ILOE Claim & Payout Calculator */}
       <IloeClaimCalculator onOpenConsultation={onOpenConsultation} />

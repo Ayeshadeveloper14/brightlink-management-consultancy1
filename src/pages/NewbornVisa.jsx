@@ -45,8 +45,6 @@ export const NewbornVisa = ({ onOpenCalculator, onOpenConsultation }) => {
         onScrollToCalculator={handleCalculatorClick}
       />
 
-      {/* 2. Featured / Trust Bar */}
-      <TrustBar />
 
       {/* 3. Newborn Visa Estimator Preview */}
       <VisaEstimator 
