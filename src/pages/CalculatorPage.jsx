@@ -37,7 +37,10 @@ export const CalculatorPage = () => {
     'Family New Residency Visa',
     'Family Residency Visa Renewal',
     'New Born in U.A.E',
-    'Family Visa Cancellation'
+    'Family Visa Cancellation',
+    'Golden Visa',
+    'Property Visa',
+    'PRO Visa'
   ];
 
   // Field 2 options
@@ -58,19 +61,30 @@ export const CalculatorPage = () => {
   const sponsorOptions = ['Employment Visa', 'Investor Visa'];
 
   // Field 5 options
-  const locationOptions = ['Outside Country', 'Inside Country'];
+  const locationOptions = service === 'Family Visa Cancellation'
+    ? ['Inside UAE', 'Outside UAE']
+    : ['Outside Country', 'Inside Country'];
 
   // Button 1: Calculate Fees
   const handleCalculateFees = (e) => {
     e.preventDefault();
 
-    // Validate that all five required dropdowns have a selected value
+    // Determine selected service conditions
+    const isNewBorn = service === 'New Born in U.A.E';
+    const isRenewal = service === 'Family Residency Visa Renewal';
+    const isCancellation = service === 'Family Visa Cancellation';
+
+    // Validate that required dropdowns have a selected value
     const missing = [];
     if (!service) missing.push('Select The Service');
     if (!emirate) missing.push('Select Which Emirates Sponsor Visa Is');
-    if (childrenCount === '') missing.push('Number of Children');
-    if (!sponsorVisaType) missing.push('Sponsor Visa Types');
-    if (!familyLocation) missing.push('Is Family Outside/Inside UAE');
+    if (!isNewBorn && childrenCount === '') missing.push('Number of Children');
+    if (!isNewBorn && !isRenewal && !isCancellation) {
+      if (!sponsorVisaType) missing.push('Sponsor Visa Types');
+    }
+    if (!isNewBorn && !isRenewal) {
+      if (!familyLocation) missing.push('Is Family Outside/Inside UAE');
+    }
 
     if (missing.length > 0) {
       setValidationError(`Please select all required fields to calculate fees: ${missing.join(', ')}.`);
@@ -83,9 +97,9 @@ export const CalculatorPage = () => {
     const calculatorPayload = {
       service,
       emirate,
-      childrenCount,
-      sponsorVisaType,
-      familyLocation
+      childrenCount: isNewBorn ? '0' : childrenCount,
+      sponsorVisaType: (isNewBorn || isRenewal || isCancellation) ? '' : sponsorVisaType,
+      familyLocation: (isNewBorn || isRenewal) ? '' : familyLocation
     };
 
     // Store in sessionStorage to preserve on direct refresh
@@ -144,7 +158,22 @@ export const CalculatorPage = () => {
                 id="select-service"
                 value={service}
                 onChange={(e) => {
-                  setService(e.target.value);
+                  const val = e.target.value;
+                  setService(val);
+                  if (val === 'New Born in U.A.E') {
+                    setChildrenCount('');
+                    setSponsorVisaType('');
+                    setFamilyLocation('');
+                  } else if (val === 'Family Residency Visa Renewal') {
+                    setSponsorVisaType('');
+                    setFamilyLocation('');
+                  } else if (val === 'Family Visa Cancellation') {
+                    setSponsorVisaType('');
+                    setFamilyLocation('');
+                  } else {
+                    setSponsorVisaType('');
+                    setFamilyLocation('');
+                  }
                   if (validationError) setValidationError('');
                 }}
                 className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
@@ -184,83 +213,89 @@ export const CalculatorPage = () => {
               </select>
             </div>
 
-            {/* Field 3: Number of Children */}
-            <div>
-              <label
-                htmlFor="select-children"
-                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
-              >
-                {tItem('Number of Children')} <span className="text-red-500">*</span>
-              </label>
-              <select
-                id="select-children"
-                value={childrenCount}
-                onChange={(e) => {
-                  setChildrenCount(e.target.value);
-                  if (validationError) setValidationError('');
-                }}
-                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
-              >
-                <option value="">{tItem('-- Select Number of Children --')}</option>
-                {childrenOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {/* Field 3: Number of Children (omitted for New Born in U.A.E) */}
+            {service !== 'New Born in U.A.E' && (
+              <div>
+                <label
+                  htmlFor="select-children"
+                  className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                >
+                  {tItem('Number of Children')} <span className="text-red-500">*</span>
+                </label>
+                <select
+                  id="select-children"
+                  value={childrenCount}
+                  onChange={(e) => {
+                    setChildrenCount(e.target.value);
+                    if (validationError) setValidationError('');
+                  }}
+                  className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                >
+                  <option value="">{tItem('-- Select Number of Children --')}</option>
+                  {childrenOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
-            {/* Field 4: Sponsor Visa Types */}
-            <div>
-              <label
-                htmlFor="select-sponsor"
-                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
-              >
-                {tItem('Sponsor Visa Types')} <span className="text-red-500">*</span>
-              </label>
-              <select
-                id="select-sponsor"
-                value={sponsorVisaType}
-                onChange={(e) => {
-                  setSponsorVisaType(e.target.value);
-                  if (validationError) setValidationError('');
-                }}
-                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
-              >
-                <option value="">{tItem('-- Select Sponsor Visa Type --')}</option>
-                {sponsorOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {tItem(opt)}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {/* Field 4: Sponsor Visa Types (omitted for Renewal, New Born, and Cancellation) */}
+            {service !== 'Family Residency Visa Renewal' && service !== 'New Born in U.A.E' && service !== 'Family Visa Cancellation' && (
+              <div>
+                <label
+                  htmlFor="select-sponsor"
+                  className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                >
+                  {tItem('Sponsor Visa Types')} <span className="text-red-500">*</span>
+                </label>
+                <select
+                  id="select-sponsor"
+                  value={sponsorVisaType}
+                  onChange={(e) => {
+                    setSponsorVisaType(e.target.value);
+                    if (validationError) setValidationError('');
+                  }}
+                  className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                >
+                  <option value="">{tItem('-- Select Sponsor Visa Type --')}</option>
+                  {sponsorOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {tItem(opt)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
-            {/* Field 5: Is Family Outside/Inside UAE */}
-            <div>
-              <label
-                htmlFor="select-location"
-                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
-              >
-                {tItem('Is Family Outside/Inside UAE')} <span className="text-red-500">*</span>
-              </label>
-              <select
-                id="select-location"
-                value={familyLocation}
-                onChange={(e) => {
-                  setFamilyLocation(e.target.value);
-                  if (validationError) setValidationError('');
-                }}
-                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
-              >
-                <option value="">{tItem('-- Select Family Location --')}</option>
-                {locationOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {tItem(opt)}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {/* Field 5: Is Family Outside/Inside UAE (omitted for Renewal and New Born) */}
+            {service !== 'Family Residency Visa Renewal' && service !== 'New Born in U.A.E' && (
+              <div>
+                <label
+                  htmlFor="select-location"
+                  className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                >
+                  {tItem('Is Family Outside/Inside UAE')} <span className="text-red-500">*</span>
+                </label>
+                <select
+                  id="select-location"
+                  value={familyLocation}
+                  onChange={(e) => {
+                    setFamilyLocation(e.target.value);
+                    if (validationError) setValidationError('');
+                  }}
+                  className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                >
+                  <option value="">{tItem('-- Select Family Location --')}</option>
+                  {locationOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {tItem(opt)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             {/* 4. One short informational message */}
             <div className="pt-2 text-center">

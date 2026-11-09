@@ -1,0 +1,278 @@
+now we go to to 4th service Family Visa Cancellation
+In this service i need four inputs
+1. service section
+2. city section (Select Which Emirates Sponsor Visa is)
+3. Number of Children
+4. Is Family Outside / Inside UAE
+
+i need this 4 inputs selections
+
+condition-1
+Family Visa Cancellation > Sharjah > child 0 > Inside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+
+condition-2
+Family Visa Cancellation > Sharjah > child 0 > Outside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+
+condition-3
+now this is the child price if chilc have then add this otherwite not 
+Children Fees
+Service	Amount (AED)
+Cancellation (1 child x 250.00)	250.00
+Children Total	250.00 AED
+
+
+
+condition-4
+Family Visa Cancellation > Dubai > child 0 > Inside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+
+condition-5
+Family Visa Cancellation > Dubai > child 0 > Outside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	350.00
+Spouse Total	350.00 AED
+Total:
+350.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+condition-6
+now this is the child price if child have then add this otherwite not 
+Children Fees
+Service	Amount (AED)
+Cancellation (1 child x 250.00)	250.00
+Children Total	250.00 AED
+
+
+condition-7
+Family Visa Cancellation > Ajman > child 0 > Inside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+
+
+condition-8
+Family Visa Cancellation > Ajman > child 0 > Outside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+condition-9
+now this is the child price if child have then add this otherwite not 
+Children Fees
+Service	Amount (AED)
+Cancellation (1 child x 250.00)	250.00
+Children Total	250.00 AED
+
+
+
+condition-10
+Family Visa Cancellation > Abu Dhabi > child 0 > Inside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* If the Tenancy Contract is not from Abu Dhabi, you should show the reason why you are staying in other Emirates (for example, Branch Trade License, etc.).
+
+
+
+condition-11
+Family Visa Cancellation > Abu Dhabi > child 0 > Outside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* If the Tenancy Contract is not from Abu Dhabi, you should show the reason why you are staying in other Emirates (for example, Branch Trade License, etc.).
+
+condition-12
+now this is the child price if child have then add this otherwite not 
+Children Fees
+Service	Amount (AED)
+Cancellation (1 child x 250.00)	250.00
+Children Total	250.00 AED
+
+
+condition-13
+Family Visa Cancellation > Ras Al Khaimah > child 0 > Inside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+
+condition-14
+Family Visa Cancellation > Ras Al Khaimah > child 0 > Outside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+condition-15
+now this is the child price if child have then add this otherwite not 
+Children Fees
+Service	Amount (AED)
+Cancellation (1 child x 250.00)	250.00
+Children Total	250.00 AED
+
+
+
+condition-16
+Family Visa Cancellation > Umm Al Quwain > child 0 > Inside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+
+condition-17
+Family Visa Cancellation > Umm Al Quwain > child 0 > Outside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+condition-18
+now this is the child price if child have then add this otherwite not 
+Children Fees
+Service	Amount (AED)
+Cancellation (1 child x 250.00)	250.00
+Children Total	250.00 AED
+
+
+condition-19
+Family Visa Cancellation > Fujairah > child 0 > Inside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+
+
+condition-20
+Family Visa Cancellation > Fujairah > child 0 > Outside Country
+Spouse Fees
+Service	Amount (AED)
+Cancellation	250.00
+Spouse Total	250.00 AED
+Total:
+250.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+
+condition-21
+now this is the child price if child have then add this otherwite not 
+Children Fees
+Service	Amount (AED)
+Cancellation (1 child x 250.00)	250.00
+Children Total	250.00 AED

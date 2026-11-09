@@ -526,4 +526,21 @@ export const MASTER_FR_DICTIONARY = {
   'Your consultation has been booked successfully! A representative will call you shortly.': 'Votre consultation a été enregistrée avec succès ! Un conseiller vous appellera très rapidement.',
   'Zero customs duties on import and re-export of goods': 'Exonération de droits de douane en zone franche',
   'Zero Errors': 'Zéro Défaut',
+
+  // Calculator Translations
+  'Family Visa Fee Calculator': 'Calculateur de Frais de Visa Familial',
+  'Estimate your family visa service fees by selecting the relevant details below.': 'Estimez les frais de votre visa familial en sélectionnant les options ci-dessous.',
+  'Select The Service': 'Sélectionnez le Service',
+  '-- Select The Service --': '-- Sélectionnez le Service --',
+  'Family New Residency Visa': 'Nouveau Visa de Résidence Familiale',
+  'Family Residency Visa Renewal': 'Renouvellement de Visa de Résidence Familiale',
+  'New Born in U.A.E': 'Nouveau-Né aux EAU',
+  'Family Visa Cancellation': 'Annulation de Visa Familial',
+  'Golden Visa': 'Visa Doré',
+  'Property Visa': 'Visa Investisseur Immobilier',
+  'PRO Visa': 'Visa PRO d\'Entreprise',
+  'New Born Visa': 'Visa pour Nouveau-Né',
+  'Children Fees': 'Frais de Visa pour Enfants',
+  'Children Total': 'Total Enfants',
+  'Entry Permit (including Deposit)': 'Permis d\'Entrée (avec Dépôt de Garantie)',
 };

@@ -526,4 +526,21 @@ export const MASTER_ZH_DICTIONARY = {
   'Your consultation has been booked successfully! A representative will call you shortly.': '您的咨询预约已成功提交！专业代表将尽快致电。',
   'Zero customs duties on import and re-export of goods': '自贸区内货物进出口与转口零关税',
   'Zero Errors': '严格审核拒签率归零',
+
+  // Calculator Translations
+  'Family Visa Fee Calculator': '家庭签证费用计算器',
+  'Estimate your family visa service fees by selecting the relevant details below.': '在下方选择相应选项，测算家庭签证服务与官方规费。',
+  'Select The Service': '选择服务类型',
+  '-- Select The Service --': '-- 选择服务类型 --',
+  'Family New Residency Visa': '新家属居留签证',
+  'Family Residency Visa Renewal': '家属居留签证续签',
+  'New Born in U.A.E': '阿联酋境内新生儿',
+  'Family Visa Cancellation': '家属签证注销',
+  'Golden Visa': '黄金签证',
+  'Property Visa': '房产投资签证',
+  'PRO Visa': '企业PRO工作签证',
+  'New Born Visa': '新生儿居留签证',
+  'Children Fees': '子女签证费用',
+  'Children Total': '子女费用总计',
+  'Entry Permit (including Deposit)': '入境许可 (含押金)',
 };

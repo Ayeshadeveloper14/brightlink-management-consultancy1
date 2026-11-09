@@ -526,4 +526,21 @@ export const MASTER_DE_DICTIONARY = {
   'Your consultation has been booked successfully! A representative will call you shortly.': 'Ihre Beratung wurde erfolgreich gebucht! Ein Spezialist wird Sie zeitnah kontaktieren.',
   'Zero customs duties on import and re-export of goods': 'Zollfreiheit bei Import und Re-Export',
   'Zero Errors': 'Null Fehlerquote',
+
+  // Calculator Translations
+  'Family Visa Fee Calculator': 'Familienvisum-Kostenrechner',
+  'Estimate your family visa service fees by selecting the relevant details below.': 'Berechnen Sie die anfallenden Gebühren für Ihr Familienvisum anhand der folgenden Angaben.',
+  'Select The Service': 'Dienstleistung Auswählen',
+  '-- Select The Service --': '-- Dienstleistung Auswählen --',
+  'Family New Residency Visa': 'Neues Familienvisum',
+  'Family Residency Visa Renewal': 'Verlängerung des Familienvisums',
+  'New Born in U.A.E': 'Neugeborenes in den VAE',
+  'Family Visa Cancellation': 'Stornierung des Familienvisums',
+  'Golden Visa': 'Goldenes Visum',
+  'Property Visa': 'Immobilien-Investorenvisum',
+  'PRO Visa': 'Corporate PRO Visum',
+  'New Born Visa': 'Aufenthaltsvisum für Neugeborene',
+  'Children Fees': 'Kinder-Visagebühren',
+  'Children Total': 'Kinder-Gesamtsumme',
+  'Entry Permit (including Deposit)': 'Einreisegenehmigung (inkl. Kaution)',
 };

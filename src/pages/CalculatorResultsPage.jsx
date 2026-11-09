@@ -45,6 +45,486 @@ export const calculateSponsorFileFee = (service, emirate) => {
 };
 
 /**
+ * Pricing Configuration 3: New Born in U.A.E Fee
+ * 
+ * Rules:
+ * 1. Applicable Service: "New Born in U.A.E" only.
+ * 2. Emirate pricing:
+ *    - Dubai: 860.00 AED
+ *    - Sharjah, Ajman, Abu Dhabi, Ras Al Khaimah, Umm Al Quwain, Fujairah: 835.00 AED
+ * 3. Does not depend on Children Count, Sponsor Visa Type, or Family Location.
+ */
+export const calculateNewBornBabyFee = (service, emirate) => {
+  if (!service || service.trim() !== 'New Born in U.A.E') {
+    return null;
+  }
+
+  const cleanEmirate = (emirate || '').trim().toLowerCase();
+  if (!cleanEmirate) {
+    return null;
+  }
+
+  if (cleanEmirate === 'dubai') {
+    return 860.0;
+  }
+
+  const standardEmirates = [
+    'sharjah',
+    'ajman',
+    'abu dhabi',
+    'ras al khaimah',
+    'umm al quwain',
+    'fujairah'
+  ];
+
+  if (standardEmirates.includes(cleanEmirate)) {
+    return 835.0;
+  }
+
+  return 835.0;
+};
+
+/**
+ * Reusable child base pricing configuration for Family New Residency Visa.
+ * Keys: [emirateGroup (dubai | sharjah)][visaType (employment | investor)][location (inside | outside)]
+ */
+export const CHILD_BASE_PRICING = {
+  dubai: {
+    employment: {
+      inside: [
+        { key: 'entryPermit', name: 'Entry Permit', price: 1070 },
+        { key: 'changeStatus', name: 'Change Status', price: 670 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 385 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 475 },
+      ],
+      outside: [
+        { key: 'entryPermit', name: 'Entry Permit', price: 400 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 385 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 475 },
+      ],
+    },
+    investor: {
+      inside: [
+        { key: 'entryPermit', name: 'Entry Permit (including Deposit)', price: 4250 },
+        { key: 'changeStatus', name: 'Change Status', price: 670 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 385 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 475 },
+      ],
+      outside: [
+        { key: 'entryPermit', name: 'Entry Permit (including Deposit)', price: 3620 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 385 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 475 },
+      ],
+    },
+  },
+  sharjah: {
+    employment: {
+      inside: [
+        { key: 'entryPermit', name: 'Entry Permit', price: 420 },
+        { key: 'changeStatus', name: 'Change Status', price: 700 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 335 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 500 },
+      ],
+      outside: [
+        { key: 'entryPermit', name: 'Entry Permit', price: 420 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 335 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 500 },
+      ],
+    },
+    investor: {
+      inside: [
+        { key: 'entryPermit', name: 'Entry Permit (including Deposit)', price: 3550 },
+        { key: 'changeStatus', name: 'Change Status', price: 700 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 335 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 500 },
+      ],
+      outside: [
+        { key: 'entryPermit', name: 'Entry Permit (including Deposit)', price: 3550 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 335 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 500 },
+      ],
+    },
+  },
+  'ras al khaimah': {
+    employment: {
+      inside: [
+        { key: 'entryPermit', name: 'Entry Permit', price: 420 },
+        { key: 'changeStatus', name: 'Change Status', price: 700 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 335 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 500 },
+      ],
+      outside: [
+        { key: 'entryPermit', name: 'Entry Permit', price: 420 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 335 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 500 },
+      ],
+    },
+    investor: {
+      inside: [
+        { key: 'entryPermit', name: 'Entry Permit', price: 420 },
+        { key: 'changeStatus', name: 'Change Status', price: 700 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 335 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 500 },
+      ],
+      outside: [
+        { key: 'entryPermit', name: 'Entry Permit', price: 420 },
+        { key: 'emiratesId', name: 'Emirates ID', price: 335 },
+        { key: 'visaStamping', name: 'Visa Stamping', price: 500 },
+      ],
+    },
+  },
+};
+
+// Ajman, Abu Dhabi, Umm Al Quwain, and Fujairah share identical child base pricing structure with Sharjah
+CHILD_BASE_PRICING['ajman'] = CHILD_BASE_PRICING['sharjah'];
+CHILD_BASE_PRICING['abu dhabi'] = CHILD_BASE_PRICING['sharjah'];
+CHILD_BASE_PRICING['umm al quwain'] = CHILD_BASE_PRICING['sharjah'];
+CHILD_BASE_PRICING['fujairah'] = CHILD_BASE_PRICING['sharjah'];
+
+/**
+ * Dynamic calculation for Children Fees.
+ * Applies exclusively to "Family New Residency Visa".
+ * Formula: Child Service Total = Service Price x Number of Children
+ */
+export const calculateChildrenFees = (service, emirate, sponsorVisaType, familyLocation, childrenCount) => {
+  const cleanService = (service || '').trim();
+
+  const numChildren = parseInt(childrenCount, 10);
+  if (isNaN(numChildren) || numChildren <= 0) {
+    return { items: [], total: 0, numChildren: 0 };
+  }
+
+  // Handle Family Residency Visa Renewal
+  if (cleanService === 'Family Residency Visa Renewal') {
+    const cleanEmirate = (emirate || '').trim().toLowerCase();
+    const isDubai = cleanEmirate === 'dubai';
+    const eidPrice = isDubai ? 385 : 335;
+    const stampingPrice = isDubai ? 475 : 500;
+
+    const items = [
+      {
+        key: 'emiratesId',
+        name: 'Emirates ID',
+        unitPrice: eidPrice,
+        count: numChildren,
+        total: eidPrice * numChildren,
+      },
+      {
+        key: 'visaStamping',
+        name: 'Visa Stamping',
+        unitPrice: stampingPrice,
+        count: numChildren,
+        total: stampingPrice * numChildren,
+      },
+    ];
+
+    const total = items.reduce((sum, item) => sum + item.total, 0);
+    return { items, total, numChildren };
+  }
+
+  // Handle Family Visa Cancellation (250 AED per child)
+  if (cleanService === 'Family Visa Cancellation') {
+    if (numChildren <= 0) {
+      return { items: [], total: 0, numChildren: 0 };
+    }
+
+    const childCancellationPrice = 250.0;
+    const items = [
+      {
+        key: 'cancellation',
+        name: 'Cancellation',
+        unitPrice: childCancellationPrice,
+        count: numChildren,
+        total: childCancellationPrice * numChildren,
+      },
+    ];
+
+    const total = childCancellationPrice * numChildren;
+    return { items, total, numChildren };
+  }
+
+  if (cleanService !== 'Family New Residency Visa') {
+    return { items: [], total: 0, numChildren: 0 };
+  }
+
+  const cleanEmirate = (emirate || '').trim().toLowerCase();
+  const emirateKey = CHILD_BASE_PRICING[cleanEmirate] ? cleanEmirate : 'sharjah';
+
+  const cleanVisa = (sponsorVisaType || '').trim().toLowerCase();
+  const visaKey = cleanVisa.includes('investor') ? 'investor' : 'employment';
+
+  const cleanLoc = (familyLocation || '').trim().toLowerCase();
+  const locKey = cleanLoc.includes('outside') ? 'outside' : 'inside';
+
+  const basePricingList = CHILD_BASE_PRICING[emirateKey]?.[visaKey]?.[locKey] || [];
+
+  const items = basePricingList.map((base) => ({
+    key: base.key,
+    name: base.name,
+    unitPrice: base.price,
+    count: numChildren,
+    total: base.price * numChildren,
+  }));
+
+  const total = items.reduce((sum, item) => sum + item.total, 0);
+
+  return { items, total, numChildren };
+};
+
+/**
+ * Reusable spouse base pricing configuration for Family New Residency Visa.
+ * Keys: [emirateGroup][visaType (employment | investor)][location (inside | outside)]
+ */
+export const SPOUSE_BASE_PRICING = {
+  dubai: {
+    employment: {
+      inside: {
+        entryPermit: 1070,
+        changeStatus: 670,
+        medicalFitness: 300,
+        emiratesId: 385,
+        visaStamping: 475,
+      },
+      outside: {
+        entryPermit: 400,
+        changeStatus: null,
+        medicalFitness: 300,
+        emiratesId: 385,
+        visaStamping: 475,
+      },
+    },
+    investor: {
+      inside: {
+        entryPermit: 4250,
+        entryPermitName: 'Entry Permit (including Deposit)',
+        changeStatus: 670,
+        medicalFitness: 300,
+        emiratesId: 385,
+        visaStamping: 475,
+      },
+      outside: {
+        entryPermit: 3620,
+        entryPermitName: 'Entry Permit (including Deposit)',
+        changeStatus: null,
+        medicalFitness: 300,
+        emiratesId: 385,
+        visaStamping: 475,
+      },
+    },
+  },
+  sharjah: {
+    employment: {
+      inside: {
+        entryPermit: 420,
+        changeStatus: 700,
+        medicalFitness: 300,
+        emiratesId: 335,
+        visaStamping: 500,
+      },
+      outside: {
+        entryPermit: 420,
+        changeStatus: null,
+        medicalFitness: 300,
+        emiratesId: 335,
+        visaStamping: 500,
+      },
+    },
+    investor: {
+      inside: {
+        entryPermit: 3550,
+        entryPermitName: 'Entry Permit (including Deposit)',
+        changeStatus: 700,
+        medicalFitness: 300,
+        emiratesId: 335,
+        visaStamping: 500,
+      },
+      outside: {
+        entryPermit: 3550,
+        entryPermitName: 'Entry Permit (including Deposit)',
+        changeStatus: null,
+        medicalFitness: 300,
+        emiratesId: 335,
+        visaStamping: 500,
+      },
+    },
+  },
+  'ras al khaimah': {
+    employment: {
+      inside: {
+        entryPermit: 420,
+        changeStatus: 700,
+        medicalFitness: 300,
+        emiratesId: 335,
+        visaStamping: 500,
+      },
+      outside: {
+        entryPermit: 420,
+        changeStatus: null,
+        medicalFitness: 300,
+        emiratesId: 335,
+        visaStamping: 500,
+      },
+    },
+    investor: {
+      inside: {
+        entryPermit: 420,
+        deposit: 3300,
+        changeStatus: 700,
+        medicalFitness: 300,
+        emiratesId: 335,
+        visaStamping: 500,
+      },
+      outside: {
+        entryPermit: 420,
+        deposit: 3300,
+        changeStatus: null,
+        medicalFitness: 300,
+        emiratesId: 335,
+        visaStamping: 500,
+      },
+    },
+  },
+};
+
+// Ajman, Abu Dhabi, Umm Al Quwain, and Fujairah share identical spouse pricing with Sharjah
+SPOUSE_BASE_PRICING['ajman'] = SPOUSE_BASE_PRICING['sharjah'];
+SPOUSE_BASE_PRICING['abu dhabi'] = SPOUSE_BASE_PRICING['sharjah'];
+SPOUSE_BASE_PRICING['umm al quwain'] = SPOUSE_BASE_PRICING['sharjah'];
+SPOUSE_BASE_PRICING['fujairah'] = SPOUSE_BASE_PRICING['sharjah'];
+
+/**
+ * Dynamic calculation for Spouse Fees.
+ * Applies exclusively to "Family New Residency Visa".
+ * Spouse fees are FIXED and do NOT multiply when children count changes.
+ * Formula: Spouse Total = Primary Application Fees (Sponsor File) + Spouse Standalone Fees
+ */
+export const calculateSpouseFees = (service, emirate, sponsorVisaType, familyLocation) => {
+  const cleanService = (service || '').trim();
+
+  // Handle Family Residency Visa Renewal
+  if (cleanService === 'Family Residency Visa Renewal') {
+    const cleanEmirate = (emirate || '').trim().toLowerCase();
+    const isDubai = cleanEmirate === 'dubai';
+
+    const medicalFitness = 300;
+    const emiratesId = isDubai ? 385 : 335;
+    const visaStamping = isDubai ? 475 : 500;
+    const spouseSubtotal = medicalFitness + emiratesId + visaStamping; // 1,160 for Dubai, 1,135 for other Emirates
+    const spouseTotal = spouseSubtotal; // No sponsor file fee for Renewal
+
+    return {
+      entryPermit: null,
+      entryPermitName: 'Entry Permit',
+      deposit: null,
+      changeStatus: null,
+      medicalFitness,
+      emiratesId,
+      visaStamping,
+      spouseSubtotal,
+      spouseTotal,
+    };
+  }
+
+  // Handle Family Visa Cancellation
+  // Authoritative pricing matrix:
+  // Dubai + Outside UAE = 350.00 AED
+  // All other combinations (Dubai + Inside, Sharjah, Ajman, Abu Dhabi, RAK, UAQ, Fujairah) = 250.00 AED
+  if (cleanService === 'Family Visa Cancellation') {
+    const cleanEmirate = (emirate || '').trim().toLowerCase();
+    const cleanLoc = (familyLocation || '').trim().toLowerCase();
+    const isDubai = cleanEmirate === 'dubai';
+    const isOutside = cleanLoc.includes('outside');
+
+    const cancellationFee = (isDubai && isOutside) ? 350.0 : 250.0;
+
+    return {
+      cancellation: cancellationFee,
+      entryPermit: null,
+      entryPermitName: null,
+      deposit: null,
+      changeStatus: null,
+      medicalFitness: null,
+      emiratesId: null,
+      visaStamping: null,
+      spouseSubtotal: cancellationFee,
+      spouseTotal: cancellationFee,
+    };
+  }
+
+  if (cleanService !== 'Family New Residency Visa') {
+    return {
+      entryPermit: null,
+      entryPermitName: 'Entry Permit',
+      deposit: null,
+      changeStatus: null,
+      medicalFitness: null,
+      emiratesId: null,
+      visaStamping: null,
+      spouseSubtotal: null,
+      spouseTotal: null,
+    };
+  }
+
+  const cleanEmirate = (emirate || '').trim().toLowerCase();
+  const emiratePricing = SPOUSE_BASE_PRICING[cleanEmirate] || SPOUSE_BASE_PRICING['sharjah'];
+
+  const cleanVisa = (sponsorVisaType || '').trim().toLowerCase();
+  const visaKey = cleanVisa.includes('investor') ? 'investor' : 'employment';
+
+  const cleanLoc = (familyLocation || '').trim().toLowerCase();
+  const locKey = cleanLoc.includes('outside') ? 'outside' : 'inside';
+
+  const base = emiratePricing?.[visaKey]?.[locKey];
+  if (!base) {
+    return {
+      entryPermit: null,
+      entryPermitName: 'Entry Permit',
+      deposit: null,
+      changeStatus: null,
+      medicalFitness: null,
+      emiratesId: null,
+      visaStamping: null,
+      spouseSubtotal: null,
+      spouseTotal: null,
+    };
+  }
+
+  const sponsorFile = calculateSponsorFileFee(service, emirate) || 0;
+  const items = [
+    base.entryPermit,
+    base.deposit,
+    base.changeStatus,
+    base.medicalFitness,
+    base.emiratesId,
+    base.visaStamping,
+  ].filter((v) => v !== null && v !== undefined);
+
+  const spouseSubtotal = items.reduce((sum, v) => sum + v, 0);
+  const spouseTotal = spouseSubtotal + sponsorFile;
+
+  let entryPermitName = base.entryPermitName;
+  if (!entryPermitName) {
+    if (visaKey === 'investor' && cleanEmirate !== 'ras al khaimah') {
+      entryPermitName = 'Entry Permit (including Deposit)';
+    } else {
+      entryPermitName = 'Entry Permit';
+    }
+  }
+
+  return {
+    entryPermit: base.entryPermit,
+    entryPermitName,
+    deposit: base.deposit !== undefined ? base.deposit : null,
+    changeStatus: base.changeStatus,
+    medicalFitness: base.medicalFitness,
+    emiratesId: base.emiratesId,
+    visaStamping: base.visaStamping,
+    spouseSubtotal,
+    spouseTotal,
+  };
+};
+
+/**
  * Structural placeholders for upcoming pricing rules in subsequent tasks.
  */
 export const INITIAL_PRICING_CONFIG = {
@@ -84,12 +564,52 @@ export const CalculatorResultsPage = () => {
   const sponsorFileFee = calculateSponsorFileFee(selectedValues.service, selectedValues.emirate);
   const showSponsorFile = sponsorFileFee !== null;
 
-  // Format amount to exactly 2 decimal places (e.g. 400.00 or 260.00)
+  // Dynamic calculation for Spouse Fees (Fixed, independent of children count)
+  const spouseFees = calculateSpouseFees(
+    selectedValues.service,
+    selectedValues.emirate,
+    selectedValues.sponsorVisaType,
+    selectedValues.familyLocation
+  );
+
+  // Dynamic calculation for Children Fees (Pricing Configuration 2)
+  const childrenFees = calculateChildrenFees(
+    selectedValues.service,
+    selectedValues.emirate,
+    selectedValues.sponsorVisaType,
+    selectedValues.familyLocation,
+    selectedValues.childrenCount
+  );
+  const showChildrenFees = childrenFees.items.length > 0;
+
+  // Dynamic calculation for New Born Baby Fee (Pricing Configuration 3)
+  const isNewBornService = selectedValues.service === 'New Born in U.A.E';
+  const isCancellationService = selectedValues.service === 'Family Visa Cancellation';
+  const newBornBabyFee = calculateNewBornBabyFee(selectedValues.service, selectedValues.emirate);
+
+  // Reusable total calculation formula:
+  // Final Total = Primary Application Fees + Spouse Fees (standalone) + Children Fees
+  // Identically: Spouse Total (Including Primary) + Children Total
+  const primaryTotal = sponsorFileFee !== null ? sponsorFileFee : 0;
+  const spouseStandalone = spouseFees.spouseSubtotal !== null ? spouseFees.spouseSubtotal : 0;
+  const childrenTotal = childrenFees.total || 0;
+  
+  const hasCalculatedFees = sponsorFileFee !== null || childrenTotal > 0 || spouseStandalone > 0;
+  const grandTotal = isNewBornService
+    ? newBornBabyFee
+    : hasCalculatedFees
+    ? (primaryTotal + spouseStandalone + childrenTotal)
+    : null;
+
+  // Format amount with commas and exactly 2 decimal places (e.g. 400.00, 1,260.00, 3,910.00)
   const formatAmount = (val) => {
     if (val === null || val === undefined || isNaN(val)) {
       return '--';
     }
-    return Number(val).toFixed(2);
+    return Number(val).toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   };
 
   // Navigate back to the calculator form while retaining selections
@@ -113,34 +633,31 @@ export const CalculatorResultsPage = () => {
       <div className="max-w-4xl mx-auto bg-white border border-[#E8DFD5] rounded-2xl shadow-sm p-6 sm:p-10 md:p-12">
         
         {/* =========================================================================
-            Section 1: Primary Application Fees
+            Section 1: Primary Application Fees (Applicable exclusively to Family New Residency Visa)
             ========================================================================= */}
-        {/* =========================================================================
-            Section 1: Primary Application Fees
-            ========================================================================= */}
-        <div className="mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
-            {tItem('Primary Application Fees')}
-          </h2>
+        {showSponsorFile && (
+          <div className="mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
+              {tItem('Primary Application Fees')}
+            </h2>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse border border-neutral-300 text-xs sm:text-sm">
-              <colgroup>
-                <col style={{ width: '75%' }} />
-                <col style={{ width: '25%' }} />
-              </colgroup>
-              <thead>
-                <tr className="border-b border-neutral-300 bg-neutral-50/70">
-                  <th className="py-2.5 px-4 text-left font-bold text-[#222222] border-r border-neutral-300">
-                    {tItem('Service')}
-                  </th>
-                  <th className="py-2.5 px-4 text-left font-bold text-[#222222]">
-                    {tItem('Amount (AED)')}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {showSponsorFile && (
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse border border-neutral-300 text-xs sm:text-sm">
+                <colgroup>
+                  <col style={{ width: '75%' }} />
+                  <col style={{ width: '25%' }} />
+                </colgroup>
+                <thead>
+                  <tr className="border-b border-neutral-300 bg-neutral-50/70">
+                    <th className="py-2.5 px-4 text-left font-bold text-[#222222] border-r border-neutral-300">
+                      {tItem('Service')}
+                    </th>
+                    <th className="py-2.5 px-4 text-left font-bold text-[#222222]">
+                      {tItem('Amount (AED)')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
                   <tr className="border-b border-neutral-300">
                     <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
                       {tItem('Sponsor File')}
@@ -149,15 +666,56 @@ export const CalculatorResultsPage = () => {
                       {formatAmount(sponsorFileFee)}
                     </td>
                   </tr>
-                )}
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* =========================================================================
-            Section 2: Spouse Fees (Structural placeholders for upcoming Task 3)
+            Section 2: New Born Baby Fees (Applicable exclusively to New Born in U.A.E)
             ========================================================================= */}
+        {isNewBornService && newBornBabyFee !== null && (
+          <div className="mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
+              {tItem('New Born Baby Fees')}
+            </h2>
+
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse border border-neutral-300 text-xs sm:text-sm">
+                <colgroup>
+                  <col style={{ width: '75%' }} />
+                  <col style={{ width: '25%' }} />
+                </colgroup>
+                <thead>
+                  <tr className="border-b border-neutral-300 bg-neutral-50/70">
+                    <th className="py-2.5 px-4 text-left font-bold text-[#222222] border-r border-neutral-300">
+                      {tItem('Service')}
+                    </th>
+                    <th className="py-2.5 px-4 text-left font-bold text-[#222222]">
+                      {tItem('Amount (AED)')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-300">
+                    <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                      {tItem('New Born Baby (Including Emirates ID & Visa Stamping)')}
+                    </td>
+                    <td className="py-2.5 px-4 text-neutral-800">
+                      {formatAmount(newBornBabyFee)}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* =========================================================================
+            Section 2: Spouse Fees (Hidden for New Born in U.A.E)
+            ========================================================================= */}
+        {!isNewBornService && (
         <div className="mb-6">
           <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
             {tItem('Spouse Fees')}
@@ -180,54 +738,81 @@ export const CalculatorResultsPage = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-neutral-300">
-                  <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
-                    {tItem('Entry Permit')}
-                  </td>
-                  <td className="py-2.5 px-4 text-neutral-800">
-                    {formatAmount(INITIAL_PRICING_CONFIG.spouseFees.entryPermit)}
-                  </td>
-                </tr>
-                <tr className="border-b border-neutral-300">
-                  <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
-                    {tItem('Change Status')}
-                  </td>
-                  <td className="py-2.5 px-4 text-neutral-800">
-                    {formatAmount(INITIAL_PRICING_CONFIG.spouseFees.changeStatus)}
-                  </td>
-                </tr>
-                <tr className="border-b border-neutral-300">
-                  <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
-                    {tItem('Medical Fitness (EHS)')}
-                  </td>
-                  <td className="py-2.5 px-4 text-neutral-800">
-                    {formatAmount(INITIAL_PRICING_CONFIG.spouseFees.medicalFitness)}
-                  </td>
-                </tr>
-                <tr className="border-b border-neutral-300">
-                  <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
-                    {tItem('Emirates ID')}
-                  </td>
-                  <td className="py-2.5 px-4 text-neutral-800">
-                    {formatAmount(INITIAL_PRICING_CONFIG.spouseFees.emiratesId)}
-                  </td>
-                </tr>
-                <tr className="border-b border-neutral-300">
-                  <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
-                    {tItem('Visa Stamping')}
-                  </td>
-                  <td className="py-2.5 px-4 text-neutral-800">
-                    {formatAmount(INITIAL_PRICING_CONFIG.spouseFees.visaStamping)}
-                  </td>
-                </tr>
+                {spouseFees.cancellation !== null && spouseFees.cancellation !== undefined ? (
+                  <tr className="border-b border-neutral-300">
+                    <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                      {tItem('Cancellation')}
+                    </td>
+                    <td className="py-2.5 px-4 text-neutral-800">
+                      {formatAmount(spouseFees.cancellation)}
+                    </td>
+                  </tr>
+                ) : (
+                  <>
+                    {spouseFees.entryPermit !== null && (
+                      <tr className="border-b border-neutral-300">
+                        <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                          {tItem(spouseFees.entryPermitName || 'Entry Permit')}
+                        </td>
+                        <td className="py-2.5 px-4 text-neutral-800">
+                          {formatAmount(spouseFees.entryPermit)}
+                        </td>
+                      </tr>
+                    )}
+                    {spouseFees.deposit !== null && spouseFees.deposit !== undefined && (
+                      <tr className="border-b border-neutral-300">
+                        <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                          {tItem('Deposit')}
+                        </td>
+                        <td className="py-2.5 px-4 text-neutral-800">
+                          {formatAmount(spouseFees.deposit)}
+                        </td>
+                      </tr>
+                    )}
+                    {spouseFees.changeStatus !== null && (
+                      <tr className="border-b border-neutral-300">
+                        <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                          {tItem('Change Status')}
+                        </td>
+                        <td className="py-2.5 px-4 text-neutral-800">
+                          {formatAmount(spouseFees.changeStatus)}
+                        </td>
+                      </tr>
+                    )}
+                    <tr className="border-b border-neutral-300">
+                      <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                        {tItem('Medical Fitness (EHS)')}
+                      </td>
+                      <td className="py-2.5 px-4 text-neutral-800">
+                        {formatAmount(spouseFees.medicalFitness)}
+                      </td>
+                    </tr>
+                    <tr className="border-b border-neutral-300">
+                      <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                        {tItem('Emirates ID')}
+                      </td>
+                      <td className="py-2.5 px-4 text-neutral-800">
+                        {formatAmount(spouseFees.emiratesId)}
+                      </td>
+                    </tr>
+                    <tr className="border-b border-neutral-300">
+                      <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                        {tItem('Visa Stamping')}
+                      </td>
+                      <td className="py-2.5 px-4 text-neutral-800">
+                        {formatAmount(spouseFees.visaStamping)}
+                      </td>
+                    </tr>
+                  </>
+                )}
                 {/* Final summary row */}
                 <tr className="border-b border-neutral-300 bg-neutral-50/50">
                   <td className="py-2.5 px-4 font-bold text-[#222222] border-r border-neutral-300">
-                    {tItem('Spouse Total')} <span className="font-normal text-xs text-neutral-600">{tItem('(Including Primary application fees)')}</span>
+                    {tItem('Spouse Total')}{showSponsorFile ? <> <span className="font-normal text-xs text-neutral-600">{tItem('(Including Primary application fees)')}</span></> : null}
                   </td>
                   <td className="py-2.5 px-4 font-bold text-[#222222]">
-                    {INITIAL_PRICING_CONFIG.spouseFees.spouseTotal !== null
-                      ? `${formatAmount(INITIAL_PRICING_CONFIG.spouseFees.spouseTotal)} AED`
+                    {spouseFees.spouseTotal !== null
+                      ? `${formatAmount(spouseFees.spouseTotal)} AED`
                       : '--'}
                   </td>
                 </tr>
@@ -235,9 +820,64 @@ export const CalculatorResultsPage = () => {
             </table>
           </div>
         </div>
+        )}
 
         {/* =========================================================================
-            Section 3: Total Bar (Prominent bar styled in Brightlink brand colors)
+            Section 3: Children Fees
+            ========================================================================= */}
+        {showChildrenFees && (
+          <div className="mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
+              {tItem('Children Fees')}
+            </h2>
+
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse border border-neutral-300 text-xs sm:text-sm">
+                <colgroup>
+                  <col style={{ width: '75%' }} />
+                  <col style={{ width: '25%' }} />
+                </colgroup>
+                <thead>
+                  <tr className="border-b border-neutral-300 bg-neutral-50/70">
+                    <th className="py-2.5 px-4 text-left font-bold text-[#222222] border-r border-neutral-300">
+                      {tItem('Service')}
+                    </th>
+                    <th className="py-2.5 px-4 text-left font-bold text-[#222222]">
+                      {tItem('Amount (AED)')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {childrenFees.items.map((item) => {
+                    const childQtyText = item.count === 1 ? '1 child' : `${item.count} children`;
+                    return (
+                      <tr key={item.key} className="border-b border-neutral-300">
+                        <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                          {`${tItem(item.name)} (${childQtyText} x ${formatAmount(item.unitPrice)})`}
+                        </td>
+                        <td className="py-2.5 px-4 text-neutral-800">
+                          {`${formatAmount(item.total)} AED`}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  {/* Final summary row */}
+                  <tr className="border-b border-neutral-300 bg-neutral-50/50">
+                    <td className="py-2.5 px-4 font-bold text-[#222222] border-r border-neutral-300">
+                      {tItem('Children Total')}
+                    </td>
+                    <td className="py-2.5 px-4 font-bold text-[#222222]">
+                      {`${formatAmount(childrenFees.total)} AED`}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* =========================================================================
+            Section 4: Total Bar (Prominent bar styled in Brightlink brand colors)
             ========================================================================= */}
         <div className="mb-8">
           <div className="w-full py-3 px-5 sm:px-6 rounded-xl bg-gradient-to-r from-[#B8864B] via-[#A8763E] to-[#8C6230] text-white flex items-center justify-between shadow-sm">
@@ -245,8 +885,8 @@ export const CalculatorResultsPage = () => {
               {tItem('Total:')}
             </span>
             <span className="font-extrabold text-lg sm:text-xl tracking-wide">
-              {INITIAL_PRICING_CONFIG.grandTotal !== null
-                ? `${formatAmount(INITIAL_PRICING_CONFIG.grandTotal)} AED`
+              {grandTotal !== null
+                ? `${formatAmount(grandTotal)} AED`
                 : '-- AED'}
             </span>
           </div>
@@ -259,17 +899,70 @@ export const CalculatorResultsPage = () => {
           <h3 className="text-base sm:text-lg font-bold text-[#8C6230] mb-3">
             {tItem('Note:')}
           </h3>
-          <div className="space-y-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
-            <p>
-              {tItem('* VAT & our Service Charges are already included.')}
-            </p>
-            <p>
-              {tItem('* There will be no other hidden charges.')}
-            </p>
-            <p>
-              {tItem('* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.')}
-            </p>
-          </div>
+          {isNewBornService ? (
+            <div className="space-y-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+              <p>
+                {tItem('* VAT & our Service Charges are already included.')}
+              </p>
+              <p>
+                {tItem('* There will be no other hidden charges.')}
+              </p>
+              <p>
+                {tItem("* Newborn baby's visa must be stamped within 120 days from the date of birth.")}
+              </p>
+              <p>
+                {tItem('* If late, AED 50 fine for each day after 120 days for not doing visa stamping application.')}
+              </p>
+              <p>
+                {tItem('* AED 20 fine for each day after 120 days for not typing Emirates ID application.')}
+              </p>
+              {selectedValues.emirate && selectedValues.emirate.trim().toLowerCase() === 'dubai' ? (
+                <p>
+                  {tItem('* An additional sponsor card fee of AED 260 will be applicable if the sponsor is sponsoring for the first time.')}
+                </p>
+              ) : (
+                <p>
+                  {tItem('* An additional sponsor card fee of AED 400 will be applicable if the sponsor is sponsoring for the first time.')}
+                </p>
+              )}
+              {selectedValues.emirate && selectedValues.emirate.trim().toLowerCase() === 'abu dhabi' && (
+                <p>
+                  {tItem('* If the Tenancy Contract is not from Abu Dhabi, you should show the reason why you are staying in other Emirates (for example, Branch Trade License, etc.).')}
+                </p>
+              )}
+            </div>
+          ) : isCancellationService ? (
+            <div className="space-y-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+              <p>
+                {tItem('* VAT & our Service Charges are already included.')}
+              </p>
+              <p>
+                {tItem('* There will be no other hidden charges.')}
+              </p>
+              {selectedValues.emirate && selectedValues.emirate.trim().toLowerCase() === 'abu dhabi' && (
+                <p>
+                  {tItem('* If the Tenancy Contract is not from Abu Dhabi, you should show the reason why you are staying in other Emirates (for example, Branch Trade License, etc.).')}
+                </p>
+              )}
+            </div>
+          ) : (
+            <div className="space-y-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+              <p>
+                {tItem('* VAT & our Service Charges are already included.')}
+              </p>
+              <p>
+                {tItem('* There will be no other hidden charges.')}
+              </p>
+              <p>
+                {tItem('* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.')}
+              </p>
+              {selectedValues.emirate && selectedValues.emirate.trim().toLowerCase() === 'abu dhabi' && (
+                <p>
+                  {tItem('* If the Tenancy Contract is not from Abu Dhabi, you should show the reason why you are staying in other Emirates (for example, Branch Trade License, etc.).')}
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
         {/* =========================================================================

@@ -1,0 +1,441 @@
+condition-1
+Family New Residency Visa > Sharjah > child 0 > Employment Visa > Inside Country 
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	400.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit	420.00
+Change Status	700.00
+Medical Fitness (EHS)	300.00
+Emirates ID	335.00
+Visa Stamping	500.00
+Spouse Total (Including Primary application fees)	2,655.00 AED
+Total:
+2,655.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+
+condition-2
+Family New Residency Visa > Sharjah > child 0 > Employment Visa > Outside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	400.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit	420.00
+Medical Fitness (EHS)	300.00
+Emirates ID	335.00
+Visa Stamping	500.00
+Spouse Total (Including Primary application fees)	1,955.00 AED
+Total:
+1,955.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+
+condition-3
+Family New Residency Visa > Sharjah > child 0 > Investor Visa > Inside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	400.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit (including Deposit)	3,550.00
+Change Status	700.00
+Medical Fitness (EHS)	300.00
+Emirates ID	335.00
+Visa Stamping	500.00
+Spouse Total (Including Primary application fees)	5,785.00 AED
+Total:
+5,785.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+condition-4
+Family New Residency Visa > Sharjah > child 0 > Investor Visa > Outside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	400.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit (including Deposit)	3,550.00
+Medical Fitness (EHS)	300.00
+Emirates ID	335.00
+Visa Stamping	500.00
+Spouse Total (Including Primary application fees)	5,085.00 AED
+Total:
+5,085.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+condition-5
+Family New Residency Visa > Sharjah > child 1 > Employment Visa > Inside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	400.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit	420.00
+Change Status	700.00
+Medical Fitness (EHS)	300.00
+Emirates ID	335.00
+Visa Stamping	500.00
+Spouse Total (Including Primary application fees)	2,655.00 AED
+Children Fees
+Service	Amount (AED)
+Entry Permit (1 child x 420.00)	420.00
+Change Status (1 child x 700.00)	700.00
+Emirates ID (1 child x 335.00)	335.00
+Visa Stamping (1 child x 500.00)	500.00
+Children Total	1,955.00 AED
+Total:
+4,610.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+condition-6
+Family New Residency Visa > Sharjah > child 1 > Employment Visa > Outside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	400.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit	420.00
+Medical Fitness (EHS)	300.00
+Emirates ID	335.00
+Visa Stamping	500.00
+Spouse Total (Including Primary application fees)	1,955.00 AED
+Children Fees
+Service	Amount (AED)
+Entry Permit (1 child x 420.00)	420.00
+Emirates ID (1 child x 335.00)	335.00
+Visa Stamping (1 child x 500.00)	500.00
+Children Total	1,255.00 AED
+Total:
+3,210.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+condition-7
+Family New Residency Visa > Sharjah > child 1 > Investor Visa > Inside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	400.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit (including Deposit)	3,550.00
+Change Status	700.00
+Medical Fitness (EHS)	300.00
+Emirates ID	335.00
+Visa Stamping	500.00
+Spouse Total (Including Primary application fees)	5,785.00 AED
+Children Fees
+Service	Amount (AED)
+Entry Permit (including Deposit) (1 child x 3,550.00)	3,550.00
+Change Status (1 child x 700.00)	700.00
+Emirates ID (1 child x 335.00)	335.00
+Visa Stamping (1 child x 500.00)	500.00
+Children Total	5,085.00 AED
+Total:
+10,870.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+condition-8
+Family New Residency Visa > Sharjah > child 1 > Investor Visa > Outside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	400.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit (including Deposit)	3,550.00
+Medical Fitness (EHS)	300.00
+Emirates ID	335.00
+Visa Stamping	500.00
+Spouse Total (Including Primary application fees)	5,085.00 AED
+Children Fees
+Service	Amount (AED)
+Entry Permit (including Deposit) (1 child x 3,550.00)	3,550.00
+Emirates ID (1 child x 335.00)	335.00
+Visa Stamping (1 child x 500.00)	500.00
+Children Total	4,385.00 AED
+Total:
+9,470.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+condition-9
+now if Children is increase then only Children fees increase other payments will remain same with 0,1,2,3,4,5,6,7,8 number Children.
+after setting the pricie give  total same as others correct ly with add every clild fees example 
+Children Fees
+Service	Amount (AED)
+Entry Permit (2 children x 420.00)	840.00
+Change Status (2 children x 700.00)	1,400.00
+Emirates ID (2 children x 335.00)	670.00
+Visa Stamping (2 children x 500.00)	1,000.00
+Children Total	3,910.00 AED
+
+just same increase this type of fees other other prices will remain same as child 1. 
+
+
+condition-10
+Family New Residency Visa > Dubai > child 0 > Employment Visa > Inside Country 
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	260.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit	1,070.00
+Change Status	670.00
+Medical Fitness (EHS)	300.00
+Emirates ID	385.00
+Visa Stamping	475.00
+Spouse Total (Including Primary application fees)	3,160.00 AED
+Total:
+3,160.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+
+condition-11
+Family New Residency Visa > Dubai > child 0 > Employment Visa > Outside Country 
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	260.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit	400.00
+Medical Fitness (EHS)	300.00
+Emirates ID	385.00
+Visa Stamping	475.00
+Spouse Total (Including Primary application fees)	1,820.00 AED
+Total:
+1,820.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+condition-12
+Family New Residency Visa > Dubai > child 0 > Investor Visa > Inside Country 
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	260.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit (including Deposit)	4,250.00
+Change Status	670.00
+Medical Fitness (EHS)	300.00
+Emirates ID	385.00
+Visa Stamping	475.00
+Spouse Total (Including Primary application fees)	6,340.00 AED
+Total:
+6,340.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+
+condition-12
+Family New Residency Visa > Dubai > child 0 > Investor Visa > Outside Country 
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	260.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit (including Deposit)	3,620.00
+Medical Fitness (EHS)	300.00
+Emirates ID	385.00
+Visa Stamping	475.00
+Spouse Total (Including Primary application fees)	5,040.00 AED
+Total:
+5,040.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+condition-12
+Family New Residency Visa > Dubai > child 1 > Employment Visa > Inside Country 
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	260.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit	1,070.00
+Change Status	670.00
+Medical Fitness (EHS)	300.00
+Emirates ID	385.00
+Visa Stamping	475.00
+Spouse Total (Including Primary application fees)	3,160.00 AED
+Children Fees
+Service	Amount (AED)
+Entry Permit (1 child x 1,070.00)	1,070.00
+Change Status (1 child x 670.00)	670.00
+Emirates ID (1 child x 385.00)	385.00
+Visa Stamping (1 child x 475.00)	475.00
+Children Total	2,600.00 AED
+Total:
+5,760.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+condition-12
+Family New Residency Visa > Dubai > child 1 > Employment Visa > Outside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	260.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit	400.00
+Medical Fitness (EHS)	300.00
+Emirates ID	385.00
+Visa Stamping	475.00
+Spouse Total (Including Primary application fees)	1,820.00 AED
+Children Fees
+Service	Amount (AED)
+Entry Permit (1 child x 400.00)	400.00
+Emirates ID (1 child x 385.00)	385.00
+Visa Stamping (1 child x 475.00)	475.00
+Children Total	1,260.00 AED
+Total:
+3,080.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+condition-13
+Family New Residency Visa > Dubai > child 1 > Investor Visa > Inside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	260.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit (including Deposit)	4,250.00
+Change Status	670.00
+Medical Fitness (EHS)	300.00
+Emirates ID	385.00
+Visa Stamping	475.00
+Spouse Total (Including Primary application fees)	6,340.00 AED
+Children Fees
+Service	Amount (AED)
+Entry Permit (including Deposit) (1 child x 4,250.00)	4,250.00
+Change Status (1 child x 670.00)	670.00
+Emirates ID (1 child x 385.00)	385.00
+Visa Stamping (1 child x 475.00)	475.00
+Children Total	5,780.00 AED
+Total:
+12,120.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+condition-14
+Family New Residency Visa > Dubai > child 1 > Investor Visa > Outside Country
+Primary Applicant Fees
+Service	Amount (AED)
+Sponsor File	260.00
+Spouse Fees
+Service	Amount (AED)
+Entry Permit (including Deposit)	3,620.00
+Medical Fitness (EHS)	300.00
+Emirates ID	385.00
+Visa Stamping	475.00
+Spouse Total (Including Primary application fees)	5,040.00 AED
+Children Fees
+Service	Amount (AED)
+Entry Permit (including Deposit) (1 child x 3,620.00)	3,620.00
+Emirates ID (1 child x 385.00)	385.00
+Visa Stamping (1 child x 475.00)	475.00
+Children Total	4,480.00 AED
+Total:
+9,520.00 AED
+Note:
+
+* VAT & our Service Charges are already included.
+
+* There will be no other hidden charges.
+
+* There will be additional charges from AED 50 to AED 150 that you need to pay at EHS Medical Fitness Centers. The charges depend on the center you visit.
+
+
+if increase the children number then increase their price depents on number of chlidrens 
