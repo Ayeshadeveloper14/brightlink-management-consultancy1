@@ -18,6 +18,12 @@ export const CalculatorPage = () => {
   const [sponsorVisaType, setSponsorVisaType] = useState(previousState.sponsorVisaType || '');
   const [familyLocation, setFamilyLocation] = useState(previousState.familyLocation || '');
 
+  // Golden Visa specific state
+  const [goldenVisaQualification, setGoldenVisaQualification] = useState(previousState.goldenVisaQualification || '');
+  const [medicalType, setMedicalType] = useState(previousState.medicalType || '');
+  const [addingFamily, setAddingFamily] = useState(previousState.addingFamily || '');
+  const [adultsCount, setAdultsCount] = useState(previousState.adultsCount !== undefined ? String(previousState.adultsCount) : '');
+
   // Validation state
   const [validationError, setValidationError] = useState('');
 
@@ -29,6 +35,10 @@ export const CalculatorPage = () => {
       if (location.state.childrenCount !== undefined) setChildrenCount(String(location.state.childrenCount));
       if (location.state.sponsorVisaType) setSponsorVisaType(location.state.sponsorVisaType);
       if (location.state.familyLocation) setFamilyLocation(location.state.familyLocation);
+      if (location.state.goldenVisaQualification) setGoldenVisaQualification(location.state.goldenVisaQualification);
+      if (location.state.medicalType) setMedicalType(location.state.medicalType);
+      if (location.state.addingFamily) setAddingFamily(location.state.addingFamily);
+      if (location.state.adultsCount !== undefined) setAdultsCount(String(location.state.adultsCount));
     }
   }, [location.state]);
 
@@ -42,6 +52,27 @@ export const CalculatorPage = () => {
     'Property Visa',
     'PRO Visa'
   ];
+
+  // Golden Visa options
+  const goldenVisaQualOptions = [
+    'Property Owner',
+    'Company Owner',
+    'Manager / Executive',
+    'Fixed Deposit',
+    'Family of a Golden Visa'
+  ];
+
+  const medicalTestOptions = [
+    'Normal medical',
+    'VIP medical'
+  ];
+
+  const addingFamilyOptions = [
+    'No, just me',
+    'Yes, adding family'
+  ];
+
+  const adultsOptions = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 
   // Field 2 options
   const emirateOptions = [
@@ -70,6 +101,7 @@ export const CalculatorPage = () => {
     e.preventDefault();
 
     // Determine selected service conditions
+    const isGoldenVisa = service === 'Golden Visa';
     const isNewBorn = service === 'New Born in U.A.E';
     const isRenewal = service === 'Family Residency Visa Renewal';
     const isCancellation = service === 'Family Visa Cancellation';
@@ -77,13 +109,29 @@ export const CalculatorPage = () => {
     // Validate that required dropdowns have a selected value
     const missing = [];
     if (!service) missing.push('Select The Service');
-    if (!emirate) missing.push('Select Which Emirates Sponsor Visa Is');
-    if (!isNewBorn && childrenCount === '') missing.push('Number of Children');
-    if (!isNewBorn && !isRenewal && !isCancellation) {
-      if (!sponsorVisaType) missing.push('Sponsor Visa Types');
-    }
-    if (!isNewBorn && !isRenewal) {
-      if (!familyLocation) missing.push('Is Family Outside/Inside UAE');
+
+    if (isGoldenVisa) {
+      if (!goldenVisaQualification) missing.push('How do you qualify for the Golden Visa?');
+      if (!medicalType) missing.push('Choose your medical test');
+      if (goldenVisaQualification !== 'Family of a Golden Visa') {
+        if (!addingFamily) missing.push('Adding family members too?');
+      }
+      const showFamilyCounts =
+        goldenVisaQualification === 'Family of a Golden Visa' ||
+        addingFamily === 'Yes, adding family';
+      if (showFamilyCounts) {
+        if (adultsCount === '') missing.push('Adults');
+        if (childrenCount === '') missing.push('Children');
+      }
+    } else {
+      if (!emirate) missing.push('Select Which Emirates Sponsor Visa Is');
+      if (!isNewBorn && childrenCount === '') missing.push('Number of Children');
+      if (!isNewBorn && !isRenewal && !isCancellation) {
+        if (!sponsorVisaType) missing.push('Sponsor Visa Types');
+      }
+      if (!isNewBorn && !isRenewal) {
+        if (!familyLocation) missing.push('Is Family Outside/Inside UAE');
+      }
     }
 
     if (missing.length > 0) {
@@ -94,13 +142,22 @@ export const CalculatorPage = () => {
     setValidationError('');
 
     // Package the user's selected calculator values
-    const calculatorPayload = {
-      service,
-      emirate,
-      childrenCount: isNewBorn ? '0' : childrenCount,
-      sponsorVisaType: (isNewBorn || isRenewal || isCancellation) ? '' : sponsorVisaType,
-      familyLocation: (isNewBorn || isRenewal) ? '' : familyLocation
-    };
+    const calculatorPayload = isGoldenVisa
+      ? {
+          service,
+          goldenVisaQualification,
+          medicalType,
+          addingFamily: goldenVisaQualification === 'Family of a Golden Visa' ? 'Yes, adding family' : addingFamily,
+          adultsCount: (goldenVisaQualification === 'Family of a Golden Visa' || addingFamily === 'Yes, adding family') ? adultsCount : '0',
+          childrenCount: (goldenVisaQualification === 'Family of a Golden Visa' || addingFamily === 'Yes, adding family') ? childrenCount : '0'
+        }
+      : {
+          service,
+          emirate,
+          childrenCount: isNewBorn ? '0' : childrenCount,
+          sponsorVisaType: (isNewBorn || isRenewal || isCancellation) ? '' : sponsorVisaType,
+          familyLocation: (isNewBorn || isRenewal) ? '' : familyLocation
+        };
 
     // Store in sessionStorage to preserve on direct refresh
     try {
@@ -122,6 +179,10 @@ export const CalculatorPage = () => {
     setChildrenCount('');
     setSponsorVisaType('');
     setFamilyLocation('');
+    setGoldenVisaQualification('');
+    setMedicalType('');
+    setAddingFamily('');
+    setAdultsCount('');
     setValidationError('');
     try {
       sessionStorage.removeItem('calculator_selected_values');
@@ -160,19 +221,40 @@ export const CalculatorPage = () => {
                 onChange={(e) => {
                   const val = e.target.value;
                   setService(val);
-                  if (val === 'New Born in U.A.E') {
+                  if (val === 'Golden Visa') {
+                    setEmirate('');
+                    setSponsorVisaType('');
+                    setFamilyLocation('');
+                    setChildrenCount('');
+                  } else if (val === 'New Born in U.A.E') {
                     setChildrenCount('');
                     setSponsorVisaType('');
                     setFamilyLocation('');
+                    setGoldenVisaQualification('');
+                    setMedicalType('');
+                    setAddingFamily('');
+                    setAdultsCount('');
                   } else if (val === 'Family Residency Visa Renewal') {
                     setSponsorVisaType('');
                     setFamilyLocation('');
+                    setGoldenVisaQualification('');
+                    setMedicalType('');
+                    setAddingFamily('');
+                    setAdultsCount('');
                   } else if (val === 'Family Visa Cancellation') {
                     setSponsorVisaType('');
                     setFamilyLocation('');
+                    setGoldenVisaQualification('');
+                    setMedicalType('');
+                    setAddingFamily('');
+                    setAdultsCount('');
                   } else {
                     setSponsorVisaType('');
                     setFamilyLocation('');
+                    setGoldenVisaQualification('');
+                    setMedicalType('');
+                    setAddingFamily('');
+                    setAdultsCount('');
                   }
                   if (validationError) setValidationError('');
                 }}
@@ -187,114 +269,269 @@ export const CalculatorPage = () => {
               </select>
             </div>
 
-            {/* Field 2: Select Which Emirates Sponsor Visa Is */}
-            <div>
-              <label
-                htmlFor="select-emirate"
-                className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
-              >
-                {tItem('Select Which Emirates Sponsor Visa Is')} <span className="text-red-500">*</span>
-              </label>
-              <select
-                id="select-emirate"
-                value={emirate}
-                onChange={(e) => {
-                  setEmirate(e.target.value);
-                  if (validationError) setValidationError('');
-                }}
-                className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
-              >
-                <option value="">{tItem('-- Select Emirate --')}</option>
-                {emirateOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {tItem(opt)}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {/* ========================================================= */}
+            {/* Golden Visa Dynamic Inputs */}
+            {/* ========================================================= */}
+            {service === 'Golden Visa' ? (
+              <>
+                {/* Golden Visa Input 2: How do you qualify for the Golden Visa? */}
+                <div>
+                  <label
+                    htmlFor="select-qualification"
+                    className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                  >
+                    {tItem('How do you qualify for the Golden Visa?')} <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="select-qualification"
+                    value={goldenVisaQualification}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setGoldenVisaQualification(val);
+                      if (val === 'Family of a Golden Visa') {
+                        setAddingFamily('Yes, adding family');
+                      }
+                      if (validationError) setValidationError('');
+                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                  >
+                    <option value="">{tItem('-- Select Qualification --')}</option>
+                    {goldenVisaQualOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {tItem(opt)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-            {/* Field 3: Number of Children (omitted for New Born in U.A.E) */}
-            {service !== 'New Born in U.A.E' && (
-              <div>
-                <label
-                  htmlFor="select-children"
-                  className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
-                >
-                  {tItem('Number of Children')} <span className="text-red-500">*</span>
-                </label>
-                <select
-                  id="select-children"
-                  value={childrenCount}
-                  onChange={(e) => {
-                    setChildrenCount(e.target.value);
-                    if (validationError) setValidationError('');
-                  }}
-                  className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
-                >
-                  <option value="">{tItem('-- Select Number of Children --')}</option>
-                  {childrenOptions.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+                {/* Golden Visa Input 3: Choose your medical test */}
+                <div>
+                  <label
+                    htmlFor="select-medical"
+                    className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                  >
+                    {tItem('Choose your medical test')} <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="select-medical"
+                    value={medicalType}
+                    onChange={(e) => {
+                      setMedicalType(e.target.value);
+                      if (validationError) setValidationError('');
+                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                  >
+                    <option value="">{tItem('-- Select Medical Test --')}</option>
+                    {medicalTestOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {tItem(opt)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-            {/* Field 4: Sponsor Visa Types (omitted for Renewal, New Born, and Cancellation) */}
-            {service !== 'Family Residency Visa Renewal' && service !== 'New Born in U.A.E' && service !== 'Family Visa Cancellation' && (
-              <div>
-                <label
-                  htmlFor="select-sponsor"
-                  className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
-                >
-                  {tItem('Sponsor Visa Types')} <span className="text-red-500">*</span>
-                </label>
-                <select
-                  id="select-sponsor"
-                  value={sponsorVisaType}
-                  onChange={(e) => {
-                    setSponsorVisaType(e.target.value);
-                    if (validationError) setValidationError('');
-                  }}
-                  className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
-                >
-                  <option value="">{tItem('-- Select Sponsor Visa Type --')}</option>
-                  {sponsorOptions.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {tItem(opt)}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+                {/* Golden Visa Input 4: Adding family members too? (Hidden for Family of a Golden Visa) */}
+                {goldenVisaQualification !== 'Family of a Golden Visa' && (
+                  <div>
+                    <label
+                      htmlFor="select-adding-family"
+                      className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                    >
+                      {tItem('Adding family members too?')} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="select-adding-family"
+                      value={addingFamily}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setAddingFamily(val);
+                        if (val === 'No, just me') {
+                          setAdultsCount('0');
+                          setChildrenCount('0');
+                        }
+                        if (validationError) setValidationError('');
+                      }}
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                    >
+                      <option value="">{tItem('-- Select Option --')}</option>
+                      {addingFamilyOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {tItem(opt)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
 
-            {/* Field 5: Is Family Outside/Inside UAE (omitted for Renewal and New Born) */}
-            {service !== 'Family Residency Visa Renewal' && service !== 'New Born in U.A.E' && (
-              <div>
-                <label
-                  htmlFor="select-location"
-                  className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
-                >
-                  {tItem('Is Family Outside/Inside UAE')} <span className="text-red-500">*</span>
-                </label>
-                <select
-                  id="select-location"
-                  value={familyLocation}
-                  onChange={(e) => {
-                    setFamilyLocation(e.target.value);
-                    if (validationError) setValidationError('');
-                  }}
-                  className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
-                >
-                  <option value="">{tItem('-- Select Family Location --')}</option>
-                  {locationOptions.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {tItem(opt)}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                {/* Dependent Inputs: Adults & Children */}
+                {(goldenVisaQualification === 'Family of a Golden Visa' || addingFamily === 'Yes, adding family') && (
+                  <>
+                    {/* Adults dropdown */}
+                    <div>
+                      <label
+                        htmlFor="select-adults"
+                        className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                      >
+                        {tItem('Adults')} <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="select-adults"
+                        value={adultsCount}
+                        onChange={(e) => {
+                          setAdultsCount(e.target.value);
+                          if (validationError) setValidationError('');
+                        }}
+                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                      >
+                        <option value="">{tItem('-- Select Adults --')}</option>
+                        {adultsOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Children dropdown */}
+                    <div>
+                      <label
+                        htmlFor="select-golden-children"
+                        className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                      >
+                        {tItem('Children')} <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="select-golden-children"
+                        value={childrenCount}
+                        onChange={(e) => {
+                          setChildrenCount(e.target.value);
+                          if (validationError) setValidationError('');
+                        }}
+                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                      >
+                        <option value="">{tItem('-- Select Children --')}</option>
+                        {childrenOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                {/* Field 2: Select Which Emirates Sponsor Visa Is */}
+                <div>
+                  <label
+                    htmlFor="select-emirate"
+                    className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                  >
+                    {tItem('Select Which Emirates Sponsor Visa Is')} <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="select-emirate"
+                    value={emirate}
+                    onChange={(e) => {
+                      setEmirate(e.target.value);
+                      if (validationError) setValidationError('');
+                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                  >
+                    <option value="">{tItem('-- Select Emirate --')}</option>
+                    {emirateOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {tItem(opt)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Field 3: Number of Children (omitted for New Born in U.A.E) */}
+                {service !== 'New Born in U.A.E' && (
+                  <div>
+                    <label
+                      htmlFor="select-children"
+                      className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                    >
+                      {tItem('Number of Children')} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="select-children"
+                      value={childrenCount}
+                      onChange={(e) => {
+                        setChildrenCount(e.target.value);
+                        if (validationError) setValidationError('');
+                      }}
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                    >
+                      <option value="">{tItem('-- Select Number of Children --')}</option>
+                      {childrenOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+
+                {/* Field 4: Sponsor Visa Types (omitted for Renewal, New Born, and Cancellation) */}
+                {service !== 'Family Residency Visa Renewal' && service !== 'New Born in U.A.E' && service !== 'Family Visa Cancellation' && (
+                  <div>
+                    <label
+                      htmlFor="select-sponsor"
+                      className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                    >
+                      {tItem('Sponsor Visa Types')} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="select-sponsor"
+                      value={sponsorVisaType}
+                      onChange={(e) => {
+                        setSponsorVisaType(e.target.value);
+                        if (validationError) setValidationError('');
+                      }}
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                    >
+                      <option value="">{tItem('-- Select Sponsor Visa Type --')}</option>
+                      {sponsorOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {tItem(opt)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+
+                {/* Field 5: Is Family Outside/Inside UAE (omitted for Renewal and New Born) */}
+                {service !== 'Family Residency Visa Renewal' && service !== 'New Born in U.A.E' && (
+                  <div>
+                    <label
+                      htmlFor="select-location"
+                      className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                    >
+                      {tItem('Is Family Outside/Inside UAE')} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="select-location"
+                      value={familyLocation}
+                      onChange={(e) => {
+                        setFamilyLocation(e.target.value);
+                        if (validationError) setValidationError('');
+                      }}
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                    >
+                      <option value="">{tItem('-- Select Family Location --')}</option>
+                      {locationOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {tItem(opt)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+              </>
             )}
 
             {/* 4. One short informational message */}
