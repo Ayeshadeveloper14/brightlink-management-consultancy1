@@ -7,7 +7,6 @@ import { Timeline } from '../components/newborn-visa/Timeline.jsx';
 import { ProcessPhases } from '../components/newborn-visa/ProcessPhases.jsx';
 import { Documents } from '../components/newborn-visa/Documents.jsx';
 import { CostCalculator } from '../components/newborn-visa/CostCalculator.jsx';
-import { Reviews } from '../components/newborn-visa/Reviews.jsx';
 import { AuthorSection } from '../components/newborn-visa/AuthorSection.jsx';
 import { Articles } from '../components/newborn-visa/Articles.jsx';
 import { FAQ } from '../components/newborn-visa/FAQ.jsx';
@@ -67,9 +66,6 @@ export const NewbornVisa = ({ onOpenCalculator, onOpenConsultation }) => {
 
       {/* 7. Section 4 — Know the Cost / Live Calculator */}
       <CostCalculator />
-
-      {/* 8. Section 5 — Real Parents, Real Stories Reviews */}
-      <Reviews />
 
       {/* 9. Author Credibility Section */}
       <AuthorSection />

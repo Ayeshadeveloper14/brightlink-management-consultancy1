@@ -74,31 +74,45 @@ export const TestimonialSection = () => {
 
                 {/* Review Text with Medium Length */}
                 <p className="text-xs sm:text-sm text-[#444444] leading-relaxed">
-                  "{t(`testimonial_${item.id}_review`, item.review)}"
+                  "{item.review}"
                 </p>
               </div>
 
               {/* Client Profile Info */}
               <div className="pt-4 mt-3 border-t border-neutral-100 flex items-center gap-3">
                 <div className="relative shrink-0">
-                  <img
-                    src={item.avatar}
-                    alt={t(`testimonial_${item.id}_name`, tItem(item.name))}
-                    className="w-11 h-11 rounded-full object-cover ring-2 ring-[#B8864B]/30 group-hover:ring-[#B8864B] group-hover:scale-105 transition-all duration-300"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {item.avatar ? (
+                    <img
+                      src={item.avatar}
+                      alt={item.name}
+                      className="w-11 h-11 rounded-full object-cover ring-2 ring-[#B8864B]/30 group-hover:ring-[#B8864B] group-hover:scale-105 transition-all duration-300"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div
+                      className={`w-11 h-11 rounded-full text-white font-bold flex items-center justify-center text-sm shadow-xs ring-2 ring-[#B8864B]/30 group-hover:ring-[#B8864B] group-hover:scale-105 transition-all duration-300 ${
+                        item.avatarBg || 'bg-[#B8864B]'
+                      }`}
+                    >
+                      {item.initials || item.name.charAt(0)}
+                    </div>
+                  )}
                 </div>
-                <div className="space-y-0.5 truncate min-w-0">
-                  <h4 className="text-sm font-bold text-[#222222] group-hover:text-[#B8864B] transition-colors truncate">
-                    {t(`testimonial_${item.id}_name`, tItem(item.name))}
-                  </h4>
+                <div className="space-y-0.5 truncate min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <h4 className="text-sm font-bold text-[#222222] group-hover:text-[#B8864B] transition-colors truncate">
+                      {item.name}
+                    </h4>
+                    {item.isNew && (
+                      <span className="shrink-0 text-[10px] font-bold text-[#B8864B] bg-[#FAF5EC] px-1.5 py-0.5 rounded border border-[#E8DFD5] uppercase tracking-wide">
+                        New
+                      </span>
+                    )}
+                  </div>
                   <p className="text-xs text-[#666666] truncate">
-                    {t(`testimonial_${item.id}_role`, tItem(item.role))} · <span className="font-medium text-[#222222]">{t(`testimonial_${item.id}_country`, tItem(item.country))}</span>
+                    {item.reviewsCount} · <span className="font-medium text-[#444444]">{item.date}</span>
                   </p>
-                  <span className="inline-block text-[10px] font-bold text-[#8C6230] uppercase tracking-wide">
-                    {t(`testimonial_${item.id}_service`, tItem(item.service))}
-                  </span>
                 </div>
               </div>
             </motion.div>

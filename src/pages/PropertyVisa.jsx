@@ -4,7 +4,6 @@ import { VisaRouteCards } from '../components/property-visa/VisaRouteCards.jsx';
 import { PropertyVisaCalculator } from '../components/property-visa/PropertyVisaCalculator.jsx';
 import { OnlineProcess } from '../components/property-visa/OnlineProcess.jsx';
 import { TrustSection } from '../components/property-visa/TrustSection.jsx';
-import { Reviews } from '../components/property-visa/Reviews.jsx';
 import { LatestUpdates } from '../components/property-visa/LatestUpdates.jsx';
 import { FAQ } from '../components/property-visa/FAQ.jsx';
 import { FinalCTA } from '../components/property-visa/FinalCTA.jsx';
@@ -57,9 +56,6 @@ export const PropertyVisa = ({ onOpenCalculator, onOpenConsultation }) => {
 
       {/* 4. Company Trust Section & Founder Credibility Card */}
       <TrustSection />
-
-      {/* 5. Google Reviews Section (Rendered Once, No Duplicates) */}
-      <Reviews />
 
       {/* 6. Latest Property Visa Updates */}
       <LatestUpdates />

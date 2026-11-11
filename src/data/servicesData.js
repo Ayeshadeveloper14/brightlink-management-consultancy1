@@ -640,51 +640,45 @@ export const FAQ_DATA = [
 export const TESTIMONIALS_DATA = [
   {
     id: '1',
-    name: 'Rajesh & Priya Sharma',
-    role: 'Tech Director & Family',
-    country: 'India',
-    location: 'Dubai Marina',
-    service: 'Golden Visa (Real Estate)',
+    name: 'Muhammad',
+    reviewsCount: '2 reviews',
+    date: '5 months ago',
     rating: 5,
-    date: 'September 2026',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&h=160&q=80',
-    review: 'Brightlink handled our family Golden Visa seamlessly. From title deed verification to VIP medical, our Emirates IDs arrived in 4 days!'
+    initials: 'M',
+    avatarBg: 'bg-[#1A73E8]',
+    review: 'Great experience working with Brightlink Team for my Golden Visa. They were professional, responsive, and handled the entire process smoothly. Got the visa within 2 days. Highly recommended for anyone looking for fast and smooth golden visa process handling.'
   },
   {
     id: '2',
-    name: 'Marcus Vance',
-    role: 'Managing Partner, Apex Capital',
-    country: 'United Kingdom',
-    location: 'DIFC, Dubai',
-    service: 'Business & Partner Visa',
+    name: 'Hakan TEKERCIOGLU',
+    reviewsCount: '1 review',
+    date: '3 months ago',
     rating: 5,
-    date: 'August 2026',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&h=160&q=80',
-    review: 'Fast investor visas and establishment cards for our 6 executives. Complete transparency, zero delays, and truly corporate-grade service.'
+    initials: 'H',
+    avatarBg: 'bg-[#E37400]',
+    review: "Our family's Golden Visa application process was completed smoothly, on time, and at reasonable prices. I would definitely recommend this service to anyone who needs it."
   },
   {
     id: '3',
-    name: 'Fatima Al-Mansoor',
-    role: 'Architectural Consultant',
-    country: 'Lebanon',
-    location: 'Business Bay, Dubai',
-    service: 'Family Sponsorship Visa',
+    name: 'Muhammad Khalil',
+    reviewsCount: '1 review',
+    date: 'a week ago',
+    isNew: true,
     rating: 5,
-    date: 'July 2026',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&h=160&q=80',
-    review: 'Exceptional support for my family residency and document attestation. Clear communication and stress-free approval from day one.'
+    initials: 'M',
+    avatarBg: 'bg-[#188038]',
+    review: 'Excellent experience with Brightlink Management Consultancy LLC. Professional team, smooth communication, transparent process, and outstanding credibility. Highly recommended for their efficiency, honesty, and excellent customer service!'
   },
   {
     id: '4',
-    name: 'Alexander Lindqvist',
-    role: 'Founder, Nordic Creative',
-    country: 'Sweden',
-    location: 'Downtown Dubai',
-    service: 'Business Setup & Residence',
+    name: 'Mary A',
+    reviewsCount: '1 review',
+    date: '3 weeks ago',
+    isNew: true,
     rating: 5,
-    date: 'September 2026',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=80',
-    review: 'Handled trade license approvals, MOA drafting, and my investor visa effortlessly. Transparent costs and swift turnaround.'
+    initials: 'M',
+    avatarBg: 'bg-[#A142F4]',
+    review: 'Brightlink assisted with my Golden Visa - the service was prompt and professional, everything was done on time and with great communication every step of the way. Would recommend the team. The service is also competitively priced.'
   }
 ];
 

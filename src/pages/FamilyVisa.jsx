@@ -7,7 +7,6 @@ import { HowItWorks } from '../components/family-visa/HowItWorks.jsx';
 import { Documents } from '../components/family-visa/Documents.jsx';
 import { GovernmentFees } from '../components/family-visa/GovernmentFees.jsx';
 import { GoodToKnow } from '../components/family-visa/GoodToKnow.jsx';
-import { Reviews } from '../components/family-visa/Reviews.jsx';
 import { FAQ } from '../components/family-visa/FAQ.jsx';
 import { RelatedServices } from '../components/family-visa/RelatedServices.jsx';
 import { FinalCTA } from '../components/family-visa/FinalCTA.jsx';
@@ -63,9 +62,6 @@ export const FamilyVisa = ({ onOpenConsultation, onOpenCalculator }) => {
 
       {/* 8. Section 05 — Good To Know */}
       <GoodToKnow />
-
-      {/* 9. Section 06 — Reviews */}
-      <Reviews />
 
       {/* 10. Section 07 — FAQ */}
       <FAQ />
