@@ -16,7 +16,7 @@ export const Reviews = () => {
       initials: 'AK',
       author: 'Aisha K.',
       routeInfo: 'Property visa · May 2026',
-      text: 'I used the property visa calculator first to compare typing centres — FamilyVisa.ae was the most honest about government fee vs service charge. Refreshing.'
+      text: 'I used the property visa calculator first to compare typing centres — Brightlink was the most honest about government fee vs service charge. Refreshing.'
     },
     {
       initials: 'RP',

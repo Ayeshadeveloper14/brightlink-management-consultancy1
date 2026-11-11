@@ -162,7 +162,7 @@ export const FamilyDocumentsSection = ({ onOpenConsultation }) => {
             </ol>
             <div className="pt-2">
               <span className="text-xs font-semibold text-[#8C6230] block">
-                Don’t have attestation stamps yet? FamilyVisa.ae handles end-to-end global certificate attestation directly.
+                Don’t have attestation stamps yet? Brightlink handles end-to-end global certificate attestation directly.
               </span>
             </div>
           </motion.div>

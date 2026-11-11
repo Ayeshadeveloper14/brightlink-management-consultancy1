@@ -7,7 +7,7 @@ export const ProductFinalCta = ({ onOpenConsultation }) => {
 
   const openWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello FamilyVisa.ae / Brightlink! I would like to register products with Dubai Municipality Montaji. Please assist me with the document checklist and pricing.'
+      'Hello Brightlink / Brightlink! I would like to register products with Dubai Municipality Montaji. Please assist me with the document checklist and pricing.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

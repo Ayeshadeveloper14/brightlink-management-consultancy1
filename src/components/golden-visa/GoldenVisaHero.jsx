@@ -28,7 +28,12 @@ export const GoldenVisaHero = ({ onOpenConsultation }) => {
   };
 
   const handleConsultation = () => {
-    navigate('/calculator');
+    const el = document.getElementById('golden-visa-calculator');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/calculator');
+    }
   };
 
   const scrollToEligibility = () => {

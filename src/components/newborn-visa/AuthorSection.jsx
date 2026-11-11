@@ -28,13 +28,13 @@ export const AuthorSection = () => {
             <div className="space-y-3">
               <div>
                 <span className="text-xs font-bold text-[#8C6230] uppercase tracking-wider block font-heading">
-                  Razeeb Abdulla, CEO of FamilyVisa.ae
+                  Razeeb Abdulla, CEO of Brightlink
                 </span>
                 <h4 className="text-lg font-bold text-[#0F172A] font-heading">
                   Written by Razeeb Abdulla
                 </h4>
                 <p className="text-xs text-[#64748B] font-medium font-heading">
-                  CEO · FamilyVisa.ae · Brightlink Typing LLC SOC
+                  CEO · Brightlink · Brightlink Typing LLC SOC
                 </p>
               </div>
 

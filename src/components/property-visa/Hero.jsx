@@ -31,14 +31,23 @@ export const Hero = ({ onOpenCalculator, onOpenConsultation }) => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello Brightlink Typing / Brightlink! I own property in Dubai and would like to apply for a Property Visa (Golden / Investor / Retirement). Please guide me.'
+      'Hello 800 DOCS / Brightlink! I own property in Dubai and would like to apply for a Property Visa (Golden / Investor / Retirement). Please guide me.'
     );
-    window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/971566556645?text=${text}`, '_blank');
   };
 
   const scrollToCards = () => {
     const el = document.getElementById('visa-routes');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToCalculator = () => {
+    const el = document.getElementById('property-visa-calculator');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else if (onOpenCalculator) {
+      onOpenCalculator();
+    }
   };
 
   return (
@@ -134,6 +143,16 @@ export const Hero = ({ onOpenCalculator, onOpenConsultation }) => {
               >
                 <span>Select Your Property Visa Route</span>
                 <ArrowRight className="w-4 h-4" />
+              </motion.button>
+
+              <motion.button
+                type="button"
+                whileHover={shouldReduceMotion ? {} : { y: -1.5 }}
+                onClick={scrollToCalculator}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-xs text-[#0F172A] bg-white border border-[#DECBB5] hover:border-[#B8864B] hover:text-[#B8864B] transition-all cursor-pointer shadow-xs"
+              >
+                <Calculator className="w-4 h-4 text-[#B8864B]" />
+                <span>Fee Calculator</span>
               </motion.button>
 
               <motion.button

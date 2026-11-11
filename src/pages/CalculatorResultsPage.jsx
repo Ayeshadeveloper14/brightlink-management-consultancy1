@@ -649,6 +649,140 @@ export const calculateGoldenVisaFees = (
 };
 
 /**
+ * Pricing Configuration 6: Property Visa Fee
+ * 
+ * Rules:
+ * 1. Applicable Service: "Property Visa" only.
+ * 2. Types:
+ *    - 10-Year Golden Visa:
+ *        Base items:
+ *          - DLD & Admin Fees: 5,284 AED
+ *          - Immigration & Visa: 2,710 AED
+ *          - Emirates ID – 10 Years: 1,154 AED
+ *        Medical test:
+ *          - Normal: 273 AED -> Sponsor Total = 9,421 AED
+ *          - VIP: 703 AED -> Sponsor Total = 9,851 AED
+ *    - 5-Year Retirement Visa:
+ *        Base items:
+ *          - DLD & Admin Fees: 3,124 AED
+ *          - Immigration Fees: 2,260 AED
+ *          - Emirates ID – 5 Years: 654 AED
+ *        Medical test:
+ *          - Normal: 273 AED -> Sponsor Total = 6,311 AED
+ *          - VIP: 703 AED -> Sponsor Total = 6,741 AED
+ *    - 2-Year Investor Visa:
+ *        Base items:
+ *          - PCC: 220 AED
+ *          - DLD Block & Recommendation: 2,020 AED
+ *          - DLD Trade License: 4,041 AED
+ *          - Establishment Card: 575 AED
+ *          - Entry Permit: 1,126 AED
+ *          - Change Status: 675 AED
+ *          - Visa Stamping: 550 AED
+ *          - Emirates ID – 2 Years: 354 AED
+ *        Medical test:
+ *          - Normal: 273 AED -> Sponsor Total = 9,834 AED
+ *          - VIP: 703 AED -> Sponsor Total = 10,264 AED
+ * 3. Medical test pricing & Family member additional pricing:
+ *    - Reuses identical pricing and logic as Golden Visa.
+ *    - Normal Medical: 273 AED, VIP Medical: 703 AED.
+ *    - Adults: 4,137 AED each (Immigration & Visa: 2,710, Medical Normal: 273, Emirates ID – 10 Years: 1,154).
+ *    - Children: 3,864 AED each (Immigration & Visa: 2,710, Emirates ID – 10 Years: 1,154).
+ * 4. Grand Total:
+ *    - Sponsor Total + Adult Total + Child Total
+ */
+export const calculatePropertyVisaFees = (
+  propertyVisaType,
+  medicalType,
+  addingFamily,
+  adultsCount,
+  childrenCount
+) => {
+  const visaType = (propertyVisaType || '').trim();
+  const med = (medicalType || '').trim();
+  const adults = parseInt(adultsCount || '0', 10) || 0;
+  const children = parseInt(childrenCount || '0', 10) || 0;
+  const hasFamily = addingFamily === 'Yes, adding family';
+
+  const isVip = med.toLowerCase().includes('vip');
+  const medicalPrice = isVip ? 703 : 273;
+  const medicalName = isVip ? 'Medical VIP' : 'Medical Normal';
+
+  let sponsorBreakdown = [];
+  let sponsorTotal = 0;
+
+  if (visaType === '10-Year Golden Visa') {
+    sponsorBreakdown = [
+      { key: 'dld', name: 'DLD & Admin Fees', price: 5284 },
+      { key: 'immigration', name: 'Immigration & Visa', price: 2710 },
+      { key: 'emiratesId', name: 'Emirates ID – 10 Years', price: 1154 },
+      { key: 'medical', name: medicalName, price: medicalPrice },
+    ];
+    sponsorTotal = 5284 + 2710 + 1154 + medicalPrice;
+  } else if (visaType === '5-Year Retirement Visa') {
+    sponsorBreakdown = [
+      { key: 'dld', name: 'DLD & Admin Fees', price: 3124 },
+      { key: 'immigrationFees', name: 'Immigration Fees', price: 2260 },
+      { key: 'emiratesId5', name: 'Emirates ID – 5 Years', price: 654 },
+      { key: 'medical', name: medicalName, price: medicalPrice },
+    ];
+    sponsorTotal = 3124 + 2260 + 654 + medicalPrice;
+  } else if (visaType === '2-Year Investor Visa') {
+    sponsorBreakdown = [
+      { key: 'pcc', name: 'PCC', price: 220 },
+      { key: 'dldBlock', name: 'DLD Block & Recommendation', price: 2020 },
+      { key: 'dldLicense', name: 'DLD Trade License', price: 4041 },
+      { key: 'establishmentCard', name: 'Establishment Card', price: 575 },
+      { key: 'entryPermit', name: 'Entry Permit', price: 1126 },
+      { key: 'changeStatus', name: 'Change Status', price: 675 },
+      { key: 'visaStamping', name: 'Visa Stamping', price: 550 },
+      { key: 'emiratesId2', name: 'Emirates ID – 2 Years', price: 354 },
+      { key: 'medical', name: medicalName, price: medicalPrice },
+    ];
+    sponsorTotal = 220 + 2020 + 4041 + 575 + 1126 + 675 + 550 + 354 + medicalPrice;
+  }
+
+  // Adult Breakdown (identical to Golden Visa)
+  let adultBreakdown = [];
+  let adultTotal = 0;
+  if (hasFamily && adults > 0) {
+    adultBreakdown = [
+      { key: 'immigration', name: 'Immigration & Visa', unitPrice: 2710, count: adults, total: adults * 2710 },
+      { key: 'medical', name: 'Medical Normal', unitPrice: 273, count: adults, total: adults * 273 },
+      { key: 'emiratesId', name: 'Emirates ID – 10 Years', unitPrice: 1154, count: adults, total: adults * 1154 },
+    ];
+    adultTotal = adults * 4137;
+  }
+
+  // Child Breakdown (identical to Golden Visa)
+  let childBreakdown = [];
+  let childTotal = 0;
+  if (hasFamily && children > 0) {
+    childBreakdown = [
+      { key: 'immigration', name: 'Immigration & Visa', unitPrice: 2710, count: children, total: children * 2710 },
+      { key: 'emiratesId', name: 'Emirates ID – 10 Years', unitPrice: 1154, count: children, total: children * 1154 },
+    ];
+    childTotal = children * 3864;
+  }
+
+  const grandTotal = sponsorTotal + adultTotal + childTotal;
+
+  return {
+    propertyVisaType: visaType,
+    medicalType: med,
+    sponsorBreakdown,
+    sponsorTotal,
+    adultBreakdown,
+    adultTotal,
+    adultsCount: adults,
+    childBreakdown,
+    childTotal,
+    childrenCount: children,
+    grandTotal,
+  };
+};
+
+/**
  * Structural placeholders for upcoming pricing rules in subsequent tasks.
  */
 export const INITIAL_PRICING_CONFIG = {
@@ -684,6 +818,17 @@ export const CalculatorResultsPage = () => {
     familyLocation: 'Inside Country',
   };
 
+  const isPropertyVisaService = selectedValues.service === 'Property Visa';
+  const propertyVisaFees = isPropertyVisaService
+    ? calculatePropertyVisaFees(
+        selectedValues.propertyVisaType,
+        selectedValues.medicalType,
+        selectedValues.addingFamily,
+        selectedValues.adultsCount,
+        selectedValues.childrenCount
+      )
+    : null;
+
   const isGoldenVisaService = selectedValues.service === 'Golden Visa';
   const goldenVisaFees = isGoldenVisaService
     ? calculateGoldenVisaFees(
@@ -696,13 +841,13 @@ export const CalculatorResultsPage = () => {
     : null;
 
   // Dynamic calculation for Sponsor File Fee (Pricing Configuration 1)
-  const sponsorFileFee = !isGoldenVisaService
+  const sponsorFileFee = (!isGoldenVisaService && !isPropertyVisaService)
     ? calculateSponsorFileFee(selectedValues.service, selectedValues.emirate)
     : null;
   const showSponsorFile = sponsorFileFee !== null;
 
   // Dynamic calculation for Spouse Fees (Fixed, independent of children count)
-  const spouseFees = !isGoldenVisaService
+  const spouseFees = (!isGoldenVisaService && !isPropertyVisaService)
     ? calculateSpouseFees(
         selectedValues.service,
         selectedValues.emirate,
@@ -712,7 +857,7 @@ export const CalculatorResultsPage = () => {
     : { items: [], spouseSubtotal: null, spouseTotal: null };
 
   // Dynamic calculation for Children Fees (Pricing Configuration 2)
-  const childrenFees = !isGoldenVisaService
+  const childrenFees = (!isGoldenVisaService && !isPropertyVisaService)
     ? calculateChildrenFees(
         selectedValues.service,
         selectedValues.emirate,
@@ -721,7 +866,7 @@ export const CalculatorResultsPage = () => {
         selectedValues.childrenCount
       )
     : { items: [], total: 0 };
-  const showChildrenFees = !isGoldenVisaService && childrenFees.items.length > 0;
+  const showChildrenFees = (!isGoldenVisaService && !isPropertyVisaService) && childrenFees.items.length > 0;
 
   // Dynamic calculation for New Born Baby Fee (Pricing Configuration 3)
   const isNewBornService = selectedValues.service === 'New Born in U.A.E';
@@ -736,7 +881,9 @@ export const CalculatorResultsPage = () => {
   const childrenTotal = childrenFees.total || 0;
   
   const hasCalculatedFees = sponsorFileFee !== null || childrenTotal > 0 || spouseStandalone > 0;
-  const grandTotal = isGoldenVisaService
+  const grandTotal = isPropertyVisaService
+    ? (propertyVisaFees ? propertyVisaFees.grandTotal : 0)
+    : isGoldenVisaService
     ? (goldenVisaFees ? goldenVisaFees.grandTotal : 0)
     : isNewBornService
     ? newBornBabyFee
@@ -775,6 +922,161 @@ export const CalculatorResultsPage = () => {
       {/* Container is ~2x wider than calculator form (max-w-4xl / max-w-5xl vs max-w-2xl) */}
       <div className="max-w-4xl mx-auto bg-white border border-[#E8DFD5] rounded-2xl shadow-sm p-6 sm:p-10 md:p-12">
         
+        {/* =========================================================================
+            Section 0: Property Visa Fees (Applicable exclusively to Property Visa)
+            ========================================================================= */}
+        {isPropertyVisaService && propertyVisaFees && (
+          <>
+            {/* Primary Property Visa Breakdown table */}
+            <div className="mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
+                {tItem('Property Visa Fees')}
+              </h2>
+
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse border border-neutral-300 text-xs sm:text-sm">
+                  <colgroup>
+                    <col style={{ width: '75%' }} />
+                    <col style={{ width: '25%' }} />
+                  </colgroup>
+                  <thead>
+                    <tr className="border-b border-neutral-300 bg-neutral-50/70">
+                      <th className="py-2.5 px-4 text-left font-bold text-[#222222] border-r border-neutral-300">
+                        {tItem('What you pay for')}
+                      </th>
+                      <th className="py-2.5 px-4 text-left font-bold text-[#222222]">
+                        {tItem('Total Government Fees')}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {propertyVisaFees.sponsorBreakdown.map((item) => (
+                      <tr key={item.key} className="border-b border-neutral-300">
+                        <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                          {tItem(item.name)}
+                        </td>
+                        <td className="py-2.5 px-4 text-neutral-800">
+                          {`${formatAmount(item.price)} AED`}
+                        </td>
+                      </tr>
+                    ))}
+                    <tr className="border-b border-neutral-300 bg-neutral-50/50">
+                      <td className="py-2.5 px-4 font-bold text-[#222222] border-r border-neutral-300">
+                        {tItem('Sponsor Total')}
+                      </td>
+                      <td className="py-2.5 px-4 font-bold text-[#222222]">
+                        {`${formatAmount(propertyVisaFees.sponsorTotal)} AED`}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Adult Breakdown table (Rendered only if Adults > 0) */}
+            {propertyVisaFees.adultBreakdown.length > 0 && (
+              <div className="mb-8">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
+                  {tItem('Adult Fees')}
+                </h2>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-neutral-300 text-xs sm:text-sm">
+                    <colgroup>
+                      <col style={{ width: '75%' }} />
+                      <col style={{ width: '25%' }} />
+                    </colgroup>
+                    <thead>
+                      <tr className="border-b border-neutral-300 bg-neutral-50/70">
+                        <th className="py-2.5 px-4 text-left font-bold text-[#222222] border-r border-neutral-300">
+                          {tItem('What you pay for')}
+                        </th>
+                        <th className="py-2.5 px-4 text-left font-bold text-[#222222]">
+                          {tItem('Total Government Fees')}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {propertyVisaFees.adultBreakdown.map((item) => {
+                        const adultQtyText = item.count === 1 ? tItem('1 adult') : `${item.count} ${tItem('adults')}`;
+                        return (
+                          <tr key={item.key} className="border-b border-neutral-300">
+                            <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                              {`${tItem(item.name)} (${adultQtyText} x ${formatAmount(item.unitPrice)})`}
+                            </td>
+                            <td className="py-2.5 px-4 text-neutral-800">
+                              {`${formatAmount(item.total)} AED`}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                      <tr className="border-b border-neutral-300 bg-neutral-50/50">
+                        <td className="py-2.5 px-4 font-bold text-[#222222] border-r border-neutral-300">
+                          {tItem('Adult Total')}
+                        </td>
+                        <td className="py-2.5 px-4 font-bold text-[#222222]">
+                          {`${formatAmount(propertyVisaFees.adultTotal)} AED`}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {/* Child Breakdown table (Rendered only if Children > 0) */}
+            {propertyVisaFees.childBreakdown.length > 0 && (
+              <div className="mb-8">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
+                  {tItem('Children Fees')}
+                </h2>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-neutral-300 text-xs sm:text-sm">
+                    <colgroup>
+                      <col style={{ width: '75%' }} />
+                      <col style={{ width: '25%' }} />
+                    </colgroup>
+                    <thead>
+                      <tr className="border-b border-neutral-300 bg-neutral-50/70">
+                        <th className="py-2.5 px-4 text-left font-bold text-[#222222] border-r border-neutral-300">
+                          {tItem('What you pay for')}
+                        </th>
+                        <th className="py-2.5 px-4 text-left font-bold text-[#222222]">
+                          {tItem('Total Government Fees')}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {propertyVisaFees.childBreakdown.map((item) => {
+                        const childQtyText = item.count === 1 ? tItem('1 child') : `${item.count} ${tItem('children')}`;
+                        return (
+                          <tr key={item.key} className="border-b border-neutral-300">
+                            <td className="py-2.5 px-4 text-neutral-800 border-r border-neutral-300">
+                              {`${tItem(item.name)} (${childQtyText} x ${formatAmount(item.unitPrice)})`}
+                            </td>
+                            <td className="py-2.5 px-4 text-neutral-800">
+                              {`${formatAmount(item.total)} AED`}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                      <tr className="border-b border-neutral-300 bg-neutral-50/50">
+                        <td className="py-2.5 px-4 font-bold text-[#222222] border-r border-neutral-300">
+                          {tItem('Children Total')}
+                        </td>
+                        <td className="py-2.5 px-4 font-bold text-[#222222]">
+                          {`${formatAmount(propertyVisaFees.childTotal)} AED`}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+
         {/* =========================================================================
             Section 0: Golden Visa Fees (Applicable exclusively to Golden Visa)
             ========================================================================= */}
@@ -1036,9 +1338,9 @@ export const CalculatorResultsPage = () => {
         )}
 
         {/* =========================================================================
-            Section 2: Spouse Fees (Hidden for New Born in U.A.E and Golden Visa)
+            Section 2: Spouse Fees (Hidden for New Born in U.A.E, Golden Visa, and Property Visa)
             ========================================================================= */}
-        {!isNewBornService && !isGoldenVisaService && (
+        {!isNewBornService && !isGoldenVisaService && !isPropertyVisaService && (
         <div className="mb-6">
           <h2 className="text-xl sm:text-2xl font-bold text-[#8C6230] mb-4">
             {tItem('Spouse Fees')}
@@ -1222,7 +1524,7 @@ export const CalculatorResultsPage = () => {
           <h3 className="text-base sm:text-lg font-bold text-[#8C6230] mb-3">
             {tItem('Note:')}
           </h3>
-          {isGoldenVisaService ? (
+          {isGoldenVisaService || isPropertyVisaService ? (
             <div className="space-y-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
               <p>
                 {tItem('* VAT & our Service Charges are already included.')}

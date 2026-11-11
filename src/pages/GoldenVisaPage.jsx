@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { GoldenVisaHero } from '../components/golden-visa/GoldenVisaHero.jsx';
 import { EligibilityRoutes } from '../components/golden-visa/EligibilityRoutes.jsx';
 import { CostOverview } from '../components/golden-visa/CostOverview.jsx';
+import { GoldenVisaCalculator } from '../components/golden-visa/GoldenVisaCalculator.jsx';
 import { BenefitsSection } from '../components/golden-visa/BenefitsSection.jsx';
 import { ProcessTimeline } from '../components/golden-visa/ProcessTimeline.jsx';
 import { DocumentChecklist } from '../components/golden-visa/DocumentChecklist.jsx';
@@ -55,6 +56,9 @@ export const GoldenVisaPage = ({ onOpenConsultation }) => {
 
       {/* 3. Cost & Investment Overview */}
       <CostOverview onOpenConsultation={onOpenConsultation} />
+
+      {/* 3.1 NEW Golden Visa Calculator */}
+      <GoldenVisaCalculator onOpenConsultation={onOpenConsultation} />
 
       {/* 4. Benefits Section */}
       <BenefitsSection />

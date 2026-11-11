@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Hero } from '../components/property-visa/Hero.jsx';
 import { VisaRouteCards } from '../components/property-visa/VisaRouteCards.jsx';
+import { PropertyVisaCalculator } from '../components/property-visa/PropertyVisaCalculator.jsx';
 import { OnlineProcess } from '../components/property-visa/OnlineProcess.jsx';
 import { TrustSection } from '../components/property-visa/TrustSection.jsx';
 import { Reviews } from '../components/property-visa/Reviews.jsx';
@@ -22,23 +23,35 @@ export const PropertyVisa = ({ onOpenCalculator, onOpenConsultation }) => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleScrollToCalculator = () => {
+    const el = document.getElementById('property-visa-calculator');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else if (onOpenCalculator) {
+      onOpenCalculator();
+    }
+  };
+
   return (
     <div className="bg-[#FFFFFF] min-h-screen text-[#0F172A] selection:bg-[#B8864B] selection:text-white">
       {/* 1. Hero Section */}
       <Hero 
-        onOpenCalculator={onOpenCalculator}
+        onOpenCalculator={handleScrollToCalculator}
         onOpenConsultation={onOpenConsultation}
       />
 
       {/* 2. Three Property Visa Route Cards & Trust Statistics */}
       <VisaRouteCards 
-        onOpenCalculator={onOpenCalculator}
+        onOpenCalculator={handleScrollToCalculator}
         onOpenConsultation={onOpenConsultation}
       />
 
+      {/* 2.1 NEW Property Visa Calculator */}
+      <PropertyVisaCalculator onOpenConsultation={onOpenConsultation} />
+
       {/* 3. Online Process / Service CTA */}
       <OnlineProcess 
-        onOpenCalculator={onOpenCalculator}
+        onOpenCalculator={handleScrollToCalculator}
         onOpenConsultation={onOpenConsultation}
       />
 
@@ -56,7 +69,7 @@ export const PropertyVisa = ({ onOpenCalculator, onOpenConsultation }) => {
 
       {/* 8. Final CTA */}
       <FinalCTA 
-        onOpenCalculator={onOpenCalculator}
+        onOpenCalculator={handleScrollToCalculator}
         onOpenConsultation={onOpenConsultation}
       />
 

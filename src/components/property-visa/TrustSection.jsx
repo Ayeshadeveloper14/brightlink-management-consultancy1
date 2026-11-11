@@ -21,7 +21,7 @@ export const TrustSection = () => {
             The  team — Brightlink Typing, Deira, Dubai
           </div>
           <p className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans">
-            Brightlink Typing LLC SOC is the licensed documentation company behind FamilyVisa.ae — a private typing centre, not a government office. We check your eligibility free, file through the official DLD, GDRFA and ICP channels, and follow up until your Emirates ID is in your hand.
+            Brightlink Typing LLC SOC is the licensed documentation company behind Brightlink — a private typing centre, not a government office. We check your eligibility free, file through the official DLD, GDRFA and ICP channels, and follow up until your Emirates ID is in your hand.
           </p>
         </div>
 

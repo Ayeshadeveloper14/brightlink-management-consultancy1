@@ -10,7 +10,7 @@ export const FamilyTestimonialsSection = () => {
       name: 'Aditya & Priya Sharma',
       location: 'Dubai Marina',
       visaType: 'Wife & 2 Children Sponsorship',
-      comment: 'FamilyVisa.ae made bringing my family from Mumbai so effortless. They guided us on the marriage certificate MOFA attestation and booked our VIP medical fitness at Smart Salem. My wife and kids had their Emirates IDs in hand within 4 days!',
+      comment: 'Brightlink made bringing my family from Mumbai so effortless. They guided us on the marriage certificate MOFA attestation and booked our VIP medical fitness at Smart Salem. My wife and kids had their Emirates IDs in hand within 4 days!',
       rating: 5,
       date: 'February 2025'
     },

@@ -118,7 +118,7 @@ export const IloeHeroChecker = ({ onOpenConsultation }) => {
 
   const handleWhatsAppSend = () => {
     const text = encodeURIComponent(
-      `Hello FamilyVisa.ae / Brightlink,\n\nI just checked my ILOE Insurance status on your website.\nEmirates ID: ${emiratesId || 'N/A'}\nStatus: ${result ? result.status : 'Inquiry'}\nFines: ${result ? result.finesAmount : 'N/A'}\n\nPlease assist me with ILOE subscription renewal or fine settlement.`
+      `Hello Brightlink / Brightlink,\n\nI just checked my ILOE Insurance status on your website.\nEmirates ID: ${emiratesId || 'N/A'}\nStatus: ${result ? result.status : 'Inquiry'}\nFines: ${result ? result.finesAmount : 'N/A'}\n\nPlease assist me with ILOE subscription renewal or fine settlement.`
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

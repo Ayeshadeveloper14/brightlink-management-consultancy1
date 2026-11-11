@@ -22,7 +22,7 @@ export const ProductRegistrationHero = ({ onOpenConsultation }) => {
 
   const handleWhatsAppClick = () => {
     const text = encodeURIComponent(
-      'Hello FamilyVisa.ae / Brightlink! I would like to register consumer products with Dubai Municipality (Montaji) / MoIAT. Please advise on requirements.'
+      'Hello Brightlink / Brightlink! I would like to register consumer products with Dubai Municipality (Montaji) / MoIAT. Please advise on requirements.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

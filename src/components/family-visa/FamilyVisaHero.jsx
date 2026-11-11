@@ -21,7 +21,7 @@ export const FamilyVisaHero = ({ onOpenConsultation, onOpenCalculator }) => {
 
   const handleWhatsAppClick = () => {
     const text = encodeURIComponent(
-      'Hello FamilyVisa.ae! I would like to inquire about sponsoring my family (spouse/children/parents) in Dubai. Please assist me with the requirements.'
+      'Hello Brightlink! I would like to inquire about sponsoring my family (spouse/children/parents) in Dubai. Please assist me with the requirements.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

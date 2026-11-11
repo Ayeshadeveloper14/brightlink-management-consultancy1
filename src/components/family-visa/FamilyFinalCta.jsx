@@ -7,7 +7,7 @@ export const FamilyFinalCta = ({ onOpenConsultation }) => {
 
   const openWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello FamilyVisa.ae! I am ready to start the family visa sponsorship process for my family in the UAE. Please assist me with the next steps.'
+      'Hello Brightlink! I am ready to start the family visa sponsorship process for my family in the UAE. Please assist me with the next steps.'
     );
     window.open(`https://wa.me/971501234567?text=${text}`, '_blank');
   };

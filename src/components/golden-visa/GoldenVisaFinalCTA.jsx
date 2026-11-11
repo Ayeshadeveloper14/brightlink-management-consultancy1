@@ -25,7 +25,12 @@ export const GoldenVisaFinalCTA = ({ onOpenConsultation }) => {
   };
 
   const handleWhatsApp = () => {
-    navigate('/calculator');
+    const el = document.getElementById('golden-visa-calculator');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/calculator');
+    }
   };
 
   return (

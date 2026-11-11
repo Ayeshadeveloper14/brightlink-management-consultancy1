@@ -24,6 +24,9 @@ export const CalculatorPage = () => {
   const [addingFamily, setAddingFamily] = useState(previousState.addingFamily || '');
   const [adultsCount, setAdultsCount] = useState(previousState.adultsCount !== undefined ? String(previousState.adultsCount) : '');
 
+  // Property Visa specific state
+  const [propertyVisaType, setPropertyVisaType] = useState(previousState.propertyVisaType || '');
+
   // Validation state
   const [validationError, setValidationError] = useState('');
 
@@ -39,6 +42,7 @@ export const CalculatorPage = () => {
       if (location.state.medicalType) setMedicalType(location.state.medicalType);
       if (location.state.addingFamily) setAddingFamily(location.state.addingFamily);
       if (location.state.adultsCount !== undefined) setAdultsCount(String(location.state.adultsCount));
+      if (location.state.propertyVisaType) setPropertyVisaType(location.state.propertyVisaType);
     }
   }, [location.state]);
 
@@ -51,6 +55,13 @@ export const CalculatorPage = () => {
     'Golden Visa',
     'Property Visa',
     'PRO Visa'
+  ];
+
+  // Property Visa options
+  const propertyVisaTypeOptions = [
+    '10-Year Golden Visa',
+    '5-Year Retirement Visa',
+    '2-Year Investor Visa'
   ];
 
   // Golden Visa options
@@ -101,6 +112,7 @@ export const CalculatorPage = () => {
     e.preventDefault();
 
     // Determine selected service conditions
+    const isPropertyVisa = service === 'Property Visa';
     const isGoldenVisa = service === 'Golden Visa';
     const isNewBorn = service === 'New Born in U.A.E';
     const isRenewal = service === 'Family Residency Visa Renewal';
@@ -110,7 +122,15 @@ export const CalculatorPage = () => {
     const missing = [];
     if (!service) missing.push('Select The Service');
 
-    if (isGoldenVisa) {
+    if (isPropertyVisa) {
+      if (!propertyVisaType) missing.push('Which property visa?');
+      if (!medicalType) missing.push('Choose your medical test');
+      if (!addingFamily) missing.push('Adding family members too?');
+      if (addingFamily === 'Yes, adding family') {
+        if (adultsCount === '') missing.push('Adults');
+        if (childrenCount === '') missing.push('Children');
+      }
+    } else if (isGoldenVisa) {
       if (!goldenVisaQualification) missing.push('How do you qualify for the Golden Visa?');
       if (!medicalType) missing.push('Choose your medical test');
       if (goldenVisaQualification !== 'Family of a Golden Visa') {
@@ -142,7 +162,16 @@ export const CalculatorPage = () => {
     setValidationError('');
 
     // Package the user's selected calculator values
-    const calculatorPayload = isGoldenVisa
+    const calculatorPayload = isPropertyVisa
+      ? {
+          service,
+          propertyVisaType,
+          medicalType,
+          addingFamily,
+          adultsCount: addingFamily === 'Yes, adding family' ? adultsCount : '0',
+          childrenCount: addingFamily === 'Yes, adding family' ? childrenCount : '0'
+        }
+      : isGoldenVisa
       ? {
           service,
           goldenVisaQualification,
@@ -183,6 +212,7 @@ export const CalculatorPage = () => {
     setMedicalType('');
     setAddingFamily('');
     setAdultsCount('');
+    setPropertyVisaType('');
     setValidationError('');
     try {
       sessionStorage.removeItem('calculator_selected_values');
@@ -221,11 +251,19 @@ export const CalculatorPage = () => {
                 onChange={(e) => {
                   const val = e.target.value;
                   setService(val);
-                  if (val === 'Golden Visa') {
+                  if (val === 'Property Visa') {
                     setEmirate('');
                     setSponsorVisaType('');
                     setFamilyLocation('');
                     setChildrenCount('');
+                    setAdultsCount('');
+                    setGoldenVisaQualification('');
+                  } else if (val === 'Golden Visa') {
+                    setEmirate('');
+                    setSponsorVisaType('');
+                    setFamilyLocation('');
+                    setChildrenCount('');
+                    setPropertyVisaType('');
                   } else if (val === 'New Born in U.A.E') {
                     setChildrenCount('');
                     setSponsorVisaType('');
@@ -234,6 +272,7 @@ export const CalculatorPage = () => {
                     setMedicalType('');
                     setAddingFamily('');
                     setAdultsCount('');
+                    setPropertyVisaType('');
                   } else if (val === 'Family Residency Visa Renewal') {
                     setSponsorVisaType('');
                     setFamilyLocation('');
@@ -241,6 +280,7 @@ export const CalculatorPage = () => {
                     setMedicalType('');
                     setAddingFamily('');
                     setAdultsCount('');
+                    setPropertyVisaType('');
                   } else if (val === 'Family Visa Cancellation') {
                     setSponsorVisaType('');
                     setFamilyLocation('');
@@ -248,6 +288,7 @@ export const CalculatorPage = () => {
                     setMedicalType('');
                     setAddingFamily('');
                     setAdultsCount('');
+                    setPropertyVisaType('');
                   } else {
                     setSponsorVisaType('');
                     setFamilyLocation('');
@@ -255,6 +296,7 @@ export const CalculatorPage = () => {
                     setMedicalType('');
                     setAddingFamily('');
                     setAdultsCount('');
+                    setPropertyVisaType('');
                   }
                   if (validationError) setValidationError('');
                 }}
@@ -270,9 +312,151 @@ export const CalculatorPage = () => {
             </div>
 
             {/* ========================================================= */}
-            {/* Golden Visa Dynamic Inputs */}
+            {/* Property Visa Dynamic Inputs */}
             {/* ========================================================= */}
-            {service === 'Golden Visa' ? (
+            {service === 'Property Visa' ? (
+              <>
+                {/* Property Visa Input 2: Which property visa? */}
+                <div>
+                  <label
+                    htmlFor="select-property-visa-type"
+                    className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                  >
+                    {tItem('Which property visa?')} <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="select-property-visa-type"
+                    value={propertyVisaType}
+                    onChange={(e) => {
+                      setPropertyVisaType(e.target.value);
+                      if (validationError) setValidationError('');
+                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                  >
+                    <option value="">{tItem('-- Select Property Visa --')}</option>
+                    {propertyVisaTypeOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {tItem(opt)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Property Visa Input 3: Choose your medical test */}
+                <div>
+                  <label
+                    htmlFor="select-property-medical"
+                    className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                  >
+                    {tItem('Choose your medical test')} <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="select-property-medical"
+                    value={medicalType}
+                    onChange={(e) => {
+                      setMedicalType(e.target.value);
+                      if (validationError) setValidationError('');
+                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                  >
+                    <option value="">{tItem('-- Select Medical Test --')}</option>
+                    {medicalTestOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {tItem(opt)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Property Visa Input 4: Adding family members too? */}
+                <div>
+                  <label
+                    htmlFor="select-property-adding-family"
+                    className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                  >
+                    {tItem('Adding family members too?')} <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="select-property-adding-family"
+                    value={addingFamily}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setAddingFamily(val);
+                      if (val === 'No, just me') {
+                        setAdultsCount('0');
+                        setChildrenCount('0');
+                      }
+                      if (validationError) setValidationError('');
+                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                  >
+                    <option value="">{tItem('-- Select Option --')}</option>
+                    {addingFamilyOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {tItem(opt)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Dependent Inputs: Adults & Children if adding family */}
+                {addingFamily === 'Yes, adding family' && (
+                  <>
+                    {/* Adults dropdown */}
+                    <div>
+                      <label
+                        htmlFor="select-property-adults"
+                        className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                      >
+                        {tItem('Adults')} <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="select-property-adults"
+                        value={adultsCount}
+                        onChange={(e) => {
+                          setAdultsCount(e.target.value);
+                          if (validationError) setValidationError('');
+                        }}
+                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                      >
+                        <option value="">{tItem('-- Select Adults --')}</option>
+                        {adultsOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Children dropdown */}
+                    <div>
+                      <label
+                        htmlFor="select-property-children"
+                        className="block text-xs sm:text-sm font-bold text-[#222222] mb-1.5"
+                      >
+                        {tItem('Children')} <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="select-property-children"
+                        value={childrenCount}
+                        onChange={(e) => {
+                          setChildrenCount(e.target.value);
+                          if (validationError) setValidationError('');
+                        }}
+                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white text-sm text-[#222222] focus:outline-none focus:ring-2 focus:ring-[#B8864B] focus:border-transparent transition-all cursor-pointer"
+                      >
+                        <option value="">{tItem('-- Select Children --')}</option>
+                        {childrenOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </>
+                )}
+              </>
+            ) : service === 'Golden Visa' ? (
               <>
                 {/* Golden Visa Input 2: How do you qualify for the Golden Visa? */}
                 <div>

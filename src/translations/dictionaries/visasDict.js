@@ -725,7 +725,7 @@ export const VISAS_ARABIC_DICTIONARY = {
   'How to register hospital birth notification, order DHA birth certificates and complete 120-day UAE visa stamping without penalties.': 'كيفية register hospital birth notification, order DHA birth certificates and complete 120-day UAE visa stamping without penalties.',
   'Humanitarian Category': 'Humanitarian Category',
   'Husband or wife sponsorship': 'Husband or wife sponsorship',
-  'I used the property visa calculator first to compare typing centres — FamilyVisa.ae was the most honest about government fee vs service charge. Refreshing.': 'I used the property visa calculator first to compare typing centres — FamilyVisa.ae was the most honest about government fee vs service charge. Refreshing.',
+  'I used the property visa calculator first to compare typing centres — Brightlink was the most honest about government fee vs service charge. Refreshing.': 'I used the property visa calculator first to compare typing centres — Brightlink was the most honest about government fee vs service charge. Refreshing.',
   'ICP': 'الهيئة الاتحادية للهوية والجنسية (ICP)',
   'ICP & GDRFA Fine Breakdown': 'ICP & GDRFA Fine Breakdown',
   'ICP / GDRFA Nomination Approval': 'ICP / GDRFA Nomination Approval',
