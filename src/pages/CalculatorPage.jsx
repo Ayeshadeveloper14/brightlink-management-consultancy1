@@ -53,8 +53,7 @@ export const CalculatorPage = () => {
     'New Born in U.A.E',
     'Family Visa Cancellation',
     'Golden Visa',
-    'Property Visa',
-    'PRO Visa'
+    'Property Visa'
   ];
 
   // Property Visa options
