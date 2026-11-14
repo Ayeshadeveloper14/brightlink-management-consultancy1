@@ -16,10 +16,16 @@ export default defineConfig(({ mode }) => {
     process.env.GOOGLE_MAPS_API_KEY ||
     '';
 
+  if (mapsApiKey && !process.env.VITE_GOOGLE_MAPS_API_KEY) {
+    process.env.VITE_GOOGLE_MAPS_API_KEY = mapsApiKey;
+  }
+
   return {
     plugins: [react(), tailwindcss()],
+    envPrefix: ['VITE_', 'GOOGLE_MAPS_'],
     define: {
       'import.meta.env.VITE_GOOGLE_MAPS_API_KEY': JSON.stringify(mapsApiKey),
+      'import.meta.env.GOOGLE_MAPS_API_KEY': JSON.stringify(mapsApiKey),
     },
     resolve: {
       alias: {
@@ -30,6 +36,10 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       host: '0.0.0.0',
       hmr: false,
+    },
+    preview: {
+      port: 3000,
+      host: '0.0.0.0',
     },
   };
 });

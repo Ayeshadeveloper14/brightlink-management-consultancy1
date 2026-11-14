@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-  APIProvider,
-  Map as GoogleMap,
-  AdvancedMarker,
-  Pin,
-  InfoWindow,
-  useAdvancedMarkerRef,
-} from '@vis.gl/react-google-maps';
 import { 
-  MapPin, 
   Phone, 
   Mail, 
   Clock, 
@@ -24,52 +15,7 @@ import { useLanguage } from '../../context/LanguageContext.jsx';
 import { getWhatsAppUrl, openWhatsApp } from '../../utils/whatsapp.js';
 import { WhatsAppIcon } from '../shared/WhatsAppIcon.jsx';
 
-const COMPANY_LOCATION = { lat: 25.193811, lng: 55.289310 };
 const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/9hinPBszhuTKqb3b7';
-
-const CompanyLocationPin = ({ title, viewLabel }) => {
-  const [infoOpen, setInfoOpen] = useState(false);
-  const [markerRef, marker] = useAdvancedMarkerRef();
-
-  return (
-    <>
-      <AdvancedMarker
-        ref={markerRef}
-        position={COMPANY_LOCATION}
-        title={title}
-        onClick={() => setInfoOpen((prev) => !prev)}
-      >
-        <Pin
-          background="#B8864B"
-          borderColor="#8C6230"
-          glyphColor="#FFFFFF"
-        />
-      </AdvancedMarker>
-      {infoOpen && marker && (
-        <InfoWindow
-          anchor={marker}
-          maxWidth={250}
-          onCloseClick={() => setInfoOpen(false)}
-        >
-          <div className="p-1 text-left space-y-1.5">
-            <p className="text-xs font-bold text-[#222222] leading-snug">
-              {title}
-            </p>
-            <a
-              href={GOOGLE_MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-semibold text-[#8C6230] hover:text-[#B8864B] underline"
-            >
-              <span>{viewLabel}</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
-          </div>
-        </InfoWindow>
-      )}
-    </>
-  );
-};
 
 export const ContactSection = () => {
   const { currentLanguage, t, tItem, isRTL } = useLanguage();
@@ -83,7 +29,6 @@ export const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  const mapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -128,38 +73,26 @@ export const ContactSection = () => {
             <div className="w-full rounded-2xl overflow-hidden border border-neutral-200/90 shadow-md bg-white lg:flex-1 flex flex-col">
               <div className="relative w-full h-[340px] sm:h-[400px] lg:h-auto lg:flex-1 lg:min-h-[440px] bg-neutral-100">
                 <div className="absolute inset-0 w-full h-full">
-                  {mapsApiKey ? (
-                    <APIProvider apiKey={mapsApiKey} libraries={['marker']} language={currentLanguage}>
-                      <GoogleMap
-                        mapId="DEMO_MAP_ID"
-                        defaultCenter={COMPANY_LOCATION}
-                        defaultZoom={16}
-                        gestureHandling="cooperative"
-                        disableDefaultUI={false}
-                        internalUsageAttributionIds={['gmp_mcp_codeassist_v1_aistudio']}
-                        style={{ width: '100%', height: '100%' }}
-                      >
-                        <CompanyLocationPin
-                          title="Brightlink Management Consultancy LLC"
-                          viewLabel={t('map_view_google_maps', 'View on Google Maps')}
-                        />
-                      </GoogleMap>
-                    </APIProvider>
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#F7F4EF] gap-3">
-                      <MapPin className="w-8 h-8 text-[#B8864B]" />
-                      <a
-                        href={GOOGLE_MAPS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#222222] hover:bg-[#B8864B] text-white text-xs font-semibold transition-colors shadow-sm"
-                      >
-                        <Navigation className="w-3.5 h-3.5" />
-                        <span>{t('map_view_google_maps', 'View on Google Maps')}</span>
-                        <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-                      </a>
-                    </div>
-                  )}
+                  <iframe
+                    src="https://maps.google.com/maps?q=25.193811,55.289310&z=15&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    title="Brightlink Management Consultancy Location"
+                  />
+
+                  <a
+                    href={GOOGLE_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/95 hover:bg-[#B8864B] text-[#222222] hover:text-white border border-neutral-200/90 text-xs font-semibold shadow-md transition-colors"
+                  >
+                    <Navigation className="w-3.5 h-3.5 text-[#B8864B] group-hover:text-white" />
+                    <span>{t('map_view_google_maps', 'View on Google Maps')}</span>
+                    <ExternalLink className="w-3 h-3 opacity-75" />
+                  </a>
                 </div>
               </div>
             </div>
