@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { 
   Send, 
@@ -93,39 +92,21 @@ export const ContactForm = () => {
     if (serverError) setServerError('');
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setLoading(true);
     setServerError('');
-
-    try {
-      const response = await axios.post('/api/contact', {
-        name: formData.name.trim(),
-        email: formData.email.trim().toLowerCase(),
-        phone: formData.phone.trim(),
-        service: formData.service,
-        subject: formData.subject.trim(),
-        message: formData.message.trim()
-      });
-
-      if (response.data && response.data.success) {
-        setSubmittedData({
-          ...formData,
-          id: response.data.data?.id || `CT-${Date.now().toString().slice(-6)}`,
-          submittedAt: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-        });
-      } else {
-        throw new Error(response.data?.message || 'Server did not acknowledge inquiry.');
-      }
-    } catch (err) {
-      console.error('Contact submission error:', err);
-      const msg = err.response?.data?.message || err.message || 'Unable to submit your inquiry at this moment. Please try again or reach us immediately via WhatsApp.';
-      setServerError(msg);
-    } finally {
-      setLoading(false);
-    }
+    setSubmittedData({
+      ...formData,
+      name: formData.name.trim(),
+      email: formData.email.trim().toLowerCase(),
+      phone: formData.phone.trim(),
+      subject: formData.subject.trim(),
+      message: formData.message.trim(),
+      id: `CT-${Date.now().toString().slice(-6)}`,
+      submittedAt: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+    });
   };
 
   const handleReset = () => {

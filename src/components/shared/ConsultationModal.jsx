@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { X, CheckCircle2, Send, Phone, Mail, User, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
@@ -29,19 +28,9 @@ export const ConsultationModal = ({
 
   if (!isOpen) return null;
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-
-    try {
-      await axios.post('/api/inquiries', formData);
-      setSubmitted(true);
-    } catch (err) {
-      console.warn('API error, completing client-side fallback:', err);
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
+    setSubmitted(true);
   };
 
   const handleResetAndClose = () => {

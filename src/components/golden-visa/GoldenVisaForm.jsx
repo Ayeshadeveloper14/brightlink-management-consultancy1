@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle2 } from 'lucide-react';
-import axios from 'axios';
 
 export const GoldenVisaForm = () => {
   const [formData, setFormData] = useState({
@@ -15,25 +14,9 @@ export const GoldenVisaForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      await axios.post('/api/inquiries', {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        service: `Golden Visa 10-Year (${formData.category})`,
-        urgency: 'high',
-        preferredTime: 'Immediate',
-        notes: `Status: ${formData.currentStatus}. ${formData.notes}`
-      });
-      setSubmitted(true);
-    } catch (err) {
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
+    setSubmitted(true);
   };
 
   return (

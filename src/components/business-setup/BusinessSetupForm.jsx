@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
-import axios from 'axios';
 
 export const BusinessSetupForm = () => {
   const [formData, setFormData] = useState({
@@ -15,25 +14,9 @@ export const BusinessSetupForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      await axios.post('/api/inquiries', {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        service: `Business Setup (${formData.licenseType} - ${formData.activity})`,
-        urgency: 'high',
-        preferredTime: 'Morning',
-        notes: `Visas: ${formData.visaCount}. ${formData.notes}`
-      });
-      setSubmitted(true);
-    } catch {
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
+    setSubmitted(true);
   };
 
   return (

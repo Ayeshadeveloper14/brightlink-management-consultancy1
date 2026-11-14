@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Send } from 'lucide-react';
-import axios from 'axios';
 
 export const PassportForm = () => {
   const [formData, setFormData] = useState({
@@ -14,24 +13,9 @@ export const PassportForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      await axios.post('/api/inquiries', {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        service: `Passport Services (${formData.nationality} - ${formData.passportType})`,
-        urgency: formData.serviceSpeed.includes('Tatkal') ? 'emergency' : 'high',
-        preferredTime: 'Morning'
-      });
-      setSubmitted(true);
-    } catch (err) {
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
+    setSubmitted(true);
   };
 
   return (

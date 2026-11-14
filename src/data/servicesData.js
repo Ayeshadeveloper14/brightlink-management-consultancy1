@@ -1,4 +1,13 @@
 // Brightlink UAE Services Dataset - All 12 Government & Visa Services
+import img1 from "../assets/images/im-1.jpg"
+import img2 from "../assets/images/im-2.jpg"
+import img3 from "../assets/images/im-3.jpg"
+import img4 from "../assets/images/im-4.jpg"
+import img5 from "../assets/images/im-5.jpg"
+import img6 from "../assets/images/im-6.jpg"
+import img7 from "../assets/images/im-7.jpg"
+
+
 
 export const SERVICES_DATA = [
   {
@@ -129,7 +138,7 @@ export const SERVICES_DATA = [
     title: 'Tourist Visa',
     shortDesc: 'Quick approval 30-day and 60-day single and multiple entry UAE visit visas for tourists, families, and business visitors.',
     iconName: 'Plane',
-    image: 'https://website-imges.vercel.app/service_golden_visa_1790842391749.jpg',
+    image: img1,
     category: 'Travel',
     processingTime: '24 - 48 Hours',
     validity: '30 / 60 Days (Extendable)',
@@ -157,7 +166,7 @@ export const SERVICES_DATA = [
     title: 'Medical Visa & VIP Fitness',
     shortDesc: 'VIP express typing for mandatory UAE medical fitness tests (DHA/EHS) and specialized medical treatment entry permits.',
     iconName: 'Stethoscope',
-    image: 'https://website-imges.vercel.app/about_visa_consultant_1790842347102.jpg',
+    image: img2,
     category: 'Health',
     processingTime: 'Same Day / 24 Hours',
     validity: 'Single / Multiple Entry or Annual Fitness',
@@ -184,7 +193,7 @@ export const SERVICES_DATA = [
     title: 'Visa Assistance',
     shortDesc: 'Expert guidance for legal visa status correction, absconding clearance, and fines reduction before immigration authorities.',
     iconName: 'HelpCircle',
-    image: 'https://website-imges.vercel.app/why_experienced_team_1790842362837.jpg',
+    image: img3,
     category: 'Legal',
     processingTime: '1 - 3 Working Days',
     validity: 'Immediate Relief',
@@ -240,7 +249,7 @@ export const SERVICES_DATA = [
     title: 'Visa Renewal',
     shortDesc: 'Stress-free renewal of residence visas, Emirates ID, work permits, and legal overstay fine reduction solutions.',
     iconName: 'RefreshCw',
-    image: 'https://website-imges.vercel.app/why_fast_process_1790842377870.jpg',
+    image: img4,
     category: 'Renewal',
     processingTime: '2 - 3 Working Days',
     validity: '1 - 3 Years',
@@ -299,7 +308,7 @@ export const SERVICES_DATA = [
     path: '/services/emirates-id',
     shortDesc: 'Federal ICP registration, biometrics appointment scheduling, express card replacement, and address updates.',
     iconName: 'CreditCard',
-    image: 'https://website-imges.vercel.app/service_golden_visa_1790842391749.jpg',
+    image: img5,
     category: 'Residency',
     processingTime: '24 Hours - 3 Days',
     validity: 'Synced with Visa',
@@ -353,7 +362,7 @@ export const SERVICES_DATA = [
     title: 'DLD Trustee Service',
     shortDesc: 'Support for Dubai property trustee transactions: buyer and seller file review, title deeds, gift transfers, and mortgage release.',
     iconName: 'Home',
-    image: 'https://website-imges.vercel.app/process_bg_skyline_1790959277672.jpg',
+    image: img6,
     category: 'Property & Support',
     popular: true,
     processingTime: 'Same Day Appointment',
@@ -415,7 +424,7 @@ export const SERVICES_DATA = [
     path: '/services/amer-center',
     shortDesc: 'Official GDRFA Dubai immigration processing, entry permits, family residency, status changes, and fine settlements.',
     iconName: 'Users',
-    image: 'https://website-imges.vercel.app/about_visa_consultant_1790842347102.jpg',
+    image: img7,
     category: 'GDRFA Immigration',
     popular: true,
     processingTime: '24 - 48 Hours',

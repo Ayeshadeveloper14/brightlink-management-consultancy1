@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import axios from 'axios';
+import {
+  APIProvider,
+  Map as GoogleMap,
+  AdvancedMarker,
+  Pin,
+  InfoWindow,
+  useAdvancedMarkerRef,
+} from '@vis.gl/react-google-maps';
 import { 
   MapPin, 
   Phone, 
@@ -10,12 +17,59 @@ import {
   CheckCircle2, 
   Navigation,
   AlertCircle,
-  Building2,
+  ExternalLink,
   Sparkles
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import { getWhatsAppUrl, openWhatsApp } from '../../utils/whatsapp.js';
 import { WhatsAppIcon } from '../shared/WhatsAppIcon.jsx';
+
+const COMPANY_LOCATION = { lat: 25.193811, lng: 55.289310 };
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/9hinPBszhuTKqb3b7';
+
+const CompanyLocationPin = ({ title, viewLabel }) => {
+  const [infoOpen, setInfoOpen] = useState(false);
+  const [markerRef, marker] = useAdvancedMarkerRef();
+
+  return (
+    <>
+      <AdvancedMarker
+        ref={markerRef}
+        position={COMPANY_LOCATION}
+        title={title}
+        onClick={() => setInfoOpen((prev) => !prev)}
+      >
+        <Pin
+          background="#B8864B"
+          borderColor="#8C6230"
+          glyphColor="#FFFFFF"
+        />
+      </AdvancedMarker>
+      {infoOpen && marker && (
+        <InfoWindow
+          anchor={marker}
+          maxWidth={250}
+          onCloseClick={() => setInfoOpen(false)}
+        >
+          <div className="p-1 text-left space-y-1.5">
+            <p className="text-xs font-bold text-[#222222] leading-snug">
+              {title}
+            </p>
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-[#8C6230] hover:text-[#B8864B] underline"
+            >
+              <span>{viewLabel}</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+        </InfoWindow>
+      )}
+    </>
+  );
+};
 
 export const ContactSection = () => {
   const { currentLanguage, t, tItem, isRTL } = useLanguage();
@@ -29,28 +83,12 @@ export const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const mapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
     setErrorMsg('');
-
-    try {
-      const response = await axios.post('/api/contact', formData);
-      if (response.data && response.data.success) {
-        setSubmitted(true);
-      } else {
-        setSubmitted(true);
-      }
-    } catch (err) {
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const openGoogleMaps = () => {
-    window.open('https://maps.google.com/?q=Crystal+Tower+Business+Bay+Dubai', '_blank');
+    setSubmitted(true);
   };
 
   return (
@@ -76,71 +114,53 @@ export const ContactSection = () => {
         </div>
 
         {/* Two-Column Layout with Fade-Up Reveal */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
-          {/* LEFT: Dubai Map & Contact Cards */}
+          {/* LEFT: Interactive Map & Contact Cards */}
           <motion.div 
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-5"
+            className="lg:col-span-6 flex flex-col gap-5"
           >
-            {/* Dubai Map Card */}
-            <div className="rounded-2xl overflow-hidden border border-neutral-200/90 shadow-md bg-white">
-              <div className="relative h-64 w-full bg-slate-100 overflow-hidden">
-                <svg className="w-full h-full object-cover" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="800" height="500" fill="#E8EDF2" />
-                  <path d="M0 0H800V150C620 160 520 130 380 180C260 220 120 190 0 210V0Z" fill="#C5DCEB" />
-                  <path d="M0 210C120 190 260 220 380 180C520 130 620 160 800 150V165C620 175 520 145 380 195C260 235 120 205 0 225V210Z" fill="#F4E9D8" />
-                  <path d="M0 320L800 240" stroke="#FFFFFF" strokeWidth="18" />
-                  <path d="M0 320L800 240" stroke="#CBD5E1" strokeWidth="8" />
-                  <path d="M150 500L550 0" stroke="#FFFFFF" strokeWidth="12" />
-                  <path d="M150 500L550 0" stroke="#E2E8F0" strokeWidth="6" />
-                  <path d="M360 180C390 250 430 330 470 420" stroke="#93C5FD" strokeWidth="22" strokeLinecap="round" />
-                  <circle cx="430" cy="270" r="5" fill="#B8864B" />
-                  <rect x="420" y="300" width="130" height="70" rx="8" fill="#B8864B" fillOpacity="0.12" stroke="#B8864B" strokeWidth="1.5" strokeDasharray="4 4" />
-                  <g transform="translate(460, 325)">
-                    <circle cx="0" cy="0" r="14" fill="#B8864B" fillOpacity="0.25" className="animate-ping" />
-                    <circle cx="0" cy="0" r="8" fill="#B8864B" />
-                    <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
-                  </g>
-                  <text x="485" y="358" textAnchor="middle" fill="#8C6230" fontSize="10" fontWeight="bold">
-                    {t('map_pin_name', 'Brightlink')}
-                  </text>
-                </svg>
-
-                {/* Map Overlay Badge */}
-                <div className={`absolute top-3 ${isRTL ? 'right-3' : 'left-3'} bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-lg shadow-xs border border-neutral-200 text-xs font-semibold text-[#222222] flex items-center gap-1.5`}>
-                  <MapPin className="w-3.5 h-3.5 text-[#B8864B]" />
-                  <span>{t('map_location_badge', 'Business Bay, Dubai')}</span>
+            {/* Company Location Live Interactive Google Map */}
+            <div className="w-full rounded-2xl overflow-hidden border border-neutral-200/90 shadow-md bg-white lg:flex-1 flex flex-col">
+              <div className="relative w-full h-[340px] sm:h-[400px] lg:h-auto lg:flex-1 lg:min-h-[440px] bg-neutral-100">
+                <div className="absolute inset-0 w-full h-full">
+                  {mapsApiKey ? (
+                    <APIProvider apiKey={mapsApiKey} libraries={['marker']} language={currentLanguage}>
+                      <GoogleMap
+                        mapId="DEMO_MAP_ID"
+                        defaultCenter={COMPANY_LOCATION}
+                        defaultZoom={16}
+                        gestureHandling="cooperative"
+                        disableDefaultUI={false}
+                        internalUsageAttributionIds={['gmp_mcp_codeassist_v1_aistudio']}
+                        style={{ width: '100%', height: '100%' }}
+                      >
+                        <CompanyLocationPin
+                          title="Brightlink Management Consultancy LLC"
+                          viewLabel={t('map_view_google_maps', 'View on Google Maps')}
+                        />
+                      </GoogleMap>
+                    </APIProvider>
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#F7F4EF] gap-3">
+                      <MapPin className="w-8 h-8 text-[#B8864B]" />
+                      <a
+                        href={GOOGLE_MAPS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#222222] hover:bg-[#B8864B] text-white text-xs font-semibold transition-colors shadow-sm"
+                      >
+                        <Navigation className="w-3.5 h-3.5" />
+                        <span>{t('map_view_google_maps', 'View on Google Maps')}</span>
+                        <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                      </a>
+                    </div>
+                  )}
                 </div>
-              </div>
-
-              {/* Address bar */}
-              <div className="p-4 bg-white border-t border-neutral-100 flex items-start justify-between gap-4">
-                <div className="flex items-start gap-2.5 text-xs text-[#444444]">
-                  <MapPin className="w-5 h-5 text-[#B8864B] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold text-[#222222] text-sm">
-                      {t('map_address_office', 'Office M08-27, M1 Floor, Crystal Tower')}
-                    </p>
-                    <p className="text-neutral-500 mt-0.5">
-                      {t('map_address_building', 'Millennium Central Building, Al Asayel St, Business Bay, Dubai')}
-                    </p>
-                    <p className="text-[#888888] mt-0.5">
-                      {t('map_address_parking', 'Easy visitor parking & 5 mins from Business Bay Metro Station')}
-                    </p>
-                  </div>
-                </div>
-
-                <button
-                  onClick={openGoogleMaps}
-                  className="px-3.5 py-2 rounded-xl bg-[#222222] hover:bg-[#B8864B] text-white text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shrink-0 shadow-sm"
-                >
-                  <Navigation className="w-3.5 h-3.5" />
-                  <span>{t('map_directions', 'Directions')}</span>
-                </button>
               </div>
             </div>
 

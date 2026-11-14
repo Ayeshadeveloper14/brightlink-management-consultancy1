@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, CheckCircle2, Send } from 'lucide-react';
-import axios from 'axios';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export const ReviewSubmitForm = () => {
@@ -15,18 +14,9 @@ export const ReviewSubmitForm = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      await axios.post('/api/inquiries', {
-        name: formData.name,
-        service: `Client Review Submission (${formData.rating} Stars - ${formData.service})`,
-        notes: `Role: ${formData.role}. Review: ${formData.review}`
-      });
-      setSubmitted(true);
-    } catch (err) {
-      setSubmitted(true);
-    }
+    setSubmitted(true);
   };
 
   return (
